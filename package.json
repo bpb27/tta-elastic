@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development --open",
+    "dev": "webpack-dev-server --mode development --open",
+    "start": "node server.js",
     "generate": "node ./scripts/generate-component",
     "test": "jest ./src"
   },
@@ -45,6 +46,8 @@
   },
   "dependencies": {
     "@appbaseio/reactivesearch": "^3.0.0-rc.8",
+    "express": "^4.17.1",
+    "express-favicon": "^2.0.1",
     "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
