@@ -7,15 +7,15 @@ import './tweet.style.scss';
 export default class Tweet extends Component {
   static propTypes = {
     data: shape({
-      date: number,
-      favorites: number,
-      id: number,
-      isRetweet: bool,
-      retweets: number,
-      source: string,
-      text: string,
+      date: number.isRequired,
+      device: string.isRequired,
+      favorites: number.isRequired,
+      id: number.isRequired,
+      isRetweet: bool.isRequired,
+      retweets: number.isRequired,
+      text: string.isRequired,
     }),
-    index: number,
+    index: number.isRequired,
     search: string,
   }
 
