@@ -45,6 +45,7 @@ module.exports = {
       filename: 'style.[hash].css',
     }),
     new HtmlWebpackPlugin({
+      favicon: 'public/favicon.ico',
       filename: 'index.html',
       hash: true,
       inject: false,
