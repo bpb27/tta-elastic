@@ -8,7 +8,7 @@
     "dev": "webpack-dev-server --mode development --open",
     "start": "node ./server/index.js",
     "generate": "node ./scripts/generate-component",
-    "test": "jest ./src"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
