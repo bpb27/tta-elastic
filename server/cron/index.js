@@ -58,10 +58,10 @@ function getLatestTweets (screenName, callback) {
 
 module.exports = getLatestTweets;
 
-getLatestTweets('realdonaldtrump', (error, tweets) => {
-  if (error) {
-    console.log(error); // eslint-disable-line no-console
-  } else {
-    console.log(tweets); // eslint-disable-line no-console
-  }
-});
+// getLatestTweets('realdonaldtrump', (error, tweets) => {
+//   if (error) {
+//     console.log(error); // eslint-disable-line no-console
+//   } else {
+//     console.log(tweets); // eslint-disable-line no-console
+//   }
+// });
