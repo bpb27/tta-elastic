@@ -1,10 +1,8 @@
-# Trump Twitter Archive with Elastic Search
+# Trump Twitter Archive with Elastic Search [![Build Status](https://travis-ci.com/bpb27/tta-elastic.svg?branch=master)](https://travis-ci.com/bpb27/tta-elastic)
 
 ### Setup
 1. `npm i`
 
-### Commands
-1. Dev server: `npm start`
-2. Prod build: `npm run build`
-3. Generate component: `npm run generate`
-4. Unit testing: `npm run test`
+### Running
+1. `npm run dev`
+2. `npm run test`

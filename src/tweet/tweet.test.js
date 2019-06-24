@@ -4,13 +4,13 @@ import Tweet from './tweet.component';
 
 const createProps = () => ({
   data: {
-    id_str: '1',
-    created_at: 'Wed Dec 31 23:59:22 +0000 2014',
-    favorite_count: 2,
-    source: 'Twitter for Android',
+    date: 1558291837000, // May 19th 2019, 11:50:37 am
+    device: 'Twitter for Android',
+    favorites: 2,
+    id: 1,
+    isRetweet: false,
+    retweets: 3,
     text: 'merry christmas you filthy animal',
-    retweet_count: 3,
-    is_retweet: false,
   },
   index: 4,
   search: 'filthy',
@@ -24,21 +24,32 @@ describe('Tweet', () => {
     expect(element.exists()).toEqual(true);
   });
 
-  it('renders index', () => {
+  it('renders index (plus one to the number passed in)', () => {
     const props = createProps();
     const wrapper = shallow(<Tweet {...props} />);
-    const text = wrapper.text();
-    expect(text).toContain('4.');
+    const index = wrapper.find('.index').text();
+    expect(index).toEqual('5.');
   });
 
-  it('renders metadata', () => {
+  it('renders a formatted date', () => {
     const props = createProps();
     const wrapper = shallow(<Tweet {...props} />);
-    const text = wrapper.text();
-    expect(text).toContain('Dec 31st 2014');
-    expect(text).toContain('Twitter for Android');
-    expect(text).toContain('2'); // retweet
-    expect(text).toContain('3'); // favorite
+    const date = wrapper.find('.date').text();
+    expect(date).toContain('May 19th 2019');
+  });
+
+  it('renders the retweet count', () => {
+    const props = createProps();
+    const wrapper = shallow(<Tweet {...props} />);
+    const retweets = wrapper.find('.stats span').at(0).text();
+    expect(Number(retweets)).toEqual(props.data.retweets);
+  });
+
+  it('renders the favorite count', () => {
+    const props = createProps();
+    const wrapper = shallow(<Tweet {...props} />);
+    const favorites = wrapper.find('.stats span').at(1).text();
+    expect(Number(favorites)).toEqual(props.data.favorites);
   });
 
   // TODO: render link, text, highlight, separate into smaller ^
