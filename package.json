@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack-dev-server --mode development --open",
-    "start": "node server.js",
+    "start": "node ./server/index.js",
     "generate": "node ./scripts/generate-component",
     "test": "jest ./src"
   },
@@ -55,7 +55,8 @@
     "react-highlight-words": "^0.16.0",
     "react-router-dom": "^5.0.0",
     "react-router": "^5.0.0",
-    "react": "^16.8.6"
+    "react": "^16.8.6",
+    "twitter": "^1.7.1"
   },
   "jest": {
     "modulePaths": [
