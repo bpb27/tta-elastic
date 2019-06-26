@@ -24,7 +24,7 @@ export default class Search extends React.Component {
           results.data.map((item, i) => (
             <Tweet
               data={item}
-              index={i}
+              index={i + 1}
               key={item.id}
               search={searchState.searchbox.value}
             />
