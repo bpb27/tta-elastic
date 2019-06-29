@@ -1,10 +1,11 @@
 require('dotenv').config();
 
+const moment = require('moment');
 const request = require('request');
 const Twitter = require('twitter');
 const env = process.env;
 
-function getLatestTweets (screenName, callback) {
+function getTweets (screenName, callback) {
   const credentials = new Buffer(`${env.TWITTER_CONSUMER_KEY}:${env.TWITTER_CONSUMER_SECRET}`).toString('base64');
   const requestParams = {
     body: 'grant_type=client_credentials',
@@ -39,8 +40,8 @@ function getLatestTweets (screenName, callback) {
 
       const newTweets = tweets.reduce((hash, tweet) => {
         hash[tweet.id_str] = {
-          date: tweet.created_at,
-          device: tweet['source'].split('>')[1].split('<')[0],
+          date: moment.utc(tweet.created_at).toDate().getTime(),
+          device: tweet.source.split('>')[1].split('<')[0],
           favorites: tweet.favorite_count,
           id: tweet.id,
           isRetweet: (tweet.full_text || tweet.text).substr(0,3) === 'RT ',
@@ -50,18 +51,10 @@ function getLatestTweets (screenName, callback) {
         return hash;
       }, {});
 
-      callback(null, newTweets);
+      callback(null, Object.values(newTweets));
     });
 
   });
 }
 
-module.exports = getLatestTweets;
-
-// getLatestTweets('realdonaldtrump', (error, tweets) => {
-//   if (error) {
-//     console.log(error); // eslint-disable-line no-console
-//   } else {
-//     console.log(tweets); // eslint-disable-line no-console
-//   }
-// });
+module.exports = getTweets;
