@@ -1,19 +1,27 @@
 require('dotenv').config();
+const { NODE_ENV, PORT } = process.env;
 
 const express = require('express');
 const favicon = require('express-favicon');
 const path = require('path');
-const getLatestTweets = require('./cron');
-const port = process.env.PORT || 3000;
-const app = express();
+const { Client } = require('elasticsearch');
+const getTweets = require('./get-tweets');
+const { upload: uploadTweets } = require('./upload-tweets');
 
-app.use(favicon(__dirname + '/dist/favicon.ico'));
+const port = PORT || 3000;
+const app = express();
+const client = new Client({ host: process.env.SEARCHBOX_URL });
+
+if (NODE_ENV !== 'dev') app.use(favicon(__dirname + '/dist/favicon.ico'));
 app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.get('/latest-tweets', (req, res) => {
   try {
-    getLatestTweets('realdonaldtrump', (error, tweets) => res.json(error || tweets));
+    getTweets('realdonaldtrump', (error, tweets) => {
+      uploadTweets(client, tweets);
+      res.json(error || tweets);
+    });
   } catch (e) {
     res.send(e);
   }

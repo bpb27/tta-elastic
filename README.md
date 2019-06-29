@@ -6,3 +6,6 @@
 ### Running
 1. `npm run dev`
 2. `npm run test`
+
+### Resources
+[Heroku](https://dashboard.heroku.com/apps/trump-twitter-archive)
