@@ -77,32 +77,21 @@ describe('Tweet', () => {
   it('renders the text', () => {
     const props = createProps();
     const wrapper = shallow(<Tweet {...props} />);
-    const text = wrapper.find('.text').text();
+    const text = wrapper.find('Highlighter').props().textToHighlight;
     expect(text).toEqual(props.data.text);
   });
 
-  describe('highlight', () => {
-    it('single word', () => {
-      const props = { ...createProps(), search: 'filthy' };
-      const wrapper = shallow(<Tweet {...props} />);
-      const highlight = wrapper.find('.highlight').text();
-      expect(highlight).toEqual(props.search);
-    });
+  it('highlights a single word', () => {
+    const props = { ...createProps(), search: 'filthy' };
+    const wrapper = shallow(<Tweet {...props} />);
+    const highlight = wrapper.find('Highlighter').props().searchWords;
+    expect(highlight).toEqual([props.search]);
+  });
 
-    it('case insensitive', () => {
-      const props = { ...createProps(), search: 'FILTHY' };
-      const wrapper = shallow(<Tweet {...props} />);
-      const highlight = wrapper.find('.highlight').text();
-      expect(highlight).toEqual(props.search.toLowerCase());
-    });
-
-    it('multiple words', () => {
-      const props = { ...createProps(), search: 'merry animal' };
-      const wrapper = shallow(<Tweet {...props} />);
-      const firstHighlight = wrapper.find('.highlight').first().text();
-      const secondHighlight = wrapper.find('.highlight').last().text();
-      expect(firstHighlight).toEqual('merry');
-      expect(secondHighlight).toEqual('animal');
-    });
+  it('highlights multiple words', () => {
+    const props = { ...createProps(), search: 'merry animal' };
+    const wrapper = shallow(<Tweet {...props} />);
+    const highlight = wrapper.find('Highlighter').props().searchWords;
+    expect(highlight).toEqual(props.search.split(' '));
   });
 });

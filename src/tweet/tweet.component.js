@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bool, number, shape, string } from 'prop-types';
 import moment from 'moment';
-import renderHTML from 'react-render-html';
+import Highlighter from 'react-highlight-words';
 import './tweet.style.scss';
 
 export default class Tweet extends Component {
@@ -27,24 +27,14 @@ export default class Tweet extends Component {
     return num > 999 ? (num/1000).toFixed(1) + 'k' : num;
   }
 
-  get text () {
-    const search = this.props.search || '';
-    let { text } = this.props.data;
-
-    search.split(' ').forEach(keyword => {
-      const pattern = new RegExp(`(${keyword})`, 'gi');
-      text = text.replace(pattern, '<span className="highlight">$1</span>');
-    });
-
-    return renderHTML(text);
-  }
-
   render () {
-    const { date, device, favorites, id, retweets } = this.props.data;
+    const { data, index, search } = this.props;
+    const { date, device, favorites, id, retweets, text } = data;
+
     return (
       <div className="tweet" key={id}>
         <div className="index">
-          { this.props.index }.
+          { index }.
         </div>
         <div className="metadata">
           <span className="date">{ moment(date, 'x').format('MMM Do YYYY, h:mm:ss a') }</span>
@@ -66,7 +56,11 @@ export default class Tweet extends Component {
           </span>
         </div>
         <div className="text">
-          <p>{ this.text }</p>
+          <Highlighter
+            searchWords={(search || '').split(' ')}
+            autoEscape={true}
+            textToHighlight={text}
+          />
         </div>
       </div>
     );
