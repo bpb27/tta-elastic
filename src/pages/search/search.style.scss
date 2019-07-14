@@ -1,0 +1,17 @@
+@import "src/variables.scss";
+
+#search-page {
+  margin-top: $navbar-height + 10px;
+
+  .searchbox {
+    input {
+      font-size: 20px;
+      height: 60px;
+      padding: 20px 20px 20px 36px;
+    }
+
+    svg {
+      height: 18px;
+    }
+  }
+}

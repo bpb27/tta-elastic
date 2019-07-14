@@ -1,7 +1,7 @@
 @import "src/variables.scss";
 
 .navbar {
-  background: blue;
+  background: #454545;
   color: white;
   display: flex;
   height: $navbar-height;
@@ -23,6 +23,7 @@
   }
 
   .left {
+    font-weight: 800;
     padding: $navbar-item-padding;
   }
 
