@@ -1,4 +1,6 @@
+@import "src/variables.scss";
+
 .app {
+  margin-top: $navbar-height;
   background-color: #fbfeff;
-  font-family: monospace;
 }
