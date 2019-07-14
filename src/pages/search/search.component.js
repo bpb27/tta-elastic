@@ -21,7 +21,7 @@ export default class Search extends React.Component {
               data={item}
               index={i + 1}
               key={item.id}
-              search={searchState.searchbox.value}
+              search={searchState.searchbox ? searchState.searchbox.value : ''}
             />
           ))
         )}

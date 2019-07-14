@@ -1,0 +1,36 @@
+@import "src/variables.scss";
+
+.navbar {
+  background: blue;
+  color: white;
+  display: flex;
+  height: $navbar-height;
+  justify-content: space-between;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+
+  a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+
+    &.active {
+      font-weight: 800;
+    }
+  }
+
+  .left {
+    padding: $navbar-item-padding;
+  }
+
+  .right {
+    padding: $navbar-item-padding;
+
+    > a {
+      padding: $navbar-item-padding 5px;
+    }
+  }
+}
