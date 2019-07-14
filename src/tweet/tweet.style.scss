@@ -11,6 +11,10 @@
   .index {
     margin-right: 5px;
     min-width: 30px;
+
+    @media all and (max-width: 900px) {
+      display: none;
+    }
   }
 
   .metadata {
@@ -20,24 +24,50 @@
     margin-bottom: 5px;
     min-width: 200px;
 
-    > span {
-      margin-bottom: 4px;
+    @media all and (max-width: 900px) {
+      flex-direction: row;
+      display: flex;
+      // background: #fff0ea;
+      align-items: center;
+      width: 100%;
+
+      .device {
+        display: none;
+      }
     }
 
-    @media all and (max-width: 900px) {
-      flex-direction: column;
+    .mobile-index {
+      display: none;
+      margin-right: 2px;
+
+      @media all and (max-width: 900px) {
+        display: inherit;
+      }
+    }
+
+    > span {
+      margin-right: 10px;
     }
 
     .stats span {
       align-items: center;
       display: inline-flex;
       margin-right: 10px;
+      padding-top: 2px;
 
       svg {
         height: 20px;
         width: 20px;
-        margin-right: 2px;
+        margin-right: 4px;
       }
+    }
+  }
+
+  .text {
+    @media all and (max-width: 900px) {
+      background: white;
+      padding: 10px;
+      border: 1px solid;
     }
   }
 }
