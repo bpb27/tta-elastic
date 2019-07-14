@@ -1,0 +1,16 @@
+.latestTweets {
+  font-size: 12px;
+
+  p {
+    display: flex;
+    flex-direction: column;
+
+    span:first-child {
+      text-decoration: underline;
+    }
+  }
+
+  select {
+    display: none;
+  }
+}
