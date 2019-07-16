@@ -23,6 +23,7 @@ module.exports = {
     'babel',
   ],
   rules: {
+    "react/no-unescaped-entities": 'off',
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
   },

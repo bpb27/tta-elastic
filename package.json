@@ -48,14 +48,15 @@
     "@appbaseio/reactivesearch": "^3.0.0-rc.20",
     "dotenv": "^8.0.0",
     "elasticsearch": "^16.1.1",
-    "express-favicon": "^2.0.1",
     "express": "^4.17.1",
+    "express-favicon": "^2.0.1",
     "moment": "^2.24.0",
+    "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-highlight-words": "^0.16.0",
-    "react-router-dom": "^5.0.0",
     "react-router": "^5.0.0",
-    "react": "^16.8.6",
+    "react-router-dom": "^5.0.0",
+    "react-router-modal": "^1.5.2",
     "twitter": "^1.7.1"
   },
   "jest": {

@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 import Tweet from '../../tweet';
 import Checkbox from '../../checkbox';
 import {
@@ -14,8 +15,8 @@ import './search.style.scss';
 
 export default class Search extends React.Component {
   state = {
-    showDeviceDropdown: false,
     showDateRange: false,
+    showDeviceDropdown: false,
     showRetweetButtons: false,
   }
 
@@ -92,6 +93,7 @@ export default class Search extends React.Component {
               URLParams={true}
             />
           )}
+          <Link to="/search/tips">Search Tips</Link>
           <Checkbox
             label="Device"
             value={showDeviceDropdown}
