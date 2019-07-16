@@ -1,0 +1,46 @@
+.tips {
+  padding: 20px;
+  width: 400px;
+
+  @media all and (max-width: 400px) {
+    width: 300px;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    button {
+      border-radius: 15px;
+      border: 2px solid #737171;
+      color: #777777;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: bold;
+      height: 30px;
+      line-height: 15px;
+      width: 30px;
+    }
+  }
+
+  section {
+    margin-bottom: 25px;
+
+    span {
+      display: block;
+
+      // search query
+      &:first-child {
+        border-radius: 1px;
+        border: 2px solid #bbbbbb;
+        font-style: italic;
+        margin-bottom: 5px;
+        padding: 4px 8px;
+      }
+    }
+  }
+}

@@ -94,4 +94,18 @@ describe('Tweet', () => {
     const highlight = wrapper.find('Highlighter').props().searchWords;
     expect(highlight).toEqual(props.search.split(' '));
   });
+
+  it('highlights prefix queries and strips the star', () => {
+    const props = { ...createProps(), search: 'loser*' };
+    const wrapper = shallow(<Tweet {...props} />);
+    const highlight = wrapper.find('Highlighter').props().searchWords;
+    expect(highlight).toEqual(['loser']);
+  });
+
+  it('highlights phrases and strips the quotes', () => {
+    const props = { ...createProps(), search: '"losers and haters"' };
+    const wrapper = shallow(<Tweet {...props} />);
+    const highlight = wrapper.find('Highlighter').props().searchWords;
+    expect(highlight).toEqual(['losers and haters']);
+  });
 });

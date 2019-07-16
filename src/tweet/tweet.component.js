@@ -23,12 +23,23 @@ export default class Tweet extends Component {
     search: '',
   }
 
+  get searchQuery () {
+    const query = this.props.search || '';
+    const isPhrase = query.length && query[0] === '"' && query[query.length - 1] === '"';
+
+    if (isPhrase) {
+      return [query.replace(/"/g, '')];
+    } else {
+      return query.replace(/\*/g, '').split(' ');
+    }
+  }
+
   formatCount (num) {
     return num > 999 ? (num/1000).toFixed(1) + 'k' : num;
   }
 
   render () {
-    const { data, index, search } = this.props;
+    const { data, index } = this.props;
     const { date, device, favorites, id, retweets, text } = data;
 
     return (
@@ -58,7 +69,7 @@ export default class Tweet extends Component {
         </div>
         <div className="text">
           <Highlighter
-            searchWords={(search || '').split(' ')}
+            searchWords={this.searchQuery}
             autoEscape={true}
             textToHighlight={text}
           />
