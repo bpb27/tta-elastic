@@ -1,6 +1,6 @@
 import React from 'react';
+import { func, shape, string } from 'prop-types';
 import moment from 'moment';
-import { Link } from 'react-router-dom';
 import Tweet from '../../tweet';
 import Checkbox from '../../checkbox';
 import {
@@ -14,6 +14,15 @@ import {
 import './search.style.scss';
 
 export default class Search extends React.Component {
+  static propTypes = {
+    history: shape({
+      push: func.isRequired,
+    }).isRequired,
+    location: shape({
+      pathname: string.isRequired,
+    }).isRequired,
+  }
+
   state = {
     showDateRange: false,
     showDeviceDropdown: false,
@@ -93,22 +102,28 @@ export default class Search extends React.Component {
               URLParams={true}
             />
           )}
-          <Link to="/search/tips">Search Tips</Link>
-          <Checkbox
-            label="Device"
-            value={showDeviceDropdown}
-            onClick={showDeviceDropdown => this.setState({ showDeviceDropdown })}
-          />
-          <Checkbox
-            label="Date Range"
-            value={showDateRange}
-            onClick={showDateRange => this.setState({ showDateRange })}
-          />
-          <Checkbox
-            label="Retweet"
-            value={showRetweetButtons}
-            onClick={showRetweetButtons => this.setState({ showRetweetButtons })}
-          />
+          <div className="toggles">
+            <Checkbox
+              label="Search Tips"
+              value={this.props.location.pathname.includes('tips')}
+              onClick={() => this.props.history.push('/search/tips')}
+            />
+            <Checkbox
+              label="Device"
+              value={showDeviceDropdown}
+              onClick={showDeviceDropdown => this.setState({ showDeviceDropdown })}
+            />
+            <Checkbox
+              label="Date Range"
+              value={showDateRange}
+              onClick={showDateRange => this.setState({ showDateRange })}
+            />
+            <Checkbox
+              label="Retweet"
+              value={showRetweetButtons}
+              onClick={showRetweetButtons => this.setState({ showRetweetButtons })}
+            />
+          </div>
         </div>
         <ReactiveList
           componentId="results"

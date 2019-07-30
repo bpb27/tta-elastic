@@ -1,10 +1,12 @@
 .checkbox {
   align-items: center;
+  cursor: pointer;
   display: inline-flex;
   margin-right: 10px;
   padding: 10px 0;
 
   > input {
+    cursor: pointer;
     margin-right: 5px;
   }
 }

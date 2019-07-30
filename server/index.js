@@ -1,5 +1,9 @@
 require('dotenv').config();
-const { NODE_ENV, PORT } = process.env;
+const {
+  NODE_ENV,
+  PORT,
+  SEARCHBOX_URL
+} = process.env;
 
 const express = require('express');
 const favicon = require('express-favicon');
@@ -10,11 +14,11 @@ const { upload: uploadTweets } = require('./upload-tweets');
 
 const port = PORT || 3000;
 const app = express();
-const client = new Client({ host: process.env.SEARCHBOX_URL });
+const hostedPath = path.join(__dirname, '../dist');
+const client = new Client({ host: SEARCHBOX_URL });
 
-if (NODE_ENV !== 'dev') app.use(favicon(__dirname + '/dist/favicon.ico'));
-app.use(express.static(__dirname));
-app.use(express.static(path.join(__dirname, 'dist')));
+if (NODE_ENV !== 'dev') app.use(favicon(hostedPath + '/favicon.ico'));
+app.use(express.static(hostedPath));
 
 app.get('/latest-tweets', (req, res) => {
   try {

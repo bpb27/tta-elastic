@@ -2,7 +2,14 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Search from './search.component';
 
-const createProps = () => ({});
+const createProps = () => ({
+  history: {
+    push: jest.fn(),
+  },
+  location: {
+    pathname: '/search',
+  },
+});
 
 describe('Search', () => {
   it('renders', () => {

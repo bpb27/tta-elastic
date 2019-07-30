@@ -12,7 +12,7 @@ export default class Checkbox extends React.Component {
   render () {
     return (
       <span className="checkbox" onClick={() => this.props.onClick(!this.props.value)}>
-        <input checked={this.props.value} type="checkbox" />
+        <input checked={this.props.value} readOnly={true} type="checkbox" />
         <label>{ this.props.label }</label>
       </span>
     );
