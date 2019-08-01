@@ -43,7 +43,7 @@ function getTweets (screenName, callback) {
           date: moment.utc(tweet.created_at).toDate().getTime(),
           device: tweet.source.split('>')[1].split('<')[0],
           favorites: tweet.favorite_count,
-          id: tweet.id,
+          id: tweet.id_str,
           isRetweet: (tweet.full_text || tweet.text).substr(0,3) === 'RT ',
           retweets: tweet.retweet_count,
           text: tweet.full_text || tweet.text,
