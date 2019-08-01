@@ -4,11 +4,11 @@ describe('get tweets', () => {
   test('successfully hits the twitter api and parses the response', (done) => {
     getTweets('realdonaldtrump', (error, tweets) => {
       expect(error).toBeNull();
-      expect(tweets).toHaveLength(100);
+      expect(tweets.length > 10).toEqual(true);
 
       const tweet = tweets[0];
 
-      expect(typeof tweet.id_str).toEqual('string');
+      expect(typeof tweet.id).toEqual('string');
       expect(typeof tweet.favorites).toEqual('number');
       expect(typeof tweet.retweets).toEqual('number');
       expect(typeof tweet.isRetweet).toEqual('boolean');
