@@ -13,7 +13,7 @@ export default class App extends React.Component {
     return (
       <div className="app">
         <ReactiveBase
-          app="trump"
+          app="tweets"
           url="https://public-key:mfpzsrhddvm7f54ctotnjbhqczu0z35t@thorin-us-east-1.searchly.com"
         >
           <BrowserRouter>
