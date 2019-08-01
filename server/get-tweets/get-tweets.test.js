@@ -8,7 +8,7 @@ describe('get tweets', () => {
 
       const tweet = tweets[0];
 
-      expect(typeof tweet.id).toEqual('number');
+      expect(typeof tweet.id_str).toEqual('string');
       expect(typeof tweet.favorites).toEqual('number');
       expect(typeof tweet.retweets).toEqual('number');
       expect(typeof tweet.isRetweet).toEqual('boolean');
