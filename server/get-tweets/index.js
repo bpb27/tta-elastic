@@ -34,7 +34,6 @@ function getTweets (screenName, callback) {
       screen_name: screenName,
       trim_user: true,
       tweet_mode: 'extended',
-      // max_id: '950884128379035650',
     };
 
     client.get('statuses/user_timeline', params, (error, tweets) => {
