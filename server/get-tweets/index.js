@@ -3,10 +3,12 @@ require('dotenv').config();
 const moment = require('moment');
 const request = require('request');
 const Twitter = require('twitter');
-const env = process.env;
+const { TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET } = process.env;
+
+moment.suppressDeprecationWarnings = true;
 
 function getTweets (screenName, callback) {
-  const credentials = new Buffer(`${env.TWITTER_CONSUMER_KEY}:${env.TWITTER_CONSUMER_SECRET}`).toString('base64');
+  const credentials = new Buffer(`${TWITTER_CONSUMER_KEY}:${TWITTER_CONSUMER_SECRET}`).toString('base64');
   const requestParams = {
     body: 'grant_type=client_credentials',
     headers: {
@@ -22,8 +24,8 @@ function getTweets (screenName, callback) {
 
     const bearerToken = JSON.parse(body)['access_token'];
     const client = new Twitter({
-      consumer_key: env.TWITTER_CONSUMER_KEY,
-      consumer_secret: env.TWITTER_CONSUMER_SECRET,
+      consumer_key: TWITTER_CONSUMER_KEY,
+      consumer_secret: TWITTER_CONSUMER_SECRET,
       bearer_token: bearerToken
     });
 

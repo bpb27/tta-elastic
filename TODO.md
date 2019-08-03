@@ -1,13 +1,14 @@
 bugs:
-1. ids are wrong / inconsistent with current site
-2. end date range seems off
-3. make sure dates are EST
-4. ampersands render as symbols
+1. end date range seems off
+2. make sure dates are EST
+3. ampersands render as symbols
+4. 5000 count difference with  existing site
 
 improvements:
 1. make tips a side panel
 2. urls
 3. better results (and no results) view
+4. better searching (e.g. "low rating" && "low-rated")
 
 lists:
 1. stock endorsements / disses - strong on crime, tough on immigration

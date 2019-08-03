@@ -4,7 +4,7 @@ const preparePayload = tweets => {
   tweets.forEach(tweet => {
     payload.push({
       index: {
-        _index: 'trump',
+        _index: 'tweets',
         _type: 'document',
         _id: tweet.id,
       },
@@ -19,11 +19,12 @@ const preparePayload = tweets => {
 const upload = (client, tweets) => {
   const mapped = preparePayload(tweets);
   client.bulk(mapped, (error, response) => {
-    // TODO: also check response.errors
     if (error) {
       console.log('error uploading: ', error);
+    } else if (response && response.errors) {
+      console.log('error uploading, check the response', response.items ? response.items[0] : null);
     } else {
-      console.log(`successfully uploaded in ${response.took}ms`, response);
+      console.log(`successfully uploaded in ${response.took}ms`);
     }
   });
 };
