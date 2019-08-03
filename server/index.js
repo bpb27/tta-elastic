@@ -11,34 +11,36 @@ const getTweets = require('./get-tweets');
 const app = express();
 const port = PORT || 3000;
 
-const hostedPath = path.join(__dirname, '../dist');
+const pathDist = path.join(__dirname, '../dist');
+const pathPublic = path.join(__dirname, '../public');
+
 const client = new Client({ host: SEARCHBOX_URL });
 
-if (NODE_ENV !== 'dev') {
-  app.use(favicon(hostedPath + '/favicon.ico'));
-}
-
-app.use(express.static(hostedPath));
-
-app.get('/latest-tweets', (req, res) => {
-  try {
+// ping twitter and upload to ES every minute
+if (NODE_ENV === 'prod') {
+  setInterval(() => {
     getTweets('realdonaldtrump', (error, tweets) => {
       upload(client, tweets);
-      res.json(error || tweets);
     });
-  } catch (e) {
-    res.send(e);
-  }
-});
+  }, 1000 * 60);
+}
 
+// serve static assets in dist and public folders
+app.use(favicon(`${pathPublic}/favicon.ico`));
+app.use(express.static(pathDist));
+app.use(express.static(pathPublic));
+
+// health check route
 app.get('/ping', (req, res) => {
   res.send('pong');
 });
 
+// deliver react app for all other routes
 app.get('*', (req, res) => {
-  res.sendFile(path.join(hostedPath + 'index.html'));
+  res.sendFile(path.join(`${pathDist}/index.html`));
 });
 
+// start app
 app.listen(port, () => {
   console.log(`running on port ${port}`); // eslint-disable-line no-console
 });
