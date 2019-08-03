@@ -5,9 +5,9 @@ describe('upload tweets', () => {
     const result = preparePayload(tweets);
     expect(result).toEqual({
       body: [
-        { index: { _index: 'trump', _type: 'document', _id: tweets[0].id } },
+        { index: { _index: 'tweets', _type: 'document', _id: tweets[0].id } },
         tweets[0],
-        { index: { _index: 'trump', _type: 'document', _id: tweets[1].id } },
+        { index: { _index: 'tweets', _type: 'document', _id: tweets[1].id } },
         tweets[1],
       ],
     });
@@ -30,7 +30,7 @@ describe('upload tweets', () => {
     };
 
     upload(client, tweets);
-    expect(log).toHaveBeenCalledWith('successfully uploaded in 100ms', { took: 100 });
+    expect(log).toHaveBeenCalledWith('successfully uploaded in 100ms');
   });
 });
 
