@@ -1,13 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Tweet from './tweet.component';
+import { formatNumber, parseQuery, parseText } from './tweet.utils';
 
 const createProps = () => ({
   data: {
     date: 1558291837000, // May 19th 2019, 11:50:37 am
     device: 'Twitter for Android',
     favorites: 2,
-    id: 1,
+    id: '1',
     isRetweet: false,
     retweets: 3,
     text: 'merry christmas you filthy animal',
@@ -63,7 +64,7 @@ describe('Tweet', () => {
     const props = createProps();
     props.data.favorites = 3100;
     const wrapper = shallow(<Tweet {...props} />);
-    const favorites = wrapper.find('.stats span').at(1).text();
+    const favorites = wrapper.find('.stats span').at(1).text().trim();
     expect(favorites).toEqual('3.1k');
   });
 
@@ -94,18 +95,68 @@ describe('Tweet', () => {
     const highlight = wrapper.find('Highlighter').props().searchWords;
     expect(highlight).toEqual(props.search.split(' '));
   });
+});
 
-  it('highlights prefix queries and strips the star', () => {
-    const props = { ...createProps(), search: 'loser*' };
-    const wrapper = shallow(<Tweet {...props} />);
-    const highlight = wrapper.find('Highlighter').props().searchWords;
-    expect(highlight).toEqual(['loser']);
+describe('Tweet utils', () => {
+  describe('formats numbers', () => {
+    it('handles no input', () => {
+      expect(formatNumber()).toEqual('0');
+    });
+
+    it('handles 0 without any special formatting', () => {
+      expect(formatNumber(0)).toEqual('0');
+    });
+
+    it('handles 999 without any special formatting', () => {
+      expect(formatNumber(999)).toEqual('999');
+    });
+
+    it('handles 1000 and formats with a k', () => {
+      expect(formatNumber(1000)).toEqual('1k');
+    });
+
+    it('handles 2222 and formats with a k and decimal', () => {
+      expect(formatNumber(2222)).toEqual('2.2k');
+    });
   });
 
-  it('highlights phrases and strips the quotes', () => {
-    const props = { ...createProps(), search: '"losers and haters"' };
-    const wrapper = shallow(<Tweet {...props} />);
-    const highlight = wrapper.find('Highlighter').props().searchWords;
-    expect(highlight).toEqual(['losers and haters']);
+  describe('parsing the search query', () => {
+    it('handles no input', () => {
+      expect(parseQuery()).toEqual([]);
+    });
+
+    it('removes double quotes', () => {
+      expect(parseQuery('"fox"')).toEqual(['fox']);
+    });
+
+    it('removes stars', () => {
+      expect(parseQuery('fox*')).toEqual(['fox']);
+    });
+
+    it('splits the query on spaces', () => {
+      expect(parseQuery('fox news')).toEqual(['fox', 'news']);
+    });
+
+    it('splits the query on pluses', () => {
+      expect(parseQuery('fox + news')).toEqual(['fox', 'news']);
+    });
+
+    it('splits the query on pipes', () => {
+      expect(parseQuery('fox | news')).toEqual(['fox', 'news']);
+    });
+
+    it('splits the query on multiple operators', () => {
+      expect(parseQuery('fox news + cnn | msnbc')).toEqual(['fox', 'news', 'cnn', 'msnbc']);
+    });
+  });
+
+  describe('parses the tweet text', () => {
+    it('handles no input', () => {
+      expect(parseText()).toEqual('');
+    });
+
+    it('replaces the html entity ampersand with a real ampersand', () => {
+      expect(parseText('this &amp; that')).toEqual('this & that');
+    });
   });
 });
