@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import { number, string } from 'prop-types';
-import './text-switch.style.scss';
 
 export default class TextSwitch extends React.Component {
   static propTypes = {
