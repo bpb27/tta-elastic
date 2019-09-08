@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import TextSwitch from '../text-switch';
 import './navbar.style.scss';
 
 export default class Navbar extends React.Component {
@@ -7,12 +8,13 @@ export default class Navbar extends React.Component {
     return (
       <nav className="navbar">
         <div className="left">
-          <NavLink to="/" isActive={() => false}>Trump Twitter Archive</NavLink>
+          <NavLink to="/" isActive={() => false}>
+            <TextSwitch web="Trump Twitter Archive" mobile="TTA" />
+          </NavLink>
         </div>
         <div className="right">
           <NavLink to="/" exact={true}>Home</NavLink>
           <NavLink to="/search">Search</NavLink>
-          <NavLink to="/download">Download</NavLink>
           <NavLink to="/FAQ">FAQ</NavLink>
         </div>
       </nav>

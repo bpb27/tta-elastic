@@ -105,7 +105,7 @@ export default class Search extends React.Component {
           )}
           <div className="toggles">
             <Checkbox
-              label="Search Tips"
+              label="Tips"
               value={this.props.location.pathname.includes('tips')}
               onClick={() => this.props.history.push('/search/tips')}
             />
@@ -115,7 +115,7 @@ export default class Search extends React.Component {
               onClick={showDeviceDropdown => this.setState({ showDeviceDropdown })}
             />
             <Checkbox
-              label="Date Range"
+              label="Date"
               value={showDateRange}
               onClick={showDateRange => this.setState({ showDateRange })}
             />
