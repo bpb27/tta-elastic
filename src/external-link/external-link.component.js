@@ -1,6 +1,5 @@
 import React from 'react';
 import { node, string } from 'prop-types';
-import './external-link.style.scss';
 
 export default class ExternalLink extends React.Component {
   static propTypes = {
