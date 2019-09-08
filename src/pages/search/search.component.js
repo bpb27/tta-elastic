@@ -61,6 +61,7 @@ export default class Search extends React.Component {
           componentId="searchbox"
           dataField="text"
           placeholder="Search for anything"
+          queryFormat="and"
           react={{
             and: ['dates', 'device', 'results']
           }}
