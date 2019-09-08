@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { bool, number, shape, string } from 'prop-types';
 import moment from 'moment';
 import Highlighter from 'react-highlight-words';
+import ExternalLink from '../external-link';
 import utils from './tweet.utils';
 import './tweet.style.scss';
 
@@ -38,16 +39,12 @@ export default class Tweet extends Component {
           <span className="date">{ moment(date, 'x').format('MMM Do YYYY, h:mm:ss a') }</span>
           <span className="device">{ device }</span>
           <span className="stats">
+            <span>{ iconRetweet } { utils.formatNumber(retweets) }</span>
+            <span>{ iconHeart } { utils.formatNumber(favorites) }</span>
             <span>
-              { iconRetweet } { utils.formatNumber(retweets) }
-            </span>
-            <span>
-              { iconHeart } { utils.formatNumber(favorites) }
-            </span>
-            <span>
-              <a href={`https://twitter.com/realdonaldtrump/status/${id}`} target="_blank" rel="noopener noreferrer">
+              <ExternalLink href={`https://twitter.com/realdonaldtrump/status/${id}`}>
                 { iconTwitter }
-              </a>
+              </ExternalLink>
             </span>
           </span>
         </div>
