@@ -1,8 +1,3 @@
-bugs:
-1. end date range seems off
-
-add src resolve
-
 improvements:
 1. make tips a side panel
 2. better results (and no results) view

@@ -1,5 +1,5 @@
 import React from 'react';
-import TweetLink from '../../tweet-link';
+import TweetLink from 'components/tweet-link';
 import './dog.style.scss';
 
 export default class Dog extends React.Component {

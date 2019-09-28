@@ -1,6 +1,6 @@
 import React from 'react';
 import { bool, node, string } from 'prop-types';
-import EmbeddedTweet from '../embedded-tweet';
+import EmbeddedTweet from 'components/embedded-tweet';
 import './tweet-link.style.scss';
 
 export default class TweetLink extends React.Component {

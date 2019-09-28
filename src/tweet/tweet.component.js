@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { bool, number, shape, string } from 'prop-types';
 import Highlighter from 'react-highlight-words';
-import ExternalLink from '../external-link';
+import ExternalLink from 'components/external-link';
 import utils from './tweet.utils';
-import { utcTimestampToEST } from '../utils/date';
+import { utcTimestampToEST } from 'utils/date';
 import './tweet.style.scss';
 
 export default class Tweet extends Component {
