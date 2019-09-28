@@ -34,4 +34,12 @@ describe('ExternalLink', () => {
     const element = wrapper.find('.link');
     expect(element.exists()).toEqual(true);
   });
+
+  it('adds a title for accessibility', () => {
+    const wrapper = shallow(
+      <ExternalLink className="link" href="http://google.com" title="A nice link">Google</ExternalLink>
+    );
+    const title = wrapper.props().title;
+    expect(title).toEqual('A nice link');
+  });
 });

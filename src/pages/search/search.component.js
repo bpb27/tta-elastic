@@ -106,21 +106,25 @@ export default class Search extends React.Component {
           <div className="toggles">
             <Checkbox
               label="Tips"
+              name="show-search-tips"
               value={this.props.location.pathname.includes('tips')}
               onClick={() => this.props.history.push('/search/tips')}
             />
             <Checkbox
               label="Device"
+              name="filter-by-device"
               value={showDeviceDropdown}
               onClick={showDeviceDropdown => this.setState({ showDeviceDropdown })}
             />
             <Checkbox
               label="Date"
+              name="filter-by-date"
               value={showDateRange}
               onClick={showDateRange => this.setState({ showDateRange })}
             />
             <Checkbox
               label="Retweet"
+              name="filter-by-retweet"
               value={showRetweetButtons}
               onClick={showRetweetButtons => this.setState({ showRetweetButtons })}
             />

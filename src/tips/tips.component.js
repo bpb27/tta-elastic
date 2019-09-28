@@ -1,5 +1,6 @@
 import React from 'react';
 import { func } from 'prop-types';
+import ExternalLink from '../external-link';
 import './tips.style.scss';
 
 export default class Tips extends React.Component {
@@ -37,7 +38,7 @@ export default class Tips extends React.Component {
           </section>
         </main>
         <footer>
-          <h6>This site uses Elastic Search. You can read some dense documentation about how to use it <a target="_blank" rel="noopener noreferrer" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-simple-query-string-query.html#_simple_query_string_syntax">here</a>.</h6>
+          <h6>This site uses Elastic Search. You can read some dense documentation about how to use it <ExternalLink href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-simple-query-string-query.html#_simple_query_string_syntax" title="View advanced search documentation on the Elastic Search website">here</ExternalLink>.</h6>
         </footer>
       </div>
     );

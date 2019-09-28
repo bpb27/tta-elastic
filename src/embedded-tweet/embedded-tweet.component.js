@@ -21,7 +21,7 @@ export default class EmbeddedTweet extends React.Component {
       <div className="embeddedTweet">
         <blockquote className="twitter-tweet">
           <p lang="en" dir="ltr">{ this.props.text }</p>&mdash; Donald J. Trump (@realDonaldTrump)
-          <a href={this.href}></a>
+          <a href={this.href} title="View this tweet on Twitter's website"></a>
         </blockquote>
       </div>
     );
