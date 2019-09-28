@@ -5,6 +5,7 @@ import TweetLink from './tweet-link.component';
 const createProps = () => ({
   children: null,
   id: '1',
+  showEmbedded: false,
   text: 'marshmellow cannon'
 });
 
@@ -27,6 +28,13 @@ describe('TweetLink', () => {
     const props = createProps();
     const wrapper = shallow(<TweetLink {...props}><h1>Smore</h1></TweetLink>);
     const children = wrapper.find('h1');
+    expect(children.exists()).toEqual(true);
+  });
+
+  test('renders an embedded tweet', () => {
+    const props = { ...createProps(), showEmbedded: true };
+    const wrapper = shallow(<TweetLink {...props}><h1>Smore</h1></TweetLink>);
+    const children = wrapper.find('EmbeddedTweet');
     expect(children.exists()).toEqual(true);
   });
 });

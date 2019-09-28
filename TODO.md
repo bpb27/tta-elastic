@@ -23,5 +23,6 @@ lists:
 2. campaign promises vs. reality
 3. all insults with editorial why
 4. racism
+5. begged
 
 https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-simple-query-string-query.html
