@@ -3,6 +3,7 @@ const { NODE_ENV, PORT, SEARCHBOX_URL } = process.env;
 
 const express = require('express');
 const favicon = require('express-favicon');
+const staticGzip = require('express-static-gzip');
 const path = require('path');
 const { Client } = require('elasticsearch');
 const { upload } = require('./upload-tweets');
@@ -27,8 +28,8 @@ if (NODE_ENV === 'prod') {
 
 // serve static assets in dist and public folders
 app.use(favicon(`${pathPublic}/favicon.ico`));
-app.use(express.static(pathDist));
-app.use(express.static(pathPublic));
+app.use(staticGzip(pathDist));
+app.use(staticGzip(pathPublic));
 
 // health check route
 app.get('/ping', (req, res) => {
