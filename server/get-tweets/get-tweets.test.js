@@ -25,10 +25,6 @@ describe('get tweets', () => {
     it('returns a list of tweets', () => {
       expect(Array.isArray(tweets)).toEqual(true);
     });
-
-    it('returns a list of approximately 100 tweets', () => {
-      expect(tweets.length).toBeGreaterThanOrEqual(99);
-    });
   });
 
   describe('parsing the response from twitter', () => {
