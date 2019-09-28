@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { bool, number, shape, string } from 'prop-types';
-import moment from 'moment';
 import Highlighter from 'react-highlight-words';
 import ExternalLink from '../external-link';
 import utils from './tweet.utils';
+import { utcTimestampToEST } from '../utils/date';
 import './tweet.style.scss';
 
 export default class Tweet extends Component {
@@ -36,7 +36,7 @@ export default class Tweet extends Component {
         </div>
         <div className="metadata">
           <span className="mobile-index">{ index }.</span>
-          <span className="date">{ moment(date, 'x').format('MMM Do YYYY, h:mm:ss a') }</span>
+          <span className="date">{ utcTimestampToEST(date) }</span>
           <span className="device">{ device }</span>
           <span className="stats">
             <span>{ iconRetweet } { utils.formatNumber(retweets) }</span>

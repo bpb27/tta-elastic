@@ -1,18 +1,13 @@
 import React from 'react';
-import { string } from 'prop-types';
-import moment from 'moment';
+import { utcTimestampToEST } from '../utils/date';
 import { ReactiveList } from '@appbaseio/reactivesearch';
 import './latest-tweets.style.scss';
 
 export default class LatestTweets extends React.Component {
-  static propTypes = {
-    name: string,
-  }
-
   tweet (data) {
     return (
       <p key={data.id}>
-        <span>{ moment(data.date, 'x').format('MMM Do YYYY, h:mm:ss a') }</span>
+        <span>{ utcTimestampToEST(data.date) }</span>
         <span>{ data.text }</span>
       </p>
     );
