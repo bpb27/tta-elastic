@@ -1,5 +1,5 @@
 import React from 'react';
-import { utcTimestampToEST } from '../utils/date';
+import { utcTimestampToEST } from 'utils/date';
 import { ReactiveList } from '@appbaseio/reactivesearch';
 import './latest-tweets.style.scss';
 

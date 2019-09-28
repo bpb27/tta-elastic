@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import TextSwitch from '../text-switch';
+import TextSwitch from 'components/text-switch';
 import './navbar.style.scss';
 
 export default class Navbar extends React.Component {

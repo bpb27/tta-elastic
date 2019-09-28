@@ -1,8 +1,3 @@
-/*
-  utcTimestampToEST(1569705285000)
-  { date: "9/28/2019", time: "5:14:45 PM" }
-*/
-
 export const twoDaysFromNow = () => {
   const date = new Date();
   const add = 2;

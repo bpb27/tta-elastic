@@ -5,7 +5,7 @@ import { formatNumber, parseQuery, parseText } from './tweet.utils';
 
 const createProps = () => ({
   data: {
-    date: 1558291837000, // May 19th 2019, 11:50:37 am
+    date: 1558291837000, // May 19 2019, 2:50:37 PM EST
     device: 'Twitter for Android',
     favorites: 2,
     id: '1',
@@ -36,7 +36,7 @@ describe('Tweet', () => {
     const props = createProps();
     const wrapper = shallow(<Tweet {...props} />);
     const date = wrapper.find('.date').text();
-    expect(date).toContain('May 19th 2019');
+    expect(date).toEqual('May 19 2019, 2:50:37 PM EST');
   });
 
   it('renders the device', () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { func } from 'prop-types';
-import ExternalLink from '../external-link';
+import ExternalLink from 'components/external-link';
 import './tips.style.scss';
 
 export default class Tips extends React.Component {

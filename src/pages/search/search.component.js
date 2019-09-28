@@ -1,8 +1,8 @@
 import React from 'react';
 import { func, shape, string } from 'prop-types';
-import { twoDaysFromNow } from '../../utils/date';
-import Tweet from '../../tweet';
-import Checkbox from '../../checkbox';
+import { twoDaysFromNow } from 'utils/date';
+import Tweet from 'components/tweet';
+import Checkbox from 'components/checkbox';
 import {
   DataSearch,
   DateRange,
