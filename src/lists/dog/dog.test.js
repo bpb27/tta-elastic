@@ -10,7 +10,7 @@ describe('Dog', () => {
   it('renders', () => {
     const props = createProps();
     const wrapper = shallow(<Dog {...props} />);
-    const element = wrapper.find('.dog');
+    const element = wrapper.find('.listDog');
     expect(element.exists()).toEqual(true);
   });
 });
