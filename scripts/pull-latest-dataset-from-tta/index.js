@@ -48,8 +48,12 @@ const pull = async () => {
       console.log('done', 20000, 25000);
       await upload(data.slice(25000, 30000));
       console.log('done', 25000, 30000);
+      await upload(data.slice(30000, 35000));
+      console.log('done', 30000, 35000);
       await upload(data.slice(35000, 40000));
       console.log('done', 35000, 40000);
+      await upload(data.slice(40000, 45000));
+      console.log('done', 40000, 42000);
     } catch (e) {
       console.log('catch block trigger', e);
     }

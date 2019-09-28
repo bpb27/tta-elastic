@@ -19,7 +19,6 @@ const preparePayload = tweets => {
   return { body: payload };
 };
 
-/* eslint-disable no-console */
 const upload = tweets => {
   return new Promise(function (resolve, reject) {
     const mapped = preparePayload(tweets);
@@ -29,7 +28,7 @@ const upload = tweets => {
       } else if (response && response.errors) {
         reject('error in response, run with debugger to view');
       } else {
-        console.log(`successfully uploaded in ${response.took}ms`);
+        console.log(`successfully uploaded in ${response.took}ms`); // eslint-disable-line no-console
         resolve();
       }
     });
