@@ -1,6 +1,6 @@
 import React from 'react';
 import { func, shape, string } from 'prop-types';
-import moment from 'moment';
+import { twoDaysFromNow } from '../../utils/date';
 import Tweet from '../../tweet';
 import Checkbox from '../../checkbox';
 import {
@@ -86,8 +86,8 @@ export default class Search extends React.Component {
               componentId="dates"
               dataField="date"
               defaultValue={{
-                start: moment('2009-05-01', 'YYYY-MM-DD').toDate(),
-                end: moment().add(2, 'days').toDate(),
+                start: new Date('2009-05-01'),
+                end: twoDaysFromNow(),
               }}
               URLParams={true}
             />

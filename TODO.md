@@ -1,8 +1,7 @@
 bugs:
 1. end date range seems off
-2. make sure dates are EST
-3. ampersands render as symbols
-4. 5000 count difference with  existing site
+
+add src resolve
 
 improvements:
 1. make tips a side panel
