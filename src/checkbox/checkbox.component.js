@@ -5,15 +5,17 @@ import './checkbox.style.scss';
 export default class Checkbox extends React.Component {
   static propTypes = {
     label: string.isRequired,
+    name: string.isRequired,
     onClick: func.isRequired,
     value: bool.isRequired,
   }
 
   render () {
+    const { label, name, onClick, value } = this.props;
     return (
-      <span className="checkbox" onClick={() => this.props.onClick(!this.props.value)}>
-        <input checked={this.props.value} readOnly={true} type="checkbox" />
-        <label>{ this.props.label }</label>
+      <span className="checkbox" onClick={() => onClick(!value)}>
+        <input checked={value} name={name} readOnly={true} type="checkbox" />
+        <label>{ label }</label>
       </span>
     );
   }

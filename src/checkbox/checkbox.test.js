@@ -4,6 +4,7 @@ import Checkbox from './checkbox.component';
 
 const createProps = () => ({
   label: 'Chubby',
+  name: 'checkbox-for-chubby',
   onClick: jest.fn(),
   value: false,
 });
