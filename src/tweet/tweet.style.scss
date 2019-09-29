@@ -1,20 +1,41 @@
+@mixin MobileView() {
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+
+  .index {
+    display: none;
+  }
+
+  .mobile-index {
+    display: inherit;
+  }
+
+  .metadata {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    .device {
+      display: none;
+    }
+  }
+
+  .text {
+    background: white;
+    padding: 10px;
+    border: 1px solid;
+  }
+}
+
 .tweet {
   align-items: flex-start;
   display: flex;
   margin-bottom: 10px;
 
-  @media all and (max-width: 900px) {
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-  }
-
   .index {
     margin-right: 5px;
     min-width: 30px;
-
-    @media all and (max-width: 900px) {
-      display: none;
-    }
   }
 
   .metadata {
@@ -24,25 +45,9 @@
     margin-bottom: 5px;
     min-width: 200px;
 
-    @media all and (max-width: 900px) {
-      flex-direction: row;
-      display: flex;
-      // background: #fff0ea;
-      align-items: center;
-      width: 100%;
-
-      .device {
-        display: none;
-      }
-    }
-
     .mobile-index {
       display: none;
       margin-right: 2px;
-
-      @media all and (max-width: 900px) {
-        display: inherit;
-      }
     }
 
     > span {
@@ -63,11 +68,11 @@
     }
   }
 
-  .text {
-    @media all and (max-width: 900px) {
-      background: white;
-      padding: 10px;
-      border: 1px solid;
-    }
+  @media all and (max-width: 900px) {
+    @include MobileView;
+  }
+
+  &.mobileView {
+    @include MobileView;
   }
 }

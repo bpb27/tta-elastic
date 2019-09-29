@@ -1,16 +1,18 @@
 import React from 'react';
-import { utcTimestampToEST } from 'utils/date';
 import { ReactiveList } from '@appbaseio/reactivesearch';
+import Tweet from 'components/tweet';
 import './latest-tweets.style.scss';
 
 export default class LatestTweets extends React.Component {
-  tweet (data) {
-    return (
-      <p key={data.id}>
-        <span>{ utcTimestampToEST(data.date) }</span>
-        <span>{ data.text }</span>
-      </p>
-    );
+  tweets (results) {
+    return results.data.map((item, i) => (
+      <Tweet
+        data={item}
+        index={i + 1}
+        key={item.id}
+        mobileView={true}
+      />
+    ));
   }
 
   render () {
@@ -21,7 +23,7 @@ export default class LatestTweets extends React.Component {
           dataField="text"
           infiniteScroll={false}
           pagination={true}
-          renderItem={this.tweet.bind(this)}
+          render={this.tweets.bind(this)}
           showResultStats={false}
           size={10}
           sortOptions={[

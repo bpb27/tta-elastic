@@ -18,19 +18,22 @@ export default class Tweet extends Component {
       text: string.isRequired,
     }),
     index: number.isRequired,
+    mobileView: bool,
     search: string,
   }
 
   static defaultProps = {
+    mobileView: false,
     search: '',
   }
 
   render () {
-    const { data, index, search } = this.props;
+    const { data, index, mobileView, search } = this.props;
     const { date, device, favorites, id, retweets, text } = data;
+    const className = `tweet ${mobileView ? 'mobileView' : ''}`;
 
     return (
-      <div className="tweet" key={id}>
+      <div className={className} key={id}>
         <div className="index">
           { index }.
         </div>
