@@ -5,8 +5,8 @@ import './icon.style.scss';
 export default class Icon extends React.Component {
   static propTypes = {
     className: string,
+    name: string.isRequired,
     onClick: func,
-    name: string,
   }
 
   static defaultProps = {

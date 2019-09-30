@@ -1,20 +1,14 @@
 import React from 'react';
 import TweetLink from 'components/tweet-link';
-import './staff.style.scss';
+import List from '../list';
 
 export default class Staff extends React.Component {
-  state = {
-    showEmbedded: false,
-  }
-
   render () {
     return (
-      <div className="listStaff">
-        <button onClick={() => this.setState({ showEmbedded: !this.state.showEmbedded })}>Show</button>
-        <h1>Bad hires</h1>
+      <List header="Bad hires">
         <div>
           <h3>Jerome Powell (Fed Chairman)</h3>
-          <TweetLink showEmbedded={this.state.showEmbedded} id="926216279287042048" text="Today, it was my pleasure and great honor to announce my nomination of Jerome Powell to be the next Chairman of the @FederalReserve."/>
+          <TweetLink id="926216279287042048" text="Today, it was my pleasure and great honor to announce my nomination of Jerome Powell to be the next Chairman of the @FederalReserve."/>
           <TweetLink id="1156666164732473345" text="As usual, Powell let us down"/>
           <TweetLink id="1161687635426983937" text="Jay Powell made TWO enormous mistakes"/>
           <TweetLink id="1161719409804808193" text="clueless Jay Powell"/>
@@ -71,7 +65,7 @@ export default class Staff extends React.Component {
           <h3>Michael Flynn (National security adviser)</h3>
           <TweetLink id="937007006526959618" text="I had to fire General Flynn because he lied to the Vice President and the FBI. He has pled guilty to those lies."/>
         </div>
-      </div>
+      </List>
     );
   }
 }
