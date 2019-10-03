@@ -9,9 +9,9 @@ export default class Main extends React.Component {
     return (
       <div id="main-page">
         <h2>Latest tweets</h2>
-        <LatestTweets />
-        <ListDog />
-        <ListStaff />
+        <LatestTweets/>
+        <ListDog/>
+        <ListStaff/>
       </div>
     );
   }
