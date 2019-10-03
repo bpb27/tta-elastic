@@ -156,7 +156,7 @@ describe('Tweet utils', () => {
     });
 
     it('replaces the html entity ampersand with a real ampersand', () => {
-      expect(parseText('this &amp; that')).toEqual('this & that');
+      expect(parseText('this &amp; that &amp; them')).toEqual('this & that & them');
     });
   });
 });

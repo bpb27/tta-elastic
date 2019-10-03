@@ -25,7 +25,7 @@ export default class LatestTweets extends React.Component {
           pagination={true}
           render={this.tweets.bind(this)}
           showResultStats={false}
-          size={10}
+          size={5}
           sortOptions={[
             { dataField: 'date', label: 'Latest', sortBy: 'desc'},
           ]}

@@ -25,3 +25,13 @@ tweets about policy
 - almost nothing about education, look at what 2016 candidates say
 
 https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-simple-query-string-query.html
+
+graphs of past 20 years:
+- employment rate
+- median income
+- poverty rate
+- inequality (gini)
+- us debt growth
+- household debt?
+- student debt?
+- cost of college?

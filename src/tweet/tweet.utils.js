@@ -13,7 +13,7 @@ export const parseQuery = (query = '') => {
 
 export const parseText = (text = '') => {
   return text
-    .replace('&amp;', '&'); // replace html entity ampersand with actual ampersand
+    .replace(/&amp;/g, '&'); // replace html entity ampersand with actual ampersand
 };
 
 export default {
