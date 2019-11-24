@@ -1,6 +1,7 @@
 import React from 'react';
 import { func } from 'prop-types';
 import ExternalLink from 'components/external-link';
+import Icon from 'components/icon';
 import './tips.style.scss';
 
 export default class Tips extends React.Component {
@@ -13,7 +14,7 @@ export default class Tips extends React.Component {
       <div className="tips">
         <header>
           <h2>Search Tips</h2>
-          <button onClick={this.props.closeModal}>x</button>
+          <Icon name="CLOSE_BUTTON" onClick={this.props.closeModal} />
         </header>
         <main>
           <section>

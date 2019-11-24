@@ -1,9 +1,18 @@
+@import "src/variables.scss";
+
 .tips {
+  background: white;
+  border-left: 2px solid $black;
+  border-bottom: 2px solid $black;
+  box-shadow: -5px 7px #45454533;
   padding: 20px;
-  width: 400px;
+  position: fixed;
+  right: 0;
+  top: $navbar-height;
+  z-index: 2;
 
   @media all and (max-width: 400px) {
-    width: 300px;
+    width: 100%;
   }
 
   header {

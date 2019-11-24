@@ -1,6 +1,7 @@
 import React from 'react';
 import { func, shape, string } from 'prop-types';
 import { twoDaysFromNow } from 'utils/date';
+import Tips from 'components/pages/tips';
 import Tweet from 'components/tweet';
 import Checkbox from 'components/checkbox';
 import {
@@ -27,6 +28,7 @@ export default class Search extends React.Component {
     showDateRange: false,
     showDeviceDropdown: false,
     showRetweetButtons: false,
+    showTips: false,
   }
 
   tweets (results) {
@@ -51,10 +53,12 @@ export default class Search extends React.Component {
       showDeviceDropdown,
       showDateRange,
       showRetweetButtons,
+      showTips,
     } = this.state;
 
     return (
       <div id="search-page">
+        { showTips && <Tips closeModal={() => this.setState({ showTips: false })} /> }
         <DataSearch
           autosuggest={false}
           className="searchbox"
@@ -107,8 +111,8 @@ export default class Search extends React.Component {
             <Checkbox
               label="Tips"
               name="show-search-tips"
-              value={this.props.location.pathname.includes('tips')}
-              onClick={() => this.props.history.push('/search/tips')}
+              value={showTips}
+              onClick={showTips => this.setState({ showTips })}
             />
             <Checkbox
               label="Device"
