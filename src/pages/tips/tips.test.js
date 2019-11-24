@@ -17,7 +17,7 @@ describe('Tips', () => {
   it('closes modal when clicking the x button', () => {
     const props = createProps();
     const wrapper = shallow(<Tips {...props} />);
-    wrapper.find('button').simulate('click');
+    wrapper.find('Icon').simulate('click');
     expect(props.closeModal).toHaveBeenCalledTimes(1);
   });
 });

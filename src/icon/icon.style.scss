@@ -1,8 +1,10 @@
+@import "src/variables.scss";
+
 .icon {
   display: inline-block;
 
   > svg {
-    fill: #424242;
+    fill: $black;
   }
 
   &.pointer {
