@@ -4,7 +4,6 @@ deleted
 
 improvements:
 1. highlighting - "I am" does a terrible job
-1. make tips a side panel
 2. better results (and no results) view
 3. better searching (e.g. "low rating" && "low-rated")
 4. clear filter button

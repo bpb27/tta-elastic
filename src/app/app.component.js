@@ -10,10 +10,7 @@ export default class App extends React.Component {
   render () {
     return (
       <div className="app">
-        <ReactiveBase
-          app="tweets"
-          url="https://public-key:mfpzsrhddvm7f54ctotnjbhqczu0z35t@thorin-us-east-1.searchly.com"
-        >
+        <ReactiveBase app="tweets" url="https://public-key:mfpzsrhddvm7f54ctotnjbhqczu0z35t@thorin-us-east-1.searchly.com">
           <BrowserRouter>
             <Navbar />
             <Switch>
