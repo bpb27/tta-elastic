@@ -1,6 +1,10 @@
 .icon {
   display: inline-block;
 
+  > svg {
+    fill: #424242;
+  }
+
   &.pointer {
     cursor: pointer;
   }

@@ -34,7 +34,7 @@ describe('TweetLink', () => {
   test('renders an embedded tweet', () => {
     const props = { ...createProps(), showEmbedded: true };
     const wrapper = shallow(<TweetLink {...props}><h1>Smore</h1></TweetLink>);
-    const children = wrapper.find('EmbeddedTweet');
+    const children = wrapper.find('TwitterTweetEmbed');
     expect(children.exists()).toEqual(true);
   });
 });
