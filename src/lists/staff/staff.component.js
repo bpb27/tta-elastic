@@ -1,4 +1,5 @@
 import React from 'react';
+import { TwitterTweetEmbed } from 'react-twitter-embed';
 import TweetLink from 'components/tweet-link';
 import List from '../list';
 
@@ -7,8 +8,16 @@ export default class Staff extends React.Component {
     return (
       <List header="Bad hires">
         <div>
+          <h3>Rex Tillerson (Secretary of State)</h3>
+          <TwitterTweetEmbed tweetId="808638507161882624" />
+          {/* <TweetLink id="808638507161882624" text="I have chosen one of the truly great business leaders of the world, Rex Tillerson, Chairman and CEO of ExxonMobil, to be Secretary of State. "/> */}
+          <TweetLink id="1131537528736100352" text="Rex Tillerson, a man who is dumb as a rock and totally ill prepared and ill equipped to be Secretary of State..."/>
+          <TweetLink id="1071132880368132096" text="Rex Tillerson, didn’t have the mental capacity needed. He was dumb as a rock and I couldn’t get rid of him fast enough. He was lazy as hell."/>
+        </div>
+        <div>
           <h3>Jerome Powell (Fed Chairman)</h3>
-          <TweetLink id="926216279287042048" text="Today, it was my pleasure and great honor to announce my nomination of Jerome Powell to be the next Chairman of the @FederalReserve."/>
+          <TwitterTweetEmbed tweetId="926216279287042048" />
+          {/* <TweetLink id="926216279287042048" text="Today, it was my pleasure and great honor to announce my nomination of Jerome Powell to be the next Chairman of the @FederalReserve."/> */}
           <TweetLink id="1156666164732473345" text="As usual, Powell let us down"/>
           <TweetLink id="1161687635426983937" text="Jay Powell made TWO enormous mistakes"/>
           <TweetLink id="1161719409804808193" text="clueless Jay Powell"/>
@@ -21,7 +30,8 @@ export default class Staff extends React.Component {
         </div>
         <div>
           <h3>Jeff Sessions (Attorney General)</h3>
-          <TweetLink id="829496507841789952" text="Congratulations to our new Attorney General, @SenatorSessions!"/>
+          <TwitterTweetEmbed tweetId="829496507841789952" />
+          {/* <TweetLink id="829496507841789952" text="Congratulations to our new Attorney General, @SenatorSessions!"/> */}
           <TweetLink id="889790429398528000" text="Attorney General Jeff Sessions has taken a VERY weak position on Hillary Clinton crimes"/>
           <TweetLink id="890207082926022656" text="Why didn't A.G. Sessions replace Acting FBI Director Andrew McCabe"/>
           <TweetLink id="968856971075051521" text="Why is A.G. Jeff Sessions asking the Inspector General to investigate potentially massive FISA abuse...DISGRACEFUL!"/>
@@ -33,19 +43,9 @@ export default class Staff extends React.Component {
           <TweetLink id="1104122208316612608" text="Sessions didn’t have a clue!"/>
         </div>
         <div>
-          <h3>Don McGahn (White House counsel)</h3>
-          <TweetLink id="1127342552745762816" text="Never a big fan!"/>
-        </div>
-        <div>
-          <h3>Rex Tillerson (Secretary of State)</h3>
-          <TweetLink id="808638507161882624" text="I have chosen one of the truly great business leaders of the world, Rex Tillerson, Chairman and CEO of ExxonMobil, to be Secretary of State. "/>
-          <TweetLink id="808653723639697408" text="The thing I like best about Rex Tillerson is that he has vast experience at dealing successfully with all types of foreign governments."/>
-          <TweetLink id="1131537528736100352" text="Rex Tillerson, a man who is dumb as a rock and totally ill prepared and ill equipped to be Secretary of State..."/>
-          <TweetLink id="1071132880368132096" text="Rex Tillerson, didn’t have the mental capacity needed. He was dumb as a rock and I couldn’t get rid of him fast enough. He was lazy as hell."/>
-        </div>
-        <div>
           <h3>Omarosa (Director of communications for the White House Office of Public Liaison)</h3>
-          <TweetLink id="630807186663415808" text="@OMAROSA You were fantastic on television this weekend. Thank you so much – you are a loyal friend!"/>
+          <TwitterTweetEmbed tweetId="630807186663415808" />
+          {/* <TweetLink id="630807186663415808" text="@OMAROSA You were fantastic on television this weekend. Thank you so much – you are a loyal friend!"/> */}
           <TweetLink id="1029183344397955074" text="Wacky and Deranged Omarosa..."/>
           <TweetLink id="1167783720021123073" text="Disgusting and foul mouthed Omarosa...I gave her every break, despite the fact that she was despised by everyone..."/>
           <TweetLink id="1028996374174593025" text="She begged me for a job, tears in her eyes, I said Ok. People in the White House hated her. She was vicious, but not smart."/>
@@ -53,7 +53,8 @@ export default class Staff extends React.Component {
         </div>
         <div>
           <h3>Steve Bannon (Chief strategist)</h3>
-          <TweetLink id="898870621584596993" text="I want to thank Steve Bannon for his service. He came to the campaign during my run against Crooked Hillary Clinton - it was great! Thanks S"/>
+          <TwitterTweetEmbed tweetId="898870621584596993" />
+          {/* <TweetLink id="898870621584596993" text="I want to thank Steve Bannon for his service. He came to the campaign during my run against Crooked Hillary Clinton - it was great! Thanks S"/> */}
           <TweetLink id="949498795074736129" text="Sloppy Steve Bannon, who cried when he got fired and begged for his job. Now Sloppy Steve has been dumped like a dog by almost everyone. Too bad!"/>
         </div>
         <div>
@@ -63,7 +64,12 @@ export default class Staff extends React.Component {
         </div>
         <div>
           <h3>Michael Flynn (National security adviser)</h3>
+          <TwitterTweetEmbed tweetId="756697615509688320" />
           <TweetLink id="937007006526959618" text="I had to fire General Flynn because he lied to the Vice President and the FBI. He has pled guilty to those lies."/>
+        </div>
+        <div>
+          <h3>Don McGahn (White House counsel)</h3>
+          <TweetLink id="1127342552745762816" text="Never a big fan!"/>
         </div>
       </List>
     );
