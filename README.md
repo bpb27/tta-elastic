@@ -3,10 +3,17 @@
 ### Setup
 1. `npm i`
 
-### Running
+### Running in dev
 1. `npm run dev`
-2. `npm run test`
+
+### Running in prod
+1. `npm run build`
+2. `npm start`
+
+### Test
+1. `npm run test`
 
 ### Resources
-[Heroku](https://dashboard.heroku.com/apps/trump-twitter-archive)
 [Site](https://trump-twitter-archive.herokuapp.com/)
+[Heroku](https://dashboard.heroku.com/apps/trump-twitter-archive)
+[Elastic Ref](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-simple-query-string-query.html)
