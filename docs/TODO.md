@@ -1,7 +1,3 @@
-turn off spellcheck
-retweet buttons
-deleted
-
 improvements:
 1. highlighting - "I am" does a terrible job
 2. better results (and no results) view
