@@ -31,6 +31,15 @@ export default class Search extends React.Component {
     showTips: false,
   }
 
+  clear () {
+    this.setState({
+      showDateRange: false,
+      showDeviceDropdown: false,
+      showRetweetButtons: false,
+      showTips: false,
+    }, () => this.props.history.push('/search'));
+  }
+
   tweets (results) {
     return (
       <StateProvider>
@@ -108,6 +117,7 @@ export default class Search extends React.Component {
             />
           )}
           <div className="toggles">
+            <button onClick={() => this.clear()}>Clear</button>
             <Checkbox
               label="Tips"
               name="show-search-tips"

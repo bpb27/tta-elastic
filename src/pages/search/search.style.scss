@@ -18,5 +18,13 @@
   .toggles {
     align-items: baseline;
     display: flex;
+
+    button {
+      align-items: center;
+      cursor: pointer;
+      display: inline-flex;
+      margin-right: 10px;
+      padding: 10px;
+    }
   }
 }
