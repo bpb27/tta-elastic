@@ -1,5 +1,22 @@
 .latestTweets {
-  // font-size: 12px;
+  h1 {
+    align-items: center;
+    display: flex;
+
+    > div {
+      align-items:  center;
+      cursor: pointer;
+      display: inline-flex;
+      margin-left: 5px;
+    }
+  }
+
+  .pagination {
+    button {
+      cursor: pointer;
+      padding: 10px;
+    }
+  }
 
   select {
     display: none;
