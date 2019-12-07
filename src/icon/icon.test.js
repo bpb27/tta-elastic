@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Icon from './icon.component';
+import Icon, { paths } from './icon.component';
 
 const createProps = () => ({
   name: 'CLOSE_BUTTON',
@@ -21,21 +21,41 @@ describe('Icon', () => {
     expect(element.exists()).toEqual(true);
   });
 
-  it('adds a pointer class name if passed an onClick hander', () => {
-    const props = { ...createProps(), onClick: jest.fn() };
-    const wrapper = shallow(<Icon {...props} />);
-    const element = wrapper.find('.pointer');
-    expect(element.exists()).toEqual(true);
+  describe('svg paths', () => {
+    it('correctly finds a known path', () => {
+      const props = createProps();
+      const wrapper = shallow(<Icon {...props} />);
+      const path = wrapper.find('path').props().d;
+      expect(path).toEqual(paths['CLOSE_BUTTON']);
+    });
+
+    it('throws an error on an unknown path', () => {
+      const props = { ...createProps(), name: 'NOT_A_REAL_PATH' };
+      try {
+        shallow(<Icon {...props} />);
+      } catch (e) {
+        expect(e.message).toEqual('Failed to render a "NOT_A_REAL_PATH" icon.');
+      }
+    });
   });
 
-  it('does not add a pointer class name if not passed an onClick hander', () => {
-    const props = { ...createProps(), onClick: undefined };
-    const wrapper = shallow(<Icon {...props} />);
-    const element = wrapper.find('.pointer');
-    expect(element.exists()).toEqual(false);
+  describe('pointer class', () => {
+    it('adds a pointer class if passed an onClick hander', () => {
+      const props = { ...createProps(), onClick: jest.fn() };
+      const wrapper = shallow(<Icon {...props} />);
+      const element = wrapper.find('.pointer');
+      expect(element.exists()).toEqual(true);
+    });
+
+    it('does not add a pointer class if not passed an onClick hander', () => {
+      const props = { ...createProps(), onClick: undefined };
+      const wrapper = shallow(<Icon {...props} />);
+      const element = wrapper.find('.pointer');
+      expect(element.exists()).toEqual(false);
+    });
   });
 
-  it('calls the onClick handler when clicked', () => {
+  it('calls the on click handler when clicked', () => {
     const props = { ...createProps(), onClick: jest.fn() };
     const wrapper = shallow(<Icon {...props} />);
     expect(props.onClick).toHaveBeenCalledTimes(0);
@@ -43,26 +63,11 @@ describe('Icon', () => {
     expect(props.onClick).toHaveBeenCalledTimes(1);
   });
 
-  describe('names', () => {
-    test('CLOSE_BUTTON', () => {
-      const props = { ...createProps(), name: 'CLOSE_BUTTON' };
-      const wrapper = shallow(<Icon {...props} />);
-      const element = wrapper.find('svg');
-      expect(element.exists()).toEqual(true);
-    });
-
-    test('DOWN_ARROW', () => {
-      const props = { ...createProps(), name: 'DOWN_ARROW' };
-      const wrapper = shallow(<Icon {...props} />);
-      const element = wrapper.find('svg');
-      expect(element.exists()).toEqual(true);
-    });
-
-    test('UP_ARROW', () => {
-      const props = { ...createProps(), name: 'UP_ARROW' };
-      const wrapper = shallow(<Icon {...props} />);
-      const element = wrapper.find('svg');
-      expect(element.exists()).toEqual(true);
-    });
+  it('sets the size', () => {
+    const props = { ...createProps(), size: 16 };
+    const wrapper = shallow(<Icon {...props} />);
+    const { height, width } = wrapper.find('svg').props();
+    expect(height).toEqual('16px');
+    expect(width).toEqual('16px');
   });
 });

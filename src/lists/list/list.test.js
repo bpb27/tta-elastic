@@ -33,7 +33,7 @@ describe('List', () => {
     const props = createProps();
     const wrapper = shallow(<List {...props}><p>Trump</p></List>);
     const iconName = wrapper.find('Icon').props().name;
-    expect(iconName).toEqual('DOWN_ARROW');
+    expect(iconName).toEqual('MINUS_CIRCLE');
   });
 
   it('toggles to the up arrow icon', () => {
@@ -41,7 +41,7 @@ describe('List', () => {
     const wrapper = shallow(<List {...props}><p>Trump</p></List>);
     wrapper.find('Icon').simulate('click');
     const iconName = wrapper.find('Icon').props().name;
-    expect(iconName).toEqual('UP_ARROW');
+    expect(iconName).toEqual('PLUS_CIRCLE');
   });
 
   it('toggles showing the child content when clicked', () => {

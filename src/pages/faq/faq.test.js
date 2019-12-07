@@ -2,15 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Faq from './faq.component';
 
-const createProps = () => ({
-
-});
-
-describe('Faq', () => {
+describe('FAQ page', () => {
   it('renders', () => {
-    const props = createProps();
-    const wrapper = shallow(<Faq {...props} />);
-    const element = wrapper.find('.faq');
+    const wrapper = shallow(<Faq/>);
+    const element = wrapper.find('#faq-page');
     expect(element.exists()).toEqual(true);
   });
 });

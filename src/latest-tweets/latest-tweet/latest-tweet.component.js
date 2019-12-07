@@ -19,13 +19,14 @@ export default class LatestTweet extends React.Component {
     const { data, embedded } = this.props;
     const { date, id, text } = data;
 
-    if (embedded) return <TwitterTweetEmbed key={id} tweetId={id} />;
+    if (embedded) {
+      return <TwitterTweetEmbed key={id} tweetId={id} />;
+    }
+
     return (
       <div className="latestTweet" key={id}>
         <p>
-          <ExternalLink href={`https://twitter.com/realdonaldtrump/status/${id}`}>
-            { utcTimestampToEST(date) }
-          </ExternalLink>
+          <ExternalLink id={id}>{ utcTimestampToEST(date) }</ExternalLink>
           {' - '}
           { text }
         </p>
