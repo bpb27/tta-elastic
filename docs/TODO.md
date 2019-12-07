@@ -1,8 +1,6 @@
 improvements:
-1. highlighting - "I am" does a terrible job
+1. highlighting - "I am" and  "low rating" + "low-rated" (meh)
 2. better results (and no results) view
-3. better searching (e.g. "low rating" && "low-rated")
-4. some weirdness around using the check box toggles + updating query params
 
 features:
 1. quick search with suggestions on the home page
@@ -10,4 +8,6 @@ features:
 3. cached stats
 4. alert on API failure
 5. acceptance test
-6. render as tweet
+6. puppeteer scraper open sourced
+7. set a top-level variable so anyone can setup an archive of any leader
+8. heroku + deploy instructions

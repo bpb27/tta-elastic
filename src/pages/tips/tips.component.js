@@ -9,7 +9,12 @@ export default class Tips extends React.Component {
     closeModal: func.isRequired,
   }
 
+  get pipe () {
+    return <span className="pipe">|</span>;
+  }
+
   render () {
+    const pipe = this.pipe;
     return (
       <div className="tips">
         <header>
@@ -22,24 +27,36 @@ export default class Tips extends React.Component {
             <span>tweet contains the exact word <em>loser</em></span>
           </section>
           <section>
-            <span>loser | losers</span>
-            <span>tweet contains the exact word <em>loser</em> or the exact word <em>losers</em></span>
+            <span>losers haters</span>
+            <span>tweet contains the exact word <em>losers</em> AND the exact word <em>haters</em> (in any order)</span>
           </section>
           <section>
-            <span>losers + haters</span>
-            <span>tweet contains the exact word <em>losers</em> and the exact word <em>haters</em> in any order</span>
+            <span>loser { pipe } losers</span>
+            <span>tweet contains the exact word <em>loser</em> OR the exact word <em>losers</em></span>
+          </section>
+          <section>
+            <span>loser*</span>
+            <span>tweet contains a word that starts with <em>loser</em>, such as <em>loser</em>, <em>losers</em>, <em>loserriffic</em>, etc.</span>
+          </section>
+          <section>
+            <span>losers -haters</span>
+            <span>tweet contains the exact word <em>losers</em> AND not the exact word <em>haters</em> (in any order)</span>
           </section>
           <section>
             <span>"losers and haters"</span>
-            <span>tweet contains the exact phrase <em>losers and haters</em> (use double quotes for an exact phrase)</span>
+            <span>tweet contains the exact phrase <em>losers and haters</em> (use double quotes)</span>
           </section>
           <section>
-            <span>win*</span>
-            <span>tweet contains a word that starts with <em>win</em>, such as win, winner, window, winning, etc.</span>
+            <span>"losers and haters" { pipe } "haters and losers"</span>
+            <span>tweet contains the exact phrase <em>losers and haters</em> OR <em>haters and losers</em></span>
+          </section>
+          <section>
+            <span>"losers and haters" + "my I.Q."</span>
+            <span>tweet contains the exact phrase <em>losers and haters</em> AND <em>my I.Q.</em></span>
           </section>
         </main>
         <footer>
-          <h6>This site uses Elastic Search. You can read some dense documentation about how to use it <ExternalLink href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-simple-query-string-query.html#_simple_query_string_syntax" title="View advanced search documentation on the Elastic Search website">here</ExternalLink>.</h6>
+          <h6>This site uses Elastic Search. You can read some dense documentation about how to use it <ExternalLink href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-simple-query-string-query.html#simple-query-string-query-notes" title="View advanced search documentation on the Elastic Search website">here</ExternalLink>.</h6>
         </footer>
       </div>
     );
