@@ -20,9 +20,9 @@ export default class List extends React.Component {
 
   get icon () {
     if (this.state.isShowing) {
-      return <Icon name="DOWN_ARROW" onClick={() => this.setState({ isShowing: false })}/>;
+      return <Icon name="MINUS_CIRCLE" onClick={() => this.setState({ isShowing: false })}/>;
     } else {
-      return <Icon name="UP_ARROW" onClick={() => this.setState({ isShowing: true })}/>;
+      return <Icon name="PLUS_CIRCLE" onClick={() => this.setState({ isShowing: true })}/>;
     }
   }
 
@@ -30,8 +30,8 @@ export default class List extends React.Component {
     return (
       <div className={`list ${this.props.className}`}>
         <header>
-          <h1>{ this.props.header }</h1>
           { this.icon }
+          <h1>{ this.props.header }</h1>
         </header>
         <div>
           { this.state.isShowing ? this.props.children : null }

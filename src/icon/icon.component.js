@@ -1,5 +1,5 @@
 import React from 'react';
-import { func, string } from 'prop-types';
+import { func, number, string } from 'prop-types';
 import './icon.style.scss';
 
 export default class Icon extends React.Component {
@@ -7,10 +7,12 @@ export default class Icon extends React.Component {
     className: string,
     name: string.isRequired,
     onClick: func,
+    size: number,
   }
 
   static defaultProps = {
     className: '',
+    size: 24,
   }
 
   get className () {
@@ -23,6 +25,8 @@ export default class Icon extends React.Component {
       case 'CLOSE_BUTTON': return CLOSE_BUTTON;
       case 'DOWN_ARROW': return DOWN_ARROW;
       case 'HEART': return HEART;
+      case 'MINUS_CIRCLE': return MINUS_CIRCLE;
+      case 'PLUS_CIRCLE': return PLUS_CIRCLE;
       case 'RETWEET': return RETWEET;
       case 'TWITTER': return TWITTER;
       case 'UP_ARROW': return UP_ARROW;
@@ -36,9 +40,10 @@ export default class Icon extends React.Component {
   }
 
   render () {
+    const { size } = this.props;
     return (
       <div className={this.className} onClick={this.handleClick.bind(this)}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <svg xmlns="http://www.w3.org/2000/svg" width={`${size}px`} height={`${size}px`} viewBox="0 0 24 24">
           <path d={this.path}/>
         </svg>
       </div>
@@ -51,6 +56,10 @@ const CLOSE_BUTTON = 'M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-1
 const DOWN_ARROW = 'M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z';
 
 const HEART = 'M17.516 3c2.382 0 4.487 1.564 4.487 4.712 0 4.963-6.528 8.297-10.003 11.935-3.475-3.638-10.002-6.971-10.002-11.934 0-3.055 2.008-4.713 4.487-4.713 3.18 0 4.846 3.644 5.515 5.312.667-1.666 2.333-5.312 5.516-5.312zm0-2c-2.174 0-4.346 1.062-5.516 3.419-1.17-2.357-3.342-3.419-5.515-3.419-3.403 0-6.484 2.39-6.484 6.689 0 7.27 9.903 10.938 11.999 15.311 2.096-4.373 12-8.041 12-15.311 0-4.586-3.414-6.689-6.484-6.689z';
+
+const PLUS_CIRCLE = 'M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z';
+
+const MINUS_CIRCLE = 'M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-12v-2h12v2z';
 
 const RETWEET = 'M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3 11v4h2.953l1.594 2h-6.547v-6h-2l3-4 3 4h-2zm6 2v-4h-2.922l-1.594-2h6.516v6h2l-3 4-3-4h2z';
 
