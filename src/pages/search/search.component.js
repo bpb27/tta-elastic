@@ -37,7 +37,10 @@ export default class Search extends React.Component {
       showDeviceDropdown: false,
       showRetweetButtons: false,
       showTips: false,
-    }, () => this.props.history.push('/search'));
+    }, () => {
+      this.props.history.push('/search');
+      location.reload(true); // can't quite figure out how to force DataSearch to refetch, so doing this non-ideal move
+    });
   }
 
   tweets (results) {

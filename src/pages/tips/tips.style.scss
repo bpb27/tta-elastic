@@ -2,9 +2,11 @@
 
 .tips {
   background: white;
-  border-left: 2px solid #a5a2a2;
-  border-bottom: 2px solid #a5a2a2;
+  border-left: 2px solid #a5a2a29e;
+  border-bottom: 2px solid #a5a2a29e;
   box-shadow: -5px 6px #45454533;
+  height: 100%;
+  overflow-y: scroll;
   padding: 20px;
   position: fixed;
   right: 0;
@@ -46,6 +48,14 @@
         font-style: italic;
         margin-bottom: 5px;
         padding: 4px 8px;
+
+        .pipe {
+          border: none;
+          display: inline-block;
+          font-style: normal;
+          margin: 0;
+          padding: 0;
+        }
       }
     }
   }
