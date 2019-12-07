@@ -3,6 +3,7 @@
     align-items: center;
     display: flex;
 
+    // twitter icon
     > div {
       align-items:  center;
       cursor: pointer;
@@ -11,13 +12,7 @@
     }
   }
 
-  .pagination {
-    button {
-      cursor: pointer;
-      padding: 10px;
-    }
-  }
-
+  // hide reactive sorting
   select {
     display: none;
   }

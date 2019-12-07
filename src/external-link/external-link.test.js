@@ -19,6 +19,14 @@ describe('ExternalLink', () => {
     expect(url).toEqual('http://google.com');
   });
 
+  it('renders a url to a trump tweet if passed an id prop', () => {
+    const wrapper = shallow(
+      <ExternalLink className="link" id="1">Some trump shit</ExternalLink>
+    );
+    const title = wrapper.props().href;
+    expect(title).toEqual('https://twitter.com/realdonaldtrump/status/1');
+  });
+
   it('renders children', () => {
     const wrapper = shallow(
       <ExternalLink href="http://google.com">Google</ExternalLink>

@@ -2,6 +2,7 @@ import React from 'react';
 import { ReactiveList } from '@appbaseio/reactivesearch';
 import Icon from 'components/icon';
 import LatestTweet from './latest-tweet';
+import Pagination from './pagination';
 import './latest-tweets.style.scss';
 
 export default class LatestTweets extends React.Component {
@@ -9,27 +10,15 @@ export default class LatestTweets extends React.Component {
     embedded: false,
   }
 
-  pagination ({  currentPage, setPage, totalPages }) {
-    return (
-      <div className="pagination">
-        <button disabled={currentPage - 1 < 0} onClick={() => setPage(currentPage - 1)}>Prev</button>
-        <button disabled={currentPage + 1 > totalPages } onClick={() => setPage(currentPage + 1)}>Next</button>
-      </div>
-    );
-  }
-
-  tweets (results) {
-    return results.data.map(data => <LatestTweet data={data} key={data.id} embedded={this.state.embedded}/>);
-  }
-
   render () {
+    const { embedded } = this.state;
     return (
       <div className="latestTweets">
         <h1>
           Latest tweets
           <Icon
             name="TWITTER"
-            onClick={() => this.setState({ embedded: !this.state.embedded })}
+            onClick={() => this.setState({ embedded: !embedded })}
             size={30}
           />
         </h1>
@@ -38,13 +27,11 @@ export default class LatestTweets extends React.Component {
           dataField="text"
           infiniteScroll={false}
           pagination={true}
-          renderPagination={this.pagination.bind(this)}
-          render={this.tweets.bind(this)}
+          renderPagination={props => <Pagination {...props}/>}
+          renderItem={props => <LatestTweet data={props} key={props.id} embedded={embedded}/>}
           showResultStats={false}
           size={10}
-          sortOptions={[
-            { dataField: 'date', label: 'Latest', sortBy: 'desc'},
-          ]}
+          sortOptions={[{ dataField: 'date', label: 'Latest', sortBy: 'desc'}]}
         />
       </div>
     );
