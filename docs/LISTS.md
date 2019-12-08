@@ -14,13 +14,35 @@ Lists:
 
 Mentions:
 - jobs
+  - job* | worker* | manufact* | factory | factories | employment | unemployment
+- dems
+  - obama | clinton | pelosi | schumer | democrat | democrats
+- trade
+  - trade | tariff* | WTO
 - education
+  - college* | school* | teacher* | tuition | student | "student debt" -electoral -poll
+- media
+  - "fake news" | media
+- stock market
+  - stock | nasdaq | dow
+- fox
+  - fox* | TuckerCarlson | SeanHannity | IngrahamAngle | JudgeJeanine | LouDobbs | SteveDoocy | kilmeade | GeraldoRivera | WattersWorld | jessebwatters
 - healthcare
-- impeachment / hoax / collusion
+  - healthcare | obamacare | medicare | medicaid | prescription | doctors | nurses | health
+- impeachment / mueller
+  - impeach* | russia* | hoax | collusion | mueller | schiff | quid | putin
 - climate change
+  - climate | warming
 - abortion
+  - roe | abortion
 - guns
+ - gun | guns | firearm* | nra | weapons -nuclear -mass -chemical
+ - the only time he says second amendement is in stock endorsements
+ - first mentioned the second amendment 11/07/17
+ - never once mentioned guns on twitter until after he was president
 - immigration
+  - immigrant* | immigration | wall | border | mexico
+- automation / globalization
 - insults
 
 Graphs (2000-2019):
@@ -65,14 +87,6 @@ Sections:
 - turning on people
 - stock endorsements / disses of candidates
 - racism
-
-
-Tech:
-- Advert on current site soliciting help
-- Button that renders plaintext as embedded tweet
-- Tooltips showing how number was calculated
-- Graph option on search page showing tweet frequency over time on a searched topic
-- Add Postgres DB + tags and admin CRUD screen for tagging
 
 More bad hires:
 - Cohen

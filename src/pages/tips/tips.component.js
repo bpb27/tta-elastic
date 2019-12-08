@@ -54,6 +54,10 @@ export default class Tips extends React.Component {
             <span>"losers and haters" + "my I.Q."</span>
             <span>tweet contains the exact phrase <em>losers and haters</em> AND <em>my I.Q.</em></span>
           </section>
+          <section>
+            <span>college* | tuition | "student debt" -electoral</span>
+            <span>tweet contains a word that starts with <em>college</em> OR the exact word <em>tuition</em> OR the exact phrase <em>student debt</em> AND does not contain the exact word <em>electoral</em></span>
+          </section>
         </main>
         <footer>
           <h6>This site uses Elastic Search. You can read some dense documentation about how to use it <ExternalLink href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-simple-query-string-query.html#simple-query-string-query-notes" title="View advanced search documentation on the Elastic Search website">here</ExternalLink>.</h6>

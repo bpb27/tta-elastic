@@ -1,6 +1,8 @@
 import React from 'react';
 import { func, shape, string } from 'prop-types';
+import { parseQuery } from 'utils/query';
 import { twoDaysFromNow } from 'utils/date';
+import Button from 'components/button';
 import Tips from 'components/pages/tips';
 import Tweet from 'components/tweet';
 import Checkbox from 'components/checkbox';
@@ -46,16 +48,17 @@ export default class Search extends React.Component {
   tweets (results) {
     return (
       <StateProvider>
-        { ({ searchState }) => (
-          results.data.map((item, i) => (
+        { ({ searchState }) => {
+          const searchWords = parseQuery(searchState.searchbox ? searchState.searchbox.value : '');
+          return results.data.map((item, i) => (
             <Tweet
               data={item}
               index={i + 1}
               key={item.id}
-              search={searchState.searchbox ? searchState.searchbox.value : ''}
+              searchWords={searchWords}
             />
-          ))
-        )}
+          ));
+        }}
       </StateProvider>
     );
   }
@@ -120,7 +123,7 @@ export default class Search extends React.Component {
             />
           )}
           <div className="toggles">
-            <button onClick={() => this.clear()}>Clear</button>
+            <Button onClick={() => this.clear()}>Clear</Button>
             <Checkbox
               label="Tips"
               name="show-search-tips"

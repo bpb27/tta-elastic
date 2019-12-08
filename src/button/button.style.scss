@@ -1,0 +1,18 @@
+@import "src/variables.scss";
+
+.button {
+  background: transparent;
+  border-radius: 2px;
+  border: 2px solid $black;
+  color: $black;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 0;
+  padding: 10px;
+
+  &:disabled {
+    border: 2px solid #a2a2a2;
+    color: #a2a2a2;
+    cursor: not-allowed;
+  }
+}

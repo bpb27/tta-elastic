@@ -1,5 +1,6 @@
 import React from 'react';
 import { func, number } from 'prop-types';
+import Button from 'components/button';
 import './pagination.style.scss';
 
 export default class Pagination extends React.Component {
@@ -17,8 +18,8 @@ export default class Pagination extends React.Component {
 
     return (
       <div className="pagination">
-        <button disabled={prevDisabled} onClick={() => setPage(currentPage - 1)}>Prev</button>
-        <button disabled={nextDisabled} onClick={() => setPage(currentPage + 1)}>Next</button>
+        <Button disabled={prevDisabled} onClick={() => setPage(currentPage - 1)}>Prev</Button>
+        <Button disabled={nextDisabled} onClick={() => setPage(currentPage + 1)}>Next</Button>
       </div>
     );
   }
