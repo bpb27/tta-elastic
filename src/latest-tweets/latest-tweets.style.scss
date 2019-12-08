@@ -1,17 +1,4 @@
 .latestTweets {
-  h1 {
-    align-items: center;
-    display: flex;
-
-    // twitter icon
-    > div {
-      align-items:  center;
-      cursor: pointer;
-      display: inline-flex;
-      margin-left: 5px;
-    }
-  }
-
   // hide reactive sorting
   select {
     display: none;

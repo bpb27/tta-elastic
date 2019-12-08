@@ -1,7 +1,8 @@
 import React from 'react';
 import { ReactiveList } from '@appbaseio/reactivesearch';
-import Icon from 'components/icon';
+import Button from 'components/button';
 import LatestTweet from './latest-tweet';
+import List from 'components/lists/list';
 import Pagination from './pagination';
 import './latest-tweets.style.scss';
 
@@ -13,15 +14,10 @@ export default class LatestTweets extends React.Component {
   render () {
     const { embedded } = this.state;
     return (
-      <div className="latestTweets">
-        <h1>
-          Latest tweets
-          <Icon
-            name="TWITTER"
-            onClick={() => this.setState({ embedded: !embedded })}
-            size={30}
-          />
-        </h1>
+      <List className="latestTweets" header="Latest tweets">
+        <Button onClick={() => this.setState({ embedded: !embedded})}>
+          Render as tweets
+        </Button>
         <ReactiveList
           componentId="results"
           dataField="text"
@@ -33,7 +29,7 @@ export default class LatestTweets extends React.Component {
           size={10}
           sortOptions={[{ dataField: 'date', label: 'Latest', sortBy: 'desc'}]}
         />
-      </div>
+      </List>
     );
   }
 }

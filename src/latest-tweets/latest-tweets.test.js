@@ -16,7 +16,7 @@ describe('LatestTweets', () => {
     const props = createProps();
     const wrapper = shallow(<LatestTweets {...props} />);
     const previousEmbeddedState = wrapper.state().embedded;
-    wrapper.find('Icon').simulate('click');
+    wrapper.find('Button').simulate('click');
     const currentEmbeddedState = wrapper.state().embedded;
     expect(previousEmbeddedState).toEqual(false);
     expect(currentEmbeddedState).toEqual(true);

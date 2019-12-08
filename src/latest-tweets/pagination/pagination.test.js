@@ -19,7 +19,7 @@ describe('Pagination', () => {
   it('calls prev when clicked', () => {
     const props = createProps();
     const wrapper = shallow(<Pagination {...props} />);
-    wrapper.find('button').first().simulate('click');
+    wrapper.find('Button').first().simulate('click');
     expect(props.setPage).toHaveBeenCalledTimes(1);
     expect(props.setPage).toHaveBeenCalledWith(2);
   });
@@ -27,7 +27,7 @@ describe('Pagination', () => {
   it('calls next when clicked', () => {
     const props = createProps();
     const wrapper = shallow(<Pagination {...props} />);
-    wrapper.find('button').last().simulate('click');
+    wrapper.find('Button').last().simulate('click');
     expect(props.setPage).toHaveBeenCalledTimes(1);
     expect(props.setPage).toHaveBeenCalledWith(4);
   });
@@ -35,14 +35,14 @@ describe('Pagination', () => {
   it('disables prev button', () => {
     const props = { ...createProps(), currentPage: 0 };
     const wrapper = shallow(<Pagination {...props} />);
-    const { disabled } = wrapper.find('button').first().props();
+    const { disabled } = wrapper.find('Button').first().props();
     expect(disabled).toEqual(true);
   });
 
   it('disables next button', () => {
     const props = { ...createProps(), currentPage: 5 };
     const wrapper = shallow(<Pagination {...props} />);
-    const { disabled } = wrapper.find('button').last().props();
+    const { disabled } = wrapper.find('Button').last().props();
     expect(disabled).toEqual(true);
   });
 });

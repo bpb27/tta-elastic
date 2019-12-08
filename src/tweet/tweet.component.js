@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { bool, number, shape, string } from 'prop-types';
+import { arrayOf, bool, number, shape, string } from 'prop-types';
 import ExternalLink from 'components/external-link';
 import Highlighter from 'react-highlight-words';
 import Icon from 'components/icon';
-import utils from './tweet.utils';
 import { utcTimestampToEST } from 'utils/date';
+import { formatNumber, replaceHTMLEntities } from 'utils/format';
 import './tweet.style.scss';
 
 export default class Tweet extends Component {
@@ -20,7 +20,7 @@ export default class Tweet extends Component {
     }),
     index: number.isRequired,
     mobileView: bool,
-    search: string,
+    searchWords: arrayOf(string).isRequired,
   }
 
   static defaultProps = {
@@ -29,7 +29,7 @@ export default class Tweet extends Component {
   }
 
   render () {
-    const { data, index, mobileView, search } = this.props;
+    const { data, index, mobileView, searchWords } = this.props;
     const { date, device, favorites, id, retweets, text } = data;
     const className = `tweet ${mobileView ? 'mobileView' : ''}`;
 
@@ -45,11 +45,11 @@ export default class Tweet extends Component {
           <span className="stats">
             <span>
               <Icon name="RETWEET"/>
-              { utils.formatNumber(retweets) }
+              { formatNumber(retweets) }
             </span>
             <span>
               <Icon name="HEART"/>
-              { utils.formatNumber(favorites) }
+              { formatNumber(favorites) }
             </span>
             <span>
               <ExternalLink id={id}>
@@ -61,8 +61,8 @@ export default class Tweet extends Component {
         <div className="text">
           <Highlighter
             autoEscape={true}
-            searchWords={utils.parseQuery(search)}
-            textToHighlight={utils.parseText(text)}
+            searchWords={searchWords}
+            textToHighlight={replaceHTMLEntities(text)}
           />
         </div>
       </div>
