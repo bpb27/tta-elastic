@@ -1,7 +1,7 @@
 import {
   twoDaysFromNow,
   utcTimestampToEST,
-} from './index';
+} from 'utils/date';
 
 describe('date utils', () => {
   describe('utcTimestampToEST', () => {

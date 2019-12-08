@@ -1,5 +1,6 @@
 import React from 'react';
 import { node, string } from 'prop-types';
+import { tweetLink } from 'utils/links';
 
 // for an external link to a trump tweet, just pass an id prop
 
@@ -18,11 +19,7 @@ export default class ExternalLink extends React.Component {
   }
 
   get href () {
-    if (this.props.id) {
-      return `https://twitter.com/realdonaldtrump/status/${this.props.id}`;
-    } else {
-      return this.props.href;
-    }
+    return this.props.id ? tweetLink(this.props.id) : this.props.href;
   }
 
   render () {

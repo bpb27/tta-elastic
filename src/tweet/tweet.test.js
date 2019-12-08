@@ -71,8 +71,8 @@ describe('Tweet', () => {
   it('renders link to twitter', () => {
     const props = createProps();
     const wrapper = shallow(<Tweet {...props} />);
-    const link = wrapper.find('ExternalLink').props().href;
-    expect(link).toEqual('https://twitter.com/realdonaldtrump/status/1');
+    const id = wrapper.find('ExternalLink').props().id;
+    expect(id).toEqual('1');
   });
 
   it('renders the text', () => {

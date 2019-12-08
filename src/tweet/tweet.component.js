@@ -52,7 +52,7 @@ export default class Tweet extends Component {
               { utils.formatNumber(favorites) }
             </span>
             <span>
-              <ExternalLink href={`https://twitter.com/realdonaldtrump/status/${id}`}>
+              <ExternalLink id={id}>
                 <Icon name="TWITTER"/>
               </ExternalLink>
             </span>

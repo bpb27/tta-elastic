@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { tweetLink } from 'utils/links';
 import ExternalLink from './external-link.component';
 
 describe('ExternalLink', () => {
@@ -23,8 +24,8 @@ describe('ExternalLink', () => {
     const wrapper = shallow(
       <ExternalLink className="link" id="1">Some trump shit</ExternalLink>
     );
-    const title = wrapper.props().href;
-    expect(title).toEqual('https://twitter.com/realdonaldtrump/status/1');
+    const url = wrapper.find('a').props().href;
+    expect(url).toEqual(tweetLink(1));
   });
 
   it('renders children', () => {
