@@ -13,15 +13,15 @@ describe('TweetLink', () => {
   test('link to the tweet', () => {
     const props = createProps();
     const wrapper = shallow(<TweetLink {...props} />);
-    const url = wrapper.find('a').props().href;
-    expect(url).toEqual('https://twitter.com/realDonaldTrump/status/1');
+    const id = wrapper.find('ExternalLink').props().id;
+    expect(id).toEqual('1');
   });
 
   test('renders text', () => {
     const props = createProps();
     const wrapper = shallow(<TweetLink {...props} />);
-    const text = wrapper.find('a').text();
-    expect(text).toEqual('"marshmellow cannon"');
+    const text = wrapper.find('ExternalLink').debug();
+    expect(text).toContain('marshmellow cannon');
   });
 
   test('renders children if passed (instead of text)', () => {
