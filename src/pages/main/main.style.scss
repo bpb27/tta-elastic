@@ -1,3 +1,8 @@
-.main {
-  padding: 10px;
+@import "src/variables.scss";
+
+#main-page {
+  .searchSuggestions {
+    // border: 2px solid $black;
+    // border-top: none;
+  }
 }

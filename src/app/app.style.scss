@@ -1,6 +1,9 @@
 @import "src/variables.scss";
 
-.app {
+body {
   background-color: #fbfeff;
+}
+
+.app {
   margin-top: $navbar-height;
 }

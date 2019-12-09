@@ -12,7 +12,7 @@ export default class Main extends React.Component {
       <div id="main-page">
         <DataSearch
           autosuggest={true}
-          className="search-suggestions"
+          className="searchSuggestions"
           componentId="search-suggestions"
           dataField="text"
           placeholder="Quick search..."

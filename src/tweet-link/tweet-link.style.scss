@@ -1,3 +1,5 @@
+@import "src/variables.scss";
+
 .tweetLink {
   color: black;
   cursor: pointer;
@@ -6,6 +8,6 @@
   text-decoration: none;
 
   span {
-    color: red;
+    color: $red;
   }
 }
