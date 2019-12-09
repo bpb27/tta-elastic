@@ -5,6 +5,7 @@ import './list.style.scss';
 
 export default class List extends React.Component {
   static propTypes = {
+    button: node,
     children: node.isRequired,
     className: string,
     header: string.isRequired,
@@ -31,7 +32,7 @@ export default class List extends React.Component {
       <div className={`list ${this.props.className}`}>
         <header>
           { this.icon }
-          <h1>{ this.props.header }</h1>
+          <h1>{ this.props.header }{ this.props.button }</h1>
         </header>
         <div>
           { this.state.isShowing ? this.props.children : null }
