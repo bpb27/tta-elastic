@@ -12,7 +12,7 @@ describe('LatestTweets', () => {
     expect(element.exists()).toEqual(true);
   });
 
-  it('toggles the embedded flag when the twitter icon is clicked', () => {
+  it('toggles the embedded flag when the button is clicked', () => {
     const props = createProps();
     const wrapper = shallow(<LatestTweets {...props} />);
     const previousEmbeddedState = wrapper.state().embedded;
@@ -20,5 +20,15 @@ describe('LatestTweets', () => {
     const currentEmbeddedState = wrapper.state().embedded;
     expect(previousEmbeddedState).toEqual(false);
     expect(currentEmbeddedState).toEqual(true);
+  });
+
+  it('toggles the embedded button text', () => {
+    const props = createProps();
+    const wrapper = shallow(<LatestTweets {...props} />);
+    const previousText = wrapper.find('Button').debug();
+    wrapper.find('Button').simulate('click');
+    const currentText = wrapper.find('Button').debug();
+    expect(previousText).toContain('tweet');
+    expect(currentText).toContain('text');
   });
 });
