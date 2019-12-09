@@ -16,7 +16,7 @@ export default class LatestTweets extends React.Component {
     return (
       <List className="latestTweets" header="Latest tweets">
         <Button onClick={() => this.setState({ embedded: !embedded})}>
-          Render as tweets
+          Render as { embedded ? 'text' : 'tweet' }
         </Button>
         <ReactiveList
           componentId="results"
