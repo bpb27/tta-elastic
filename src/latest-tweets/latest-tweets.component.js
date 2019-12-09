@@ -11,20 +11,25 @@ export default class LatestTweets extends React.Component {
     embedded: false,
   }
 
-  render () {
+  get button () {
     const { embedded } = this.state;
     return (
-      <List className="latestTweets" header="Latest tweets">
-        <Button onClick={() => this.setState({ embedded: !embedded})}>
-          Render as { embedded ? 'text' : 'tweet' }
-        </Button>
+      <Button onClick={() => this.setState({ embedded: !embedded})}>
+        Render as { embedded ? 'text' : 'tweet' }
+      </Button>
+    );
+  }
+
+  render () {
+    return (
+      <List button={this.button} className="latestTweets" header="Latest tweets">
         <ReactiveList
           componentId="results"
           dataField="text"
           infiniteScroll={false}
           pagination={true}
           renderPagination={props => <Pagination {...props}/>}
-          renderItem={props => <LatestTweet data={props} key={props.id} embedded={embedded}/>}
+          renderItem={props => <LatestTweet data={props} key={props.id} embedded={this.state.embedded}/>}
           showResultStats={false}
           size={10}
           sortOptions={[{ dataField: 'date', label: 'Latest', sortBy: 'desc'}]}

@@ -4,7 +4,13 @@
     display: flex;
 
     h1 {
+      align-items: center;
+      display: flex;
       margin-left: 10px;
+
+      button {
+        margin-left: 10px;
+      }
     }
   }
 }
