@@ -1,37 +1,68 @@
 import React from 'react';
-// import { string } from 'prop-types';
+import { arrayOf, func, number, shape, string } from 'prop-types';
 import Chart from 'react-apexcharts';
 import './line-graph.style.scss';
 
+// https://apexcharts.com/docs/react-charts/
+
 export default class LineGraph extends React.Component {
-  get options () {
-    return ({
-      chart: {
-        id: 'basic-bar'
-      },
-      xaxis: {
-        categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
-      }
-    });
+  static propTypes = {
+    data: arrayOf(shape({
+      x: number,
+      y: number,
+    })).isRequired,
+    formatter: func.isRequired,
+    id: string.isRequired,
+    name: string.isRequired,
+    title: string.isRequired,
   }
 
-  get series () {
-    return ([
-      {
-        name: 'tweets',
-        data: [30, 40, 45, 50, 49, 60, 70, 91]
-      }
-    ]);
+  addPresidentToYear (year) {
+    switch (year) {
+      case 2017: return '2017 (Trump takes office)';
+      case 2009: return '2009 (Obama takes office)';
+      case 2001: return '2001 (Bush takes office)';
+      default: return year;
+    }
   }
 
   render() {
     return (
       <div className="lineGraph">
         <Chart
-          options={this.options}
-          series={this.series}
+          options={{
+            chart: {
+              id: this.props.id,
+            },
+            tooltip: {
+              x: {
+                formatter: this.addPresidentToYear.bind(this),
+              },
+            },
+            title: {
+              align: 'center',
+              style: {
+                fontSize: '24px',
+              },
+              text: this.props.title,
+            },
+            xaxis: {
+              tickAmount: 'dataPoints',
+            },
+            yaxis: {
+              labels: {
+                formatter: this.props.formatter,
+              },
+            }
+          }}
+          series={[
+            {
+              data: this.props.data,
+              name: this.props.name,
+            }
+          ]}
           type="line"
-          width="500"
+          width="700"
         />
       </div>
     );
