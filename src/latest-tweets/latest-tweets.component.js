@@ -4,7 +4,7 @@ import Button from 'components/button';
 import LatestTweet from './latest-tweet';
 import List from 'components/lists/list';
 import Pagination from './pagination';
-import './latest-tweets.style.scss';
+import styles from './latest-tweets.style.scss';
 
 export default class LatestTweets extends React.Component {
   state = {
@@ -22,7 +22,7 @@ export default class LatestTweets extends React.Component {
 
   render () {
     return (
-      <List button={this.button} className="latestTweets" header="Latest tweets">
+      <List button={this.button} className={styles.latestTweets} header="Latest tweets">
         <ReactiveList
           componentId="results"
           dataField="text"

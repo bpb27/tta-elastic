@@ -14,7 +14,7 @@ import {
   StateProvider,
   ToggleButton
 } from '@appbaseio/reactivesearch';
-import './search.style.scss';
+import styles from './search.style.scss';
 
 export default class Search extends React.Component {
   static propTypes = {
@@ -72,11 +72,11 @@ export default class Search extends React.Component {
     } = this.state;
 
     return (
-      <div id="search-page">
+      <div className={styles.search}>
         { showTips && <Tips closeModal={() => this.setState({ showTips: false })} /> }
         <DataSearch
           autosuggest={false}
-          className="searchbox"
+          className={styles.searchbox}
           componentId="searchbox"
           dataField="text"
           placeholder="Search for anything"
@@ -87,7 +87,7 @@ export default class Search extends React.Component {
           searchOperators={true}
           URLParams={true}
         />
-        <div className="options">
+        <div className={styles.options}>
           { showDeviceDropdown && (
             <SingleDropdownList
               componentId="device"
@@ -122,7 +122,7 @@ export default class Search extends React.Component {
               URLParams={true}
             />
           )}
-          <div className="toggles">
+          <div className={styles.toggles}>
             <Button onClick={() => this.clear()}>Clear</Button>
             <Checkbox
               label="Tips"

@@ -1,6 +1,6 @@
 import React from 'react';
 import { func, number, string } from 'prop-types';
-import './icon.style.scss';
+import styles from './icon.style.scss';
 
 export default class Icon extends React.Component {
   static propTypes = {
@@ -17,7 +17,7 @@ export default class Icon extends React.Component {
 
   get className () {
     const { className, onClick } = this.props;
-    return `icon ${className} ${onClick ? 'pointer' : ''}`;
+    return `${styles.icon} ${className} ${onClick ? styles.pointer : ''}`;
   }
 
   get path () {

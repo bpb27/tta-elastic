@@ -1,6 +1,6 @@
 import React from 'react';
 import { bool, func, node, string } from 'prop-types';
-import './button.style.scss';
+import styles from './button.style.scss';
 
 export default class Button extends React.Component {
   static propTypes = {
@@ -18,7 +18,7 @@ export default class Button extends React.Component {
   render () {
     const { children, className, disabled, onClick } = this.props;
     return (
-      <button className={`button ${className}`} disabled={disabled} onClick={onClick}>
+      <button className={`${styles.button} ${className}`} disabled={disabled} onClick={onClick}>
         { children }
       </button>
     );

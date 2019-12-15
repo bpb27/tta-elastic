@@ -2,7 +2,7 @@ import React from 'react';
 import { func } from 'prop-types';
 import ExternalLink from 'components/external-link';
 import Icon from 'components/icon';
-import './tips.style.scss';
+import styles from './tips.style.scss';
 
 export default class Tips extends React.Component {
   static propTypes = {
@@ -10,13 +10,13 @@ export default class Tips extends React.Component {
   }
 
   get pipe () {
-    return <span className="pipe">|</span>;
+    return <span className={styles.pipe}>|</span>;
   }
 
   render () {
     const pipe = this.pipe;
     return (
-      <div className="tips">
+      <div className={styles.tips}>
         <header>
           <h2>Search Tips</h2>
           <Icon name="CLOSE_BUTTON" onClick={this.props.closeModal} />

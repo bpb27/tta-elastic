@@ -5,7 +5,7 @@ import Faq from './faq.component';
 describe('FAQ page', () => {
   it('renders', () => {
     const wrapper = shallow(<Faq/>);
-    const element = wrapper.find('#faq-page');
+    const element = wrapper.find('.faq');
     expect(element.exists()).toEqual(true);
   });
 });

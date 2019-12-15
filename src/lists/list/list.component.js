@@ -1,7 +1,7 @@
 import React from 'react';
 import { node, string } from 'prop-types';
 import Icon from 'components/icon';
-import './list.style.scss';
+import styles from './list.style.scss';
 
 export default class List extends React.Component {
   static propTypes = {
@@ -29,7 +29,7 @@ export default class List extends React.Component {
 
   render () {
     return (
-      <div className={`list ${this.props.className}`}>
+      <div className={`${styles.list} ${this.props.className}`}>
         <header>
           { this.icon }
           <h1>{ this.props.header }{ this.props.button }</h1>

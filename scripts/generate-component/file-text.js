@@ -1,7 +1,7 @@
 const component = ({ camelCaseName, dashCase, titleCaseName }) => (`\
 import React from 'react';
 import { string } from 'prop-types';
-import './${dashCase}.style.scss';
+import styles from './${dashCase}.style.scss';
 
 export default class ${titleCaseName} extends React.Component {
   static propTypes = {
@@ -10,7 +10,7 @@ export default class ${titleCaseName} extends React.Component {
 
   render () {
     return (
-      <div className="${camelCaseName}">
+      <div className={styles.${camelCaseName}}>
         ${dashCase} component!
       </div>
     );

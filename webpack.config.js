@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
@@ -30,21 +29,28 @@ module.exports = {
         },
       },
       {
-        test: /\.scss$/,
+        test: /\.scss/,
         use: [
-          'style-loader',
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader',
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              localIdentName: '[local]___[hash:base64:5]',
+              modules: true,
+              sourceMap: false,
+            }
+          },
+          {
+            loader: 'sass-loader',
+          },
         ],
       },
     ],
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      filename: 'style.[hash].css',
-    }),
     new HtmlWebpackPlugin({
       favicon: 'public/favicon.ico',
       filename: 'index.html',

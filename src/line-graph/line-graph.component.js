@@ -1,7 +1,7 @@
 import React from 'react';
 import { arrayOf, func, number, shape, string } from 'prop-types';
 import Chart from 'react-apexcharts';
-import './line-graph.style.scss';
+import styles from './line-graph.style.scss';
 
 // https://apexcharts.com/docs/react-charts/
 
@@ -28,7 +28,7 @@ export default class LineGraph extends React.Component {
 
   render() {
     return (
-      <div className="lineGraph">
+      <div className={styles.lineGraph}>
         <Chart
           options={{
             chart: {
