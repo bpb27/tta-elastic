@@ -1,11 +1,11 @@
 import React from 'react';
 import ExternalLink from 'components/external-link';
-import './faq.style.scss';
+import styles from './faq.style.scss';
 
 export default class Faq extends React.Component {
   render () {
     return (
-      <div id="faq-page">
+      <div className={styles.faq}>
         <h1>FAQs</h1>
         <section>
           <h3>What's going on here?</h3>

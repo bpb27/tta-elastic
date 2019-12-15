@@ -2,7 +2,7 @@ import React from 'react';
 import { bool, node, string } from 'prop-types';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 import ExternalLink from 'components/external-link';
-import './tweet-link.style.scss';
+import styles from './tweet-link.style.scss';
 
 export default class TweetLink extends React.Component {
   static propTypes = {
@@ -20,7 +20,7 @@ export default class TweetLink extends React.Component {
     }
 
     return (
-      <ExternalLink className="tweetLink" id={id}>
+      <ExternalLink className={styles.tweetLink} id={id}>
         { children || `"${text}"` }
       </ExternalLink>
     );

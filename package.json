@@ -33,10 +33,10 @@
     "html-webpack-plugin": "^3.2.0",
     "jest": "^24.9.0",
     "jest-cli": "^24.9.0",
+    "jest-css-modules": "^2.1.0",
     "jest-prop-type-error": "^1.1.0",
     "lodash.camelcase": "^4.3.0",
     "lodash.upperfirst": "^4.3.1",
-    "mini-css-extract-plugin": "^0.6.0",
     "node-fetch": "^2.6.0",
     "node-sass": "^4.13.0",
     "readline": "^1.3.0",
@@ -73,7 +73,7 @@
       "test-setup"
     ],
     "moduleNameMapper": {
-      "\\.(css|scss)$": "<rootDir>/test-setup/style-mock.js",
+      "\\.(css|scss)$": "<rootDir>/node_modules/jest-css-modules",
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test-setup/file-mock.js"
     },
     "setupFiles": [

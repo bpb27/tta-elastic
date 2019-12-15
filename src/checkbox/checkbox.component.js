@@ -1,6 +1,6 @@
 import React from 'react';
 import { bool, func, string } from 'prop-types';
-import './checkbox.style.scss';
+import styles from './checkbox.style.scss';
 
 export default class Checkbox extends React.Component {
   static propTypes = {
@@ -13,7 +13,7 @@ export default class Checkbox extends React.Component {
   render () {
     const { label, name, onClick, value } = this.props;
     return (
-      <span className="checkbox" onClick={() => onClick(!value)}>
+      <span className={styles.checkbox} onClick={() => onClick(!value)}>
         <input checked={value} name={name} readOnly={true} type="checkbox" />
         <label>{ label }</label>
       </span>

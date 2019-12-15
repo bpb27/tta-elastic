@@ -3,7 +3,7 @@ import { bool, number, shape, string } from 'prop-types';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 import ExternalLink from 'components/external-link';
 import { utcTimestampToEST } from 'utils/date';
-import './latest-tweet.style.scss';
+import styles from './latest-tweet.style.scss';
 
 export default class LatestTweet extends React.Component {
   static propTypes = {
@@ -24,7 +24,7 @@ export default class LatestTweet extends React.Component {
     }
 
     return (
-      <div className="latestTweet" key={id}>
+      <div className={styles.latestTweet} key={id}>
         <p>
           <ExternalLink id={id}>{ utcTimestampToEST(date) }</ExternalLink>
           {' - '}

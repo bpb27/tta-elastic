@@ -5,7 +5,7 @@ import Highlighter from 'react-highlight-words';
 import Icon from 'components/icon';
 import { utcTimestampToEST } from 'utils/date';
 import { formatNumber, replaceHTMLEntities } from 'utils/format';
-import './tweet.style.scss';
+import styles from './tweet.style.scss';
 
 export default class Tweet extends Component {
   static propTypes = {
@@ -31,18 +31,18 @@ export default class Tweet extends Component {
   render () {
     const { data, index, mobileView, searchWords } = this.props;
     const { date, device, favorites, id, retweets, text } = data;
-    const className = `tweet ${mobileView ? 'mobileView' : ''}`;
+    const className = `${styles.tweet} ${mobileView ? styles.mobileView : ''}`;
 
     return (
       <div className={className} key={id}>
-        <div className="index">
+        <div className={styles.index}>
           { index }.
         </div>
-        <div className="metadata">
-          <span className="mobile-index">{ index }.</span>
-          <span className="date">{ utcTimestampToEST(date) }</span>
-          <span className="device">{ device }</span>
-          <span className="stats">
+        <div className={styles.metadata}>
+          <span className={styles.mobileIndex}>{ index }.</span>
+          <span className={styles.date}>{ utcTimestampToEST(date) }</span>
+          <span className={styles.device}>{ device }</span>
+          <span className={styles.stats}>
             <span>
               <Icon name="RETWEET"/>
               { formatNumber(retweets) }
@@ -58,7 +58,7 @@ export default class Tweet extends Component {
             </span>
           </span>
         </div>
-        <div className="text">
+        <div className={styles.text}>
           <Highlighter
             autoEscape={true}
             searchWords={searchWords}
