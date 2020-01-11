@@ -1,30 +1,42 @@
 require('dotenv').config();
-const { NODE_ENV, PORT, SEARCHBOX_URL } = process.env;
+const { DATABASE_URL, NODE_ENV, PORT, SEARCHBOX_URL } = process.env;
 
 const express = require('express');
 const favicon = require('express-favicon');
 const staticGzip = require('express-static-gzip');
 const path = require('path');
 const { Client } = require('elasticsearch');
+const { Pool } = require('pg');
 const NodeCache = require('node-cache');
-const { upload } = require('./upload-tweets');
+const uploadToElastic = require('./upload-tweets-es');
+const uploadToDatabase = require('./upload-tweets-pg');
 const getStats = require('./get-stats');
 const getTweets = require('./get-tweets');
+const { dbString, logger } = require('./utils');
 
 const app = express();
 const port = PORT || 3000;
 const cache = new NodeCache();
-
+const client = new Client({ host: SEARCHBOX_URL });
+const pool = new Pool({ connectionString: dbString(DATABASE_URL) });
 const pathDist = path.join(__dirname, '../dist');
 const pathPublic = path.join(__dirname, '../public');
 
-const client = new Client({ host: SEARCHBOX_URL });
-
-// check for latest tweets and upload to ES every minute
+// check for latest tweets and upload to ES & PG every minute
 if (NODE_ENV === 'prod') {
   setInterval(() => {
     getTweets('realdonaldtrump', (error, tweets) => {
-      upload(client, tweets);
+      try {
+        uploadToElastic(client, logger, tweets);
+      } catch (e) {
+        logger.error('Failed uploading to ES', e);
+      }
+
+      try {
+        uploadToDatabase(pool, logger, tweets);
+      } catch (e) {
+        logger.error('Failed uploading to PG', e);
+      }
     });
   }, 1000 * 60);
 }
@@ -58,5 +70,5 @@ app.get('*', (req, res) => {
 
 // start app
 app.listen(port, () => {
-  console.log(`running on port ${port}`); // eslint-disable-line no-console
+  logger.success(`running on port ${port}`);
 });
