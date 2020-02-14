@@ -4,3 +4,4 @@ node_modules/
 .env
 docs/COMMENTARY.md
 scripts/pg
+SQL-QUERIES.md

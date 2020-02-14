@@ -1,0 +1,9 @@
+@import "src/variables.scss";
+
+.staff a {
+  color: $red;
+
+  &.praise {
+    color: #003880;
+  }
+}

@@ -29,6 +29,13 @@ describe('List', () => {
     expect(element.exists()).toEqual(true);
   });
 
+  it('adds two buttons', () => {
+    const props = createProps();
+    const wrapper = shallow(<List {...props} button={<button>click</button>} buttonTwo={<button>click again</button>}><p>Trump</p></List>);
+    const element = wrapper.find('button');
+    expect(element.length).toEqual(2);
+  });
+
   it('shows child content by default', () => {
     const props = createProps();
     const wrapper = shallow(<List {...props}><p>Trump</p></List>);

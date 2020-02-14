@@ -1,5 +1,6 @@
 import React from 'react';
 import { ReactiveList } from '@appbaseio/reactivesearch';
+import { Link } from 'react-router-dom';
 import Button from 'components/button';
 import LatestTweet from './latest-tweet';
 import List from 'components/lists/list';
@@ -11,18 +12,33 @@ export default class LatestTweets extends React.Component {
     embedded: false,
   }
 
-  get button () {
+  get buttonChangeTweetStyle () {
     const { embedded } = this.state;
     return (
       <Button onClick={() => this.setState({ embedded: !embedded})}>
-        Render as { embedded ? 'text' : 'tweet' }
+        { embedded ? 'Text View' : 'Twitter View' }
       </Button>
+    );
+  }
+
+  get buttonSearchPage () {
+    return (
+      <Link className={styles.buttonLink} to="/search">
+        <Button onClick={() => true}>
+          Search all tweets
+        </Button>
+      </Link>
     );
   }
 
   render () {
     return (
-      <List button={this.button} className={styles.latestTweets} header="Latest tweets">
+      <List
+        button={this.buttonChangeTweetStyle}
+        buttonTwo={this.buttonSearchPage}
+        className={styles.latestTweets}
+        header="Latest tweets"
+      >
         <ReactiveList
           componentId="results"
           dataField="text"

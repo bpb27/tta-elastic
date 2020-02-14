@@ -17,6 +17,13 @@ describe('TweetLink', () => {
     expect(id).toEqual('1');
   });
 
+  test('adds a class name', () => {
+    const props = { ...createProps(), className: 'marshmellow' };
+    const wrapper = shallow(<TweetLink {...props} />);
+    const element = wrapper.find('.marshmellow');
+    expect(element.exists()).toEqual(true);
+  });
+
   test('renders text', () => {
     const props = createProps();
     const wrapper = shallow(<TweetLink {...props} />);

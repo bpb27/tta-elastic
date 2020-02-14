@@ -7,9 +7,14 @@ import styles from './tweet-link.style.scss';
 export default class TweetLink extends React.Component {
   static propTypes = {
     children: node,
+    className: string,
     id: string.isRequired,
     showEmbedded: bool,
     text: string,
+  }
+
+  static defaultProps = {
+    className: '',
   }
 
   render () {
@@ -20,7 +25,7 @@ export default class TweetLink extends React.Component {
     }
 
     return (
-      <ExternalLink className={styles.tweetLink} id={id}>
+      <ExternalLink className={`${styles.tweetLink} ${this.props.className}`} id={id}>
         { children || `"${text}"` }
       </ExternalLink>
     );
