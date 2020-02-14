@@ -28,9 +28,9 @@ export default class Staff extends React.Component {
           <TweetLink id="1002027245131661312" text="The recusal of Jeff Sessions was an unforced betrayal of the President of the United States"/>
           <TweetLink id="1003962584352030720" text="I would have quickly picked someone else. So much time and money wasted, so many lives ruined"/>
           <TweetLink id="1030632303507243008" text="BLANK Jeff Sessions"/>
-          <TweetLink id="1033332301579661312" text="he doesn’t understand what is happening underneath his command position"/>
-          <TweetLink id="1074403110523678720" text="should be ashamed of himself"/>
           <TweetLink id="1104122208316612608" text="Sessions didn’t have a clue!"/>
+          <TweetLink id="1033332301579661312" text="he doesn’t understand what is happening underneath his command position"/>
+          <TweetLink id="1074403110523678720" text="Jeff Sessions should be ashamed of himself"/>
         </div>
         <div>
           <h3>Jerome Powell (Fed Chairman I)</h3>
@@ -67,6 +67,17 @@ export default class Staff extends React.Component {
         <div>
           <h3>Don McGahn (White House Counsel I)</h3>
           <TweetLink id="1127342552745762816" text="lawyer Don McGahn had a much better chance of being fired than Mueller. Never a big fan!"/>
+        </div>
+        <div>
+          <h3>Michael Cohen (Personal Counsel)</h3>
+          <TweetLink id="1104050224052396032" text="Bad lawyer and fraudster Michael Cohen said under sworn testimony that he never asked for a Pardon...He lied! Additionally, he directly asked me for a pardon. I said NO. He lied again! He also badly wanted to work at the White House. He lied!"/>
+          <TweetLink id="1069613383622803456" text="You mean he can do all of the TERRIBLE, unrelated to Trump, things having to do with fraud, big loans, Taxis, etc., and not serve a long prison term?"/>
+          <TweetLink id="1073207272069890049" text="Cohen was guilty on many charges unrelated to me"/>
+          <TweetLink id="1032247043992023040" text="If anyone is looking for a good lawyer, I would strongly suggest that you don’t retain the services of Michael Cohen!"/>
+        </div>
+        <div>
+          <h3>Paul Manafort (2016 Campaign Manager II)</h3>
+          <TweetLink id="1003268646070874113" text="Paul Manafort came into the campaign very late and was with us for a short period of time...should have been told that Comey and the boys were doing a number on him, and he wouldn’t have been hired!"/>
         </div>
         <div>
           <h3>Omarosa (Director of Communications Public Liaison)</h3>
