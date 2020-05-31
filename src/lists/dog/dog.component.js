@@ -6,6 +6,12 @@ export default class Dog extends React.Component {
   render () {
     return (
       <List header="Dogs">
+        <TweetLink id="1256702883199881216">
+          Nicole Wallace <span>"thrown off The View like a dog"</span>
+        </TweetLink>
+        <TweetLink id="1255710938075889664">
+          Brian Williams <span>"thrown off Network News like a dog"</span>
+        </TweetLink>
         <TweetLink id="1159318329506574336">
           Tim O'Brien (biographer) <span>"fired like a dog from other jobs"</span>
         </TweetLink>
