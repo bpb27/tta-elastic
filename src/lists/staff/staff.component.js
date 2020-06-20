@@ -3,53 +3,167 @@ import TweetLink from 'components/tweet-link';
 import List from '../list';
 import styles from './staff.style.scss';
 
+/*
+Gary Cohn
+*/
+
+/* eslint-disable */
+
+const StaffPerson = ({ header, insults, praiseId, time }) => (
+  <div>
+    <h3>{ header }</h3>
+    <div className={styles.wrapper}>
+      <div className={styles.left}>
+        <TweetLink id={praiseId} showEmbedded={true} />
+      </div>
+      <div className={styles.right}>
+        <h5>{time} months later, he begins to tweet...</h5>
+        { insults }
+      </div>
+    </div>
+  </div>
+);
+
 export default class Staff extends React.Component {
   render () {
     return (
       <List className={styles.staff} header="Bad hires">
-        {/* <p>On Twitter, the President of the United States publicly disparaged his own Secretary of State, Chief of Staff, Attorney General, National Security Advisor, Fed Chairman, Chief Strategist, Communications Director, and White House Counsel (all of whom he hired).</p> */}
-        <div>
-          <h3>Rex Tillerson (Secretary of State I)</h3>
-          <TweetLink className={styles.praise} id="808638507161882624" text="I have chosen one of the truly great business leaders of the world, Rex Tillerson, Chairman and CEO of ExxonMobil, to be Secretary of State. "/>
-          <TweetLink id="1131537528736100352" text="Rex Tillerson, a man who is dumb as a rock and totally ill prepared and ill equipped to be Secretary of State..."/>
-          <TweetLink id="1071132880368132096" text="Rex Tillerson, didn’t have the mental capacity needed. He was dumb as a rock and I couldn’t get rid of him fast enough. He was lazy as hell."/>
-        </div>
-        <div>
-          <h3>John Kelly (Chief of Staff II)</h3>
-          <TweetLink className={styles.praise} id="891038014314598400" text="I am pleased to inform you that I have just named General/Secretary John F Kelly as White House Chief of Staff. He is a Great American..."/>
-          <TweetLink id="1227986935240691712" text="When I terminated John Kelly, which I couldn’t do fast enough, he knew full well that he was way over his head. Being Chief of Staff just wasn’t for him. He came in with a bang, went out with a whimper, but like so many X’s, he misses the action & just can’t keep his mouth shut"/>
-        </div>
-        <div>
-          <h3>Jeff Sessions (Attorney General I)</h3>
-          <TweetLink className={styles.praise} id="829496507841789952" text="Congratulations to our new Attorney General, @SenatorSessions!"/>
-          <TweetLink id="889790429398528000" text="Attorney General Jeff Sessions has taken a VERY weak position on Hillary Clinton crimes"/>
-          <TweetLink id="890207082926022656" text="Why didn't A.G. Sessions replace Acting FBI Director Andrew McCabe"/>
-          <TweetLink id="968856971075051521" text="Why is A.G. Jeff Sessions asking the Inspector General to investigate potentially massive FISA abuse...DISGRACEFUL!"/>
-          <TweetLink id="1002027245131661312" text="The recusal of Jeff Sessions was an unforced betrayal of the President of the United States"/>
-          <TweetLink id="1003962584352030720" text="I would have quickly picked someone else. So much time and money wasted, so many lives ruined"/>
-          <TweetLink id="1030632303507243008" text="BLANK Jeff Sessions"/>
-          <TweetLink id="1104122208316612608" text="Sessions didn’t have a clue!"/>
-          <TweetLink id="1033332301579661312" text="he doesn’t understand what is happening underneath his command position"/>
-          <TweetLink id="1074403110523678720" text="Jeff Sessions should be ashamed of himself"/>
-        </div>
-        <div>
-          <h3>Jerome Powell (Fed Chairman I)</h3>
-          <TweetLink className={styles.praise} id="926216279287042048" text="Today, it was my pleasure and great honor to announce my nomination of Jerome Powell to be the next Chairman of the @FederalReserve."/>
-          <TweetLink id="1164914610836783104" text="who is our bigger enemy, Jay Powell or Chairman Xi?"/>
-          <TweetLink id="1156666164732473345" text="As usual, Powell let us down"/>
-          <TweetLink id="1161687635426983937" text="Jay Powell made TWO enormous mistakes"/>
-          <TweetLink id="1161719409804808193" text="clueless Jay Powell"/>
-          <TweetLink id="1163472272612626433" text="horrendous lack of vision by Jay Powell"/>
-          <TweetLink id="1164158321265451008" text="He’s like a golfer who can’t putt, has no touch...So far he has called it wrong, and only let us down"/>
-          <TweetLink id="1171735692428419072" text="the naivete of Jay Powell"/>
-          <TweetLink id="1173564172635914247" text="Jay Powell & the Fed don’t have a clue."/>
-          <TweetLink id="1174388901806362624" text="Jay Powell and the Federal Reserve Fail Again. No “guts,” no sense, no vision! A terrible communicator!"/>
-        </div>
-        <div>
-          <h3>Steve Bannon (Chief Strategist)</h3>
-          <TweetLink className={styles.praise} id="898870621584596993" text="I want to thank Steve Bannon for his service. He came to the campaign during my run against Crooked Hillary Clinton - it was great! Thanks S"/>
-          <TweetLink id="949498795074736129" text="Sloppy Steve Bannon, who cried when he got fired and begged for his job. Now Sloppy Steve has been dumped like a dog by almost everyone. Too bad!"/>
-        </div>
+        <p>On Twitter, the President of the United States publicly disparaged his own Secretary of State, Chief of Staff, Attorney General, National Security Advisor, Fed Chairman, Chief Strategist, Communications Director, and White House Counsel (all of whom he hired).</p>
+        <StaffPerson
+          header="Rex Tillerson (Secretary of State I)"
+          praiseId="808638507161882624"
+          time="24"
+          insults={[
+            <>
+              <TweetLink id="1071132880368132096">
+                Rex Tillerson was <span>"dumb as a rock"</span>
+              </TweetLink>
+              <TweetLink id="1131537528736100352">
+                Rex Tillerson was <span>"totally ill prepared and ill equipped to be Secretary of State"</span>
+              </TweetLink>
+              <TweetLink id="1071132880368132096">
+                Rex Tillerson <span>"didn’t have the mental capacity needed"</span>
+              </TweetLink>
+              <TweetLink id="1071132880368132096">
+                Rex Tillerson was <span>"lazy as hell"</span>
+              </TweetLink>
+              <TweetLink id="1131537528736100352">
+                Rex Tillerson is <span>"a man who is dumb as a rock"</span>
+              </TweetLink>
+              <TweetLink id="1071132880368132096">
+                Rex Tillerson: <span>"I couldn’t get rid of him fast enough"</span>
+              </TweetLink>
+            </>
+          ]}
+        />
+        <StaffPerson
+          header="John Kelly (Chief of Staff II)"
+          praiseId="891038014314598400"
+          time="30"
+          insults={[
+            <>
+              <TweetLink id="1227986935240691712">
+                John Kelly was <span>"way over his head"</span>
+              </TweetLink>
+              <TweetLink id="1227986935240691712">
+                John Kelly <span>"went out with a whimper"</span>
+              </TweetLink>
+              <TweetLink id="1227986935240691712">
+                John Kelly: <span>"being Chief of Staff just wasn’t for him"</span>
+              </TweetLink>
+              <TweetLink id="1227986935240691712">
+                John Kelly: <span>"I terminated John Kelly"</span>
+              </TweetLink>
+              <TweetLink id="1227986935240691712">
+                John Kelly <span>"just can’t keep his mouth shut"</span>
+              </TweetLink>
+            </>
+          ]}
+        />
+        <StaffPerson
+          header="Jeff Sessions (Attorney General I)"
+          praiseId="829496507841789952"
+          time="6"
+          insults={[
+            <>
+              <TweetLink id="1033332301579661312">
+                Jess Sessions <span>"doesn’t understand what is happening underneath his command"</span>
+              </TweetLink>
+              <TweetLink id="889790429398528000">
+                Jess Sessions has <span>"taken a VERY weak position on Hillary Clinton crimes"</span>
+              </TweetLink>
+              <TweetLink id="1002027245131661312">
+                Jess Sessions caused <span>"an unforced betrayal of the President of the United States"</span>
+              </TweetLink>
+              <TweetLink id="1030632303507243008">
+                Jess Sessions is <span>"BLANK"</span>
+              </TweetLink>
+              <TweetLink id="968856971075051521">
+                Jess Sessions is <span>"DISGRACEFUL!"</span>
+              </TweetLink>
+              <TweetLink id="1104122208316612608">
+                Jess Sessions <span>"didn’t have a clue!"</span>
+              </TweetLink>
+              <TweetLink id="1074403110523678720">
+                Jess Sessions <span>"should be ashamed of himself"</span>
+              </TweetLink>
+              <TweetLink id="1263970567838932993">
+                Alabama: <span>"do not trust Jeff Sessions"</span>
+              </TweetLink>
+            </>
+          ]}
+        />
+        <StaffPerson
+          header="Jay Powell (Fed Chairman I)"
+          praiseId="926216279287042048"
+          time="16"
+          insults={[
+            <>
+              <TweetLink id="1163472272612626433">
+                Jay Powell has <span>"horrendous lack of vision"</span>
+              </TweetLink>
+              <TweetLink id="1161687635426983937">
+                Jay Powell <span>"made TWO enormous mistakes"</span>
+              </TweetLink>
+              <TweetLink id="1173564172635914247">
+                Jay Powell doesn't <span>"have a clue."</span>
+              </TweetLink>
+              <TweetLink id="1161719409804808193">
+                Jay Powell is <span>"clueless"</span>
+              </TweetLink>
+              <TweetLink id="1174388901806362624">
+                Jay Powell is <span>"a terrible communicator!"</span>
+              </TweetLink>
+              <TweetLink id="1174388901806362624">
+                Jay Powell has: <span>"no guts, no sense, no vision!"</span>
+              </TweetLink>
+              <TweetLink id="1164158321265451008">
+                Jay Powell has <span>"called it wrong, and only let us down"</span>
+              </TweetLink>
+              <TweetLink id="1164914610836783104">
+                Jay Powell: <span>"who is our bigger enemy, Jay Powell or Chairman Xi?"</span>
+              </TweetLink>
+            </>
+          ]}
+        />
+        <StaffPerson
+          header="Steve Bannon (Chief Strategist and Campaign Manager III)"
+          praiseId="898870621584596993"
+          time="4"
+          insults={[
+            <>
+              <TweetLink id="949303089416294401">
+                Steve Bannon, aka <span>"Sloppy Steve Bannon"</span>
+              </TweetLink>
+              <TweetLink id="949498795074736129">
+                Steve Bannon <span>"cried when he got fired and begged for his job"</span>
+              </TweetLink>
+              <TweetLink id="949498795074736129">
+                Steve Bannon <span>"has been dumped like a dog by almost everyone"</span>
+              </TweetLink>
+            </>
+          ]}
+        />
         <div>
           <h3>Anthony Scaramucci (Communications Director III)</h3>
           <TweetLink id="1160382091592384513" text="Anthony Scaramucci, who was quickly terminated (11 days) from a position that he was totally incapable of handling, now seems to do nothing but television..."/>

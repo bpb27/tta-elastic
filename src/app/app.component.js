@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ReactiveBase } from '@appbaseio/reactivesearch';
+import BadHiresPage from 'components/pages/bad-hires';
 import FaqPage from 'components/pages/faq';
 import MainPage from 'components/pages/main';
 import SearchPage from 'components/pages/search';
@@ -15,6 +16,7 @@ export default class App extends React.Component {
           <BrowserRouter>
             <Navbar />
             <Switch>
+              <Route path="/bad-hires" component={BadHiresPage} />
               <Route path="/faq" component={FaqPage} />
               <Route path="/search" component={SearchPage} />
               <Route component={MainPage} />

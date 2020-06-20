@@ -1,0 +1,25 @@
+.badHires {
+  padding: 24px;
+  display: flex;
+  text-align: center;
+
+  .person {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+
+    h2 > span {
+      font-weight: normal;
+    }
+  }
+
+  .centeredTweet {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.later {
+  font-style: italic;
+  margin: 24px;
+}

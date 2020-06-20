@@ -22,7 +22,7 @@ describe('ExternalLink', () => {
 
   it('renders a url to a trump tweet if passed an id prop', () => {
     const wrapper = shallow(
-      <ExternalLink className="link" id="1">Some trump shit</ExternalLink>
+      <ExternalLink className="link" tweetId="1">Some trump shit</ExternalLink>
     );
     const url = wrapper.find('a').props().href;
     expect(url).toEqual(tweetLink(1));
