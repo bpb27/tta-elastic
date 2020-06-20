@@ -2,7 +2,6 @@ import React from 'react';
 import { DataSearch } from '@appbaseio/reactivesearch';
 import LatestTweets from 'components/latest-tweets';
 import ListDog from 'components/lists/dog';
-import ListStaff from 'components/lists/staff';
 import { tweetLink } from 'utils/links';
 import styles from './main.style.scss';
 
@@ -26,7 +25,6 @@ export default class Main extends React.Component {
         />
         <LatestTweets/>
         <ListDog/>
-        <ListStaff/>
       </div>
     );
   }

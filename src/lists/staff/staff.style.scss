@@ -1,9 +1,10 @@
 @import "src/variables.scss";
 
-.staff a {
-  color: $red;
+.left {
+  margin-right: 40px;
+}
 
-  &.praise {
-    color: #003880;
-  }
+.wrapper {
+  display: flex;
+  flex-flow: wrap;
 }

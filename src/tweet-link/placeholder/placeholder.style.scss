@@ -1,0 +1,25 @@
+.placeholder {
+  background: white;
+  border-radius: 2px;
+  border: 1px solid #cecece;
+  max-width: 600px;
+  padding: 24px;
+  text-align: left;
+
+  h4 {
+    margin: 4px 0;
+  }
+
+  p {
+    font-style: italic;
+    line-height: 22px;
+  }
+
+  .gray {
+    color: gray;
+  }
+
+  .dot {
+    margin: 0 8px;
+  }
+}

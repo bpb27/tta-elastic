@@ -1,5 +1,5 @@
 import React from 'react';
-import { node, string } from 'prop-types';
+import { node, oneOfType, string } from 'prop-types';
 import Icon from 'components/icon';
 import styles from './list.style.scss';
 
@@ -9,7 +9,7 @@ export default class List extends React.Component {
     buttonTwo: node,
     children: node.isRequired,
     className: string,
-    header: string.isRequired,
+    header: oneOfType([string, node]).isRequired,
   }
 
   static defaultProps = {

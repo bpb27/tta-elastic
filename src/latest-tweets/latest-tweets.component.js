@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Button from 'components/button';
 import LatestTweet from './latest-tweet';
 import List from 'components/lists/list';
+import TextSwitch from 'components/text-switch';
 import Pagination from './pagination';
 import styles from './latest-tweets.style.scss';
 
@@ -37,7 +38,7 @@ export default class LatestTweets extends React.Component {
         button={this.buttonChangeTweetStyle}
         buttonTwo={this.buttonSearchPage}
         className={styles.latestTweets}
-        header="Latest tweets"
+        header={<TextSwitch web="Latest tweets" mobile="Latest" />}
       >
         <ReactiveList
           componentId="results"

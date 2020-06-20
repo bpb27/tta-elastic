@@ -1,47 +1,100 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import findTweet from 'utils/data';
 import TweetLink from './tweet-link.component';
 
-const createProps = () => ({
-  children: null,
-  id: '1',
-  showEmbedded: false,
-  text: 'marshmellow cannon'
-});
-
 describe('TweetLink', () => {
-  test('link to the tweet', () => {
-    const props = createProps();
-    const wrapper = shallow(<TweetLink {...props} />);
-    const id = wrapper.find('ExternalLink').props().id;
-    expect(id).toEqual('1');
+  let element;
+  let props;
+  let wrapper;
+  const className = 'stylishTweet';
+  const tweetData = findTweet('808638507161882624');
+
+  beforeEach(() => {
+    props = { className, tweetData, type: 'text' };
+    wrapper = shallow(<TweetLink {...props}>Lies!</TweetLink>);
+    element = wrapper.find('ExternalLink');
   });
 
-  test('adds a class name', () => {
-    const props = { ...createProps(), className: 'marshmellow' };
-    const wrapper = shallow(<TweetLink {...props} />);
-    const element = wrapper.find('.marshmellow');
-    expect(element.exists()).toEqual(true);
+  it('renders the text type by default', () => {
+    wrapper = shallow((
+      <TweetLink tweetData={tweetData}>
+        Lies!
+      </TweetLink>
+    ));
+    expect(wrapper.find('ExternalLink').exists()).toEqual(true);
   });
 
-  test('renders text', () => {
-    const props = createProps();
-    const wrapper = shallow(<TweetLink {...props} />);
-    const text = wrapper.find('ExternalLink').debug();
-    expect(text).toContain('marshmellow cannon');
+  describe('embed type', () => {
+    beforeEach(() => {
+      props = { className, tweetData, type: 'embed' };
+      wrapper = shallow(<TweetLink {...props} />);
+      element = wrapper.find('TwitterTweetEmbed');
+    });
+
+    it('renders', () => {
+      expect(element.exists()).toEqual(true);
+    });
+
+    it('adds a class name', () => {
+      expect(wrapper.find('.stylishTweet').exists()).toEqual(true);
+    });
+
+    it('forwards the tweet id', () => {
+      expect(element.props().tweetId).toEqual(props.tweetData.id);
+    });
   });
 
-  test('renders children if passed (instead of text)', () => {
-    const props = createProps();
-    const wrapper = shallow(<TweetLink {...props}><h1>Smore</h1></TweetLink>);
-    const children = wrapper.find('h1');
-    expect(children.exists()).toEqual(true);
+  describe('placeholder type', () => {
+    beforeEach(() => {
+      props = {
+        className,
+        placeholderHighlights: ['Rex'],
+        tweetData,
+        type: 'placeholder',
+      };
+      wrapper = shallow(<TweetLink {...props} />);
+      element = wrapper.find('Placeholder');
+    });
+
+    it('renders', () => {
+      expect(element.exists()).toEqual(true);
+    });
+
+    it('adds a class name', () => {
+      expect(wrapper.find('.stylishTweet').exists()).toEqual(true);
+    });
+
+    it('forwards the tweet data', () => {
+      expect(element.props().tweetData).toEqual(props.tweetData);
+    });
+
+    it('forwards the placeholder highlights', () => {
+      expect(element.props().placeholderHighlights).toEqual(props.placeholderHighlights);
+    });
   });
 
-  test('renders an embedded tweet', () => {
-    const props = { ...createProps(), showEmbedded: true };
-    const wrapper = shallow(<TweetLink {...props}><h1>Smore</h1></TweetLink>);
-    const children = wrapper.find('TwitterTweetEmbed');
-    expect(children.exists()).toEqual(true);
+  describe('text type', () => {
+    beforeEach(() => {
+      props = { className, tweetData, type: 'text' };
+      wrapper = shallow(<TweetLink {...props}>Lies!</TweetLink>);
+      element = wrapper.find('ExternalLink');
+    });
+
+    it('renders', () => {
+      expect(element.exists()).toEqual(true);
+    });
+
+    it('adds a class name', () => {
+      expect(wrapper.find('.stylishTweet').exists()).toEqual(true);
+    });
+
+    it('forwards the tweet id', () => {
+      expect(element.props().tweetId).toEqual(props.tweetData.id);
+    });
+
+    it('renders children', () => {
+      expect(wrapper.html()).toContain('Lies!');
+    });
   });
 });
