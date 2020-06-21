@@ -190,6 +190,33 @@ const tweetData = [
     "date" : "2019-01-01 03:32:30",
     "text" : "“General” McChrystal got fired like a dog by Obama. Last assignment a total bust. Known for big, dumb mouth. Hillary lover! https:\/\/t.co\/RzOkeHl3KV"
   },
+  {
+    "device" : "Twitter for iPhone",
+    "isRetweet" : false,
+    "retweets" : 24516,
+    "id" : "891038014314598400",
+    "favorites" : 92878,
+    "date" : "2017-07-28 08:49:51",
+    "text" : "I am pleased to inform you that I have just named General\/Secretary John F Kelly as White House Chief of Staff. He is a Great American...."
+  },
+  {
+    "device" : "Twitter for iPhone",
+    "isRetweet" : false,
+    "retweets" : 24966,
+    "id" : "1227986935240691712",
+    "favorites" : 108955,
+    "date" : "2020-02-13 16:04:34",
+    "text" : "When I terminated John Kelly, which I couldn’t do fast enough, he knew full well that he was way over his head. Being Chief of Staff just wasn’t for him. He came in with a bang, went out with a whimper, but like so many X’s, he misses the action &amp; just can’t keep his mouth shut,."
+  },
+  {
+    "device" : "Twitter for iPhone",
+    "isRetweet" : false,
+    "retweets" : 17794,
+    "id" : "1268683083852779520",
+    "favorites" : 83048,
+    "date" : "2020-06-04 23:16:32",
+    "text" : "John Kelly didn’t know I was going to fire James Mattis, nor did he have any knowledge of my asking for a letter of resignation. Why would I tell him, he was not..."
+  },
 ];
 
 const findTweet = id => tweetData.find(t => t.id === id);

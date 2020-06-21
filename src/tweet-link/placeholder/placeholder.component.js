@@ -9,18 +9,21 @@ import styles from './placeholder.style.scss';
 export default class Placeholder extends React.Component {
   static propTypes = {
     className: string,
+    fullText: string,
     placeholderHighlights: arrayOf(string),
     tweetData: object.isRequired,
   }
 
   static defaultProps = {
     className: '',
+    fullText: '',
     placeholderHighlights: [],
   }
 
   render () {
     const {
       className,
+      fullText,
       placeholderHighlights,
       tweetData,
     } = this.props;
@@ -41,7 +44,7 @@ export default class Placeholder extends React.Component {
             <Highlighter
               autoEscape={true}
               searchWords={placeholderHighlights}
-              textToHighlight={replaceHTMLEntities(text)}
+              textToHighlight={replaceHTMLEntities(fullText || text)}
             />
           </p>
           <div className={styles.gray}>

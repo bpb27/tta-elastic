@@ -11,6 +11,7 @@ export default class TweetLink extends React.Component {
   static propTypes = {
     children: node,
     className: string,
+    fullText: string,
     placeholderHighlights: arrayOf(string),
     tweetData: object,
     type: oneOf(['embed', 'placeholder', 'text']).isRequired,
@@ -25,6 +26,7 @@ export default class TweetLink extends React.Component {
     const {
       className,
       children,
+      fullText,
       placeholderHighlights,
       tweetData,
       type,
@@ -47,6 +49,7 @@ export default class TweetLink extends React.Component {
       return (
         <Placeholder
           className={className}
+          fullText={fullText}
           placeholderHighlights={placeholderHighlights}
           tweetData={tweetData}
         />
