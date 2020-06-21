@@ -1,12 +1,24 @@
+@import "src/variables.scss";
+
 .badHires {
   padding: 24px;
   display: flex;
+  flex-flow: row;
   text-align: center;
+
+  @media all and (max-width: 1000px) {
+    flex-flow: column;
+  }
 
   .person {
     display: flex;
     flex-flow: column;
+    margin: 0 24px;
     width: 100%;
+
+    @media all and (max-width: 1000px) {
+      margin: 0;
+    }
 
     h2 > span {
       font-weight: normal;
@@ -20,6 +32,7 @@
 }
 
 .later {
+  font-size: 20px;
   font-style: italic;
   margin: 24px;
 }
