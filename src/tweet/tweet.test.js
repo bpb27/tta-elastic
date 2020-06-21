@@ -70,7 +70,7 @@ describe('Tweet', () => {
   it('renders link to twitter', () => {
     const props = createProps();
     const wrapper = shallow(<Tweet {...props} />);
-    const id = wrapper.find('ExternalLink').props().id;
+    const id = wrapper.find('ExternalLink').props().tweetId;
     expect(id).toEqual('1');
   });
 
