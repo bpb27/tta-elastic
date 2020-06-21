@@ -53,7 +53,7 @@ export default class Placeholder extends React.Component {
             <span>{ device }</span>
             <span className={styles.dot}>·</span>
             <span>
-              <ExternalLink id={id}>
+              <ExternalLink tweetId={id}>
                 View on Twitter
               </ExternalLink>
             </span>
