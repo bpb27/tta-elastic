@@ -49,7 +49,6 @@ describe('TweetLink', () => {
     beforeEach(() => {
       props = {
         className,
-        fullText: 'and more',
         placeholderHighlights: ['Rex'],
         tweetData,
         type: 'placeholder',
@@ -68,10 +67,6 @@ describe('TweetLink', () => {
 
     it('forwards the tweet data', () => {
       expect(element.props().tweetData).toEqual(props.tweetData);
-    });
-
-    it('forwards the full text', () => {
-      expect(element.props().fullText).toEqual(props.fullText);
     });
 
     it('forwards the placeholder highlights', () => {

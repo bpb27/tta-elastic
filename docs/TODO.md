@@ -10,6 +10,8 @@ TODO:
 9. full archive download
 10. tweets in context (e.g. more than anyone since lincoln - black support, civil rights act)
 
+covid tweets and quotes timeline, with a covid numbers graph
+
 POTENTIAL:
 1. word cloud of latest 200 tweets or something
 2. release notes w/ videos of new features

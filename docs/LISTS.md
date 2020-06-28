@@ -6,11 +6,23 @@ Lists:
 - Demonstrably false claims (fake news)
 - Insults (pre and as president) (maybe editorial why)
 - What he views as fair and unfair
-- Accusations of treason
+- Accusations of treason (w/ explanation of the american definition)
 - Saga of wall material tweets
 - Trump criticizes Trump
 - Deals (good deals, bad deals)
 - Begged
+- Columns of good vs. bad endorsements
+
+Timelines:
+- Covid (tweets + news quotes), with currents numbers / graph (country comparison is rough)
+- Electoral college
+  - wins since 1968
+  - quotes talking about how great his victory was
+  - "electoral college is a disaster for a democracy"
+  - "The Electoral College is actually genius"
+  - "In addition to winning the Electoral College in a landslide, I won the popular vote if you deduct the millions of people who voted illegally"
+- attacking democracy
+- ebola response
 
 Mentions:
 - jobs

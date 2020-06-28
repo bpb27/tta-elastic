@@ -1,9 +1,8 @@
 @import "src/variables.scss";
 
 .badHires {
-  padding: 24px;
   display: flex;
-  flex-flow: row;
+  flex-flow: column; // row
   text-align: center;
 
   @media all and (max-width: 1000px) {
@@ -20,8 +19,11 @@
       margin: 0;
     }
 
-    h2 > span {
-      font-weight: normal;
+    h2 {
+      margin: 24px 0;
+      span {
+        font-weight: normal;
+      }
     }
   }
 
@@ -35,4 +37,12 @@
   font-size: 20px;
   font-style: italic;
   margin: 24px;
+}
+
+.image {
+  margin-bottom: 24px;
+
+  img {
+    max-width: 300px;
+  }
 }
