@@ -2,6 +2,141 @@
 
 const tweetData = [
   {
+    "device" : "Twitter for iPhone",
+    "isRetweet" : false,
+    "retweets" : 16168,
+    "id" : "984017894240604161",
+    "favorites" : 69376,
+    "date" : "2018-04-11 10:38:42",
+    "text" : "So much Fake News about what is going on in the White House. Very calm and calculated with a big focus on open and fair trade with China, the coming North Korea meeting and, of course, the vicious gas attack in Syria. Feels great to have Bolton &amp, Larry K on board. I (we) are"
+  },
+  {
+    "device" : "Twitter for iPhone",
+    "isRetweet" : false,
+    "retweets" : 25747,
+    "id" : "1274353051252535298",
+    "favorites" : 118184,
+    "date" : "2020-06-20 14:46:58",
+    "text" : "Wow, I finally agree with failed political consultant Steve Schmidt, who called Wacko John Bolton “a despicable man who failed in his duty to protect America.” Also stated that he should never be allowed to serve in government again. So true! Plain and simple, John Bolton, who was all washed up until I brought him back and gave him a chance, broke the law by releasing Classified Information (in massive amounts). He must pay a very big price for this, as others have before him. This should never to happen again!!!"
+  },
+  {
+    "device" : "Twitter for iPhone",
+    "isRetweet" : false,
+    "retweets" : 26268,
+    "id" : "1275375135483146241",
+    "favorites" : 109841,
+    "date" : "2020-06-23 10:28:22",
+    "text" : "Washed up Creepster John Bolton is a lowlife who should be in jail, money seized, for disseminating, for profit, highly Classified information. Remember what they did to the young submarine sailor, but did nothing to Crooked Hillary. I ended up pardoning him - It wasn’t fair!"
+  },
+  {
+    "device" : "Twitter for Android",
+    "isRetweet" : false,
+    "retweets" : 21731,
+    "id" : "800332639844659201",
+    "favorites" : 82723,
+    "date" : "2016-11-20 01:39:05",
+    "text" : "\"General James \"\"Mad Dog\"\" Mattis, who is being considered for Secretary of Defense, was very impressive yesterday. A true General's General!\""
+  },
+  {
+    "device" : "Twitter for iPhone",
+    "isRetweet" : false,
+    "retweets" : 15295,
+    "id" : "1270346144485343232",
+    "favorites" : 56664,
+    "date" : "2020-06-09 13:24:57",
+    "text" : "Mattis was our Country’s most overrated General. He talked a lot, but never “brought home the bacon.” He was terrible! Someday I will tell the real story on him and others - both good and bad! https:\/\/t.co\/WgAQMkfgvr"
+  },
+  {
+    "device" : "Twitter for iPhone",
+    "isRetweet" : true,
+    "retweets" : 6826,
+    "id" : "1270346508165144576",
+    "favorites" : 0,
+    "date" : "2020-06-09 13:26:24",
+    "text" : "RT @SebGorka: Lap Dog Mattis is an embarrassment to America! \n\n#AMERICAFirst https:\/\/t.co\/Y3Exfp7B4Q"
+  },
+  {
+    "device" : "Twitter for iPhone",
+    "isRetweet" : null,
+    "retweets" : 15927,
+    "id" : "949303089416294401",
+    "favorites" : 79778,
+    "date" : "2018-01-05 03:34:28",
+    "text" : "The Mercer Family recently dumped the leaker known as Sloppy Steve Bannon. Smart!"
+  },
+  {
+    "device" : "Twitter for iPhone",
+    "isRetweet" : null,
+    "retweets" : 23915,
+    "id" : "949498795074736129",
+    "favorites" : 88836,
+    "date" : "2018-01-06 04:32:08",
+    "text" : "Michael Wolff is a total loser who made up stories in order to sell this really boring and untruthful book. He used Sloppy Steve Bannon, who cried when he got fired and begged for his job. Now Sloppy Steve has been dumped like a dog by almost everyone. Too bad! https:\/\/t.co\/mEeUhk5ZV9"
+  },
+  {
+    "device" : "Twitter for iPhone",
+    "isRetweet" : false,
+    "retweets" : 25380,
+    "id" : "898870621584596993",
+    "favorites" : 119211,
+    "date" : "2017-08-19 11:33:51",
+    "text" : "I want to thank Steve Bannon for his service. He came to the campaign during my run against Crooked Hillary Clinton - it was great! Thanks S"
+  },
+  {
+    "device" : "Twitter for iPhone",
+    "isRetweet" : false,
+    "retweets" : 14969,
+    "id" : "1164158321265451008",
+    "favorites" : 66563,
+    "date" : "2019-08-21 12:52:27",
+    "text" : "Doing great with China and other Trade Deals. The only problem we have is Jay Powell and the Fed. He’s like a golfer who can’t putt, has no touch. Big U.S. growth if he does the right thing, BIG CUT - but don’t count on him! So far he has called it wrong, and only let us down...."
+  },
+  {
+    "device" : "Twitter for iPhone",
+    "isRetweet" : false,
+    "retweets" : 13947,
+    "id" : "1164914610836783104",
+    "favorites" : 57958,
+    "date" : "2019-08-23 02:57:40",
+    "text" : "....My only question is, who is our bigger enemy, Jay Powell or Chairman Xi?"
+  },
+  {
+    "device" : "Twitter for iPhone",
+    "isRetweet" : false,
+    "retweets" : 9470,
+    "id" : "926216279287042048",
+    "favorites" : 43458,
+    "date" : "2017-11-02 10:35:43",
+    "text" : "Today, it was my pleasure and great honor to announce my nomination of Jerome Powell to be the next Chairman of the @FederalReserve. https:\/\/t.co\/6aDuRy3zws"
+  },
+  {
+    "device" : "Twitter for iPhone",
+    "isRetweet" : false,
+    "retweets" : 16193,
+    "id" : "1002027245131661312",
+    "favorites" : 64846,
+    "date" : "2018-05-31 03:21:26",
+    "text" : "“The recusal of Jeff Sessions was an unforced betrayal of the President of the United States.” JOE DIGENOVA, former U.S. Attorney."
+  },
+  {
+    "device" : "Twitter for iPhone",
+    "isRetweet" : false,
+    "retweets" : 18386,
+    "id" : "1263970567838932993",
+    "favorites" : 52669,
+    "date" : "2020-05-22 23:10:41",
+    "text" : "3 years ago, after Jeff Sessions recused himself, the Fraudulent Mueller Scam began. Alabama, do not trust Jeff Sessions. He let our Country down. That’s why I endorsed Coach Tommy Tuberville (@TTuberville), the true supporter of our #MAGA agenda! https:\/\/t.co\/pCi7jftce2 https:\/\/t.co\/sAn1VbxNwc"
+  },
+  {
+    "device" : "Twitter for iPhone",
+    "isRetweet" : false,
+    "retweets" : 32534,
+    "id" : "829496507841789952",
+    "favorites" : 163235,
+    "date" : "2017-02-09 01:05:53",
+    "text" : "Congratulations to our new Attorney General, @SenatorSessions! https:\/\/t.co\/e0buP1K83z"
+  },
+  {
     "device" : "Twitter for Android",
     "isRetweet" : false,
     "retweets" : 23120,
@@ -215,7 +350,7 @@ const tweetData = [
     "id" : "1268683083852779520",
     "favorites" : 83048,
     "date" : "2020-06-04 23:16:32",
-    "text" : "John Kelly didn’t know I was going to fire James Mattis, nor did he have any knowledge of my asking for a letter of resignation. Why would I tell him, he was not..."
+    "text" : "John Kelly didn’t know I was going to fire James Mattis, nor did he have any knowledge of my asking for a letter of resignation. Why would I tell him, he was not in my inner-circle, was totally exhausted by the job, and in the end just slinked away into obscurity. They all want to come back for a piece of the limelight!"
   },
 ];
 
