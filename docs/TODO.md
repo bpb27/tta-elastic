@@ -1,4 +1,7 @@
 TODO:
+1. optimize image size
+2. lazy-load pages (e.g. bad hires)
+
 1. better results and no results view
 2. alert on API failure (and ensure malformed responses aren't saved)
 3. acceptance test that boots up the app and ensures that it works
@@ -10,7 +13,7 @@ TODO:
 9. full archive download
 10. tweets in context (e.g. more than anyone since lincoln - black support, civil rights act)
 
-covid tweets and quotes timeline, with a covid numbers graph
+
 
 POTENTIAL:
 1. word cloud of latest 200 tweets or something

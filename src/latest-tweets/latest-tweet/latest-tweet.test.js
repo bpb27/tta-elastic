@@ -36,8 +36,8 @@ describe('LatestTweet', () => {
   it('passes id to the external link', () => {
     const props = createProps();
     const wrapper = shallow(<LatestTweet {...props} />);
-    const { id } = wrapper.find('ExternalLink').props();
-    expect(id).toContain(props.data.id);
+    const { tweetId } = wrapper.find('ExternalLink').props();
+    expect(tweetId).toContain(props.data.id);
   });
 
   it('passes id to the embedded tweet', () => {
