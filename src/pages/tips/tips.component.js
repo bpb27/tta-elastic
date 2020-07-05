@@ -27,16 +27,16 @@ export default class Tips extends React.Component {
             <span>tweet contains the exact word <em>loser</em></span>
           </section>
           <section>
+            <span>loser*</span>
+            <span>tweet contains a word that starts with <em>loser</em>, such as <em>loser</em>, <em>losers</em>, <em>loserriffic</em>, etc.</span>
+          </section>
+          <section>
             <span>losers haters</span>
             <span>tweet contains the exact word <em>losers</em> AND the exact word <em>haters</em> (in any order)</span>
           </section>
           <section>
             <span>loser { pipe } losers</span>
             <span>tweet contains the exact word <em>loser</em> OR the exact word <em>losers</em></span>
-          </section>
-          <section>
-            <span>loser*</span>
-            <span>tweet contains a word that starts with <em>loser</em>, such as <em>loser</em>, <em>losers</em>, <em>loserriffic</em>, etc.</span>
           </section>
           <section>
             <span>losers -haters</span>

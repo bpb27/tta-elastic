@@ -26,7 +26,7 @@ export default class LatestTweet extends React.Component {
     return (
       <div className={styles.latestTweet} key={id}>
         <p>
-          <ExternalLink id={id}>{ utcTimestampToEST(date) }</ExternalLink>
+          <ExternalLink tweetId={id}>{ utcTimestampToEST(date) }</ExternalLink>
           {' - '}
           { text }
         </p>

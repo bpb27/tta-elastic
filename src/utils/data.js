@@ -4,6 +4,33 @@ const tweetData = [
   {
     "device" : "Twitter for iPhone",
     "isRetweet" : false,
+    "retweets" : 31645,
+    "id" : "937007006526959618",
+    "favorites" : 116657,
+    "date" : "2017-12-02 05:14:13",
+    "text" : "I had to fire General Flynn because he lied to the Vice President and the FBI. He has pled guilty to those lies. It is a shame because his actions during the transition were lawful. There was nothing to hide!"
+  },
+  {
+    "device" : "Twitter for iPhone",
+    "isRetweet" : false,
+    "retweets" : 18107,
+    "id" : "1163440418555604998",
+    "favorites" : 87766,
+    "date" : "2019-08-19 01:19:46",
+    "text" : "Anthony Scaramucci is a highly unstable “nut job” who was with other candidates in the primary who got shellacked, &amp, then unfortunately wheedled his way into my campaign. I barely knew him until his 11 days of gross incompetence-made a fool of himself, bad on TV. Abused staff, got fired. Wrote a very nice book about me just recently. Now the book is a lie? Said his wife was driving him crazy, “something big” was happening with her. Getting divorced. He was a mental wreck. We didn’t want him around. Now Fake News puts him on like he was my buddy!"
+  },
+  {
+    "device" : "Twitter for iPhone",
+    "isRetweet" : false,
+    "retweets" : 22781,
+    "id" : "1160382091592384513",
+    "favorites" : 119372,
+    "date" : "2019-08-11 02:47:04",
+    "text" : "Anthony Scaramucci, who was quickly terminated (11 days) from a position that he was totally incapable of handling, now seems to do nothing but television as the all time expert on “President Trump.” Like many other so-called television experts, he knows very little about me....."
+  },
+  {
+    "device" : "Twitter for iPhone",
+    "isRetweet" : false,
     "retweets" : 16168,
     "id" : "984017894240604161",
     "favorites" : 69376,
@@ -351,6 +378,33 @@ const tweetData = [
     "favorites" : 83048,
     "date" : "2020-06-04 23:16:32",
     "text" : "John Kelly didn’t know I was going to fire James Mattis, nor did he have any knowledge of my asking for a letter of resignation. Why would I tell him, he was not in my inner-circle, was totally exhausted by the job, and in the end just slinked away into obscurity. They all want to come back for a piece of the limelight!"
+  },
+  {
+    "device" : "Twitter for iPhone",
+    "isRetweet" : false,
+    "retweets" : 22810,
+    "id" : "1003266374473519105",
+    "favorites" : 95387,
+    "date" : "2018-06-03 01:25:18",
+    "text" : "As only one of two people left who could become President, why wouldn’t the FBI or Department of “Justice” have told me that they were secretly investigating Paul Manafort (on charges that were 10 years old and had been previously dropped) during my campaign? Should have told me!"
+  },
+  {
+    "device" : "Twitter for iPhone",
+    "isRetweet" : false,
+    "retweets" : 12778,
+    "id" : "1034810550025433090",
+    "favorites" : 61538,
+    "date" : "2018-08-29 02:30:35",
+    "text" : "White House Counsel Don McGahn will be leaving his position in the fall, shortly after the confirmation (hopefully) of Judge Brett Kavanaugh to the United States Supreme Court. I have worked with Don for a long time and truly appreciate his service!"
+  },
+  {
+    "device" : "Twitter for iPhone",
+    "isRetweet" : false,
+    "retweets" : 19106,
+    "id" : "1127342552745762816",
+    "favorites" : 85943,
+    "date" : "2019-05-11 10:39:44",
+    "text" : "I was NOT going to fire Bob Mueller, and did not fire Bob Mueller. In fact, he was allowed to finish his Report with unprecedented help from the Trump Administration. Actually, lawyer Don McGahn had a much better chance of being fired than Mueller. Never a big fan!"
   },
 ];
 
