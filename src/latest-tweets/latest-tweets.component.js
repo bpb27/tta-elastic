@@ -1,11 +1,12 @@
 import React from 'react';
+import { utcTimestampToEST } from 'utils/date';
 import { ReactiveList } from '@appbaseio/reactivesearch';
 import { Link } from 'react-router-dom';
 import Button from 'components/button';
-import LatestTweet from './latest-tweet';
 import List from 'components/lists/list';
-import TextSwitch from 'components/text-switch';
 import Pagination from './pagination';
+import TextSwitch from 'components/text-switch';
+import TweetLink from 'components/tweet-link';
 import styles from './latest-tweets.style.scss';
 
 export default class LatestTweets extends React.Component {
@@ -46,7 +47,15 @@ export default class LatestTweets extends React.Component {
           infiniteScroll={false}
           pagination={true}
           renderPagination={props => <Pagination {...props}/>}
-          renderItem={props => <LatestTweet data={props} key={props.id} embedded={this.state.embedded}/>}
+          renderItem={props => (
+            <p className={styles.latestTweet} key={props.id}>
+              <TweetLink tweetData={props} type={this.state.embedded ? 'embed' : 'text'}>
+                <span>{ utcTimestampToEST(props.date) }</span>
+              </TweetLink>
+              {' - '}
+              { props.text }
+            </p>
+          )}
           showResultStats={false}
           size={10}
           sortOptions={[{ dataField: 'date', label: 'Latest', sortBy: 'desc'}]}
