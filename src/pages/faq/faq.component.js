@@ -21,7 +21,7 @@ export default class Faq extends React.Component {
         </section>
         <section>
           <h3>Is this a reputable source?</h3>
-          <p>Yes? You can search Google News for "trumptwitterarchive.com", but it's been referenced by The Washington Post, The New York Times, NPR, The Atlantic, Wikipedia, Snopes, The Guardian, The Wall Street Journal, and others.</p>
+          <p>You can search Google News for "trumptwitterarchive.com" - it's been referenced by The Washington Post, The New York Times, NPR, The Atlantic, Wikipedia, Snopes, The Guardian, The Wall Street Journal, and others.</p>
         </section>
         <section>
           <h3>What about deleted tweets?</h3>
@@ -40,21 +40,17 @@ export default class Faq extends React.Component {
           <p>Yes. You can email trumptwitterarchive@gmail.com. If you did this in the past and didn't get response, hopefully the site maintainers will be more responsive now.</p>
         </section>
         <section>
-          <h3>Who made this site?</h3>
-          <p>Brendan Brown, a guy on the internet, who is actively looking for programming assitance (React, ElasticSearch, PSQL, UI/UX, design), and any politically savvy person who has ideas on how to frame the main page or new sections. Please reach out via email at trumptwitterarchive@gmail.com.</p>
-        </section>
-        <section>
           <h3>What's your agenda?</h3>
           <p>The aim is to provide a public resource, since Twitter doesn't really offer these features. Trump's Twitter usage is historic and important, as strange as that might be.</p>
         </section>
         <section>
           <h3>Have you made anything else?</h3>
-          <p>Yes. Use <ExternalLink href="https://www.contactingcongress.org/">Contacting Congress</ExternalLink> to find and contact your political representatives. And if you're of the "global warming is not a hoax" mindset, there's a great company called <ExternalLink href="https://www.arcadiapower.com/referral/?promo=brendan8872">Arcadia Power</ExternalLink> that let's you do something (disclaimer: I work there).</p>
+          <p>Yes. Use <ExternalLink href="https://www.contactingcongress.org/">Contacting Congress</ExternalLink> to find and contact your political representatives.</p>
         </section>
         <section>
           <h3>Shoutouts?</h3>
           <p>A certain <ExternalLink href="https://twitter.com/IgorBrigadir">@IgorBrigadir</ExternalLink> helped me find a ton of tweets that I missed right after the site launched. He's a gentleman.</p>
-          <p><ExternalLink href="https://www.google.com/search?q=new+balance+dad+shoes">My dad</ExternalLink> checks the site everyday (doesn't know how to go to Twitter.com) and always lets me know when something is broken. Paternal QA.</p>
+          <p><ExternalLink href="https://www.google.com/search?q=new+balance+dad+shoes">My dad</ExternalLink> checks the site everyday (doesn't know how to go to Twitter.com) and always lets me know when something is broken (paternal QA).</p>
         </section>
       </div>
     );
