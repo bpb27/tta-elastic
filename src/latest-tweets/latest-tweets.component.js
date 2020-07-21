@@ -34,6 +34,7 @@ export default class LatestTweets extends React.Component {
   }
 
   render () {
+    const { embedded } = this.state;
     return (
       <List
         button={this.buttonChangeTweetStyle}
@@ -49,11 +50,10 @@ export default class LatestTweets extends React.Component {
           renderPagination={props => <Pagination {...props}/>}
           renderItem={props => (
             <p className={styles.latestTweet} key={props.id}>
-              <TweetLink tweetData={props} type={this.state.embedded ? 'embed' : 'text'}>
+              <TweetLink tweetData={props} type={embedded ? 'embed' : 'text'}>
                 <span>{ utcTimestampToEST(props.date) }</span>
               </TweetLink>
-              {' - '}
-              { props.text }
+              { !embedded && ` - ${props.text}`}
             </p>
           )}
           showResultStats={false}
