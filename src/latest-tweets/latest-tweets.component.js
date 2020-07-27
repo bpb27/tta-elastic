@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Button from 'components/button';
 import List from 'components/lists/list';
 import Pagination from './pagination';
+import Skeleton from 'components/skeleton';
 import TextSwitch from 'components/text-switch';
 import TweetLink from 'components/tweet-link';
 import styles from './latest-tweets.style.scss';
@@ -46,6 +47,7 @@ export default class LatestTweets extends React.Component {
           componentId="results"
           dataField="text"
           infiniteScroll={false}
+          loader={<Skeleton/>}
           pagination={true}
           renderPagination={props => <Pagination {...props}/>}
           renderItem={props => (
