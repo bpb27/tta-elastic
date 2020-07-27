@@ -1,0 +1,14 @@
+.skeleton {
+  line-height: 30px;
+
+  // container
+  > span {
+    display: flex;
+    flex-flow: column;
+
+    // lines
+    > span {
+      margin-bottom: 10px;
+    }
+  }
+}

@@ -1,5 +1,4 @@
 - Date pick is broken
-- Latest tweets cool line loader
 - better results and no results view
 - alert on API failure (and ensure malformed responses aren't saved)
 - acceptance test that boots up the app and ensures that it works
