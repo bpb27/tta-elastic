@@ -1,4 +1,23 @@
+## Lists
+Freedom of the press
+- most egregious press attacks
+- 1120630405831569408
+
+Humility
+- most absurd self-congratulatory remarks (history, historic, more than any, genius)
+
+Beggars
+
+Nicknames:
+- Marco Rubio: "Little Marco" (10x)
+
+## Columns
+- good polls, bad polls
+- good candidates, bad candidates
+- obama day of presidency comparison
+
 Lists:
+- Military members insulted
 - Countries / leaders he's threatened or insulted
 - Tough quotes about him from fellow GOP members
 - Pillars of America attacked: media, intelligence, civil service
