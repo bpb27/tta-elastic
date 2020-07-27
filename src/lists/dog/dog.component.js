@@ -55,11 +55,11 @@ export default class Dog extends React.Component {
         <TweetLink tweetData={findTweet('291568395621634049')}>
           Bill Maher <span>"fired like a dog...from ABC"</span>
         </TweetLink>
+        <TweetLink tweetData={findTweet('207864933373849601')}>
+          Reverend Wright <span>"dumped like a dog"</span>
+        </TweetLink>
         <TweetLink tweetData={findTweet('258640349872926720')}>
           Kristen Stewart <span>"cheated on him like a dog"</span> (Robert Pattinson)
-        </TweetLink>
-        <TweetLink tweetData={findTweet('207864933373849601')}>
-          Reverend Wright <span>"dumped like a dog by @BarackObama"</span>
         </TweetLink>
       </List>
     );
