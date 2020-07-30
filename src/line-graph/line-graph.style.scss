@@ -1,3 +1,11 @@
 .lineGraph {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
 
+  p {
+    font-size: 10px;
+    margin-top: -10px;
+    text-align: center;
+  }
 }
