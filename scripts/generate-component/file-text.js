@@ -11,7 +11,7 @@ export default class ${titleCaseName} extends React.Component {
   render () {
     return (
       <div className={styles.${camelCaseName}}>
-        ${dashCase} component!
+        a component
       </div>
     );
   }
@@ -42,7 +42,7 @@ const createProps = () => ({
 describe('${titleCaseName}', () => {
   it('renders', () => {
     const props = createProps();
-    const wrapper = shallow(<${titleCaseName} {...props} />);
+    const wrapper = shallow(<${titleCaseName} {...props}/>);
     const element = wrapper.find('.${camelCaseName}');
     expect(element.exists()).toEqual(true);
   });

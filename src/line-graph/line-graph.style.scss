@@ -3,6 +3,10 @@
   justify-content: center;
   margin: 20px 0;
 
+  @media all and (max-width: 1000px) {
+    display: initial;
+  }
+
   p {
     font-size: 10px;
     margin-top: -10px;

@@ -1,7 +1,7 @@
 import React from 'react';
-import List from '../list';
-import Button from 'components/button';
 import ExternalLink from 'components/external-link';
+import List from '../list';
+import ShowMore from 'components/lists/show-more';
 import styles from './bad-hires.style.scss';
 
 export default class BadHires extends React.Component {
@@ -26,13 +26,10 @@ export default class BadHires extends React.Component {
           <div>Communications Director of OPL who was a <ExternalLink tweetId="1167783720021123073">"despised by everyone"</ExternalLink></div>
 
         </div>
-        {
-          !showMore && (
-            <Button onClick={() => this.setState({ showMore: true })}>
-              Show more...
-            </Button>
-          )
-        }
+        <ShowMore
+          handleClick={() => this.setState({ showMore: !showMore })}
+          isShowing={showMore}
+        />
         {
           showMore && (
           <div className={styles.more}>
