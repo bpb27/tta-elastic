@@ -5,7 +5,7 @@ import GraphGDP from './gdp.component';
 describe('GDP', () => {
   it('renders', () => {
     const wrapper = shallow(<GraphGDP/>);
-    const element = wrapper.find('#graph-gdp');
+    const element = wrapper.find('LineGraph');
     expect(element.exists()).toEqual(true);
   });
 });
