@@ -1,7 +1,7 @@
 import React from 'react';
 import { func, shape, string } from 'prop-types';
 import { parseQuery } from 'utils/query';
-import { twoDaysFromNow } from 'utils/date';
+import { twoDaysFromNow, validDatestring } from 'utils/date';
 import { zonedTimeToUtc } from 'date-fns-tz';
 import Button from 'components/button';
 import Tips from 'components/pages/tips';
@@ -110,7 +110,7 @@ export default class Search extends React.Component {
                 end: twoDaysFromNow(),
               }}
               dayPickerInputProps={{
-                parseDate: dateString => dateString ? zonedTimeToUtc(dateString, 'America/New_York') : dateString,
+                parseDate: dateString => validDatestring(dateString) && zonedTimeToUtc(dateString, 'America/New_York'),
               }}
               URLParams={true}
             />
