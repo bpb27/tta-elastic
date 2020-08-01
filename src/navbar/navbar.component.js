@@ -14,8 +14,7 @@ export default class Navbar extends React.Component {
           </NavLink>
         </div>
         <div className={styles.right}>
-          <NavLink to="/" exact={true} {...active}>Home</NavLink>
-          <NavLink to="/search" {...active}>Search</NavLink>
+          <NavLink to="/collections" {...active}>Collections</NavLink>
           <NavLink to="/faq" {...active}>FAQ</NavLink>
         </div>
       </nav>
