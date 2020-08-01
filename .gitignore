@@ -3,5 +3,6 @@ node_modules/
 .DS_Store
 .env
 docs/COMMENTARY.md
+docs/LATEST.md
 scripts/pg
 SQL-QUERIES.md

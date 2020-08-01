@@ -1,6 +1,7 @@
 import {
   twoDaysFromNow,
   utcTimestampToEST,
+  validDatestring,
 } from 'utils/date';
 
 describe('date utils', () => {
@@ -8,6 +9,18 @@ describe('date utils', () => {
     it('creates a formatted string', () => {
       const result = utcTimestampToEST(1569705285000);
       expect(result).toEqual('Sep 28 2019, 5:14:45 PM EST');
+    });
+  });
+
+  describe('validDatestring', () => {
+    it('returns true when the string is valid', () => {
+      const result = validDatestring('2020-01-01');
+      expect(result).toEqual(true);
+    });
+
+    it('returns true false when the string is valid', () => {
+      const result = validDatestring('2020-01-0');
+      expect(result).toEqual(false);
     });
   });
 
