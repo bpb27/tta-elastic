@@ -16,8 +16,8 @@ export default class App extends React.Component {
             <Navbar />
             <Switch>
               <Route path="/faq" component={FaqPage} />
-              <Route path="/search" component={SearchPage} />
-              <Route component={MainPage} />
+              <Route path="/collections" component={MainPage} />
+              <Route component={SearchPage} />
             </Switch>
           </BrowserRouter>
         </ReactiveBase>
