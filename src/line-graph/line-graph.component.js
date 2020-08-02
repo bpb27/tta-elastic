@@ -1,7 +1,8 @@
 import React from 'react';
-import { array, arrayOf, func, node, number, oneOfType, shape, string } from 'prop-types';
+import { arrayOf, func, number, oneOfType, shape, string } from 'prop-types';
 import Chart from 'react-apexcharts';
 import { format } from 'date-fns';
+import { groupByPresident } from './line-graph.utils';
 import ExternalLink from 'components/external-link';
 import styles from './line-graph.style.scss';
 
@@ -9,16 +10,12 @@ import styles from './line-graph.style.scss';
 
 export default class LineGraph extends React.Component {
   static propTypes = {
-    colors: array,
     formatter: func.isRequired,
     id: string.isRequired,
-    series: arrayOf(shape({
-      data: arrayOf(shape({
-        x: oneOfType([number, string]),
-        y: oneOfType([number, string]),
-      })).isRequired,
-      name: oneOfType([node, string]),
-    })),
+    data: arrayOf(shape({
+      x: oneOfType([number, string]),
+      y: oneOfType([number, string]),
+    })).isRequired,
     source: string.isRequired,
     title: string.isRequired,
   }
@@ -35,7 +32,7 @@ export default class LineGraph extends React.Component {
                   show: true,
                 },
               },
-              colors: this.props.colors,
+              colors: ['#7cb8ef', '#d66e6e', '#3799f1', '#d30002'],
               dataLabels: {
                 enabled: false,
               },
@@ -74,7 +71,7 @@ export default class LineGraph extends React.Component {
               },
               zoom: false,
             }}
-            series={this.props.series}
+            series={groupByPresident(this.props.data)}
             type="area"
             width={700}
           />
