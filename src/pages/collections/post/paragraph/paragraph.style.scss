@@ -1,0 +1,16 @@
+.paragraph {
+  margin: 50px 25%;
+  text-align: left;
+
+  @media all and (max-width: 1000px) {
+    margin: 50px 15%;
+  }
+
+  @media all and (max-width: 700px) {
+    margin: 50px 5%;
+  }
+
+  @media all and (max-width: 500px) {
+    margin: 50px 2%;
+  }
+}
