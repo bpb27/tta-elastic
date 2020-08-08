@@ -4,9 +4,9 @@ import { parseQuery } from 'utils/query';
 import { twoDaysFromNow, validDatestring } from 'utils/date';
 import { zonedTimeToUtc } from 'date-fns-tz';
 import Button from 'components/button';
-import Tips from 'components/pages/tips';
-import Tweet from 'components/tweet';
 import Checkbox from 'components/checkbox';
+import Tips from 'components/pages/tips';
+import Tweet from './tweet';
 import {
   DataSearch,
   DateRange,
