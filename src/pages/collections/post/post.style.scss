@@ -1,7 +1,17 @@
+@import 'src/variables.scss';
+
 .post {
+  font-family: $font;
   text-align: center;
 
-  .header span {
-    color: gray;
+  .header {
+    h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    span {
+      color: gray;
+    }
   }
 }

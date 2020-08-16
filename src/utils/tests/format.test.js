@@ -1,25 +1,29 @@
-import { formatNumber, replaceHTMLEntities } from 'utils/format';
+import {
+  numberWithCommas,
+  numberWithKs,
+  replaceHTMLEntities,
+} from 'utils/format';
 
 describe('format utils', () => {
   describe('formats numbers', () => {
     it('handles no input', () => {
-      expect(formatNumber()).toEqual('0');
+      expect(numberWithKs()).toEqual('0');
     });
 
     it('handles 0 without any special formatting', () => {
-      expect(formatNumber(0)).toEqual('0');
+      expect(numberWithKs(0)).toEqual('0');
     });
 
     it('handles 999 without any special formatting', () => {
-      expect(formatNumber(999)).toEqual('999');
+      expect(numberWithKs(999)).toEqual('999');
     });
 
     it('handles 1000 and formats with a k', () => {
-      expect(formatNumber(1000)).toEqual('1k');
+      expect(numberWithKs(1000)).toEqual('1k');
     });
 
     it('handles 2222 and formats with a k and decimal', () => {
-      expect(formatNumber(2222)).toEqual('2.2k');
+      expect(numberWithKs(2222)).toEqual('2.2k');
     });
   });
 
@@ -30,6 +34,24 @@ describe('format utils', () => {
 
     it('replaces the html entity ampersand with a real ampersand', () => {
       expect(replaceHTMLEntities('this &amp; that &amp; them')).toEqual('this & that & them');
+    });
+  });
+
+  describe('adds commas to a number', () => {
+    it('handles no input', () => {
+      expect(numberWithCommas()).toEqual('0');
+    });
+
+    it('handles 3 digits', () => {
+      expect(numberWithCommas(100)).toEqual('100');
+    });
+
+    it('handles 4 digits', () => {
+      expect(numberWithCommas(1000)).toEqual('1,000');
+    });
+
+    it('handles 5 digits', () => {
+      expect(numberWithCommas(10000)).toEqual('10,000');
     });
   });
 });

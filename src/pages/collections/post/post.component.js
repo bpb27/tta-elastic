@@ -18,7 +18,8 @@ export default class Post extends React.Component {
     return (
       <div className={`${styles.post} ${this.props.className}`}>
         <div className={styles.header}>
-          <h2><span>{ this.props.date }</span> - { this.props.title }</h2>
+          <h2>{ this.props.title }</h2>
+          <span>{ this.props.date }</span>
         </div>
         <div className={styles.body}>
           { this.props.children }

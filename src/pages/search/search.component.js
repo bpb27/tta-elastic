@@ -2,6 +2,7 @@ import React from 'react';
 import { func, shape, string } from 'prop-types';
 import { parseQuery } from 'utils/query';
 import { twoDaysFromNow, validDatestring } from 'utils/date';
+import { queryParams } from 'utils/navigation';
 import { zonedTimeToUtc } from 'date-fns-tz';
 import Button from 'components/button';
 import Checkbox from 'components/checkbox';
@@ -28,9 +29,9 @@ export default class Search extends React.Component {
   }
 
   state = {
-    showDateRange: false,
-    showDeviceDropdown: false,
-    showRetweetButtons: false,
+    showDateRange: !!queryParams().dates,
+    showDeviceDropdown: !!queryParams().device,
+    showRetweetButtons: !!queryParams().retweet,
     showTips: false,
   }
 
