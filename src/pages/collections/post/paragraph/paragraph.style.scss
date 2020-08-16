@@ -1,6 +1,32 @@
+@import "src/variables.scss";
+
 .paragraph {
+  font-size: 20px;
+  line-height: 30px;
   margin: 50px 25%;
   text-align: left;
+
+  > a {
+    color: $red;
+    // text-decoration: none;
+  }
+
+  &.quote {
+    border-left: 5px solid black;
+    color: #757575;
+    padding-left: 25px;
+
+    > a {
+      color: #757575;
+      text-decoration: none;
+    }
+  }
+
+  &.conclusion {
+    border-radius: 2px;
+    border: 5px solid $red;
+    padding: 25px;
+  }
 
   @media all and (max-width: 1000px) {
     margin: 50px 15%;

@@ -4,7 +4,7 @@ import ExternalLink from 'components/external-link';
 import Highlighter from 'react-highlight-words';
 import Icon from 'components/icon';
 import { utcTimestampToEST } from 'utils/date';
-import { formatNumber, replaceHTMLEntities } from 'utils/format';
+import { numberWithKs, replaceHTMLEntities } from 'utils/format';
 import styles from './tweet.style.scss';
 
 export default class Tweet extends Component {
@@ -45,11 +45,11 @@ export default class Tweet extends Component {
           <span className={styles.stats}>
             <span>
               <Icon name="RETWEET"/>
-              { formatNumber(retweets) }
+              { numberWithKs(retweets) }
             </span>
             <span>
               <Icon name="HEART"/>
-              { formatNumber(favorites) }
+              { numberWithKs(favorites) }
             </span>
             <span>
               <ExternalLink tweetId={id}>
