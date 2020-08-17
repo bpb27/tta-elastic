@@ -72,7 +72,7 @@ export default class Economy extends React.Component {
           Trump often claims that electing Democrats would crash the stock market, despite the fact that the Obama (and Biden) years saw historic stock market highs. That said, he has presided over accelerated stock market increases (especially in 2017), though there have been a number of erratic and precipitous drops, including the three largest single-day drops in history.
         </Paragraph>
         <Paragraph type="conclusion">
-          Taking credit for "the greatest economy in history" is a bit like being handed the baton at the last lap of a race with a big lead, and then stumbling at the finish line because you were too busy tweeting about hydroxychloroquine instead of devising a real plan befitting the most advanced nation on Earth. Unfortunately, the only thing "historic" about the Trump economy is the most devastating economic crash we've ever witnessed.
+          Trump taking credit for "the greatest economy in history" is a bit like being handed the baton at the last lap of a race with a big lead, only to stumble at the finish line because he thought the hurdles were fake news. Trump inherited upward economic trends, much like he inherited his personal fortune.
         </Paragraph>
       </Post>
     );

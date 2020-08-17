@@ -117,32 +117,32 @@ export default class Search extends React.Component {
             }}
             URLParams={true}
           />
-          <div className={styles.toggles}>
-            <Checkbox
-              label="Tips"
-              name="show-search-tips"
-              value={showTips}
-              onClick={showTips => this.setState({ showTips })}
-            />
-            <Checkbox
-              label="Device"
-              name="filter-by-device"
-              value={showDeviceDropdown}
-              onClick={showDeviceDropdown => this.setState({ showDeviceDropdown })}
-            />
-            <Checkbox
-              label="Date"
-              name="filter-by-date"
-              value={showDateRange}
-              onClick={showDateRange => this.setState({ showDateRange })}
-            />
-            <Checkbox
-              label="Retweet"
-              name="filter-by-retweet"
-              value={showRetweetButtons}
-              onClick={showRetweetButtons => this.setState({ showRetweetButtons })}
-            />
-          </div>
+        </div>
+        <div className={styles.toggles}>
+          <Checkbox
+            label="Tips"
+            name="show-search-tips"
+            value={showTips}
+            onClick={showTips => this.setState({ showTips })}
+          />
+          <Checkbox
+            label="Dates"
+            name="filter-by-date"
+            value={showDateRange}
+            onClick={showDateRange => this.setState({ showDateRange })}
+          />
+          <Checkbox
+            label="Device"
+            name="filter-by-device"
+            value={showDeviceDropdown}
+            onClick={showDeviceDropdown => this.setState({ showDeviceDropdown })}
+          />
+          <Checkbox
+            label="Retweets"
+            name="filter-by-retweet"
+            value={showRetweetButtons}
+            onClick={showRetweetButtons => this.setState({ showRetweetButtons })}
+          />
         </div>
         <ReactiveList
           className={styles.list}
@@ -155,7 +155,7 @@ export default class Search extends React.Component {
           render={this.tweets.bind(this)}
           renderNoResults={() => 'No tweets found'}
           renderResultStats={({ numberOfResults }) => (
-            <p>{numberWithCommas(numberOfResults)} tweets found</p>
+            <p><span>{numberWithCommas(numberOfResults)}</span> tweets found</p>
           )}
           size={25}
           sortOptions={[
