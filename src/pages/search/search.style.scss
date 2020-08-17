@@ -29,8 +29,16 @@
       padding: 10px;
     }
   }
+}
 
-  select[name="sort-options"] {
-    border: 3px solid black;
+.list {
+  // results + sort line
+  > div:first-child {
+    display: flex;
+    justify-content: space-between;
+
+    select[name="sort-options"] {
+      border: 3px solid black;
+    }
   }
 }

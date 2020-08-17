@@ -1,10 +1,10 @@
 import React from 'react';
 import { func, shape, string } from 'prop-types';
 import { parseQuery } from 'utils/query';
-import { twoDaysFromNow, validDatestring } from 'utils/date';
+import { validDatestring } from 'utils/date';
+import { numberWithCommas } from 'utils/format';
 import { queryParams } from 'utils/navigation';
 import { zonedTimeToUtc } from 'date-fns-tz';
-import Button from 'components/button';
 import Checkbox from 'components/checkbox';
 import Tips from 'components/pages/tips';
 import Tweet from './tweet';
@@ -12,6 +12,7 @@ import {
   DataSearch,
   DateRange,
   ReactiveList,
+  SelectedFilters,
   SingleDropdownList,
   StateProvider,
   ToggleButton
@@ -33,18 +34,6 @@ export default class Search extends React.Component {
     showDeviceDropdown: !!queryParams().device,
     showRetweetButtons: !!queryParams().retweet,
     showTips: false,
-  }
-
-  clear () {
-    this.setState({
-      showDateRange: false,
-      showDeviceDropdown: false,
-      showRetweetButtons: false,
-      showTips: false,
-    }, () => {
-      this.props.history.push('/search');
-      location.reload(true); // can't quite figure out how to force DataSearch to refetch, so doing this non-ideal move
-    });
   }
 
   tweets (results) {
@@ -89,46 +78,46 @@ export default class Search extends React.Component {
           searchOperators={true}
           URLParams={true}
         />
+        <SelectedFilters/>
         <div className={styles.options}>
-          { showDeviceDropdown && (
-            <SingleDropdownList
-              componentId="device"
-              dataField="device.keyword"
-              placeholder="Filter by device"
-              react={{
-                and: ['dates', 'results', 'retweet', 'searchbox']
-              }}
-              selectAllLabel="All devices"
-              URLParams={true}
-            />
-          )}
-          { showDateRange && (
-            <DateRange
-              componentId="dates"
-              dataField="date"
-              defaultValue={{
-                start: new Date('2009-05-01'),
-                end: twoDaysFromNow(),
-              }}
-              dayPickerInputProps={{
-                parseDate: dateString => validDatestring(dateString) && zonedTimeToUtc(dateString, 'America/New_York'),
-              }}
-              URLParams={true}
-            />
-          )}
-          { showRetweetButtons && (
-            <ToggleButton
-              componentId="retweet"
-              dataField="isRetweet"
-              data={[
-                { label: 'Hide Retweets', value: false },
-                { label: 'Only Retweets', value: true },
-              ]}
-              URLParams={true}
-            />
-          )}
+          <SingleDropdownList
+            componentId="device"
+            dataField="device.keyword"
+            placeholder="Filter by device"
+            react={{
+              and: ['dates', 'results', 'retweet', 'searchbox']
+            }}
+            selectAllLabel="All devices"
+            style={{
+              display: showDeviceDropdown ? 'initial' : 'none',
+            }}
+            URLParams={true}
+          />
+          <DateRange
+            componentId="dates"
+            dataField="date"
+            dayPickerInputProps={{
+              parseDate: dateString => validDatestring(dateString) && zonedTimeToUtc(dateString, 'America/New_York'),
+            }}
+            style={{
+              display: showDateRange ? 'initial' : 'none',
+            }}
+            URLParams={true}
+          />
+          <ToggleButton
+            componentId="retweet"
+            dataField="isRetweet"
+            data={[
+              { label: 'Hide Retweets', value: 'false' },
+              { label: 'Only Retweets', value: 'true' },
+            ]}
+            multiSelect={false}
+            style={{
+              display: showRetweetButtons ? 'initial' : 'none',
+            }}
+            URLParams={true}
+          />
           <div className={styles.toggles}>
-            <Button onClick={() => this.clear()}>Clear</Button>
             <Checkbox
               label="Tips"
               name="show-search-tips"
@@ -156,6 +145,7 @@ export default class Search extends React.Component {
           </div>
         </div>
         <ReactiveList
+          className={styles.list}
           componentId="results"
           dataField="text"
           infiniteScroll={true}
@@ -163,6 +153,10 @@ export default class Search extends React.Component {
             and: ['dates', 'device', 'retweet', 'searchbox']
           }}
           render={this.tweets.bind(this)}
+          renderNoResults={() => 'No tweets found'}
+          renderResultStats={({ numberOfResults }) => (
+            <p>{numberWithCommas(numberOfResults)} tweets found</p>
+          )}
           size={25}
           sortOptions={[
             { dataField: 'date', label: 'Latest', sortBy: 'desc'},

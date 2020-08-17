@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ReactiveBase } from '@appbaseio/reactivesearch';
-import FaqPage from 'components/pages/faq';
-import CollectionsPage from 'components/pages/collections';
-import SearchPage from 'components/pages/search';
 import Navbar from 'components/navbar';
 import styles from './app.style.scss';
+
+const FaqPage = lazy(() => import('components/pages/faq'));
+const CollectionsPage = lazy(() => import('components/pages/collections'));
+const SearchPage = lazy(() => import('components/pages/search'));
 
 export default class App extends React.Component {
   render () {
@@ -13,12 +14,14 @@ export default class App extends React.Component {
       <div className={styles.app}>
         <ReactiveBase app="tweets" url="https://public-key:mfpzsrhddvm7f54ctotnjbhqczu0z35t@thorin-us-east-1.searchly.com">
           <BrowserRouter>
-            <Navbar />
-            <Switch>
-              <Route path="/faq" component={FaqPage} />
-              <Route path="/collections" component={CollectionsPage} />
-              <Route component={SearchPage} />
-            </Switch>
+            <Navbar/>
+            <Suspense fallback={<div className={styles.loader}>Loading...</div>}>
+              <Switch>
+                <Route path="/faq" component={FaqPage}/>
+                <Route path="/collections" component={CollectionsPage}/>
+                <Route component={SearchPage}/>
+              </Switch>
+            </Suspense>
           </BrowserRouter>
         </ReactiveBase>
       </div>
