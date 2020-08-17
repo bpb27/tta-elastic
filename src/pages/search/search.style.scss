@@ -34,11 +34,25 @@
 .list {
   // results + sort line
   > div:first-child {
+    align-items: baseline;
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
+    margin-bottom: 5px;
+    padding: 5px 10px 5px 0;
+
+    p {
+      margin: 0 15px 0 0;
+
+      span {
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: underline;
+        text-decoration-color: $red;
+      }
+    }
 
     select[name="sort-options"] {
-      border: 3px solid black;
+      border: 2px solid black;
     }
   }
 }
