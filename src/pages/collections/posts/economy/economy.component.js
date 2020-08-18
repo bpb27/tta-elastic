@@ -20,7 +20,7 @@ export default class Economy extends React.Component {
         </Paragraph>
         <GraphGDP/>
         <Paragraph>
-          Trump has tweeted about creating the greatest economy in history more than <Link to='/?searchbox="greatest+%2B+economy'>20 times</Link>. This is inaccurate by any metric, unless he's simply stating that both real GDP and the stock market are both higher than they've ever been. Trump can reasonably claim credit for continuing upward economic trends (especially a stock market acceleration in 2017), but must also reckon with presiding over the greatest economic contraction in history.
+          Trump has tweeted about creating the greatest economy in history more than <Link to='/?searchbox=%22%5C%22greatest+economy%5C%22%22'>20 times</Link>. This is inaccurate by any metric, unless he's simply stating that both real GDP and the stock market are both higher than they've ever been. Trump can reasonably claim credit for continuing upward economic trends (especially a stock market acceleration in 2017), but must also reckon with presiding over the greatest economic contraction in history.
         </Paragraph>
         <GraphGDPQuarterly/>
         <Paragraph type="quote">
@@ -64,7 +64,7 @@ export default class Economy extends React.Component {
           </ExternalLink>
         </Paragraph>
         <Paragraph>
-          Trump often claims that electing Democrats would crash the stock market, despite the fact that the Obama (and Biden) years saw historic stock market highs. That said, he has presided over accelerated stock market increases (especially in 2017), though there have been a number of erratic and precipitous drops, including the three largest single-day drops in history.
+          Trump often claims that electing Democrats would crash the stock market, despite the fact that the Obama/Biden years saw historic stock market highs. That said, he has presided over accelerated stock market increases (especially in 2017), though there have been a number of erratic and precipitous drops, including the three largest single-day drops in history.
         </Paragraph>
         <Paragraph type="conclusion">
           Trump taking credit for "the greatest economy in history" is a bit like being handed the baton at the last lap of a race with a big lead, only to stumble at the finish line because he thought the hurdles were fake news. Trump inherited upward economic trends, much like he inherited his personal fortune.

@@ -57,7 +57,7 @@ export default class LineGraph extends React.Component {
               title: {
                 align: 'center',
                 style: {
-                  fontFamily: '\'Antic Slab\', serif',
+                  fontFamily: 'serif',
                   fontSize: '30px',
                 },
                 text: this.props.title,
