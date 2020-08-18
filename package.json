@@ -89,6 +89,9 @@
       "<rootDir>/test-setup/setup.js",
       "jest-prop-type-error"
     ],
+    "testPathIgnorePatterns" : [
+      "<rootDir>/src/unused" 
+    ],
     "transformIgnorePatterns": [
       "/node_modules/(?!ol)"
     ]
