@@ -5,11 +5,7 @@ import styles from './paragraph.style.scss';
 export default class Paragraph extends React.Component {
   static propTypes = {
     children: node.isRequired,
-    type: oneOf(['conclusion', 'default', 'quote']),
-  }
-
-  static defaultProps = {
-    type: 'default',
+    type: oneOf(['conclusion', 'quote']),
   }
 
   get className () {

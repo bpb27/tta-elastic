@@ -1,5 +1,4 @@
 import React from 'react';
-import { string } from 'prop-types';
 import { Link } from 'react-router-dom';
 import ExternalLink from 'components/external-link';
 import GraphDebt from './debt';
@@ -11,10 +10,6 @@ import { Paragraph, Post } from 'components/pages/collections/post';
 import styles from './economy.style.scss';
 
 export default class Economy extends React.Component {
-  static propTypes = {
-    name: string,
-  }
-
   render () {
     return (
       <Post className={styles.economy} date="August 1st, 2020" title="The Trump Economy">
