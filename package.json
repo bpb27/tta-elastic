@@ -62,6 +62,7 @@
     "express": "^4.17.1",
     "express-favicon": "^2.0.1",
     "express-static-gzip": "^2.0.5",
+    "helmet": "^4.1.0",
     "moment": "^2.24.0",
     "node-cache": "^4.2.1",
     "pg": "^7.17.1",

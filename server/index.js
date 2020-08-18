@@ -5,6 +5,7 @@ const express = require('express');
 const favicon = require('express-favicon');
 const staticGzip = require('express-static-gzip');
 const path = require('path');
+const helmet = require('helmet');
 const { Client } = require('elasticsearch');
 const { Pool } = require('pg');
 const NodeCache = require('node-cache');
@@ -40,6 +41,19 @@ if (NODE_ENV === 'prod') {
     });
   }, 1000 * 60);
 }
+
+// security headers
+// app.use(helmet.contentSecurityPolicy()); // need to whitelist a number of scripts and styles
+app.use(helmet.dnsPrefetchControl());
+app.use(helmet.expectCt());
+app.use(helmet.frameguard());
+app.use(helmet.hidePoweredBy());
+app.use(helmet.hsts());
+app.use(helmet.ieNoOpen());
+app.use(helmet.noSniff());
+app.use(helmet.permittedCrossDomainPolicies());
+app.use(helmet.referrerPolicy());
+app.use(helmet.xssFilter());
 
 // serve static assets in dist and public folders
 app.use(favicon(`${pathPublic}/favicon.ico`));
