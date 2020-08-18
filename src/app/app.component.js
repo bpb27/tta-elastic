@@ -15,7 +15,7 @@ export default class App extends React.Component {
         <ReactiveBase app="tweets" url="https://public-key:mfpzsrhddvm7f54ctotnjbhqczu0z35t@thorin-us-east-1.searchly.com">
           <BrowserRouter>
             <Navbar/>
-            <Suspense fallback={<div className={styles.loader}>Loading...</div>}>
+            <Suspense fallback={<div/>}>
               <Switch>
                 <Route path="/faq" component={FaqPage}/>
                 <Route path="/collections" component={CollectionsPage}/>
