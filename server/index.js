@@ -4,6 +4,7 @@ const { DATABASE_URL, NODE_ENV, PORT, SEARCHBOX_URL } = process.env;
 const express = require('express');
 const favicon = require('express-favicon');
 const staticGzip = require('express-static-gzip');
+const cors = require('cors');
 const path = require('path');
 const helmet = require('helmet');
 const { Client } = require('elasticsearch');
@@ -60,6 +61,9 @@ app.use(helmet.xssFilter());
 app.use(favicon(`${pathPublic}/favicon.ico`));
 app.use(staticGzip(pathDist));
 app.use(staticGzip(pathPublic));
+
+// disable CORS restriction in dev mode
+if (!isProd) app.use(cors());
 
 // health check route
 app.get('/ping', (req, res) => {
