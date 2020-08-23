@@ -55,6 +55,7 @@
     "@babel/plugin-proposal-optional-chaining": "^7.11.0",
     "apexcharts": "^3.10.1",
     "bodybuilder": "^2.2.18",
+    "cors": "^2.8.5",
     "date-fns": "^2.9.0",
     "date-fns-tz": "^1.0.9",
     "dotenv": "^8.2.0",
@@ -89,8 +90,8 @@
       "<rootDir>/test-setup/setup.js",
       "jest-prop-type-error"
     ],
-    "testPathIgnorePatterns" : [
-      "<rootDir>/src/unused" 
+    "testPathIgnorePatterns": [
+      "<rootDir>/src/unused"
     ],
     "transformIgnorePatterns": [
       "/node_modules/(?!ol)"
