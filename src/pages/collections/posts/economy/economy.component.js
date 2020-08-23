@@ -20,7 +20,7 @@ export default class Economy extends React.Component {
         </Paragraph>
         <GraphGDP/>
         <Paragraph>
-          Trump has tweeted about creating the greatest economy in history more than <Link to='/?searchbox=%22%5C%22greatest+economy%5C%22%22'>20 times</Link>. This is inaccurate by any metric, unless he's simply stating that both real GDP and the stock market are both higher than they've ever been. Trump can reasonably claim credit for continuing upward economic trends (especially a stock market acceleration in 2017), but must also reckon with presiding over the greatest economic contraction in history.
+          Trump is famous for always taking credit and never taking blame. He has tweeted that he created the greatest economy in history more than <Link to='/?searchbox=%22%5C%22greatest+economy%5C%22%22'>20 times</Link>, despite the fact that he essentially inherited upward economic trends from the previous administrations and continued them until the greatest economic crash of all time hit in March. It's also worth noting that pre-COVID, the economy was not the greatest of all time by any measure.
         </Paragraph>
         <GraphGDPQuarterly/>
         <Paragraph type="quote">
