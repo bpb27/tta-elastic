@@ -1,4 +1,4 @@
-const { bodybuilder, presidentialRange } = require('./utils');
+const { wrapper } = require('./utils');
 
 const name = 'collusion';
 const terms = [
@@ -7,24 +7,27 @@ const terms = [
   'witch hunt*',
   'collusion*',
   'mueller*',
+  'impeach*',
   'dossier',
   'steele',
-  'Fusion GPS',
+  'Schiff',
+  'Putin',
+  'quid',
 ];
 
-const body = bodybuilder()
-  .andFilter('bool', presidentialRange)
-  .orFilter('bool', builder =>
-    builder
-      .orFilter('wildcard', 'text', 'hoax*')
-      .orFilter('wildcard', 'text', 'russia*')
-      .orFilter('wildcard', 'text', 'witch hunt*')
-      .orFilter('wildcard', 'text', 'collusion*')
-      .orFilter('wildcard', 'text', 'mueller*')
-      .orFilter('wildcard', 'text', 'dossier')
-      .orFilter('match', 'text', 'steele')
-      .orFilter('match', 'text', 'Fusion GPS')
-  )
-  .build();
+const body = wrapper(builder => (
+  builder
+    .orFilter('wildcard', 'text', 'hoax*')
+    .orFilter('wildcard', 'text', 'russia*')
+    .orFilter('wildcard', 'text', 'witch hunt*')
+    .orFilter('wildcard', 'text', 'collusion*')
+    .orFilter('wildcard', 'text', 'mueller*')
+    .orFilter('wildcard', 'text', 'impeach*')
+    .orFilter('match', 'text', 'dossier')
+    .orFilter('match', 'text', 'steele')
+    .orFilter('match', 'text', 'schiff')
+    .orFilter('match', 'text', 'putin')
+    .orFilter('match', 'text', 'quid')
+));
 
 module.exports = { body, name, terms };

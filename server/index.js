@@ -17,6 +17,7 @@ const { dbString, logger } = require('./utils');
 
 const app = express();
 const port = PORT || 3000;
+const isProd = NODE_ENV === 'prod';
 const cache = new NodeCache();
 const client = new Client({ host: SEARCHBOX_URL });
 const pool = new Pool({ connectionString: dbString(DATABASE_URL) });
@@ -68,7 +69,7 @@ app.get('/ping', (req, res) => {
 // tweet stats route with cache
 app.get('/stats', async (req, res) => {
   const cachedStats = cache.get('stats');
-  if (cachedStats) {
+  if (cachedStats && isProd) {
     res.json(cachedStats);
   } else {
     const freshStats = await getStats();
