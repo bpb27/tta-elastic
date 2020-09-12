@@ -21,7 +21,12 @@ export default class TweetLink extends React.Component {
     type: 'text',
   }
 
+  state = {
+    deleted: false,
+  }
+
   render () {
+    const { deleted } = this.state;
     const {
       className,
       children,
@@ -30,7 +35,16 @@ export default class TweetLink extends React.Component {
       type,
     } = this.props;
 
-    if (type === 'embed') {
+    if (type === 'placeholder' || deleted) {
+      return (
+        <Placeholder
+          className={className}
+          deleted={deleted}
+          placeholderHighlights={placeholderHighlights}
+          tweetData={tweetData}
+        />
+      );
+    } else if (type === 'embed') {
       return (
         <div className={className}>
           <TwitterTweetEmbed
@@ -38,18 +52,13 @@ export default class TweetLink extends React.Component {
               // cards: 'hidden',
               dnt: true,
             }}
+            onLoad={element => {
+              if (!element) this.setState({ deleted: true });
+            }}
             placeholder={<Placeholder tweetData={tweetData}/>}
             tweetId={tweetData.id}
           />
         </div>
-      );
-    } else if (type === 'placeholder') {
-      return (
-        <Placeholder
-          className={className}
-          placeholderHighlights={placeholderHighlights}
-          tweetData={tweetData}
-        />
       );
     } else if (type === 'text') {
       return (

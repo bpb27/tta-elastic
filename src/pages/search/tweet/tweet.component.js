@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { arrayOf, bool, number, shape, string } from 'prop-types';
-import ExternalLink from 'components/external-link';
 import Highlighter from 'react-highlight-words';
 import Icon from 'components/icon';
+import Modal from 'components/modal';
+import TweetLink from 'components/tweet-link';
 import { utcTimestampToEST } from 'utils/date';
 import { numberWithKs, replaceHTMLEntities } from 'utils/format';
 import styles from './tweet.style.scss';
@@ -26,6 +27,10 @@ export default class Tweet extends Component {
   static defaultProps = {
     mobileView: false,
     search: '',
+  }
+
+  state = {
+    showTwitterView: false,
   }
 
   render () {
@@ -52,9 +57,7 @@ export default class Tweet extends Component {
               { numberWithKs(favorites) }
             </span>
             <span>
-              <ExternalLink tweetId={id}>
-                <Icon name="TWITTER"/>
-              </ExternalLink>
+              <Icon name="TWITTER" onClick={() => this.setState({ showTwitterView: true })} />
             </span>
           </span>
         </div>
@@ -65,6 +68,16 @@ export default class Tweet extends Component {
             textToHighlight={replaceHTMLEntities(text)}
           />
         </div>
+        {
+          this.state.showTwitterView && (
+            <Modal
+              closeModal={() => this.setState({ showTwitterView: false })}
+              headerText="Tweet spotlight"
+            >
+              <TweetLink tweetData={data} type="embed"/>
+            </Modal>
+          )
+        }
       </div>
     );
   }
