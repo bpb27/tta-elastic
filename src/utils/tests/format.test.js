@@ -1,10 +1,25 @@
 import {
+  capitalize,
   numberWithCommas,
   numberWithKs,
   replaceHTMLEntities,
 } from 'utils/format';
 
 describe('format utils', () => {
+  describe('capitalizes a string', () => {
+    it('handles no input', () => {
+      expect(capitalize()).toEqual('');
+    });
+
+    it('handles a single word', () => {
+      expect(capitalize('loser')).toEqual('Loser');
+    });
+
+    it('handles a multiple words', () => {
+      expect(capitalize('losers and haters')).toEqual('Losers and haters');
+    });
+  });
+
   describe('formats numbers', () => {
     it('handles no input', () => {
       expect(numberWithKs()).toEqual('0');

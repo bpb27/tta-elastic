@@ -19,15 +19,15 @@ export default class Frequency extends React.Component {
   }
 
   render () {
+    const { data } = this.state;
     return (
       <div className={styles.frequency}>
-        {
-          this.state.data && (
-            <TweetFrequency {...this.state.data.groupings}/>
-          )
-        }
-
-        {/* <TweetStats topics={this.state.data.topics}/> */}
+        <TweetFrequency
+          day={data?.groupings.byDay}
+          month={data?.groupings.byMonth}
+          week={data?.groupings.byWeek}
+        />
+        <TweetStats topics={data?.topics}/>
       </div>
     );
   }

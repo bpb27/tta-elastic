@@ -5,6 +5,7 @@ import { format } from 'date-fns';
 import { groupByPresident } from './line-graph.utils';
 import ExternalLink from 'components/external-link';
 import styles from './line-graph.style.scss';
+import { FONT } from 'utils/constants';
 
 // https://apexcharts.com/docs/react-charts/
 
@@ -57,7 +58,7 @@ export default class LineGraph extends React.Component {
               title: {
                 align: 'center',
                 style: {
-                  fontFamily: 'serif',
+                  fontFamily: FONT,
                   fontSize: '30px',
                 },
                 text: this.props.title,
