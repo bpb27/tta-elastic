@@ -1,13 +1,13 @@
 const { wrapper } = require('./utils');
 
-const name = 'fakeNews';
+const name = 'minimumWage';
 const terms = [
-  'fake news',
+  'minimum wage',
 ];
 
 const body = wrapper(builder => (
   builder
-    .orFilter('match', 'text', 'fake news')
+    .orFilter('match_phrase', 'text', 'minimum wage')
 ));
 
 module.exports = { body, name, terms };

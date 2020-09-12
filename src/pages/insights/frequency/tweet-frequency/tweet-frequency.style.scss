@@ -1,0 +1,13 @@
+@import "src/variables.scss";
+
+.tweetFrequency {
+
+}
+
+.controls {
+  select {
+    margin-left: 5px;
+    padding: 10px;
+    border: 2px solid $black;
+  }
+}

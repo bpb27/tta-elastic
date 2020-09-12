@@ -1,10 +1,19 @@
 import {
+  daysAsPresident,
   twoDaysFromNow,
   utcTimestampToEST,
   validDatestring,
 } from 'utils/date';
 
 describe('date utils', () => {
+  describe('daysAsPresident', () => {
+    it('returns the days between inauguration and now', () => {
+      const result = daysAsPresident();
+      expect(result).toBeGreaterThan(1200);
+      expect(result).toBeLessThan(1440); // end of first term
+    });
+  });
+
   describe('utcTimestampToEST', () => {
     it('creates a formatted string', () => {
       const result = utcTimestampToEST(1569705285000);

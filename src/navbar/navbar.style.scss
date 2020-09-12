@@ -35,3 +35,30 @@
     }
   }
 }
+
+.subnav {
+  align-items: center;
+  display: flex;
+  height: $navbar-height;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: $navbar-height;
+  width: 100%;
+  z-index: 2;
+
+  a {
+    background: white;
+    color: black;
+    cursor: pointer;
+    padding: 10px 15px;
+    text-decoration: none;
+
+    &.active {
+      color: white;
+      font-weight: 800;
+      background: $black;
+      border-radius: 2px;
+    }
+  }
+}
