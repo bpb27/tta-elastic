@@ -1,14 +1,14 @@
 const { wrapper } = require('./utils');
 
-const name = 'newsSources';
+const name = 'fakeNews';
 const terms = [
-  'fox*',
+  'fake news',
+  'media',
   'cnn',
   'msnbc',
   'nyt',
   'nytimes',
   'new york times',
-  'wapo',
   'washington post',
   'washingtonpost',
   'nbc',
@@ -17,18 +17,17 @@ const terms = [
   'cbsnews',
   'abc',
   'abcnews',
-  'oann',
 ];
 
 const body = wrapper(builder => (
   builder
-    .orFilter('wildcard', 'text', 'fox*')
+    .orFilter('match', 'text', 'fake news')
+    .orFilter('match', 'text', 'media')
     .orFilter('match', 'text', 'cnn')
     .orFilter('match', 'text', 'msnbc')
     .orFilter('match', 'text', 'nyt')
     .orFilter('match', 'text', 'nytimes')
     .orFilter('match_phrase', 'text', 'new york times')
-    .orFilter('match', 'text', 'wapo')
     .orFilter('match_phrase', 'text', 'washington post')
     .orFilter('match', 'text', 'washingtonpost')
     .orFilter('match', 'text', 'nbc')
@@ -37,7 +36,6 @@ const body = wrapper(builder => (
     .orFilter('match', 'text', 'cbsnews')
     .orFilter('match', 'text', 'abc')
     .orFilter('match', 'text', 'abcnews')
-    .orFilter('match', 'text', 'oann')
 ));
 
 module.exports = { body, name, terms };

@@ -5,7 +5,7 @@ import Navbar from 'components/navbar';
 import styles from './app.style.scss';
 
 const FaqPage = lazy(() => import('components/pages/faq'));
-const CollectionsPage = lazy(() => import('components/pages/collections'));
+const InsightsPage = lazy(() => import('components/pages/insights'));
 const SearchPage = lazy(() => import('components/pages/search'));
 
 export default class App extends React.Component {
@@ -18,7 +18,7 @@ export default class App extends React.Component {
             <Suspense fallback={<div/>}>
               <Switch>
                 <Route path="/faq" component={FaqPage}/>
-                <Route path="/collections" component={CollectionsPage}/>
+                <Route path="/insights" component={InsightsPage}/>
                 <Route component={SearchPage}/>
               </Switch>
             </Suspense>

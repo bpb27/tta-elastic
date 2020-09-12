@@ -1,0 +1,39 @@
+@import "src/variables.scss";
+
+.tweetStats {
+  h2 {
+    text-align: center;
+  }
+
+  div {
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 30px;
+    text-align: center;
+
+    a {
+      color: black;
+      text-decoration: none;
+    }
+
+    span {
+      display: block;
+    }
+  }
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.total {
+  background: #ececec;
+  border-radius: 5px;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px;
+  min-width: 210px;
+  padding: 5px 5px 8px 5px;
+  text-align: center;
+}

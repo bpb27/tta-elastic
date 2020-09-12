@@ -76,7 +76,7 @@ app.get('/stats', async (req, res) => {
   if (cachedStats && isProd) {
     res.json(cachedStats);
   } else {
-    const freshStats = await getStats();
+    const freshStats = await getStats(pool);
     cache.set('stats', freshStats, 7200); // TTL 2 hours (60 * 60 * 2)
     res.json(freshStats);
   }

@@ -1,69 +1,99 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { arrayOf, number, shape, string } from 'prop-types';
+import { format } from 'date-fns';
 import Chart from 'react-apexcharts';
-import data from './tweet-frequency.data';
 import Button from 'components/button';
-// import styles from './tweet-frequency.style.scss';
+import styles from './tweet-frequency.style.scss';
 
-const DATA = data.sort((a, b) => new Date(b.date) - new Date(a.date)).reverse();
-const INC = 500;
-// TODO: pull from cached API endpoint
+// TODO: deltas compared to prior
+// TODO: go to date selector
+// const DATA = data.sort((a, b) => new Date(b.date) - new Date(a.date)).reverse();
 
 export default class TweetFrequency extends React.Component {
   static propTypes = {
-    name: string,
+    byDay: arrayOf(shape({
+      date: string.isRequired,
+      count: number.isRequired
+    })),
+    byMonth: arrayOf(shape({
+      date: string.isRequired,
+      count: number.isRequired
+    })),
+    byWeek: arrayOf(shape({
+      date: string.isRequired,
+      count: number.isRequired
+    })),
   }
 
-  state = {
-    data: DATA.slice(0, INC),
-    end: INC,
-    inc: INC,
-    start: 0,
+  constructor(props) {
+    super(props);
+
+    const startingInc = window.innerWidth <= 700 ? 100 : 500;
+
+    this.state = {
+      data: this.props.groupings.byMonth?.slice(0, startingInc) || [],
+      end: startingInc,
+      inc: startingInc,
+      start: 0,
+      unit: 'byMonth',
+    };
   }
 
-  changeInc ({ target }) {
+  get data () {
+    return this.state.data[this.state.unit] || [];
+  }
+
+  changeInc = ({ target }) => {
     const inc = Number(target.value);
-    const end = this.state.start;
-    const start = this.state.start - inc;
-    this.setState({ inc }, () => this.set(start, end));
+    this.setState({ inc }, () => this.set(0, inc));
   }
 
-  prev () {
+  prev = () => {
     const end = this.state.end + this.state.inc;
     const start = this.state.start + this.state.inc;
     this.set(start, end);
   }
 
-  next () {
+  next = () => {
     const end = this.state.end - this.state.inc;
     const start = this.state.start - this.state.inc;
     this.set(start, end);
   }
 
-  set (start, end) {
-    const max = DATA.length + this.state.inc;
+  set = (start, end) => {
+    const max = this.data.length + this.state.inc;
     const min = 0;
     if (end <= max && start >= min) {
-      this.setState({ data: DATA.slice(start, end), end, start });
+      this.setState({ data: this.data.slice(start, end), end, start });
     }
   }
 
   render () {
     return (
       <div>
-        <div>
-          <Button onClick={this.prev.bind(this)}>Back</Button>
-          <Button onClick={this.next.bind(this)}>Forward</Button>
-          {/* <select
+        <div className={styles.controls}>
+          <Button onClick={this.prev}>Back</Button>
+          <Button onClick={this.next}>Forward</Button>
+          <select
             name="increment"
-            onChange={this.changeInc.bind(this)}
+            onChange={this.changeInc}
             value={String(this.state.inc)}
           >
             <option value="7">7</option>
             <option value="30">30</option>
             <option value="100">100</option>
+            <option value="360">360</option>
             <option value="500">500</option>
-          </select> */}
+          </select>
+          <select
+            name="unit"
+            onChange={({ target }) => this.setState({ unit: target.value })}
+            value={this.state.unit}
+          >
+            <option value="byDay">Day</option>
+            <option value="byWeek">Week</option>
+            <option value="byMonth">Month</option>
+          </select>
         </div>
         <Chart
           options={{
@@ -92,11 +122,16 @@ export default class TweetFrequency extends React.Component {
               },
               text: 'Frequency',
             },
+            tooltip: {
+              x: {
+                formatter: date => format(date, 'MMM dd, yyyy'),
+              },
+            },
             xaxis: {
               type: 'datetime',
             },
             yaxis: {
-              max: 200,
+              // max: 200,
               min: 0,
             },
           }}

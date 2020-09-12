@@ -1,11 +1,11 @@
-const { bodybuilder, hideRetweets, presidentialRange } = require('./utils');
+const { bodybuilder, presidentialRange } = require('./utils');
 
 const name = 'totalAsPresident';
 const terms = [];
 
 const body = bodybuilder()
   .filter('bool', presidentialRange)
-  .filter('bool', hideRetweets)
+  // .filter('bool', hideRetweets)
   .build();
 
 module.exports = { body, name, terms };

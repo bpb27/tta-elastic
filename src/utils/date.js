@@ -19,6 +19,13 @@ export const validDatestring = value => {
   return re.test(value);
 };
 
+export const daysAsPresident = () => {
+  const oneDay = 24 * 60 * 60 * 1000;
+  const firstDate = new Date(2017, 1, 20);
+  const secondDate = new Date();
+  return Math.round(Math.abs((firstDate - secondDate) / oneDay));
+};
+
 const months = [
   null,
   'Jan',

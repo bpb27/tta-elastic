@@ -11,6 +11,7 @@
           "components": "./src"
         }
       }
-    ]
+    ],
+    "@babel/transform-runtime"
   ],
 }
