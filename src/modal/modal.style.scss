@@ -1,0 +1,45 @@
+@import "src/variables.scss";
+
+.modal {
+  background: white;
+  border-left: 2px solid #a5a2a29e;
+  border-bottom: 2px solid #a5a2a29e;
+  box-shadow: -5px 6px #45454533;
+  height: 100%;
+  overflow-y: scroll;
+  padding: 20px;
+  position: fixed;
+  right: 0;
+  top: $navbar-height;
+  z-index: 2;
+
+  @media all and (max-width: 2000px) {
+    width: 100%;
+  }
+
+  header {
+    align-items: start;
+    display: flex;
+    justify-content: space-between;
+
+    h2 {
+      margin-top: 10px;
+    }
+
+    button {
+      border: none;
+      color: #777777;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+
+  footer {
+    padding-bottom: 200px;
+
+    button {
+      margin-top: 20px;
+    }
+  }
+}
