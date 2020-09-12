@@ -16,9 +16,9 @@ const counts = arrayOf(shape({
 
 export default class TweetFrequency extends React.Component {
   static propTypes = {
-    day: counts.isRequired,
-    month: counts.isRequired,
-    week: counts.isRequired,
+    day: counts,
+    month: counts,
+    week: counts,
   }
 
   static defaultProps = {

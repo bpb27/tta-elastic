@@ -67,11 +67,11 @@ describe('Tweet', () => {
     expect(text).toContain('3.1k');
   });
 
-  it('renders link to twitter', () => {
+  it('renders button to show tweet spotlight', () => {
     const props = createProps();
     const wrapper = shallow(<Tweet {...props} />);
-    const id = wrapper.find('ExternalLink').props().tweetId;
-    expect(id).toEqual('1');
+    const button = wrapper.find('.stats span').at(2);
+    expect(button.exists()).toEqual(true);
   });
 
   it('renders the text', () => {
