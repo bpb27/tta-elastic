@@ -99,6 +99,10 @@ export default class Search extends React.Component {
             dayPickerInputProps={{
               parseDate: dateString => validDatestring(dateString) && zonedTimeToUtc(dateString, 'America/New_York'),
             }}
+            placeholder={{
+              end: 'YYYY-MM-DD',
+              start: 'YYYY-MM-DD',
+            }}
             style={{
               display: showDateRange ? 'initial' : 'none',
             }}

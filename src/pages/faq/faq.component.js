@@ -2,6 +2,8 @@ import React from 'react';
 import ExternalLink from 'components/external-link';
 import styles from './faq.style.scss';
 
+// TODO: Download link
+
 export default class Faq extends React.Component {
   render () {
     return (
@@ -9,11 +11,11 @@ export default class Faq extends React.Component {
         <h1>FAQs</h1>
         <section>
           <h3>What's going on here?</h3>
-          <p>This site pings Twitter every 60 seconds and records every Trump tweet into a database, which is instantly searchable via the search page. Before the site launched in 2016, all the available tweets were grabbed and added to the database for perpituity.</p>
+          <p>This site checks Twitter every 60 seconds and records every Trump tweet into a database, which is instantly searchable via the home page. Before the site launched in 2016, all the available tweets were grabbed and added to the database for perpituity.</p>
         </section>
         <section>
           <h3>Can I use your data?</h3>
-          <p>Yes. You can credit the site if you'd like.</p>
+          <p>Yes. You can credit the site however you'd like.</p>
         </section>
         <section>
           <h3>Can I use your code?</h3>
@@ -21,7 +23,7 @@ export default class Faq extends React.Component {
         </section>
         <section>
           <h3>Is this a reputable source?</h3>
-          <p>You can search Google News for "trumptwitterarchive.com" - it's been referenced by The Washington Post, The New York Times, NPR, The Atlantic, Wikipedia, Snopes, The Guardian, The Wall Street Journal, and others.</p>
+          <p>It's regularly referenced by FactCheck.org, PolitiFact, Snopes, and Wikipedia, along with most major news sources. You can check this <ExternalLink href="https://news.google.com/search?q=%22trumptwitterarchive.com%22&hl=en-US&gl=US&ceid=US%3Aen">Google News</ExternalLink> link for more.</p>
         </section>
         <section>
           <h3>What about deleted tweets?</h3>
@@ -36,21 +38,8 @@ export default class Faq extends React.Component {
           <p>Every tweet is recorded in the database in UTC time. You can look up what that means if you want, but on the site, it's translated to Eastern Standard Time (EST) - i.e. the time in Washington DC. No geographic data is taken into consideration, so if he tweeted something from London at 9AM it's still presented as 3AM. Daylight savings time is taken into account.</p>
         </section>
         <section>
-          <h3>Can I report a bug or make a feature request?</h3>
-          <p>Yes. You can email trumptwitterarchive@gmail.com. If you did this in the past and didn't get response, hopefully the site maintainers will be more responsive now.</p>
-        </section>
-        <section>
           <h3>What's your agenda?</h3>
           <p>The aim is to provide a public resource, since Twitter doesn't really offer these features. Trump's Twitter usage is historic and important, as strange as that might be.</p>
-        </section>
-        <section>
-          <h3>Have you made anything else?</h3>
-          <p>Yes. Use <ExternalLink href="https://www.contactingcongress.org/">Contacting Congress</ExternalLink> to find and contact your political representatives.</p>
-        </section>
-        <section>
-          <h3>Shoutouts?</h3>
-          <p>A certain <ExternalLink href="https://twitter.com/IgorBrigadir">@IgorBrigadir</ExternalLink> helped me find a ton of tweets that I missed right after the site launched. He's a gentleman.</p>
-          <p><ExternalLink href="https://www.google.com/search?q=new+balance+dad+shoes">My dad</ExternalLink> checks the site everyday (doesn't know how to go to Twitter.com) and always lets me know when something is broken (paternal QA).</p>
         </section>
       </div>
     );
