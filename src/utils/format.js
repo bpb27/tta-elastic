@@ -10,3 +10,5 @@ export const replaceHTMLEntities = (text = '') => {
   return text
     .replace(/&amp;/g, '&'); // replace html entity ampersand with actual ampersand
 };
+
+export const capitalize = (text = '') => text.replace(/^\w/, c => c.toUpperCase());

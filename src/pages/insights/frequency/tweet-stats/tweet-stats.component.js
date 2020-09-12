@@ -43,11 +43,11 @@ export default class TweetStats extends React.Component {
   }
 
   get totalAsPresident () {
-    return this.state.topics.find(stat => stat.name === 'totalAsPresident')?.total;
+    return this.props.topics.find(stat => stat.name === 'totalAsPresident')?.total;
   }
 
   get data () {
-    return this.state.topics
+    return this.props.topics
       .filter(stat => stat.name !== 'totalAsPresident')
       .sort((a, b) => b.total > a.total)
       .map(stat => ({ ...stat, percentage: percentage(stat.total, this.totalAsPresident, stat.total > 200 ? 0 : 1) }));
