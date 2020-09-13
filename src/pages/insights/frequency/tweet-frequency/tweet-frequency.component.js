@@ -1,10 +1,8 @@
 import React from 'react';
 import { arrayOf, number, oneOfType, shape, string } from 'prop-types';
 import { format } from 'date-fns';
-import { capitalize } from 'utils/format';
 import Chart from 'react-apexcharts';
 import styles from './tweet-frequency.style.scss';
-import { FONT } from 'utils/constants';
 
 // TODO: deltas compared to prior
 // TODO: go to date selector
@@ -32,22 +30,33 @@ export default class TweetFrequency extends React.Component {
     this.state = {
       options: {
         chart: {
-          id: 'freq',
           animations: {
             enabled: true,
           },
+          height: 300,
+          id: 'freq',
         },
         dataLabels: {
           enabled: false,
         },
-        title: {
-          align: 'center',
-          style: {
-            fontFamily: FONT,
-            fontSize: '30px',
+        responsive: [
+          {
+            breakpoint: 700,
+            options: {
+              chart: {
+                height: 300,
+              },
+            },
           },
-          text: 'Tweet Frequency by Month',
-        },
+          {
+            breakpoint: 2000,
+            options: {
+              chart: {
+                height: 500,
+              },
+            },
+          },
+        ],
         tooltip: {
           x: {
             formatter: date => format(date, 'MMM dd, yyyy'),
@@ -60,6 +69,8 @@ export default class TweetFrequency extends React.Component {
         },
         yaxis: {
           min: 0,
+          max: 1200,
+          tickAmount: 6,
         },
       },
       unit: 'month',
@@ -77,9 +88,6 @@ export default class TweetFrequency extends React.Component {
           enabled: false,
         },
       },
-      title: {
-        text: `Tweet Frequency by ${capitalize(unit)}`,
-      },
     };
 
     if (unit === 'day') {
@@ -90,6 +98,24 @@ export default class TweetFrequency extends React.Component {
         min: sixMonthsAgo.getTime(),
         max: today.getTime(),
       };
+      options.yaxis = {
+        max: 240,
+        tickAmount: 6,
+      };
+    }
+
+    if (unit === 'week') {
+      options.yaxis = {
+        max: 600,
+        tickAmount: 6,
+      };
+    }
+
+    if (unit === 'month') {
+      options.yaxis = {
+        max: 1200,
+        tickAmount: 6,
+      };
     }
 
     this.setState({ options, unit });
@@ -99,7 +125,8 @@ export default class TweetFrequency extends React.Component {
     const { options, unit } = this.state;
     return (
       <div>
-        <div className={styles.controls}>
+        <div className={styles.title}>
+          <span>Tweets <span>Frequency</span> by </span>
           <select
             name="unit"
             onChange={({ target }) => this.updateSelection(target.value)}
@@ -122,7 +149,6 @@ export default class TweetFrequency extends React.Component {
             },
           ]}
           type="bar"
-          height={500}
         />
       </div>
     );
