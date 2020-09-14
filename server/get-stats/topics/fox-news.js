@@ -1,19 +1,8 @@
 const { wrapper } = require('./utils');
 
 const name = 'foxNews';
-const terms = [
-  'fox*',
-  'TuckerCarlson',
-  'SeanHannity',
-  'IngrahamAngle',
-  'JudgeJeanine',
-  'LouDobbs',
-  'SteveDoocy',
-  'kilmeade',
-  'GeraldoRivera',
-  'WattersWorld',
-  'jessebwatters',
-];
+
+const search = 'fox* | TuckerCarlson | SeanHannity | IngrahamAngle | JudgeJeanine | LouDobbs | SteveDoocy | kilmeade | GeraldoRivera | WattersWorld | jessebwatters';
 
 const body = wrapper(builder => (
   builder
@@ -30,4 +19,4 @@ const body = wrapper(builder => (
     .orFilter('match', 'text', 'jessebwatters')
 ));
 
-module.exports = { body, name, terms };
+module.exports = { body, name, search };

@@ -1,14 +1,8 @@
 const { wrapper } = require('./utils');
 
 const name = 'jobs';
-const terms = [
-  'job*',
-  'worker*',
-  'wage*',
-  'employment',
-  'unemployment',
-  'labor',
-];
+
+const search = 'job* | worker* | wage* | employment | unemployment | labor';
 
 const body = wrapper(builder => (
   builder
@@ -20,4 +14,4 @@ const body = wrapper(builder => (
     .orFilter('match', 'text', 'labor')
 ));
 
-module.exports = { body, name, terms };
+module.exports = { body, name, search };

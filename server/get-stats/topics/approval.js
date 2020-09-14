@@ -4,16 +4,6 @@ const name = 'approval';
 
 const search = 'poll* | rating* | crowd* | ovation* | cheer* | approval | rated';
 
-const terms = [
-  'poll*',
-  'rating*',
-  'crowd*',
-  'ovation*',
-  'cheer*',
-  'approval',
-  'rated',
-];
-
 const body = wrapper(builder => (
   builder
     .orFilter('wildcard', 'text', 'poll*')
@@ -25,4 +15,4 @@ const body = wrapper(builder => (
     .orFilter('match', 'text', 'rated')
 ));
 
-module.exports = { body, name, search, terms };
+module.exports = { body, name, search };

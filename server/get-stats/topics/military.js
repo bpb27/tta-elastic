@@ -1,11 +1,8 @@
 const { wrapper } = require('./utils');
 
 const name = 'military';
-const terms = [
-  'vets',
-  'veterans',
-  'military',
-];
+
+const search = 'vets | veterans | military';
 
 const body = wrapper(builder => (
   builder
@@ -14,4 +11,4 @@ const body = wrapper(builder => (
     .orFilter('match', 'text', 'military')
 ));
 
-module.exports = { body, name, terms };
+module.exports = { body, name, search };

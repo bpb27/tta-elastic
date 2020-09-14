@@ -1,31 +1,8 @@
 const { wrapper } = require('./utils');
 
 const name = 'negativity';
-const terms = [
-  'disaster*',
-  'dishonest*',
-  'dope*',
-  'fool*',
-  'hater*',
-  'horr*',
-  'incompeten*',
-  'loser*',
-  'awful',
-  'bad',
-  'boring',
-  'clown',
-  'desperate',
-  'disgusting',
-  'dumb',
-  'dummy',
-  'enemy',
-  'overrated',
-  'pathetic',
-  'sick',
-  'stupid',
-  'terrible',
-  'weak',
-];
+
+const search = 'disaster* | dishonest* | dope* | fool* | hater* | horr* | incompeten* | loser* | awful | bad | boring | clown | desperate | disgusting | dumb | dummy | enemy | overrated | pathetic | sick | stupid | terrible | weak';
 
 const body = wrapper(builder => (
   builder
@@ -54,4 +31,4 @@ const body = wrapper(builder => (
     .orFilter('match', 'text', 'weak')
 ));
 
-module.exports = { body, name, terms };
+module.exports = { body, name, search };

@@ -1,12 +1,12 @@
 const { wrapper } = require('./utils');
 
-const name = 'taxes';
+const name = 'trump';
 
-const search = 'tax*';
+const search = 'trump';
 
 const body = wrapper(builder => (
   builder
-    .orFilter('wildcard', 'text', 'tax*')
+    .orFilter('match', 'text', 'trump')
 ));
 
 module.exports = { body, name, search };

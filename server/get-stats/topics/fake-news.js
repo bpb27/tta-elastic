@@ -1,27 +1,12 @@
 const { wrapper } = require('./utils');
 
 const name = 'fakeNews';
-const terms = [
-  'fake news',
-  'media',
-  'cnn',
-  'msnbc',
-  'nyt',
-  'nytimes',
-  'new york times',
-  'washington post',
-  'washingtonpost',
-  'nbc',
-  'nbcnews',
-  'cbs',
-  'cbsnews',
-  'abc',
-  'abcnews',
-];
+
+const search = '\\"fake news\\" | media | cnn | msnbc | nyt | nytimes | \\"new york times\\" | \\"washington post\\" | washingtonpost | nbc | nbcnews | cbs | cbsnews | abc | abcnews';
 
 const body = wrapper(builder => (
   builder
-    .orFilter('match', 'text', 'fake news')
+    .orFilter('match_phrase', 'text', 'fake news')
     .orFilter('match', 'text', 'media')
     .orFilter('match', 'text', 'cnn')
     .orFilter('match', 'text', 'msnbc')
@@ -38,4 +23,4 @@ const body = wrapper(builder => (
     .orFilter('match', 'text', 'abcnews')
 ));
 
-module.exports = { body, name, terms };
+module.exports = { body, name, search };

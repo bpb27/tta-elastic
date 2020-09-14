@@ -1,10 +1,8 @@
 const { wrapper } = require('./utils');
 
 const name = 'climateChange';
-const terms = [
-  'climate change',
-  'global warming',
-];
+
+const search = '\\"climate change\\" | \\"global warming\\"';
 
 const body = wrapper(builder => (
   builder
@@ -12,4 +10,4 @@ const body = wrapper(builder => (
     .orFilter('match_phrase', 'text', 'global warming')
 ));
 
-module.exports = { body, name, terms };
+module.exports = { body, name, search };

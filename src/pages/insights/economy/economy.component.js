@@ -6,13 +6,13 @@ import GraphDowJones from './dow-jones';
 import GraphGDP from './gdp';
 import GraphGDPQuarterly from './gdp-quarterly';
 import GraphUnemployment from './unemployment';
-import { Paragraph, Post } from 'components/pages/collections/post';
+import Paragraph from 'components/paragraph';
 import styles from './economy.style.scss';
 
 export default class Economy extends React.Component {
   render () {
     return (
-      <Post className={styles.economy} date="August 1st, 2020" title="The Trump Economy">
+      <div className={styles.economy}>
         <Paragraph type="quote">
           <ExternalLink tweetId="1178067055226052609">
             "How do you impeach a President who has created the greatest Economy in the history of our Country...?"
@@ -69,7 +69,7 @@ export default class Economy extends React.Component {
         <Paragraph type="conclusion">
           Trump taking credit for "the greatest economy in history" is a bit like being handed the baton at the last lap of a race with a big lead, only to stumble at the finish line because he thought the hurdles were fake news. Trump inherited upward economic trends, much like he inherited his personal fortune.
         </Paragraph>
-      </Post>
+      </div>
     );
   }
 }

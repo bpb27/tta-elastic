@@ -1,7 +1,7 @@
 @import "src/variables.scss";
 
 .tweetStats {
-  h2 {
+  h2, h3 {
     text-align: center;
   }
 
@@ -36,4 +36,12 @@
   min-width: 210px;
   padding: 5px 5px 8px 5px;
   text-align: center;
+}
+
+.line {
+  background: #ececec;
+  height: 100px;
+  margin: 40px auto;
+  text-align: center;
+  width: 5px;
 }

@@ -1,14 +1,8 @@
 const { wrapper } = require('./utils');
 
 const name = 'guns';
-const terms = [
-  'Second Amendment',
-  '2nd Amendment',
-  'gun*',
-  'firearm*',
-  '2A',
-  'NRA',
-];
+
+const search = '\\"Second Amendment\\" | \\"2nd Amendment\\" | gun* | firearm* | 2A | NRA';
 
 const body = wrapper(builder => (
   builder
@@ -20,4 +14,4 @@ const body = wrapper(builder => (
     .orFilter('match', 'text', 'NRA')
 ));
 
-module.exports = { body, name, terms };
+module.exports = { body, name, search };

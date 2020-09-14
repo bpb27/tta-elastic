@@ -1,28 +1,17 @@
 const { wrapper } = require('./utils');
 
 const name = 'collusion';
-const terms = [
-  'hoax*',
-  'russia*',
-  'witch hunt*',
-  'collusion*',
-  'mueller*',
-  'impeach*',
-  'dossier',
-  'steele',
-  'Schiff',
-  'Putin',
-  'quid',
-];
+
+const search = 'hoax* | russia* | collusion* | mueller* | impeach* | witch | dossier | steele | Schiff | Putin | quid';
 
 const body = wrapper(builder => (
   builder
     .orFilter('wildcard', 'text', 'hoax*')
     .orFilter('wildcard', 'text', 'russia*')
-    .orFilter('wildcard', 'text', 'witch hunt*')
     .orFilter('wildcard', 'text', 'collusion*')
     .orFilter('wildcard', 'text', 'mueller*')
     .orFilter('wildcard', 'text', 'impeach*')
+    .orFilter('match', 'text', 'witch')
     .orFilter('match', 'text', 'dossier')
     .orFilter('match', 'text', 'steele')
     .orFilter('match', 'text', 'schiff')
@@ -30,4 +19,4 @@ const body = wrapper(builder => (
     .orFilter('match', 'text', 'quid')
 ));
 
-module.exports = { body, name, terms };
+module.exports = { body, name, search };
