@@ -70,6 +70,7 @@ export default class Search extends React.Component {
           className={styles.searchbox}
           componentId="searchbox"
           dataField="text"
+          debounce={200}
           placeholder="Search for anything"
           queryFormat="and"
           react={{

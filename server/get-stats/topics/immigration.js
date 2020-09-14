@@ -1,12 +1,8 @@
 const { wrapper } = require('./utils');
 
 const name = 'immigration';
-const terms = [
-  'immigrant*',
-  'border*',
-  'immigration',
-  'the wall',
-];
+
+const search = 'immigrant* | border* | immigration | \\"the wall\\"';
 
 const body = wrapper(builder => (
   builder
@@ -16,4 +12,4 @@ const body = wrapper(builder => (
     .orFilter('match_phrase', 'text', 'the wall')
 ));
 
-module.exports = { body, name, terms };
+module.exports = { body, name, search };

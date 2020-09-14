@@ -1,11 +1,8 @@
 const { wrapper } = require('./utils');
 
 const name = 'covid';
-const terms = [
-  'covid*',
-  'virus',
-  'coronavirus',
-];
+
+const search = 'covid* | virus | coronavirus';
 
 const body = wrapper(builder => (
   builder
@@ -14,4 +11,4 @@ const body = wrapper(builder => (
     .orFilter('match', 'text', 'coronavirus')
 ));
 
-module.exports = { body, name, terms };
+module.exports = { body, name, search };

@@ -1,18 +1,8 @@
 const { wrapper } = require('./utils');
 
 const name = 'education';
-const terms = [
-  '!electoral',
-  '!poll',
-  'school*',
-  'college*',
-  'education*',
-  'students',
-  'teachers',
-  'tuition',
-  'student debt',
-  'student loan debt',
-];
+
+const search = 'school* | college* | education* | students | teachers | tuition | \\"student debt\\" | \\"student loan debt\\" -poll -electoral';
 
 const body = wrapper(builder => (
   builder
@@ -29,4 +19,4 @@ const body = wrapper(builder => (
 
 ));
 
-module.exports = { body, name, terms };
+module.exports = { body, name, search };

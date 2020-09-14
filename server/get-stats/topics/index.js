@@ -12,6 +12,7 @@ const crime = require('./crime');
 const debt = require('./debt');
 const democrats = require('./democrats');
 const education = require('./education');
+const election = require('./election');
 const entitlements = require('./entitlements');
 const fakeNews = require('./fake-news');
 const foxNews = require('./fox-news');
@@ -24,10 +25,12 @@ const military = require('./military');
 const minimumWage = require('./minimum-wage');
 const negativity = require('./negativity');
 const religion = require('./religion');
+const republicans = require('./republicans');
 const stocks = require('./stocks');
 const taxes = require('./taxes');
 const totalAsPresident = require('./total-as-president');
 const trade = require('./trade');
+const trump = require('./trump');
 
 const searches = [
   abortion,
@@ -39,6 +42,7 @@ const searches = [
   debt,
   democrats,
   education,
+  election,
   entitlements,
   fakeNews,
   foxNews,
@@ -51,10 +55,12 @@ const searches = [
   minimumWage,
   negativity,
   religion,
+  republicans,
   stocks,
   taxes,
   totalAsPresident,
   trade,
+  trump,
 ];
 
 const getTopics = async () => {
@@ -62,10 +68,9 @@ const getTopics = async () => {
   const queries = searches.map(search => query(search.body));
   const results = await Promise.all(queries);
 
-  return searches.map(({ name, search, terms }, i) => ({
+  return searches.map(({ name, search }, i) => ({
     name,
     search,
-    terms,
     total: results[i].hits.total
   }));
 };

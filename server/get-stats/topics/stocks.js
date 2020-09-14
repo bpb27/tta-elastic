@@ -1,12 +1,8 @@
 const { wrapper } = require('./utils');
 
 const name = 'stocks';
-const terms = [
-  'stock*',
-  'market',
-  'dow',
-  'nasdaq',
-];
+
+const search = 'stock* | market | dow | nasdaq';
 
 const body = wrapper(builder => (
   builder
@@ -16,4 +12,4 @@ const body = wrapper(builder => (
     .orFilter('match', 'text', 'nasdaq')
 ));
 
-module.exports = { body, name, terms };
+module.exports = { body, name, search };

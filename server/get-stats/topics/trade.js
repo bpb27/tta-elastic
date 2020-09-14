@@ -1,11 +1,8 @@
 const { wrapper } = require('./utils');
 
 const name = 'trade';
-const terms = [
-  'tariff*',
-  'trade',
-  'WTO',
-];
+
+const search = 'tariff* | trade | WTO';
 
 const body = wrapper(builder => (
   builder
@@ -14,4 +11,4 @@ const body = wrapper(builder => (
     .orFilter('match', 'text', 'wto')
 ));
 
-module.exports = { body, name, terms };
+module.exports = { body, name, search };

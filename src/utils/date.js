@@ -26,6 +26,13 @@ export const daysAsPresident = () => {
   return Math.round(Math.abs((firstDate - secondDate) / oneDay));
 };
 
+export const daysThisYear = () => {
+  const oneDay = 24 * 60 * 60 * 1000;
+  const firstDate = new Date(new Date().getFullYear(), 1, 1);
+  const secondDate = new Date();
+  return Math.round(Math.abs((firstDate - secondDate) / oneDay));
+};
+
 const months = [
   null,
   'Jan',

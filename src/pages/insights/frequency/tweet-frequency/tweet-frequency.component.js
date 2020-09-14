@@ -126,7 +126,8 @@ export default class TweetFrequency extends React.Component {
     return (
       <div>
         <div className={styles.title}>
-          <span>Tweets <span>Frequency</span> by </span>
+          <span className={styles.desktop}>Tweet Frequency by </span>
+          <span className={styles.mobile}>Tweets by </span>
           <select
             name="unit"
             onChange={({ target }) => this.updateSelection(target.value)}

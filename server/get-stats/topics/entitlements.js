@@ -1,11 +1,8 @@
 const { wrapper } = require('./utils');
 
 const name = 'entitlements';
-const terms = [
-  'social security',
-  'medicare',
-  'medicaid',
-];
+
+const search = '\\"social security\\" | medicare | medicaid';
 
 const body = wrapper(builder => (
   builder
@@ -14,4 +11,4 @@ const body = wrapper(builder => (
     .orFilter('match', 'text', 'medicaid')
 ));
 
-module.exports = { body, name, terms };
+module.exports = { body, name, search };

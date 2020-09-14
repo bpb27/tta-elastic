@@ -27,7 +27,10 @@ export default class Frequency extends React.Component {
           month={data?.groupings.byMonth}
           week={data?.groupings.byWeek}
         />
-        <TweetStats topics={data?.topics}/>
+        <TweetStats
+          byMonth={data?.groupings.byMonth}
+          topics={data?.topics}
+        />
       </div>
     );
   }

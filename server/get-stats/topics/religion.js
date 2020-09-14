@@ -1,13 +1,8 @@
 const { wrapper } = require('./utils');
 
 const name = 'religion';
-const terms = [
-  'relig*',
-  'christi*',
-  'god',
-  'bible',
-  'jesus',
-];
+
+const search = 'relig* | christi* | god | bible | jesus';
 
 const body = wrapper(builder => (
   builder
@@ -18,4 +13,4 @@ const body = wrapper(builder => (
     .orFilter('match', 'text', 'jesus')
 ));
 
-module.exports = { body, name, terms };
+module.exports = { body, name, search };
