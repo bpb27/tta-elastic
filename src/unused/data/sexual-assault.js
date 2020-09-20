@@ -1,5 +1,6 @@
 // https://www.businessinsider.com/women-accused-trump-sexual-misconduct-list-2017-12#temple-taggart-7
 // https://www.vox.com/2016/10/14/13289202/donald-trump-obama-sexual-assault
+// youtube link to AH tape, plus quote
 export default [
   {
     name: 'Jessica Leeds',

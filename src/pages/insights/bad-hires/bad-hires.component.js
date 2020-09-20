@@ -1,79 +1,63 @@
 import React from 'react';
 import ExternalLink from 'components/external-link';
+import Paragraph from 'components/paragraph';
 import styles from './bad-hires.style.scss';
 
 export default class BadHires extends React.Component {
   render () {
     return (
       <div className={styles.badHires}>
-        <div className={styles.list}>
-          <h2>Trump picked a...</h2>
-          <div>
-            <span>Secretary of State</span>
-            <span>who was <ExternalLink tweetId="1071132880368132096">"dumb as a rock"</ExternalLink></span>
-          </div>
-          <div>
-            <span>Secretary of Defense</span>
-            <span>who was <ExternalLink tweetId="1270346508165144576">"an embarrassment to America"</ExternalLink></span>
-          </div>
-          <div>
-            <span>Chief of Staff</span>
-            <span>who <ExternalLink tweetId="1227986935240691712">"came in with a bang, went out with a wimper"</ExternalLink></span>
-          </div>
-          <div>
-            <span>Attorney General</span>
-            <span>who was <ExternalLink tweetId="1281930300960976897">"a disaster who has let us all down"</ExternalLink></span>
-          </div>
-          <div>
-            <span>Fed Chairman</span>
-            <span>who might be a <ExternalLink tweetId="1164914610836783104">"bigger enemy"</ExternalLink> than China</span>
-          </div>
-          <div>
-            <span>National Security Advisor</span>
-            <span>who was a <ExternalLink tweetId="1275375135483146241">"washed up creepster"</ExternalLink></span>
-          </div>
-          <div>
-            <span>Chief Strategist</span>
-            <span>who was <ExternalLink tweetId="949303089416294401">"the leaker known as Sloppy Steve"</ExternalLink></span>
-          </div>
-          <div>
-            <span>Communications Director</span>
-            <span>who was a <ExternalLink tweetId="1163440418555604998">"highly unstable nutjob"</ExternalLink></span>
-          </div>
-          <div>
-            <span>Communications Director of OPL</span>
-            <span>who was a <ExternalLink tweetId="1167783720021123073">"despised by everyone"</ExternalLink></span>
-          </div>
-        </div>
-        <div className={styles.more}>
-          <p>
-            He tweeted that his first Secretary of State Rex Tillerson was <ExternalLink tweetId="1071132880368132096">"dumb as a rock"</ExternalLink>, <ExternalLink tweetId="1071132880368132096">"lazy as hell"</ExternalLink>, <ExternalLink tweetId="1071132880368132096">"didn’t have the mental capacity needed"</ExternalLink> and <ExternalLink tweetId="1131537528736100352">"totally ill prepared and ill equipped to be Secretary of State"</ExternalLink>. He also tweeted <ExternalLink tweetId="1071132880368132096">"I couldn’t get rid of him fast enough".</ExternalLink>
-          </p>
-          <p>
-            He tweeted that his first Secretary of Defense General Jim Mattis <ExternalLink tweetId="1270346144485343232">"was our Country’s most overrated General"</ExternalLink>, that <ExternalLink tweetId="1270346144485343232"> "he talked a lot, but never brought home the bacon"</ExternalLink>, that <ExternalLink tweetId="1270346144485343232">"he was terrible"</ExternalLink>, and retweeted that <ExternalLink tweetId="1270346508165144576">"Lap Dog Mattis is an embarrassment to America!"</ExternalLink>.
-          </p>
-          <p>
-            He tweeted that his second Chief of Staff General John Kelly <ExternalLink tweetId="1268683083852779520">"was not in my inner-circle, was totally exhausted by the job, and in the end just slinked away into obscurity"</ExternalLink>. He later tweeted the anecdote <ExternalLink tweetId="1227986935240691712">"I terminated John Kelly, which I couldn’t do fast enough, he knew full well that he was way over his head. Being Chief of Staff just wasn’t for him. He came in with a bang, went out with a whimper"</ExternalLink>.
-          </p>
-          <p>
-            He tweeted that his first Attorney General Jeff Sessions <ExternalLink tweetId="1281930300960976897">"is a disaster who has let us all down"</ExternalLink>, that <ExternalLink tweetId="1104122208316612608">"Sessions didn’t have a clue!"</ExternalLink> and <ExternalLink tweetId="1268132011203575811">"was played like a drum!"</ExternalLink>. He also tweeted that <ExternalLink tweetId="1074403110523678720">"Jeff Sessions should be ashamed of himself"</ExternalLink>, that <ExternalLink tweetId="1002027245131661312">"the recusal of Jeff Sessions was an unforced betrayal of the President of the United States."</ExternalLink>, noting <ExternalLink tweetId="1003962584352030720">"I would have quickly picked someone else"</ExternalLink>. Finally, he tweeted a warning, <ExternalLink tweetId="1263970567838932993">"Alabama, do not trust Jeff Sessions...he let our Country down"</ExternalLink>.
-          </p>
-          <p>
-            He tweeted that his first Chair of the Federal Reserve Jerome Powell has <ExternalLink tweetId="1174388901806362624">"no guts, no sense, no vision! A terrible communicator!"</ExternalLink>, that <ExternalLink tweetId="1189914333842681858">"people are VERY disappointed in Jay Powell"</ExternalLink>, presumably because the <ExternalLink tweetId="1234728725574561792">"Jerome Powell led Federal Reserve has called it wrong from day one. Sad!"</ExternalLink>. He further tweeted about the <ExternalLink tweetId="1163472272612626433">"horrendous lack of vision by Jay Powell"</ExternalLink>, warning <ExternalLink tweetId="1164158321265451008">"don’t count on him! So far he has called it wrong, and only let us down...."</ExternalLink>, and ominously pondering <ExternalLink tweetId="1164914610836783104">"...My only question is, who is our bigger enemy, Jay Powell or Chairman Xi?"</ExternalLink>.
-          </p>
-          <p>
-            He tweeted about his fourth National Security Advisor John Bolton, saying <ExternalLink tweetId="1275375135483146241">"Washed up Creepster John Bolton is a lowlife who should be in jail, money seized"</ExternalLink>, adding that he is <ExternalLink tweetId="1284255472229519360">"a war mongering fool"</ExternalLink>, <ExternalLink tweetId="1275287274213777413">"is really dumb"</ExternalLink>, and <ExternalLink tweetId="1274366497360613381">"likes dropping bombs on people, and killing them"</ExternalLink>. He further explained that <ExternalLink tweetId="1275044483047055366">"I gave John Bolton, who was incapable of being Senate confirmed because he was considered a wacko, and was not liked, a chance...He turned out to be grossly incompetent, and a liar"</ExternalLink>. He regretfully added that <ExternalLink tweetId="1273620783131250690">"early on, I should have fired him right then & there!"</ExternalLink>, especially considering that <ExternalLink tweetId="1273468951838838785">"President Bush fired him also. Bolton is incompetent!"</ExternalLink>.
-          </p>
-          <p>
-            He tweeted that his fourth White House Communications Directory Anthony Scaramucci <ExternalLink tweetId="1160382091592384513">"was quickly terminated (11 days) from a position that he was totally incapable of handling"</ExternalLink>, further explaining that he <ExternalLink tweetId="1163440418555604998">"is a highly unstable nut job who...unfortunately wheedled his way into my campaign. I barely knew him until his 11 days of gross incompetence-made a fool of himself, bad on TV. Abused staff, got fired...He was a mental wreck. We didn’t want him around."</ExternalLink>.
-          </p>
-          <p>
-            He tweeted that his first Chief Strategist and former Campaign Manager Steve Bannon <ExternalLink tweetId="949498795074736129">"cried when he got fired and begged for his job"</ExternalLink>. He tweeted his pleasure that a group <ExternalLink tweetId="949303089416294401">"dumped the leaker known as Sloppy Steve Bannon. Smart!""</ExternalLink>, further adding that <ExternalLink tweetId="949498795074736129">"Sloppy Steve has been dumped like a dog by almost everyone. Too bad!"</ExternalLink>.
-          </p>
-          <p>
-            He tweeted that his Director of Communications for the Office of Public Liaison Omarosa Manigault was <ExternalLink tweetId="1167783720021123073">"disgusting and foul mouthed...despised by everyone"</ExternalLink>. He further explained that <ExternalLink tweetId="1029185314752000007">"wacky Omarosa, who got fired 3 times on the Apprentice, now got fired for the last time. She never made it, never will. She begged me for a job, tears in her eyes, I said Ok. People in the White House hated her. She was vicious, but not smart..."</ExternalLink>.
-          </p>
-        </div>
+        <h1>Trump's Hiring Record</h1>
+        <Paragraph type="quote">
+          <ExternalLink tweetId="257140638523486208">
+            "I'll bet Obama goes down just like Washington because he doesn't use our (this country's) best people to win."
+          </ExternalLink>
+        </Paragraph>
+        <Paragraph>
+          Trump hired a Secretary of State who he later tweeted was <ExternalLink tweetId="1131537528736100352">"dumb as a rock and totally ill prepared and ill equipped to be Secretary of State"</ExternalLink>.
+        </Paragraph>
+        <Paragraph>
+          Trump hired a Secretary of Defense who he later retweeted was a <ExternalLink tweetId="1270346508165144576">"an embarrassment to America"</ExternalLink>.
+        </Paragraph>
+        <Paragraph>
+          Trump hired an Attorney General who he later tweeted was <ExternalLink tweetId="1281930300960976897">"a disaster who has let us all down"</ExternalLink>.
+        </Paragraph>
+        <Paragraph>
+          Trump hired a National Security Advisor who he later tweeted <ExternalLink tweetId="937007006526959618">"lied to the Vice President and the FBI"</ExternalLink>.
+        </Paragraph>
+        <Paragraph>
+          Trump hired another National Security Advisor who he later tweeted was a <ExternalLink tweetId="1275375135483146241">"washed up creepster...a lowlife who should be in jail"</ExternalLink>.
+        </Paragraph>
+        <Paragraph>
+          Trump hired a Fed Chairman who he later tweeted might be a <ExternalLink tweetId="1164914610836783104">"bigger enemy"</ExternalLink> than China.
+        </Paragraph>
+        <Paragraph>
+          Trump hired a Chief of Staff who he later tweeted <ExternalLink tweetId="1227986935240691712">"being Chief of Staff just wasn’t for him...came in with a bang, went out with a whimper"</ExternalLink>.
+        </Paragraph>
+        <Paragraph>
+          Trump hired a White House Communications Director who he later tweeted was a <ExternalLink tweetId="1163440418555604998">"a highly unstable nut job"</ExternalLink>.
+        </Paragraph>
+        <Paragraph>
+          Trump hired a Communications Director for the Office of Public Liason who he later tweeted was <ExternalLink tweetId="1167783720021123073">"disgusting and foul mouthed...despised by everyone"</ExternalLink>.
+        </Paragraph>
+        <Paragraph>
+          Trump hired a Chief Strategist who he later tweeted <ExternalLink tweetId="949498795074736129">"cried when he got fired and begged for his job"</ExternalLink>.
+        </Paragraph>
+        <Paragraph>
+          Trump hired a personal attorney who he later tweeted was a <ExternalLink tweetId="1104050224052396032">"bad lawyer and fraudster"</ExternalLink>.
+        </Paragraph>
+        <Paragraph>
+          Trump hired an EPA Administrator who resigned after facing <ExternalLink href="https://en.wikipedia.org/wiki/Scott_Pruitt">14 government investigations</ExternalLink> into improper spending of department money and conflict-of-interest issues.
+        </Paragraph>
+        <Paragraph>
+          Trump hired a Secretary of the Interior who resigned after facing <ExternalLink href="https://www.washingtonpost.com/national/health-science/interior-secretary-zinke-resigns-amid-investigations/2018/12/15/481f9104-0077-11e9-ad40-cdfd0e0dd65a_story.html">15 government investigations</ExternalLink> into improper spending of department money and conflict-of-interest issues.
+        </Paragraph>
+        <Paragraph>
+          Trump hired a Secretary of Health and Human Services who resigned after a journalist revealed he had spent almost <ExternalLink href="https://en.wikipedia.org/wiki/Tom_Price_(American_politician)#Private_jet_scandal">a million dollars</ExternalLink> of department money on private charter flights after just a few months in office.
+        </Paragraph>
+        <Paragraph>
+          Trump hired another Secretary of Health and Human Services who resigned after his <ExternalLink href="https://www.cnbc.com/2019/07/12/labor-secretary-alex-acosta-is-resigning-as-pressure-mounts-from-jeffrey-epstein-case.html">non-prosecution agreement</ExternalLink> with Jeffery Epstein resurfaced (the agreement allowed Epstein to avoid prison in 2007 - Epstein was later charged with sex trafficking of minors in 2019).
+        </Paragraph>
       </div>
     );
   }

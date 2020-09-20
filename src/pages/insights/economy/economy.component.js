@@ -13,14 +13,15 @@ export default class Economy extends React.Component {
   render () {
     return (
       <div className={styles.economy}>
+        <h1>Trump's Economic Record</h1>
         <Paragraph type="quote">
           <ExternalLink tweetId="1178067055226052609">
             "How do you impeach a President who has created the greatest Economy in the history of our Country...?"
-          </ExternalLink>.
+          </ExternalLink>
         </Paragraph>
         <GraphGDP/>
         <Paragraph>
-          Trump is famous for always taking credit and never taking blame. He has tweeted that he created the greatest economy in history more than <Link to='/?searchbox=%22%5C%22greatest+economy%5C%22%22'>20 times</Link>, despite the fact that he essentially inherited upward economic trends from the previous administrations and continued them until the greatest economic crash of all time hit in March. It's also worth noting that pre-COVID, the economy was not the greatest of all time by any measure.
+          Trump is famous for taking credit and deflecting blame. He's tweeted that he personally created the greatest economy in history more than <Link to='/?searchbox=%22%5C%22greatest+economy%5C%22%22'>20 times</Link>, never mentioning that he inherited upward economic trends from previous administrations (and steadily continued them) until overseeing greatest economic crash of all time.
         </Paragraph>
         <GraphGDPQuarterly/>
         <Paragraph type="quote">
@@ -38,7 +39,7 @@ export default class Economy extends React.Component {
           </ExternalLink>
         </Paragraph>
         <Paragraph>
-          At the beginning of 2020, unemployment was at it's lowest point since 1954. Trump presided over a 1.5% drop in unemployment, following the trend of the Obama years (which saw a 5.3% drop). Trump also presided over the highest unemployment rate in history in April 2020 (14.7%).
+          Trump presided over a 1.5% drop in unemployment, following the trend of the Obama years (which saw a 5.3% drop), leading to the lowest unemployment numbers since 1954. Trump also presided over the highest unemployment rate in history in April 2020 (14.7%).
         </Paragraph>
         <GraphDebt/>
         <Paragraph type="quote">
@@ -64,10 +65,10 @@ export default class Economy extends React.Component {
           </ExternalLink>
         </Paragraph>
         <Paragraph>
-          Trump often claims that electing Democrats would crash the stock market, despite the fact that the Obama/Biden years saw historic stock market highs. That said, he has presided over accelerated stock market increases (especially in 2017), though there have been a number of erratic and precipitous drops, including the three largest single-day drops in history.
+          Trump often claims that electing Democrats would crash the stock market, despite the fact that the Obama/Biden years saw a 140% increase. Trump has presided over accelerated stock market increases (especially in 2017), though there have been a number of erratic and precipitous drops, including the three largest single-day drops in history.
         </Paragraph>
         <Paragraph type="conclusion">
-          Trump taking credit for "the greatest economy in history" is a bit like being handed the baton at the last lap of a race with a big lead, only to stumble at the finish line because he thought the hurdles were fake news. Trump inherited upward economic trends, much like he inherited his personal fortune.
+          Trump taking credit for "the greatest economy in history" is a bit like being handed the baton at the last lap of a race with a big lead, only to stumble at the finish line because you thought the hurdles were fake news. The growth was inherited, and if he intends to take credit, he must also own the decline.
         </Paragraph>
       </div>
     );

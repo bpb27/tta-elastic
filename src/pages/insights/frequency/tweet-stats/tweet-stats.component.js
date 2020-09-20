@@ -3,14 +3,14 @@ import { array } from 'prop-types';
 import { Link } from 'react-router-dom';
 import styles from './tweet-stats.style.scss';
 import { percentage } from 'utils/percentage';
-import { daysAsPresident, daysThisYear } from 'utils/date';
+import { daysThisYear } from 'utils/date';
 import { numberWithCommas } from 'utils/format';
 
 const descriptions = {
   abortion: 'about abortion or Roe v. Wade',
   approval: 'about polls, ratings, crowds, or approval',
-  climateChange: 'about climate change (all mocking it)',
-  collusion: 'about Russia, Mueller, collusion, impeachment, or related terms',
+  climateChange: 'about climate change (mostly mocking)',
+  collusion: 'about Russia, Mueller, collusion, hoaxes, impeachment, or related terms',
   covid: 'about Coronavirus, COVID, or viruses in general',
   crime: 'about crime, police, or law and order',
   debt: 'about the debt or deficit',
@@ -26,7 +26,7 @@ const descriptions = {
   immigration: 'about immigration, border security, or the wall',
   jobs: 'about jobs, labor, workers, wages, or employment',
   military: 'about the military or veterans (many stock endorsements for Republican candidates)',
-  minimumWage: 'about minimum wage (a retweet of Ivanka, later deleted)',
+  minimumWage: 'about minimum wage',
   negativity: 'with negative words like terrible or horrible, or insults like loser and stupid',
   religion: 'about Christianity, God, Jesus, the bible, or religion',
   republicans: 'about Republicans, conservatives, McConnell, McCarthy, Ryan, Bush, Romney, or McCain',
@@ -68,15 +68,14 @@ export default class TweetStats extends React.Component {
   render () {
     const currentYear = this.currentYear;
     const total = this.totalAsPresident;
-    const days = daysAsPresident();
-    const avg = total ? Math.round(total / days) : 0;
+    // const days = daysAsPresident();
+    // const avg = total ? Math.round(total / days) : 0;
 
     return (
       <div className={styles.tweetStats}>
-        <h2>As president: <span className={styles.underline}>{ total ? numberWithCommas(total) : '...' }</span> tweets, averaging <span className={styles.underline}>{ avg || '...' }</span> per day.</h2>
-        <h2>In 2020: <span className={styles.underline}>{ currentYear.total ? numberWithCommas(currentYear.total) : '...' }</span> tweets, averaging <span className={styles.underline}>{ currentYear.avg || '...' }</span> per day.</h2>
+        <h2>Trump has tweeted <span className={styles.underline}>{ total ? numberWithCommas(total) : '...' }</span> times as president. In 2020, Trump is tweeting <span className={styles.underline}>{ currentYear.avg || '...' }</span> times per day on average.</h2>
         <div className={styles.line}></div>
-        <h2>The topics President Trump tweets about...</h2>
+        <h2>What is Trump tweeting about...?</h2>
         {
           this.data.map(({ name, percentage, search, total }) => {
             // const perDay = Math.round(total / days);
@@ -89,7 +88,7 @@ export default class TweetStats extends React.Component {
                   to={`/?results=1&searchbox="${search}"&dates=["2017-01-19"%2C"2020-12-30"]`}
                 >
                   <span className={styles.total}>
-                    {numberWithCommas(total)}{' '}|{' '}{percentage}
+                    {numberWithCommas(total)} tweet{ total === 1 ? '' : 's'} ({percentage})
                   </span>
                 </Link>
                 <span>{ descriptions[name] || name }</span>
