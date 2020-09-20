@@ -1,6 +1,9 @@
 @import "src/variables.scss";
 
 .badHires {
+  h1 {
+    text-align: center;
+  }
   @media all and (max-width: $mobile) {
     p {
       line-height: 24px;

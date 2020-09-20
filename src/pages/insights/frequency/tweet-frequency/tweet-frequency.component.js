@@ -52,7 +52,7 @@ export default class TweetFrequency extends React.Component {
             breakpoint: 2000,
             options: {
               chart: {
-                height: 500,
+                height: 400,
               },
             },
           },
@@ -63,8 +63,8 @@ export default class TweetFrequency extends React.Component {
           },
         },
         xaxis: {
-          min: undefined,
-          max: undefined,
+          min: new Date('2009-05-03').getTime(),
+          max: new Date().getTime(),
           type: 'datetime',
         },
         yaxis: {
@@ -126,8 +126,7 @@ export default class TweetFrequency extends React.Component {
     return (
       <div>
         <div className={styles.title}>
-          <span className={styles.desktop}>Tweet Frequency by </span>
-          <span className={styles.mobile}>Tweets by </span>
+          <span>Tweets per </span>
           <select
             name="unit"
             onChange={({ target }) => this.updateSelection(target.value)}

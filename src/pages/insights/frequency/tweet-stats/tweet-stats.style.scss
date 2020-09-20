@@ -25,6 +25,7 @@
 
 .underline {
   text-decoration: underline;
+  text-decoration-color: $red;
 }
 
 .total {
@@ -32,16 +33,16 @@
   border-radius: 5px;
   font-size: 24px;
   font-weight: bold;
-  margin: 10px;
+  margin: 10px 0;
   min-width: 210px;
-  padding: 5px 5px 8px 5px;
+  padding: 10px;
   text-align: center;
 }
 
 .line {
   background: #ececec;
-  height: 100px;
-  margin: 40px auto;
+  height: 50px;
+  margin: 50px auto;
   text-align: center;
   width: 5px;
 }
