@@ -12,6 +12,12 @@ export default class Gdp extends React.Component {
           id="gdp"
           source="https://tradingeconomics.com/united-states/gdp"
           title="US GDP"
+          xAxis={{
+            min: new Date('01-01-1992').getTime(),
+            max: new Date('01-01-2021').getTime(),
+            yearInterval: 5,
+          }}
+          yMin={0}
         />
       </div>
     );

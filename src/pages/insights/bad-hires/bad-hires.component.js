@@ -23,16 +23,16 @@ export default class BadHires extends React.Component {
           Trump hired an Attorney General who he later tweeted was <ExternalLink tweetId="1281930300960976897">"a disaster who has let us all down"</ExternalLink>.
         </Paragraph>
         <Paragraph>
+          Trump hired a Fed Chairman who he later tweeted might be a <ExternalLink tweetId="1164914610836783104">"bigger enemy"</ExternalLink> than China.
+        </Paragraph>
+        <Paragraph>
           Trump hired a National Security Advisor who he later tweeted <ExternalLink tweetId="937007006526959618">"lied to the Vice President and the FBI"</ExternalLink>.
         </Paragraph>
         <Paragraph>
           Trump hired another National Security Advisor who he later tweeted was a <ExternalLink tweetId="1275375135483146241">"washed up creepster...a lowlife who should be in jail"</ExternalLink>.
         </Paragraph>
         <Paragraph>
-          Trump hired a Fed Chairman who he later tweeted might be a <ExternalLink tweetId="1164914610836783104">"bigger enemy"</ExternalLink> than China.
-        </Paragraph>
-        <Paragraph>
-          Trump hired a Chief of Staff who he later tweeted <ExternalLink tweetId="1227986935240691712">"being Chief of Staff just wasn’t for him...came in with a bang, went out with a whimper"</ExternalLink>.
+          Trump hired a Chief of Staff who he later tweeted <ExternalLink tweetId="1227986935240691712">"Chief of Staff just wasn’t for him...came in with a bang, went out with a whimper"</ExternalLink>.
         </Paragraph>
         <Paragraph>
           Trump hired a White House Communications Director who he later tweeted was a <ExternalLink tweetId="1163440418555604998">"a highly unstable nut job"</ExternalLink>.

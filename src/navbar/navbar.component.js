@@ -31,6 +31,7 @@ export class Navbar extends React.Component {
             <NavLink to="/insights/frequency" {...active}>Frequency</NavLink>
             <NavLink to="/insights/bad-hires" {...active}>Bad Hires</NavLink>
             <NavLink to="/insights/economy" {...active}>Economy</NavLink>
+            <NavLink to="/insights/sexual-assault" {...active}>Sexual Assault</NavLink>
           </div>
         )}
       </Fragment>

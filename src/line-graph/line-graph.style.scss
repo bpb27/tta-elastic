@@ -7,9 +7,49 @@
     display: initial;
   }
 
-  p {
-    font-size: 10px;
-    margin-top: -10px;
-    text-align: center;
+  .title {
+    margin-bottom: -10px;
+
+    h3 {
+      text-align: center;
+      font-size: 26px;
+      margin: 0;
+    }
+
+    p {
+      font-size: 10px;
+      text-align: center;
+    }
+  }
+
+  .legend {
+    display: flex;
+    justify-content: space-around;
+    margin-top: -15px;
+
+    > span {
+      align-items: center;
+      display: flex;
+      font-size: 12px;
+      margin-right: 10px;
+
+      > span {
+        border-radius: 10px;
+        display: inline-block;
+        height: 20px;
+        margin-right: 5px;
+        width: 20px;
+      }
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+
+    button {
+      margin: 0 5px;
+    }
   }
 }
