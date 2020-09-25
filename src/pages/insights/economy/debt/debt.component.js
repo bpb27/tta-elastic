@@ -12,6 +12,7 @@ export default class Debt extends React.Component {
           id="debt"
           source="https://tradingeconomics.com/united-states/government-debt"
           title="US Debt"
+          yMin={0}
         />
       </div>
     );

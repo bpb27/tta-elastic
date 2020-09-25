@@ -5,6 +5,12 @@ export const twoDaysFromNow = () => {
   return date;
 };
 
+export const yearsFromNow = (years = 1) => {
+  const date = new Date();
+  date.setDate(date.getDate() + (years * 365));
+  return date;
+};
+
 export const utcTimestampToEST = timestamp => {
   const [date, time] = new Date(timestamp)
     .toLocaleString('en-US', { timeZone: 'America/New_York' })

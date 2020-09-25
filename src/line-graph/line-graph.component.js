@@ -1,13 +1,17 @@
 import React from 'react';
 import { arrayOf, func, number, oneOfType, shape, string } from 'prop-types';
 import Chart from 'react-apexcharts';
-import { format } from 'date-fns';
-import { groupByPresident } from './line-graph.utils';
+import { addYears, format, subYears } from 'date-fns';
+import Button from 'components/button';
 import ExternalLink from 'components/external-link';
 import styles from './line-graph.style.scss';
-import { FONT } from 'utils/constants';
-
-// https://apexcharts.com/docs/react-charts/
+import {
+  demBlueCurrent,
+  demBluePast,
+  groupByPresident,
+  repRedCurrent,
+  repRedPast,
+} from './line-graph.utils';
 
 export default class LineGraph extends React.Component {
   static propTypes = {
@@ -19,32 +23,66 @@ export default class LineGraph extends React.Component {
     })).isRequired,
     source: string.isRequired,
     title: string.isRequired,
+    xAxis: shape({
+      max: number,
+      min: number,
+      yearInterval: number,
+    }),
+    yMin: number,
+  }
+
+  state = {
+    xMax: this.props.xAxis?.max,
+    xMin: this.props.xAxis?.min,
+  }
+
+  get yearInterval () {
+    return this.props.xAxis?.yearInterval;
+  }
+
+  prev = () => {
+    this.setState({
+      xMin: subYears(this.state.xMin, this.yearInterval).getTime(),
+      xMax: subYears(this.state.xMax, this.yearInterval).getTime(),
+    });
+  }
+
+  next = () => {
+    this.setState({
+      xMin: addYears(this.state.xMin, this.yearInterval).getTime(),
+      xMax: addYears(this.state.xMax, this.yearInterval).getTime(),
+    });
   }
 
   render() {
+    const series = groupByPresident(this.props.data);
     return (
       <div className={styles.lineGraph}>
         <div>
+          <div className={styles.title}>
+            <h3>{ this.props.title }</h3>
+            <p>Data from <ExternalLink href={this.props.source}>TradingEconomics.com | World Bank</ExternalLink></p>
+          </div>
           <Chart
             options={{
               chart: {
                 id: this.props.id,
                 toolbar: {
-                  show: true,
+                  show: false,
                 },
               },
-              colors: ['#7cb8ef', '#d66e6e', '#3799f1', '#d30002'],
+              colors: series.map(item => item.color),
               dataLabels: {
                 enabled: false,
+              },
+              legend: {
+                show: false,
               },
               responsive: [
                 {
                   breakpoint: 1000,
                   options: {
                     chart: {
-                      toolbar: {
-                        show: false,
-                      },
                       width: '100%',
                     },
                   },
@@ -55,29 +93,41 @@ export default class LineGraph extends React.Component {
                   formatter: date => format(date, 'MMMM yyyy'),
                 },
               },
-              title: {
-                align: 'center',
-                style: {
-                  fontFamily: FONT,
-                  fontSize: '30px',
-                },
-                text: this.props.title,
-              },
               xaxis: {
+                max: this.state.xMax,
+                min: this.state.xMin,
                 type: 'datetime',
               },
               yaxis: {
                 labels: {
                   formatter: this.props.formatter,
                 },
+                min: this.props.yMin,
               },
               zoom: false,
             }}
-            series={groupByPresident(this.props.data)}
+            series={series}
             type="area"
             width={700}
           />
-          <p>Data from <ExternalLink href={this.props.source}>TradingEconomics.com | World Bank</ExternalLink></p>
+          <div className={styles.legend}>
+            <span><span style={{ background: demBluePast}}></span> Past Democrats</span>
+            <span><span style={{ background: repRedPast}}></span> Past Republicans</span>
+            <span><span style={{ background: demBlueCurrent}}></span> Obama</span>
+            <span><span style={{ background: repRedCurrent}}></span> Trump</span>
+          </div>
+          {
+            this.yearInterval && (
+              <div className={styles.buttons}>
+                <Button onClick={this.prev}>
+                  Back
+                </Button>
+                <Button onClick={this.next}>
+                  Forward
+                </Button>
+              </div>
+            )
+          }
         </div>
       </div>
     );
