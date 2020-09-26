@@ -10,6 +10,7 @@ export default class DowJones extends React.Component {
         <LineGraph
           data={data}
           formatter={value => `${numberWithCommas(Math.round(value))}`}
+          hideTimeframe={true}
           id="gdp"
           source="https://tradingeconomics.com/united-states/stock-market"
           title="Dow Jones Index"

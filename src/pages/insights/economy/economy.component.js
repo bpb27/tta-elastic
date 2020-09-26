@@ -16,21 +16,30 @@ export default class Economy extends React.Component {
         <h1>Trump's Economic Record</h1>
         <Paragraph type="quote">
           <ExternalLink tweetId="1178067055226052609">
-            "How do you impeach a President who has created the greatest Economy in the history of our Country...?"
+            "How do you impeach a President who has created the greatest Economy in the history of our Country?"
           </ExternalLink>
         </Paragraph>
         <GraphGDP/>
         <Paragraph>
-          Trump is famous for taking credit and deflecting blame. He's tweeted that he personally created the greatest economy in history more than <Link to='/?searchbox=%22%5C%22greatest+economy%5C%22%22'>20 times</Link>, never mentioning that he inherited upward economic trends from previous administrations (and steadily continued them) until overseeing greatest economic crash of all time.
+          Trump has tweeted that he personally created the greatest economy in history more than <Link to='/?searchbox=%22%5C%22greatest+economy%5C%22%22'>20 times</Link>.
+        </Paragraph>
+        <Paragraph>
+          Trump has not tweeted about how he inherited upward economic trends from previous administrations, that economies are relatively unrelated to presidential action, or that the greatest economic crash of all time happened on his watch.
         </Paragraph>
         <GraphGDPQuarterly/>
         <Paragraph type="quote">
           <ExternalLink href="https://www.realclearpolitics.com/video/2017/12/16/trump_were_going_to_see_economy_growth_of_4_5_and_maybe_6_percent.html" title="Real Clear Politics article 2017">
-            "The economy now is at 3%. Nobody thought it would be anywhere close. I think it could go to 4, 5, and maybe even 6%..."
+            "The economy now is at 3%. Nobody thought it would be anywhere close. I think it could go to 4, 5, and maybe even 6%."
           </ExternalLink>.
         </Paragraph>
         <Paragraph>
-          Trump presided over 2.0% to 3.3% quarterly growth, notably lower than the average growth of the Clinton years, and below the peaks of the Bush and Obama years. That said, growth was fairly steady before the 9.5% contraction this summer (the worst drop in history).
+          Trump is averaging 1.5% quarterly growth, and 2.5% quarterly growth pre-Coronavirus. His best quarter came in 2018 with 3.3% growth. He also oversaw the greatest contraction in history in 2020 with -9.5% growth.
+        </Paragraph>
+        <Paragraph>
+          Obama averaged 1.6% quarterly growth, and 2.3% quarterly growth post-2008 Recession. His best quarter came in 2015 with 4.1% growth.
+        </Paragraph>
+        <Paragraph>
+          Needless to say, this is not the best economy in history.
         </Paragraph>
         <GraphUnemployment/>
         <Paragraph type="quote">
