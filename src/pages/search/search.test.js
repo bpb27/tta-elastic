@@ -15,7 +15,7 @@ describe('Search', () => {
   it('renders', () => {
     const props = createProps();
     const wrapper = shallow(<Search {...props} />);
-    const element = wrapper.find('.search');
+    const element = wrapper.find('.page');
     expect(element.exists()).toEqual(true);
   });
 });

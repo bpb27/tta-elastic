@@ -1,4 +1,5 @@
 import React from 'react';
+import MetaTags from 'react-meta-tags';
 import ExternalLink from 'components/external-link';
 import Paragraph from 'components/paragraph';
 import styles from './sexual-assault.style.scss';
@@ -62,42 +63,49 @@ const thing = [
 export default class SexualAssault extends React.Component {
   render () {
     return (
-      <div className={styles.sexualAssault}>
-        <h1>Sexual Assault</h1>
-        <Paragraph type="quote">
-          <ExternalLink href="https://www.youtube.com/watch?v=NcZcTnykYbw">
-            "I just start kissing them. It's like a magnet. Just kiss. I don't even wait. And when you're a star, they let you do it. You can do anything. Grab 'em by the pussy. You can do anything"
-          </ExternalLink>
-        </Paragraph>
-        <div>
-          <h2>Jessica</h2>
-          <Paragraph>A plane flight in the 1970s: <ExternalLink href="https://www.nytimes.com/2016/10/13/us/politics/donald-trump-women.html">"He was like an octopus...his hands were everywhere...it was an assault."</ExternalLink> She fled to the back of the plane.</Paragraph>
+      <React.Fragment>
+        <MetaTags>
+          <title>TTA - Sexual Assault</title>
+          <meta name="description" content="Trump tweets that nobody has more respect for women." />
+          <meta property="og:title" content="Sexual Assault on Trump Twitter Archive" />
+        </MetaTags>
+        <div className={styles.page}>
+          <h1>Sexual Assault</h1>
+          <Paragraph type="quote">
+            <ExternalLink href="https://www.youtube.com/watch?v=NcZcTnykYbw">
+              "I just start kissing them. It's like a magnet. Just kiss. I don't even wait. And when you're a star, they let you do it. You can do anything. Grab 'em by the pussy. You can do anything"
+            </ExternalLink>
+          </Paragraph>
+          <div>
+            <h2>Jessica</h2>
+            <Paragraph>A plane flight in the 1970s: <ExternalLink href="https://www.nytimes.com/2016/10/13/us/politics/donald-trump-women.html">"He was like an octopus...his hands were everywhere...it was an assault."</ExternalLink> She fled to the back of the plane.</Paragraph>
+          </div>
+          <div>
+            <h2>Jean</h2>
+            <Paragraph>A department store in the 1990s: <ExternalLink href="https://www.businessinsider.com/e-jean-carroll-accuses-trump-sexual-assault-2019-6">"He lunges at me, pushes me against the wall, hitting my head quite badly, and puts his mouth against my lips...he unzips his pants, and, forcing his fingers around my private area, thrusts his penis halfway — or completely, I'm not certain — inside me. It turns into a colossal struggle."</ExternalLink> She fled the dressing room.</Paragraph>
+          </div>
+          <div>
+            <h2>Katie</h2>
+            <Paragraph>At Jeffrey Epstein's apartment in 1994: <ExternalLink href="https://www.snopes.com/news/2016/06/23/donald-trump-rape-lawsuit/">"She was subject to extreme sexual and physical abuse by the Defendants, Donald J. Trump and Jeffrey E. Epstein, including forcible rape during a four month time span...when the Plaintiff Johnson was still only a minor of age 13."</ExternalLink></Paragraph>
+          </div>
+          <div>
+            <h2>Karen</h2>
+            <Paragraph>A New Years party at Mar-a-Lago in the 2000s: <ExternalLink href="https://www.esquire.com/news-politics/a29391247/donald-trump-assault-allegations-karen-johnson-all-the-presidents-women-book/">"I was just walking to the bathroom. I was grabbed and pulled behind a tapestry, and it was him. And he’s strong, and he just kissed me. When he says that thing, 'Grab them in the pussy,' that hits me hard because when he grabbed me and pulled me into the tapestry, that's where he grabbed me — he grabbed me there in my front and pulled me in."</ExternalLink></Paragraph>
+          </div>
+          <div>
+            <h2>Rachel</h2>
+            <Paragraph>An elevator in Trump Tower in 2005: They shook hands, he wouldn't let go, he kept kissing her on the cheeks, then <ExternalLink href="https://www.nytimes.com/2016/10/13/us/politics/donald-trump-women.html">"kissed me directly on the mouth"</ExternalLink>.</Paragraph>
+          </div>
+          <div>
+            <h2>Summer</h2>
+            <Paragraph>A meeting at a hotel in 2007: He gave her an open-mouthed, aggressive kiss while grabbing her shoulder, put his hand on her breast. Several times she pushed him away and indicated he should stop. He thrust his genitals at her. <ExternalLink href="https://www.theguardian.com/us-news/2016/oct/14/donald-trump-summer-zervos-apprentice-sexual-assault">"You do not have the right to treat women as sexual objects just because you are a star"</ExternalLink>.</Paragraph>
+          </div>
+          <div>
+            <h2>Alva</h2>
+            <Paragraph>A campaign rally in 2016: <ExternalLink href="https://www.washingtonpost.com/investigations/former-campaign-staffer-alleges-in-lawsuit-that-trump-kissed-her-without-her-consent-the-white-house-denies-the-charge/2019/02/25/fe1869a4-3498-11e9-946a-115a5932c45b_story.html">"Oh, my God, I think he’s going to kiss me. He's coming straight for my lips. So I turn my head, and he kisses me right on corner of my mouth, still holding my hand the entire time."</ExternalLink>.</Paragraph>
+          </div>
         </div>
-        <div>
-          <h2>Jean</h2>
-          <Paragraph>A department store in the 1990s: <ExternalLink href="https://www.businessinsider.com/e-jean-carroll-accuses-trump-sexual-assault-2019-6">"He lunges at me, pushes me against the wall, hitting my head quite badly, and puts his mouth against my lips...he unzips his pants, and, forcing his fingers around my private area, thrusts his penis halfway — or completely, I'm not certain — inside me. It turns into a colossal struggle."</ExternalLink> She fled the dressing room.</Paragraph>
-        </div>
-        <div>
-          <h2>Katie</h2>
-          <Paragraph>At Jeffrey Epstein's apartment in 1994: <ExternalLink href="https://www.snopes.com/news/2016/06/23/donald-trump-rape-lawsuit/">"She was subject to extreme sexual and physical abuse by the Defendants, Donald J. Trump and Jeffrey E. Epstein, including forcible rape during a four month time span...when the Plaintiff Johnson was still only a minor of age 13."</ExternalLink></Paragraph>
-        </div>
-        <div>
-          <h2>Karen</h2>
-          <Paragraph>A New Years party at Mar-a-Lago in the 2000s: <ExternalLink href="https://www.esquire.com/news-politics/a29391247/donald-trump-assault-allegations-karen-johnson-all-the-presidents-women-book/">"I was just walking to the bathroom. I was grabbed and pulled behind a tapestry, and it was him. And he’s strong, and he just kissed me. When he says that thing, 'Grab them in the pussy,' that hits me hard because when he grabbed me and pulled me into the tapestry, that's where he grabbed me — he grabbed me there in my front and pulled me in."</ExternalLink></Paragraph>
-        </div>
-        <div>
-          <h2>Rachel</h2>
-          <Paragraph>An elevator in Trump Tower in 2005: They shook hands, he wouldn't let go, he kept kissing her on the cheeks, then <ExternalLink href="https://www.nytimes.com/2016/10/13/us/politics/donald-trump-women.html">"kissed me directly on the mouth"</ExternalLink>.</Paragraph>
-        </div>
-        <div>
-          <h2>Summer</h2>
-          <Paragraph>A meeting at a hotel in 2007: He gave her an open-mouthed, aggressive kiss while grabbing her shoulder, put his hand on her breast. Several times she pushed him away and indicated he should stop. He thrust his genitals at her. <ExternalLink href="https://www.theguardian.com/us-news/2016/oct/14/donald-trump-summer-zervos-apprentice-sexual-assault">"You do not have the right to treat women as sexual objects just because you are a star"</ExternalLink>.</Paragraph>
-        </div>
-        <div>
-          <h2>Alva</h2>
-          <Paragraph>A campaign rally in 2016: <ExternalLink href="https://www.washingtonpost.com/investigations/former-campaign-staffer-alleges-in-lawsuit-that-trump-kissed-her-without-her-consent-the-white-house-denies-the-charge/2019/02/25/fe1869a4-3498-11e9-946a-115a5932c45b_story.html">"Oh, my God, I think he’s going to kiss me. He's coming straight for my lips. So I turn my head, and he kisses me right on corner of my mouth, still holding my hand the entire time."</ExternalLink>.</Paragraph>
-        </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
