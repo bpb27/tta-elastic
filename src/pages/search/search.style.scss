@@ -39,9 +39,14 @@
     justify-content: flex-end;
     margin-bottom: 5px;
     padding: 5px 10px 5px 0;
+    flex-wrap: wrap-reverse;
 
     p {
       margin: 0 15px 0 5px;
+
+      @media all and (max-width: 350px) {
+        margin-bottom: 10px;
+      }
 
       span {
         font-size: 18px;

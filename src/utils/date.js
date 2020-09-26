@@ -17,13 +17,15 @@ export const trimTime = value => {
   return `${hour}:${minute}${m}`;
 };
 
-export const utcTimestampToEST = timestamp => {
+export const utcTimestampToEST = (timestamp, { timeTrim } = {}) => {
   const [date, time] = new Date(timestamp)
     .toLocaleString('en-US', { timeZone: 'America/New_York' })
     .split(', ');
 
   const [month, day, year] = date.split('/');
-  return `${months[month]} ${day} ${year}, ${time} EST`;
+  const formattedDate = `${months[month]} ${day} ${year} -`;
+  const formattedTime = timeTrim ? trimTime(time) : `${time} EST`;
+  return `${formattedDate} ${formattedTime}`;
 };
 
 const re = new RegExp(/([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/);

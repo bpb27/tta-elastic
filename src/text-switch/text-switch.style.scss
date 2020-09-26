@@ -1,19 +1,19 @@
 .mobile {
-  @media all and (min-width: 0px) and (max-width: 400px) {
+  @media all and (min-width: 0px) and (max-width: 435px) {
     display: initial;
   }
 
-  @media all and (min-width: 401px) {
+  @media all and (min-width: 436px) {
     display: none;
   }
 }
 
 .desktop {
-  @media all and (min-width: 0px) and (max-width: 400px) {
+  @media all and (min-width: 0px) and (max-width: 435px) {
     display: none;
   }
 
-  @media all and (min-width: 401px) {
+  @media all and (min-width: 436px) {
     display: initial;
   }
 }

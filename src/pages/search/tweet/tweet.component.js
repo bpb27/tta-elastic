@@ -3,6 +3,7 @@ import { arrayOf, bool, number, shape, string } from 'prop-types';
 import Highlighter from 'react-highlight-words';
 import Icon from 'components/icon';
 import Modal from 'components/modal';
+import TextSwitch from 'components/text-switch';
 import TweetLink from 'components/tweet-link';
 import { utcTimestampToEST } from 'utils/date';
 import { numberWithKs, replaceHTMLEntities } from 'utils/format';
@@ -45,7 +46,12 @@ export default class Tweet extends Component {
         </div>
         <div className={styles.metadata}>
           <span className={styles.mobileIndex}>{ index }.</span>
-          <span className={styles.date}>{ utcTimestampToEST(date) }</span>
+          <span className={styles.date}>
+            <TextSwitch
+              mobile={utcTimestampToEST(date, { timeTrim: true })}
+              web={utcTimestampToEST(date)}
+            />
+          </span>
           <span className={styles.device}>{ device }</span>
           <span className={styles.stats}>
             <span>
