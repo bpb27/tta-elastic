@@ -138,6 +138,12 @@ export default class Search extends React.Component {
               onClick={showTips => this.setState({ showTips })}
             />
             <Checkbox
+              label="Retweets"
+              name="filter-by-retweet"
+              value={showRetweetButtons}
+              onClick={showRetweetButtons => this.setState({ showRetweetButtons })}
+            />
+            <Checkbox
               label="Dates"
               name="filter-by-date"
               value={showDateRange}
@@ -148,12 +154,6 @@ export default class Search extends React.Component {
               name="filter-by-device"
               value={showDeviceDropdown}
               onClick={showDeviceDropdown => this.setState({ showDeviceDropdown })}
-            />
-            <Checkbox
-              label="Retweets"
-              name="filter-by-retweet"
-              value={showRetweetButtons}
-              onClick={showRetweetButtons => this.setState({ showRetweetButtons })}
             />
           </div>
           <ReactiveList

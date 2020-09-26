@@ -44,7 +44,7 @@
     flex-direction: column;
     font-size: 0.8rem;
     margin-bottom: 5px;
-    min-width: 200px;
+    min-width: 230px;
 
     .mobileIndex {
       display: none;
@@ -78,18 +78,6 @@
   }
 }
 
-.embeddedModal {
-  // align-items: center;
-  background: #e2e2e2;
-  // display: flex;
-  // flex-flow: column;
-  // height: 100%;
-  // justify-content: center;
-  // left: 0;
-  // overflow-y: scroll;
-  // padding: 100px 0;
-  // position: fixed;
-  // top: 0;
-  // width: 100%;
-  // z-index: 5;
+.pointer {
+  cursor: pointer;
 }
