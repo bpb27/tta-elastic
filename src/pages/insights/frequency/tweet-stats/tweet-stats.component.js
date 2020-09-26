@@ -74,8 +74,6 @@ export default class TweetStats extends React.Component {
     return (
       <div className={styles.tweetStats}>
         <h2>Trump has tweeted <span className={styles.underline}>{ total ? numberWithCommas(total) : '...' }</span> times as president. In 2020, Trump is tweeting <span className={styles.underline}>{ currentYear.avg || '...' }</span> times per day on average.</h2>
-        <div className={styles.line}></div>
-        <h2>What is Trump tweeting about...?</h2>
         {
           this.data.map(({ name, percentage, search, total }) => {
             // const perDay = Math.round(total / days);
