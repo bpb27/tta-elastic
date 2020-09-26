@@ -1,10 +1,15 @@
 @import "src/variables.scss";
 
+.container {
+  margin-top: 15px;
+}
+
 .title {
   align-items: center;
   display: flex;
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 600;
+  margin-bottom: -15px;
   justify-content: center;
   text-align: center;
 
@@ -13,7 +18,6 @@
   }
 
   @media all and (max-width: 700px) {
-    margin-bottom: 20px;
     .desktop {
       display: none;
     }
@@ -26,8 +30,18 @@
   select {
     border: 2px solid $black;
     font-family: $font;
-    font-size: 20px;
+    font-size: 24px;
     margin-left: 20px;
     padding: 10px;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: -15px;
+
+  button {
+    margin: 0 5px;
   }
 }

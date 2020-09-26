@@ -1,6 +1,7 @@
 import React from 'react';
 import { arrayOf, number, oneOfType, shape, string } from 'prop-types';
-import { format } from 'date-fns';
+import { format, startOfTomorrow, subYears } from 'date-fns';
+import Button from 'components/button';
 import Chart from 'react-apexcharts';
 import styles from './tweet-frequency.style.scss';
 
@@ -25,111 +26,69 @@ export default class TweetFrequency extends React.Component {
     week: [],
   }
 
-  constructor (props) {
-    super(props);
-    this.state = {
-      options: {
-        chart: {
-          animations: {
-            enabled: true,
-          },
-          height: 300,
-          id: 'freq',
-        },
-        dataLabels: {
-          enabled: false,
-        },
-        responsive: [
-          {
-            breakpoint: 700,
-            options: {
-              chart: {
-                height: 300,
-              },
-            },
-          },
-          {
-            breakpoint: 2000,
-            options: {
-              chart: {
-                height: 400,
-              },
-            },
-          },
-        ],
-        tooltip: {
-          x: {
-            formatter: date => format(date, 'MMM dd, yyyy'),
-          },
-        },
-        xaxis: {
-          min: new Date('2009-05-03').getTime(),
-          max: new Date().getTime(),
-          type: 'datetime',
-        },
-        yaxis: {
-          min: 0,
-          max: 1200,
-          tickAmount: 6,
-        },
-      },
-      unit: 'month',
-    };
+  state = {
+    animationEnabled: true,
+    timeframe: '3y',
+    unit: 'week',
+    yAxis: {
+      max: 600,
+    },
   }
 
   get data () {
     return this.props[this.state.unit] || [];
   }
 
-  updateSelection = unit => {
-    const options = {
-      chart: {
-        animations: {
-          enabled: false,
-        },
-      },
+  get xRange () {
+    const { timeframe } = this.state;
+    const tomorrow = startOfTomorrow();
+
+    if (timeframe === 'full') {
+      return {
+        max: undefined,
+        min: undefined,
+      };
+    } else {
+      return {
+        max: tomorrow.getTime(),
+        min: subYears(tomorrow, Number(timeframe[0])).getTime(),
+      };
+    }
+  }
+
+  setTimeFrame = timeframe => {
+    this.setState({ timeframe });
+  }
+
+  setUnit = unit => {
+    const updates = {
+      animationEnabled: true,
+      unit,
+      yAxis: {},
     };
 
     if (unit === 'day') {
-      const today = new Date();
-      const sixMonthsAgo = new Date();
-      sixMonthsAgo.setMonth(today.getMonth() - 6);
-      options.xaxis = {
-        min: sixMonthsAgo.getTime(),
-        max: today.getTime(),
-      };
-      options.yaxis = {
-        max: 240,
-        tickAmount: 6,
-      };
+      updates.yAxis = { max: 200 };
+      updates.animationEnabled = false;
+      updates.timeframe = '1y';
+    } else if (unit === 'week') {
+      updates.yAxis = { max: 600 };
+    } else if (unit === 'month') {
+      updates.yAxis = { max: 1400 };
     }
 
-    if (unit === 'week') {
-      options.yaxis = {
-        max: 600,
-        tickAmount: 6,
-      };
-    }
-
-    if (unit === 'month') {
-      options.yaxis = {
-        max: 1200,
-        tickAmount: 6,
-      };
-    }
-
-    this.setState({ options, unit });
+    this.setState(updates);
   }
 
   render () {
-    const { options, unit } = this.state;
+    const { animationEnabled, unit, yAxis } = this.state;
     return (
-      <div>
+      <div className={styles.container}>
         <div className={styles.title}>
           <span>Tweets per </span>
           <select
             name="unit"
-            onChange={({ target }) => this.updateSelection(target.value)}
+            onChange={({ target }) => this.setUnit(target.value)}
             value={unit}
           >
             <option value="day">Day</option>
@@ -138,7 +97,54 @@ export default class TweetFrequency extends React.Component {
           </select>
         </div>
         <Chart
-          options={options}
+          options={{
+            chart: {
+              animations: {
+                enabled: animationEnabled,
+              },
+              height: 300,
+              id: 'freq',
+              toolbar: {
+                show: false,
+              },
+            },
+            dataLabels: {
+              enabled: false,
+            },
+            responsive: [
+              {
+                breakpoint: 700,
+                options: {
+                  chart: {
+                    height: 300,
+                  },
+                },
+              },
+              {
+                breakpoint: 2000,
+                options: {
+                  chart: {
+                    height: 400,
+                  },
+                },
+              },
+            ],
+            tooltip: {
+              x: {
+                formatter: date => format(date, 'MMM dd, yyyy'),
+              },
+            },
+            xaxis: {
+              ...this.xRange,
+              type: 'datetime',
+            },
+            yaxis: {
+              forceNiceScale: true,
+              min: 0,
+              tickAmount: 6,
+              ...yAxis,
+            },
+          }}
           series={[
             {
               name: 'Tweets',
@@ -150,6 +156,20 @@ export default class TweetFrequency extends React.Component {
           ]}
           type="bar"
         />
+        <div className={styles.buttons}>
+          <Button onClick={() => this.setTimeFrame('1y')}>
+            1 year
+          </Button>
+          <Button onClick={() => this.setTimeFrame('3y')}>
+            3 years
+          </Button>
+          <Button onClick={() => this.setTimeFrame('6y')}>
+            6 years
+          </Button>
+          <Button onClick={() => this.setTimeFrame('full')}>
+            All
+          </Button>
+        </div>
       </div>
     );
   }
