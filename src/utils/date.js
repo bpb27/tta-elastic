@@ -11,6 +11,12 @@ export const yearsFromNow = (years = 1) => {
   return date;
 };
 
+export const trimTime = value => {
+  const [hour, minute, secondPlusM] = value.toLowerCase().split(':');
+  const [second, m] = secondPlusM.split(' '); // eslint-disable-line no-unused-vars
+  return `${hour}:${minute}${m}`;
+};
+
 export const utcTimestampToEST = timestamp => {
   const [date, time] = new Date(timestamp)
     .toLocaleString('en-US', { timeZone: 'America/New_York' })

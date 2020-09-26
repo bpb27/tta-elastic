@@ -31,7 +31,7 @@ export default class Economy extends React.Component {
             Trump has tweeted that he personally created the greatest economy in history more than <Link to='/?searchbox=%22%5C%22greatest+economy%5C%22%22'>20 times</Link>.
           </Paragraph>
           <Paragraph>
-            Trump has not tweeted about how he inherited upward economic trends from previous administrations, that economies are relatively unrelated to presidential action, or that the greatest economic crash of all time happened on his watch.
+            Trump has not tweeted that he inherited upward economic trends from prior administrations, that economies are relatively unrelated to presidential action, or that the greatest economic crash of all time happened on his watch.
           </Paragraph>
           <GraphGDPQuarterly/>
           <Paragraph type="quote">
@@ -40,13 +40,13 @@ export default class Economy extends React.Component {
             </ExternalLink>.
           </Paragraph>
           <Paragraph>
+            Needless to say, this is not the best economy in history.
+          </Paragraph>
+          <Paragraph>
             Trump is averaging 1.5% quarterly growth, and 2.5% quarterly growth pre-Coronavirus. His best quarter came in 2018 with 3.3% growth. He also oversaw the greatest contraction in history in 2020 with -9.5% growth.
           </Paragraph>
           <Paragraph>
             Obama averaged 1.6% quarterly growth, and 2.3% quarterly growth post-2008 Recession. His best quarter came in 2015 with 4.1% growth.
-          </Paragraph>
-          <Paragraph>
-            Needless to say, this is not the best economy in history.
           </Paragraph>
           <GraphUnemployment/>
           <Paragraph type="quote">
@@ -55,7 +55,10 @@ export default class Economy extends React.Component {
             </ExternalLink>
           </Paragraph>
           <Paragraph>
-            Trump presided over a 1.5% drop in unemployment, following the trend of the Obama years (which saw a 5.3% drop), leading to the lowest unemployment numbers since 1954. Trump also presided over the highest unemployment rate in history in April 2020 (14.7%).
+            Pre-Coronavirus, unemployment was at its lowest level since 1954. Trump presided over a 1.5% drop in unemployment, following the 5.3% drop during the Obama years.
+          </Paragraph>
+          <Paragraph>
+            Trump also presided over the highest unemployment rate in history in April 2020 at 14.7%.
           </Paragraph>
           <GraphDebt/>
           <Paragraph type="quote">
@@ -64,7 +67,7 @@ export default class Economy extends React.Component {
             </ExternalLink>
           </Paragraph>
           <Paragraph>
-            Trump is obviously not on track to get rid of the US government debt. Even before the COVID stimulus, there was no meaningful progress made on debt reduction.
+            Trump is obviously not on track to get rid of the US government debt. Even before the COVID stimulus, there was no meaningful progress made on debt reduction. Debt has skyrocketed since the Reagan years, with the exception of the Clinton years.
           </Paragraph>
           <Paragraph type="quote">
             <ExternalLink tweetId="136489325415243776">
@@ -72,7 +75,7 @@ export default class Economy extends React.Component {
             </ExternalLink>
           </Paragraph>
           <Paragraph>
-            Trump added $5.7 trillion to the debt in a little more than 3 years. Notably, he tweeted about debt <Link to='/?searchbox=%22debt%22&retweet=%5B%22Hide+Retweets%22%5D'>161 times</Link> during the Obama presidency, but only 16 times during his own presidency.
+            Trump added $5.7 trillion to the debt in a little more than 3 years. Notably, he tweeted about debt <Link to='/?searchbox=%22debt%22&retweet=%5B%22Hide+Retweets%22%5D'>161 times</Link> during the Obama presidency, but only 16 times during his own presidency. Both administrations faced unprecedented crises (Coronavirus, the Great Recession) that required massive stimulus to stave off economic collapse.
           </Paragraph>
           <GraphDowJones/>
           <Paragraph type="quote">

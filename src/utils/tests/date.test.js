@@ -1,5 +1,6 @@
 import {
   daysAsPresident,
+  trimTime,
   twoDaysFromNow,
   utcTimestampToEST,
   validDatestring,
@@ -40,6 +41,16 @@ describe('date utils', () => {
       const distantFutureDate = new Date('2030-01-01');
       expect(result > currentDate).toEqual(true);
       expect(result < distantFutureDate).toEqual(true);
+    });
+  });
+
+  describe('trimTime', () => {
+    it('trims a double-digit hour', () => {
+      expect(trimTime('11:01:02 AM')).toEqual('11:01am');
+    });
+
+    it('trims a single-digit hour', () => {
+      expect(trimTime('1:01:02 PM')).toEqual('1:01pm');
     });
   });
 });

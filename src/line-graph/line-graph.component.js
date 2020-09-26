@@ -99,8 +99,8 @@ export default class LineGraph extends React.Component {
             width={700}
           />
           <div className={styles.legend}>
-            <span><span style={{ background: demBluePast}}></span> Past Democrats</span>
-            <span><span style={{ background: repRedPast}}></span> Past Republicans</span>
+            <span><span style={{ background: demBluePast}}></span> Past Dems</span>
+            <span><span style={{ background: repRedPast}}></span> Past Repubs</span>
             <span><span style={{ background: demBlueCurrent}}></span> Obama</span>
             <span><span style={{ background: repRedCurrent}}></span> Trump</span>
           </div>

@@ -56,8 +56,9 @@ export default class Tweet extends Component {
               <Icon name="HEART"/>
               { numberWithKs(favorites) }
             </span>
-            <span>
-              <Icon name="TWITTER" onClick={() => this.setState({ showTwitterView: true })} />
+            <span className={styles.pointer} onClick={() => this.setState({ showTwitterView: true })}>
+              <Icon name="TWITTER"/>
+              Show
             </span>
           </span>
         </div>
