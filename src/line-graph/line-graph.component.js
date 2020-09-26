@@ -1,7 +1,7 @@
 import React from 'react';
-import { arrayOf, func, number, oneOfType, shape, string } from 'prop-types';
+import { arrayOf, bool, func, number, oneOf, oneOfType, shape, string } from 'prop-types';
 import Chart from 'react-apexcharts';
-import { addYears, format, subYears } from 'date-fns';
+import { format } from 'date-fns';
 import Button from 'components/button';
 import ExternalLink from 'components/external-link';
 import styles from './line-graph.style.scss';
@@ -15,43 +15,32 @@ import {
 
 export default class LineGraph extends React.Component {
   static propTypes = {
-    formatter: func.isRequired,
-    id: string.isRequired,
     data: arrayOf(shape({
       x: oneOfType([number, string]),
       y: oneOfType([number, string]),
     })).isRequired,
+    formatter: func.isRequired,
+    hideTimeframe: bool,
+    id: string.isRequired,
     source: string.isRequired,
+    timeframe: oneOf(['15y', '30y', 'full']),
     title: string.isRequired,
-    xAxis: shape({
-      max: number,
-      min: number,
-      yearInterval: number,
-    }),
     yMin: number,
   }
 
   state = {
-    xMax: this.props.xAxis?.max,
-    xMin: this.props.xAxis?.min,
+    timeframe: this.props.timeframe,
   }
 
-  get yearInterval () {
-    return this.props.xAxis?.yearInterval;
-  }
-
-  prev = () => {
-    this.setState({
-      xMin: subYears(this.state.xMin, this.yearInterval).getTime(),
-      xMax: subYears(this.state.xMax, this.yearInterval).getTime(),
-    });
-  }
-
-  next = () => {
-    this.setState({
-      xMin: addYears(this.state.xMin, this.yearInterval).getTime(),
-      xMax: addYears(this.state.xMax, this.yearInterval).getTime(),
-    });
+  get xRange () {
+    const date = value => new Date(value).getTime();
+    if (this.state.timeframe === '15y') {
+      return { min: date('01-01-2005'), max: date('01-01-2021') };
+    } else if (this.state.timeframe === '30y') {
+      return { min: date('01-01-1990'), max: date('01-01-2021') };
+    } else {
+      return { min: undefined, max: undefined };
+    }
   }
 
   render() {
@@ -94,8 +83,7 @@ export default class LineGraph extends React.Component {
                 },
               },
               xaxis: {
-                max: this.state.xMax,
-                min: this.state.xMin,
+                ...this.xRange,
                 type: 'datetime',
               },
               yaxis: {
@@ -117,13 +105,16 @@ export default class LineGraph extends React.Component {
             <span><span style={{ background: repRedCurrent}}></span> Trump</span>
           </div>
           {
-            this.yearInterval && (
+            !this.props.hideTimeframe && (
               <div className={styles.buttons}>
-                <Button onClick={this.prev}>
-                  Back
+                <Button onClick={() => this.setState({ timeframe: 'full' })}>
+                  Full set
                 </Button>
-                <Button onClick={this.next}>
-                  Forward
+                <Button onClick={() => this.setState({ timeframe: '30y' })}>
+                  30 years
+                </Button>
+                <Button onClick={() => this.setState({ timeframe: '15y' })}>
+                  15 years
                 </Button>
               </div>
             )
