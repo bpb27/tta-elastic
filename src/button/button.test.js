@@ -23,6 +23,13 @@ describe('Button', () => {
     expect(element.exists()).toEqual(true);
   });
 
+  it('adds the selected class', () => {
+    const props = { ...createProps(), selected: true };
+    const wrapper = shallow(<Button {...props}>Hey</Button>);
+    const element = wrapper.find('.selected');
+    expect(element.exists()).toEqual(true);
+  });
+
   it('adds the disabled prop', () => {
     const props = { ...createProps(), disabled: true };
     const wrapper = shallow(<Button {...props}>Hey</Button>);

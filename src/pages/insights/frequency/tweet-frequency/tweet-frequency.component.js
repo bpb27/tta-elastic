@@ -81,7 +81,7 @@ export default class TweetFrequency extends React.Component {
   }
 
   render () {
-    const { animationEnabled, unit, yAxis } = this.state;
+    const { animationEnabled, timeframe, unit, yAxis } = this.state;
     return (
       <div className={styles.container}>
         <div className={styles.title}>
@@ -157,17 +157,17 @@ export default class TweetFrequency extends React.Component {
           type="bar"
         />
         <div className={styles.buttons}>
-          <Button onClick={() => this.setTimeFrame('1y')}>
+          <Button onClick={() => this.setTimeFrame('1y')} selected={timeframe === '1y'}>
             1 year
           </Button>
-          <Button onClick={() => this.setTimeFrame('3y')}>
+          <Button onClick={() => this.setTimeFrame('3y')} selected={timeframe === '3y'}>
             3 years
           </Button>
-          <Button onClick={() => this.setTimeFrame('6y')}>
+          <Button onClick={() => this.setTimeFrame('6y')} selected={timeframe === '6y'}>
             6 years
           </Button>
-          <Button onClick={() => this.setTimeFrame('full')}>
-            All
+          <Button onClick={() => this.setTimeFrame('full')} selected={timeframe === 'full'}>
+            Full set
           </Button>
         </div>
       </div>

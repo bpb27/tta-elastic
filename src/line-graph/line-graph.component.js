@@ -29,15 +29,15 @@ export default class LineGraph extends React.Component {
   }
 
   state = {
-    timeframe: this.props.timeframe,
+    timeframe: this.props.timeframe || 'full',
   }
 
   get xRange () {
-    const date = value => new Date(value).getTime();
+    const date = (y, m, d) => new Date(y, m, d).getTime();
     if (this.state.timeframe === '15y') {
-      return { min: date('01-01-2005'), max: date('01-01-2021') };
+      return { min: date(2005, 0, 1), max: date(2021, 0, 1) };
     } else if (this.state.timeframe === '30y') {
-      return { min: date('01-01-1990'), max: date('01-01-2021') };
+      return { min: date(1990, 0, 1), max: date(2021, 0, 1) };
     } else {
       return { min: undefined, max: undefined };
     }
@@ -45,6 +45,7 @@ export default class LineGraph extends React.Component {
 
   render() {
     const series = groupByPresident(this.props.data);
+    const { timeframe } = this.state;
     return (
       <div className={styles.lineGraph}>
         <div>
@@ -107,13 +108,13 @@ export default class LineGraph extends React.Component {
           {
             !this.props.hideTimeframe && (
               <div className={styles.buttons}>
-                <Button onClick={() => this.setState({ timeframe: 'full' })}>
+                <Button onClick={() => this.setState({ timeframe: 'full' })} selected={timeframe === 'full'}>
                   Full set
                 </Button>
-                <Button onClick={() => this.setState({ timeframe: '30y' })}>
+                <Button onClick={() => this.setState({ timeframe: '30y' })} selected={timeframe === '30y'}>
                   30 years
                 </Button>
-                <Button onClick={() => this.setState({ timeframe: '15y' })}>
+                <Button onClick={() => this.setState({ timeframe: '15y' })} selected={timeframe === '15y'}>
                   15 years
                 </Button>
               </div>
