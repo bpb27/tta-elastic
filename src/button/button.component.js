@@ -8,6 +8,7 @@ export default class Button extends React.Component {
     children: node.isRequired,
     disabled: bool,
     onClick: func.isRequired,
+    selected: bool,
   }
 
   static defaultProps = {
@@ -16,9 +17,13 @@ export default class Button extends React.Component {
   }
 
   render () {
-    const { children, className, disabled, onClick } = this.props;
+    const { children, className, disabled, onClick, selected } = this.props;
     return (
-      <button className={`${styles.button} ${className}`} disabled={disabled} onClick={onClick}>
+      <button
+        className={`${styles.button} ${className} ${selected ? styles.selected : ''}`}
+        disabled={disabled}
+        onClick={onClick}
+      >
         { children }
       </button>
     );
