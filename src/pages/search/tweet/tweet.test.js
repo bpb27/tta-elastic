@@ -34,8 +34,8 @@ describe('Tweet', () => {
   it('renders a formatted date', () => {
     const props = createProps();
     const wrapper = shallow(<Tweet {...props} />);
-    const date = wrapper.find('.date').text();
-    expect(date).toEqual('May 19 2019, 2:50:37 PM EST');
+    const date = wrapper.find('.date TextSwitch').props().web;
+    expect(date).toEqual('May 19 2019 - 2:50:37 PM EST');
   });
 
   it('renders the device', () => {
