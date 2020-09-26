@@ -2,7 +2,7 @@
 
 .navbar {
   background: $black;
-  color: white;
+  color: $white;
   display: flex;
   height: $navbar-height;
   justify-content: space-between;
@@ -12,10 +12,11 @@
   width: 100%;
   z-index: 2;
 
-  a {
-    text-decoration: none;
-    color: white;
+  a, button {
+    color: $white;
     cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
 
     &.active {
       font-weight: 800;
@@ -30,6 +31,11 @@
   .right {
     padding: $navbar-item-padding;
 
+    button {
+      background: transparent;
+      border: none;
+    }
+
     > a {
       padding: $navbar-item-padding 5px;
     }
@@ -37,15 +43,13 @@
 }
 
 .subnav {
-  align-items: center;
   background: #676565;
   display: flex;
-  height: $navbar-height;
+  flex-flow: column;
   justify-content: center;
-  left: 0;
   position: fixed;
+  right: 0;
   top: $navbar-height;
-  width: 100%;
   z-index: 2;
 
   a {

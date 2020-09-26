@@ -11,8 +11,23 @@ export class Navbar extends React.Component {
     }).isRequired,
   }
 
+  state = {
+    showInsightsMenu: false,
+  }
+
+  toggleInsightMenu = () => {
+    this.setState({ showInsightsMenu: !this.state.showInsightsMenu });
+  }
+
+  get pathname () {
+    return this.props.location.pathname;
+  }
+
   render () {
+    const { showInsightsMenu } = this.state;
     const active = { activeClassName: styles.active };
+    const subnavClick = { onClick: this.toggleInsightMenu };
+
     return (
       <Fragment>
         <nav className={styles.navbar}>
@@ -22,16 +37,21 @@ export class Navbar extends React.Component {
             </NavLink>
           </div>
           <div className={styles.right}>
-            <NavLink to="/insights" {...active}>Insights</NavLink>
+            <button
+              className={this.pathname.includes('insights') ? styles.active : ''}
+              {...subnavClick}
+            >
+              Insights
+            </button>
             <NavLink to="/faq" {...active}>FAQ</NavLink>
           </div>
         </nav>
-        { this.props.location.pathname.includes('/insights') && (
+        { showInsightsMenu && (
           <div className={styles.subnav}>
-            <NavLink to="/insights/frequency" {...active}>Frequency</NavLink>
-            <NavLink to="/insights/bad-hires" {...active}>Bad Hires</NavLink>
-            <NavLink to="/insights/economy" {...active}>Economy</NavLink>
-            <NavLink to="/insights/sexual-assault" {...active}>Sexual Assault</NavLink>
+            <NavLink to="/insights/frequency" {...active} {...subnavClick}>How Many Tweets</NavLink>
+            <NavLink to="/insights/bad-hires" {...active} {...subnavClick}>Bad Hires</NavLink>
+            <NavLink to="/insights/economy" {...active} {...subnavClick}>Economy</NavLink>
+            <NavLink to="/insights/sexual-assault" {...active} {...subnavClick}>Sexual Assault</NavLink>
           </div>
         )}
       </Fragment>
