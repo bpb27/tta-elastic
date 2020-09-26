@@ -2,15 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import SexualAssault from './sexual-assault.component';
 
-const createProps = () => ({
-
-});
-
 describe('SexualAssault', () => {
   it('renders', () => {
-    const props = createProps();
-    const wrapper = shallow(<SexualAssault {...props}/>);
-    const element = wrapper.find('.sexualAssault');
+    const wrapper = shallow(<SexualAssault/>);
+    const element = wrapper.find('.page');
     expect(element.exists()).toEqual(true);
   });
 });
