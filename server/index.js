@@ -52,7 +52,7 @@ app.use(helmet.frameguard());
 app.use(helmet.hidePoweredBy());
 app.use(helmet.hsts());
 app.use(helmet.ieNoOpen());
-app.use(helmet.noSniff());
+// app.use(helmet.noSniff()); // seems to cause problems with react suspense js snippets
 app.use(helmet.permittedCrossDomainPolicies());
 app.use(helmet.referrerPolicy());
 app.use(helmet.xssFilter());
