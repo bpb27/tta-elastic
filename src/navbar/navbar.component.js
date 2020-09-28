@@ -15,6 +15,10 @@ export class Navbar extends React.Component {
     showInsightsMenu: false,
   }
 
+  closeInsightMenu = () => {
+    this.setState({ showInsightsMenu: false });
+  }
+
   toggleInsightMenu = () => {
     this.setState({ showInsightsMenu: !this.state.showInsightsMenu });
   }
@@ -27,12 +31,13 @@ export class Navbar extends React.Component {
     const { showInsightsMenu } = this.state;
     const active = { activeClassName: styles.active };
     const subnavClick = { onClick: this.toggleInsightMenu };
+    const nonSubNavClick = { onClick: this.closeInsightMenu };
 
     return (
       <Fragment>
         <nav className={styles.navbar}>
           <div className={styles.left}>
-            <NavLink to="/" isActive={() => false}>
+            <NavLink to="/" isActive={() => false} {...nonSubNavClick}>
               <TextSwitch web="Trump Twitter Archive" mobile="TTA" />
             </NavLink>
           </div>
@@ -43,7 +48,7 @@ export class Navbar extends React.Component {
             >
               Insights
             </button>
-            <NavLink to="/faq" {...active}>FAQ</NavLink>
+            <NavLink to="/faq" {...active} {...nonSubNavClick}>FAQ</NavLink>
           </div>
         </nav>
         { showInsightsMenu && (
@@ -52,6 +57,8 @@ export class Navbar extends React.Component {
             <NavLink to="/insights/bad-hires" {...active} {...subnavClick}>Bad Hires</NavLink>
             <NavLink to="/insights/economy" {...active} {...subnavClick}>Economy</NavLink>
             <NavLink to="/insights/sexual-assault" {...active} {...subnavClick}>Sexual Assault</NavLink>
+            <div className={styles.separator}/>
+            <a>More coming soon...</a>
           </div>
         )}
       </Fragment>
