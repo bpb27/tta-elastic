@@ -49,9 +49,10 @@ export default class TweetFrequency extends React.Component {
         min: undefined,
       };
     } else {
+      const years = Number(timeframe.replace('y', ''));
       return {
         max: tomorrow.getTime(),
-        min: subYears(tomorrow, Number(timeframe[0])).getTime(),
+        min: subYears(tomorrow, years).getTime(),
       };
     }
   }
