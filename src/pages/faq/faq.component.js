@@ -3,8 +3,6 @@ import MetaTags from 'react-meta-tags';
 import ExternalLink from 'components/external-link';
 import styles from './faq.style.scss';
 
-// TODO: Download link
-
 export default class Faq extends React.Component {
   render () {
     return (
