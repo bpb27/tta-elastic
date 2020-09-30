@@ -1,7 +1,12 @@
 @import "src/variables.scss";
 
 .insights {
+  font-family: $font;
   margin-top: 40px;
   padding: 30px 10px;
-  font-family: $font;
+
+  mark {
+    font-size: 22px;
+    font-weight: bold;
+  }
 }

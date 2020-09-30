@@ -1,12 +1,14 @@
 import React from 'react';
 import { arrayOf, number, oneOfType, shape, string } from 'prop-types';
-import { format, startOfTomorrow, subYears } from 'date-fns';
-import Button from 'components/button';
+import { format, startOfTomorrow } from 'date-fns';
 import Chart from 'react-apexcharts';
+import Slider from 'rc-slider';
 import styles from './tweet-frequency.style.scss';
+import 'rc-slider/assets/index.css';
 
-// TODO: deltas compared to prior
-// TODO: go to date selector
+const createSliderWithTooltip = Slider.createSliderWithTooltip;
+const Range = createSliderWithTooltip(Slider.Range);
+const DATE_FORMAT = 'MMM dd, yyyy';
 
 const counts = arrayOf(shape({
   date: string.isRequired,
@@ -28,8 +30,11 @@ export default class TweetFrequency extends React.Component {
 
   state = {
     animationEnabled: true,
-    timeframe: '3y',
     unit: 'week',
+    xAxis: {
+      max: startOfTomorrow().getTime(),
+      min: new Date(2017, 0, 20).getTime(),
+    },
     yAxis: {
       max: 600,
     },
@@ -39,27 +44,14 @@ export default class TweetFrequency extends React.Component {
     return this.props[this.state.unit] || [];
   }
 
-  get xRange () {
-    const { timeframe } = this.state;
-    const tomorrow = startOfTomorrow();
-
-    if (timeframe === 'full') {
-      return {
-        max: undefined,
-        min: undefined,
-      };
-    } else {
-      const years = Number(timeframe.replace('y', ''));
-      return {
-        max: tomorrow.getTime(),
-        min: subYears(tomorrow, years).getTime(),
-      };
-    }
-  }
-
-  setTimeFrame = timeframe => {
-    this.setState({ timeframe });
-  }
+  handleSlide = value => {
+    this.setState({
+      xAxis: {
+        max: value[1],
+        min: value[0],
+      }
+    });
+  };
 
   setUnit = unit => {
     const updates = {
@@ -71,7 +63,6 @@ export default class TweetFrequency extends React.Component {
     if (unit === 'day') {
       updates.yAxis = { max: 200 };
       updates.animationEnabled = false;
-      updates.timeframe = '1y';
     } else if (unit === 'week') {
       updates.yAxis = { max: 600 };
     } else if (unit === 'month') {
@@ -82,7 +73,7 @@ export default class TweetFrequency extends React.Component {
   }
 
   render () {
-    const { animationEnabled, timeframe, unit, yAxis } = this.state;
+    const { animationEnabled, unit, xAxis, yAxis } = this.state;
     return (
       <div className={styles.container}>
         <div className={styles.title}>
@@ -132,12 +123,12 @@ export default class TweetFrequency extends React.Component {
             ],
             tooltip: {
               x: {
-                formatter: date => format(date, 'MMM dd, yyyy'),
+                formatter: date => format(date, DATE_FORMAT),
               },
             },
             xaxis: {
-              ...this.xRange,
               type: 'datetime',
+              ...xAxis,
             },
             yaxis: {
               forceNiceScale: true,
@@ -158,18 +149,13 @@ export default class TweetFrequency extends React.Component {
           type="bar"
         />
         <div className={styles.buttons}>
-          <Button onClick={() => this.setTimeFrame('1y')} selected={timeframe === '1y'}>
-            1 year
-          </Button>
-          <Button onClick={() => this.setTimeFrame('3y')} selected={timeframe === '3y'}>
-            3 years
-          </Button>
-          <Button onClick={() => this.setTimeFrame('6y')} selected={timeframe === '6y'}>
-            6 years
-          </Button>
-          <Button onClick={() => this.setTimeFrame('full')} selected={timeframe === 'full'}>
-            Full set
-          </Button>
+          <Range
+            min={new Date(2009, 4, 1).getTime()}
+            max={startOfTomorrow()}
+            defaultValue={[xAxis.min, xAxis.max]}
+            tipFormatter={value => format(value, DATE_FORMAT)}
+            onAfterChange={this.handleSlide}
+          />
         </div>
       </div>
     );
