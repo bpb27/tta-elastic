@@ -1,3 +1,15 @@
 .page {
+  h1, h2 {
+    text-align: center;
+  }
+}
 
+.frequencyContainer {
+  margin: 0 auto 50px auto;
+  width: 80%;
+
+  @media all and (max-width: 700px) {
+    margin: 0 0 50px 0;
+    width: 95%;
+  }
 }

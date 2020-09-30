@@ -1,10 +1,10 @@
 import React from 'react';
 import { array } from 'prop-types';
 import { Link } from 'react-router-dom';
-import styles from './tweet-stats.style.scss';
 import { percentage } from 'utils/percentage';
-import { daysThisYear } from 'utils/date';
 import { numberWithCommas } from 'utils/format';
+import { tweetsAsPresident } from '../frequency.utils';
+import styles from './tweet-stats.style.scss';
 
 const descriptions = {
   abortion: 'about abortion or Roe v. Wade',
@@ -47,52 +47,41 @@ export default class TweetStats extends React.Component {
     topics: [],
   }
 
-  get currentYear () {
-    const year = this.props.byMonth.filter(({ date }) => date.includes(new Date().getFullYear()));
-    const total = year.reduce((sum, month) => sum + Number(month.count), 0);
-    const avg = total ? Math.round(total / daysThisYear()) : 0;
-    return { avg, total };
-  }
-
   get totalAsPresident () {
     return this.props.topics.find(stat => stat.name === 'totalAsPresident')?.total;
   }
 
   get data () {
-    return this.props.topics
+    const { topics } = this.props;
+    const totalAsPresident = tweetsAsPresident(topics).total;
+    return topics
       .filter(stat => stat.name !== 'totalAsPresident')
       .sort((a, b) => Number(b.total) - Number(a.total))
-      .map(stat => ({ ...stat, percentage: percentage(stat.total, this.totalAsPresident, stat.total > 200 ? 0 : 1) }));
+      .map(stat => ({
+        ...stat,
+        percentage: percentage(stat.total, totalAsPresident, stat.total > 200 ? 0 : 1),
+      }));
   }
 
   render () {
-    const currentYear = this.currentYear;
-    const total = this.totalAsPresident;
-    // const days = daysAsPresident();
-    // const avg = total ? Math.round(total / days) : 0;
-
     return (
       <div className={styles.tweetStats}>
-        <h2>Trump has tweeted <span className={styles.underline}>{ total ? numberWithCommas(total) : '...' }</span> times as president. In 2020, Trump is tweeting <span className={styles.underline}>{ currentYear.avg || '...' }</span> times per day on average.</h2>
         {
-          this.data.map(({ name, percentage, search, total }) => {
-            // const perDay = Math.round(total / days);
-            return (
-              <div key={name}>
-                <Link
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  title="View on search page"
-                  to={`/?results=1&searchbox="${search}"&dates=["2017-01-19"%2C"2020-12-30"]`}
-                >
-                  <span className={styles.total}>
-                    {numberWithCommas(total)} tweet{ total === 1 ? '' : 's'} ({percentage})
-                  </span>
-                </Link>
-                <span>{ descriptions[name] || name }</span>
-              </div>
-            );
-          })
+          this.data.map(({ name, percentage, search, total }) => (
+            <div key={name}>
+              <Link
+                rel="noopener noreferrer"
+                target="_blank"
+                title="View on search page"
+                to={`/?results=1&searchbox="${search}"&dates=["2017-01-19"%2C"2020-12-30"]`}
+              >
+                <span className={styles.total}>
+                  {numberWithCommas(total)} tweet{ total === 1 ? '' : 's'} ({percentage})
+                </span>
+              </Link>
+              <p>{ descriptions[name] || name }</p>
+            </div>
+          ))
         }
       </div>
     );

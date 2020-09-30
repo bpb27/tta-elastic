@@ -17,6 +17,7 @@ module.exports = {
     contentBase: './dist',
     historyApiFallback: true,
     hot: true,
+    open: false,
   },
   devtool: 'source-map',
   module: {
@@ -29,7 +30,7 @@ module.exports = {
         },
       },
       {
-        test: /\.scss/,
+        test: /.scss/,
         use: [
           {
             loader: 'style-loader',
@@ -44,6 +45,17 @@ module.exports = {
           },
           {
             loader: 'sass-loader',
+          },
+        ],
+      },
+      {
+        test: /\.css/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
           },
         ],
       },

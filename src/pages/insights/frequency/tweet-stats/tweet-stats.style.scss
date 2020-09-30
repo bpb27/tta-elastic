@@ -22,6 +22,10 @@
       display: block;
     }
   }
+
+  p {
+    line-height: 22px;
+  }
 }
 
 .underline {
@@ -30,7 +34,7 @@
 }
 
 .total {
-  background: #ececec;
+  background: #e1f4ff;
   border-radius: 5px;
   font-size: 24px;
   font-weight: bold;
