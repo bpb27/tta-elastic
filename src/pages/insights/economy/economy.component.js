@@ -40,13 +40,13 @@ export default class Economy extends React.Component {
             </ExternalLink>.
           </Paragraph>
           <Paragraph>
-            Needless to say, this is not the best economy in history.
+            This is not the best economy in history.
           </Paragraph>
           <Paragraph>
-            Trump is averaging 1.5% quarterly growth, and 2.5% quarterly growth pre-Coronavirus. His best quarter came in 2018 with 3.3% growth. He also oversaw the greatest contraction in history in 2020 with -9.5% growth.
+            Trump is averaging 1.5% quarterly growth, and 2.5% quarterly growth pre-Coronavirus. His best quarter came in 2018 with 3.3% growth, and his worst quarter came in 2020 with -9.5% growth (worst in history).
           </Paragraph>
           <Paragraph>
-            Obama averaged 1.6% quarterly growth, and 2.3% quarterly growth post-2008 Recession. His best quarter came in 2015 with 4.1% growth.
+            Obama averaged 1.6% quarterly growth, and 2.3% quarterly growth post-2008 Recession. His best quarter came in 2015 with 4.1% growth, and his worst quarter came in 2009 with -3.9% growth.
           </Paragraph>
           <GraphUnemployment/>
           <Paragraph type="quote">
@@ -80,7 +80,7 @@ export default class Economy extends React.Component {
           <GraphDowJones/>
           <Paragraph type="quote">
             <ExternalLink tweetId="1144533973428842496">
-              "The Stock Market went up massively from the day after I won the Election, all the way up to the day that I took office, because of the enthusiasm for the fact that I was going to be President. That big Stock Market increase must be credited to me. If Hillary won - a Big Crash!"
+              "That big Stock Market increase must be credited to me. If Hillary won - a Big Crash!"
             </ExternalLink>
           </Paragraph>
           <Paragraph>
