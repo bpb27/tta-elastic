@@ -55,6 +55,7 @@ export default class Economy extends React.Component {
             Trump often tweets that electing Democrats will crash the stock market, despite the fact that the market saw a 140% increase during the Obama/Biden years and big gains during the Clinton years.
           </Paragraph>
           <hr/>
+          <h2>An Analogy</h2>
           <Paragraph>
             Imagine you're in a relay race.
           </Paragraph>
