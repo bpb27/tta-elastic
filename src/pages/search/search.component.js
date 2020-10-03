@@ -6,7 +6,7 @@ import { validDatestring } from 'utils/date';
 import { numberWithCommas } from 'utils/format';
 import { queryParams } from 'utils/navigation';
 import { zonedTimeToUtc } from 'date-fns-tz';
-import Checkbox from 'components/checkbox';
+import Button from 'components/button';
 import Tips from 'components/pages/tips';
 import Tweet from './tweet';
 import {
@@ -131,30 +131,30 @@ export default class Search extends React.Component {
             />
           </div>
           <div className={styles.toggles}>
-            <Checkbox
-              label="Tips"
-              name="show-search-tips"
-              value={showTips}
-              onClick={showTips => this.setState({ showTips })}
-            />
-            <Checkbox
-              label="Retweets"
-              name="filter-by-retweet"
-              value={showRetweetButtons}
-              onClick={showRetweetButtons => this.setState({ showRetweetButtons })}
-            />
-            <Checkbox
-              label="Dates"
-              name="filter-by-date"
-              value={showDateRange}
-              onClick={showDateRange => this.setState({ showDateRange })}
-            />
-            <Checkbox
-              label="Device"
-              name="filter-by-device"
-              value={showDeviceDropdown}
-              onClick={showDeviceDropdown => this.setState({ showDeviceDropdown })}
-            />
+            <Button
+              onClick={() => this.setState({ showTips: !showTips })}
+              selected={showTips}
+            >
+              Show tips
+            </Button>
+            <Button
+              onClick={() => this.setState({ showRetweetButtons: !showRetweetButtons })}
+              selected={showRetweetButtons}
+            >
+              Retweet filters
+            </Button>
+            <Button
+              onClick={() => this.setState({ showDateRange: !showDateRange })}
+              selected={showDateRange}
+            >
+              Date filters
+            </Button>
+            <Button
+              onClick={() => this.setState({ showDeviceDropdown: !showDeviceDropdown })}
+              selected={showDeviceDropdown}
+            >
+              Device filters
+            </Button>
           </div>
           <ReactiveList
             className={styles.list}

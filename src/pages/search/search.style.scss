@@ -20,6 +20,7 @@
   .toggles {
     align-items: baseline;
     display: flex;
+    margin: 10px 0;
 
     button {
       align-items: center;
@@ -27,6 +28,12 @@
       display: inline-flex;
       margin-right: 10px;
       padding: 10px;
+
+      @media all and (max-width: 440px) {
+        &:last-child {
+          display: none;
+        }
+      }
     }
   }
 }
