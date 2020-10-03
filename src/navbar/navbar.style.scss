@@ -1,6 +1,7 @@
 @import "src/variables.scss";
 
 .navbar {
+  align-items: center;
   background: $black;
   color: $white;
   display: flex;

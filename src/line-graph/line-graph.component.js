@@ -34,13 +34,20 @@ export default class LineGraph extends React.Component {
 
   get xRange () {
     const date = (y, m, d) => new Date(y, m, d).getTime();
-    if (this.state.timeframe === '15y') {
-      return { min: date(2005, 0, 1), max: date(2021, 0, 1) };
+    const max = date(2021, 0, 1);
+    let min;
+
+    if (this.state.timeframe === '7y') {
+      min = date(2013, 0, 1);
+    } else if (this.state.timeframe === '15y') {
+      min = date(2005, 0, 1);
     } else if (this.state.timeframe === '30y') {
-      return { min: date(1990, 0, 1), max: date(2021, 0, 1) };
+      min = date(1990, 0, 1);
     } else {
-      return { min: undefined, max: undefined };
+      min = undefined;
     }
+
+    return { max, min };
   }
 
   render() {
@@ -116,6 +123,9 @@ export default class LineGraph extends React.Component {
                 </Button>
                 <Button onClick={() => this.setState({ timeframe: '15y' })} selected={timeframe === '15y'}>
                   15 years
+                </Button>
+                <Button onClick={() => this.setState({ timeframe: '7y' })} selected={timeframe === '7y'}>
+                  7 years
                 </Button>
               </div>
             )

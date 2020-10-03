@@ -54,9 +54,9 @@ export class Navbar extends React.Component {
         { showInsightsMenu && (
           <div className={styles.subnav}>
             <NavLink to="/insights/frequency" {...active} {...subnavClick}>How Many Tweets</NavLink>
-            <NavLink to="/insights/bad-hires" {...active} {...subnavClick}>Bad Hires</NavLink>
             <NavLink to="/insights/economy" {...active} {...subnavClick}>Economy</NavLink>
-            <NavLink to="/insights/sexual-assault" {...active} {...subnavClick}>Sexual Assault</NavLink>
+            {/* <NavLink to="/insights/bad-hires" {...active} {...subnavClick}>Bad Hires</NavLink>
+            <NavLink to="/insights/sexual-assault" {...active} {...subnavClick}>Sexual Assault</NavLink> */}
             <div className={styles.separator}/>
             <a>More coming soon...</a>
           </div>

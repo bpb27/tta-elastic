@@ -3,7 +3,7 @@
 .paragraph {
   font-size: 20px;
   line-height: 30px;
-  margin: 50px 25%;
+  margin: 50px 20%;
   text-align: left;
 
   > a {
@@ -19,6 +19,11 @@
     > a {
       color: #757575;
       text-decoration: none;
+    }
+
+    .quotationMark {
+      font-family: "Times New Roman";
+      padding: 0 5px;
     }
   }
 
