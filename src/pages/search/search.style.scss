@@ -37,7 +37,7 @@
     align-items: baseline;
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
     padding: 5px 10px 5px 0;
     flex-wrap: wrap-reverse;
 
@@ -48,8 +48,9 @@
         margin-bottom: 10px;
       }
 
+      // total tweets
       span {
-        font-size: 18px;
+        font-size: 22px;
         font-weight: bold;
         text-decoration: underline;
         text-decoration-color: $red;

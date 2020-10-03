@@ -4,7 +4,7 @@ import Paragraph from 'components/paragraph';
 import TweetFrequency from './tweet-frequency';
 import TweetStats from './tweet-stats';
 import { request } from 'utils/api';
-import { tweetsAsPresident, tweetsThisYear } from './frequency.utils';
+import { tweetsAsPresident, tweetsInTheLastThreeMonths } from './frequency.utils';
 import styles from './frequency.style.scss';
 
 export default class Frequency extends React.Component {
@@ -28,7 +28,7 @@ export default class Frequency extends React.Component {
 
   get thisYearAvg () {
     const { data } = this.state;
-    return data ? tweetsThisYear(data.groupings.byMonth).avg : '..';
+    return data ? tweetsInTheLastThreeMonths(data.groupings.byDay).avg : '..';
   }
 
   render () {
@@ -43,7 +43,7 @@ export default class Frequency extends React.Component {
         <div className={styles.page}>
           <h1>How Many Tweets?</h1>
           <Paragraph>
-            As president, Trump has tweeted <mark>{ this.asPresident } times</mark>. In { new Date().getFullYear() }, Trump is averaging <mark> { this.thisYearAvg } tweets</mark> per day.
+            As president, Trump has tweeted <mark>{ this.asPresident } times</mark>. In the last three months, Trump is averaging <mark> { this.thisYearAvg } tweets</mark> per day.
           </Paragraph>
           <div className={styles.frequencyContainer}>
             <TweetFrequency
