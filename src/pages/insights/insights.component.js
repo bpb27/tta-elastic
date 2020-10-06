@@ -4,6 +4,7 @@ import styles from './insights.style.scss';
 
 const BadHiresPage = lazy(() => import('./bad-hires'));
 const EconomyPage = lazy(() => import('./economy'));
+const InsultsPage = lazy(() => import('./insults'));
 const FrequencyPage = lazy(() => import('./frequency'));
 const SexualAssaultPage = lazy(() => import('./sexual-assault'));
 
@@ -16,6 +17,7 @@ export default class Insights extends React.Component {
             <Route path="/insights/bad-hires" component={BadHiresPage}/>
             <Route path="/insights/economy" component={EconomyPage}/>
             <Route path="/insights/frequency" component={FrequencyPage}/>
+            <Route path="/insights/insults" component={InsultsPage}/>
             <Route path="/insights/sexual-assault" component={SexualAssaultPage}/>
             <Redirect to="/insights/frequency"/>
           </Switch>

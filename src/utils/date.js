@@ -23,7 +23,7 @@ export const utcTimestampToEST = (timestamp, { timeTrim } = {}) => {
     .split(', ');
 
   const [month, day, year] = date.split('/');
-  const formattedDate = `${months[month]} ${day} ${year} -`;
+  const formattedDate = `${months[month]} ${day}${timeTrim ? '' : dayth(day)} ${year} -`;
   const formattedTime = timeTrim ? trimTime(time) : `${time} EST`;
   return `${formattedDate} ${formattedTime}`;
 };
@@ -62,3 +62,11 @@ const months = [
   'Nov',
   'Dec',
 ];
+
+const dayth = day => {
+  const num = Number(day);
+  if ([1, 21, 31].includes(num)) return 'st';
+  if ([2, 22].includes(num)) return 'nd';
+  if ([3, 23].includes(num)) return 'rd';
+  return 'th';
+};

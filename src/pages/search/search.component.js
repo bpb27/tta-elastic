@@ -8,6 +8,7 @@ import { queryParams } from 'utils/navigation';
 import { zonedTimeToUtc } from 'date-fns-tz';
 import Button from 'components/button';
 import Tips from 'components/pages/tips';
+import TextSwitch from 'components/text-switch';
 import Tweet from './tweet';
 import {
   DataSearch,
@@ -77,8 +78,8 @@ export default class Search extends React.Component {
             className={styles.searchbox}
             componentId="searchbox"
             dataField="text"
-            debounce={200}
-            placeholder="Search for anything"
+            debounce={400}
+            placeholder="Instantly search all tweets..."
             queryFormat="and"
             react={{
               and: ['dates', 'device', 'results']
@@ -167,7 +168,9 @@ export default class Search extends React.Component {
             render={this.tweets.bind(this)}
             renderNoResults={() => 'No tweets found'}
             renderResultStats={({ numberOfResults }) => (
-              <p><span>{numberWithCommas(numberOfResults)}</span> tweets found</p>
+              <p>
+                <span className={styles.results}>{numberWithCommas(numberOfResults)}</span> <TextSwitch mobile="tweets" web="tweets found"/>
+              </p>
             )}
             size={25}
             sortOptions={[

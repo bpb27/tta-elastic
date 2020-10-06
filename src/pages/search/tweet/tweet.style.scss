@@ -1,3 +1,5 @@
+@import "src/variables.scss";
+
 @mixin MobileView() {
   flex-wrap: wrap;
   margin-bottom: 20px;
@@ -16,15 +18,15 @@
     display: flex;
     align-items: center;
     width: 100%;
+  }
 
-    .device {
-      display: none;
-    }
+  .date {
+    text-decoration: none;
   }
 
   .text {
     background: white;
-    border: 1px solid;
+    border: 1px solid black;
     border-radius: 3px;
     line-height: 20px;
     padding: 10px;
@@ -82,4 +84,10 @@
 
 .pointer {
   cursor: pointer;
+}
+
+.date {
+  // color: #c81a1a;
+  // font-weight: bold;
+  // text-decoration: underline;
 }
