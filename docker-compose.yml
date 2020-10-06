@@ -1,10 +1,9 @@
-version: '3.7'
+version: '3.8'
 services:
   dev:
     container_name: tta-elastic
     build:
       context: .
-    image: tta-elastic
     ports:
       - 8080:8080
     environment:
@@ -15,6 +14,7 @@ services:
     user: root
 
   test:
+    container_name: tta-elastic-test
     build:
       context: .
     command: npm test
