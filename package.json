@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "a realtime, searchable archive of trump tweets",
   "main": "index.js",
+  "engines": {
+    "node": "10.22.1"
+  },
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack-dev-server --mode development --open",
+    "dev": "webpack-dev-server --mode development --open --host 0.0.0.0",
     "start": "node ./server/index.js",
     "generate": "node ./scripts/generate-component",
     "test": "jest"

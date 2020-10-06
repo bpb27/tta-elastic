@@ -6,7 +6,7 @@ const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: './src/index.js'
+    main: './src/index.js',
   },
   output: {
     filename: '[name].[hash].js',
@@ -18,6 +18,7 @@ module.exports = {
     historyApiFallback: true,
     hot: true,
     open: false,
+    host: '0.0.0.0',
   },
   devtool: 'source-map',
   module: {
@@ -41,7 +42,7 @@ module.exports = {
               localIdentName: '[local]___[hash:base64:5]',
               modules: true,
               sourceMap: false,
-            }
+            },
           },
           {
             loader: 'sass-loader',
@@ -61,9 +62,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|jpeg|gif)$/,
-        use: [
-          'file-loader',
-        ],
+        use: ['file-loader'],
       },
     ],
   },
