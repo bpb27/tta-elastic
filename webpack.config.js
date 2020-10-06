@@ -18,6 +18,7 @@ module.exports = {
     historyApiFallback: true,
     hot: true,
     open: false,
+    host: '0.0.0.0',
   },
   devtool: 'source-map',
   module: {
