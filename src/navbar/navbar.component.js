@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { shape, string } from 'prop-types';
 import { NavLink, withRouter } from 'react-router-dom';
-import TextSwitch from 'components/text-switch';
 import styles from './navbar.style.scss';
 
 export class Navbar extends React.Component {
@@ -38,7 +37,7 @@ export class Navbar extends React.Component {
         <nav className={styles.navbar}>
           <div className={styles.left}>
             <NavLink to="/" isActive={() => false} {...nonSubNavClick}>
-              <TextSwitch web="Trump Twitter Archive" mobile="TTA" />
+              <span>Trump Twitter Archive</span>
             </NavLink>
           </div>
           <div className={styles.right}>
@@ -55,6 +54,7 @@ export class Navbar extends React.Component {
           <div className={styles.subnav}>
             <NavLink to="/insights/frequency" {...active} {...subnavClick}>How Many Tweets</NavLink>
             <NavLink to="/insights/economy" {...active} {...subnavClick}>Economy</NavLink>
+            <NavLink to="/insights/insults" {...active} {...subnavClick}>Insults</NavLink>
             {/* <NavLink to="/insights/bad-hires" {...active} {...subnavClick}>Bad Hires</NavLink>
             <NavLink to="/insights/sexual-assault" {...active} {...subnavClick}>Sexual Assault</NavLink> */}
             <div className={styles.separator}/>

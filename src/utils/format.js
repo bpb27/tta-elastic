@@ -3,7 +3,7 @@ export const numberWithCommas = (num = 0) => {
 };
 
 export const numberWithKs = (num = 0) => {
-  return num > 999 ? (num/1000).toFixed(1).replace('.0', '') + 'k' : num.toString();
+  return num > 999 ? (num/1000).toFixed(0).replace('.0', '') + 'k' : num.toString();
 };
 
 export const replaceHTMLEntities = (text = '') => {

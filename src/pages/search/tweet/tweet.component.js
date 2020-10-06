@@ -13,7 +13,6 @@ export default class Tweet extends Component {
   static propTypes = {
     data: shape({
       date: number.isRequired,
-      device: string.isRequired,
       favorites: number.isRequired,
       id: string.isRequired,
       isRetweet: bool.isRequired,
@@ -36,7 +35,7 @@ export default class Tweet extends Component {
 
   render () {
     const { data, index, mobileView, searchWords } = this.props;
-    const { date, device, favorites, id, retweets, text } = data;
+    const { date, favorites, id, retweets, text } = data;
     const className = `${styles.tweet} ${mobileView ? styles.mobileView : ''}`;
 
     return (
@@ -52,7 +51,6 @@ export default class Tweet extends Component {
               web={utcTimestampToEST(date)}
             />
           </span>
-          <span className={styles.device}>{ device }</span>
           <span className={styles.stats}>
             <span>
               <Icon name="RETWEET"/>
