@@ -381,11 +381,6 @@ export const dataMayors = [
     insult: 'the Mayor of San Juan is a despicable and incompetent person who I wouldn’t trust under any circumstance',
   },
   {
-    id: '1135453895277203458',
-    name: 'Mayor Bill DeBlasio (NYC)',
-    insult: 'very dumb and incompetent Mayor of NYC, de Blasio, who has also done a terrible job',
-  },
-  {
     id: '1130220542538264576',
     name: 'Former Mayor Pete Buttigieg (South Bend)',
     insult: 'hard to believe that @FoxNews is wasting airtime on Mayor Pete',

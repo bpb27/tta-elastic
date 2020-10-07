@@ -35,14 +35,7 @@ describe('Tweet', () => {
     const props = createProps();
     const wrapper = shallow(<Tweet {...props} />);
     const date = wrapper.find('.date TextSwitch').props().web;
-    expect(date).toEqual('May 19 2019 - 2:50:37 PM EST');
-  });
-
-  it('renders the device', () => {
-    const props = createProps();
-    const wrapper = shallow(<Tweet {...props} />);
-    const date = wrapper.find('.device').text();
-    expect(date).toContain(props.data.device);
+    expect(date).toEqual('May 19th 2019 - 2:50:37 PM EST');
   });
 
   it('renders the retweet count', () => {
@@ -64,7 +57,7 @@ describe('Tweet', () => {
     props.data.favorites = 3100;
     const wrapper = shallow(<Tweet {...props} />);
     const text = wrapper.find('.stats span').at(1).text().trim();
-    expect(text).toContain('3.1k');
+    expect(text).toContain('3k');
   });
 
   it('renders button to show tweet spotlight', () => {
