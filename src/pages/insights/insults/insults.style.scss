@@ -5,17 +5,19 @@
     text-align: center;
   }
 
-  p {
-    margin: 5px 0;
+  .lists {
+    p {
+      margin: 5px 0;
 
-    @media all and (max-width: 500px) {
-      display: flex;
-      flex-flow: column;
-    }
+      @media all and (max-width: 500px) {
+        display: flex;
+        flex-flow: column;
+      }
 
-    a {
-      color: $red;
-      text-decoration: none;
+      a {
+        color: $red;
+        text-decoration: none;
+      }
     }
   }
 }

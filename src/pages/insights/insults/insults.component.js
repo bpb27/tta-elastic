@@ -28,23 +28,27 @@ export default class Insults extends React.Component {
       <div className={styles.page}>
         <h1>Insults as President</h1>
         <Paragraph>A sampling of insults Trump has tweeted as President of the United States, limited to one per person.</Paragraph>
-        <h2>Senators</h2>
-        { dataSenators.map(this.item) }
-        <h2>House Reps</h2>
-        { dataHouse.map(this.item) }
-        <h2>Governors</h2>
-        { dataGovernors.map(this.item) }
-        <h2>Mayors</h2>
-        { dataMayors.map(this.item) }
-        <h2>Federal Officials</h2>
-        { dataFederal.map(this.item) }
-        <h2>Additional Political Figures</h2>
-        { dataInternational.map(this.item) }
-        { dataPolitical.map(this.item) }
-        <h2>Journalists and Commentators</h2>
-        { dataJournalists.map(this.item) }
-        <h2>Celebs and Public Figures</h2>
-        { dataCelebs.map(this.item) }
+        <div className={styles.lists}>
+          <h2>Senators</h2>
+          { dataSenators.map(this.item) }
+          <h2>House Reps</h2>
+          { dataHouse.map(this.item) }
+          <h2>Governors</h2>
+          { dataGovernors.map(this.item) }
+          <h2>Mayors</h2>
+          { dataMayors.map(this.item) }
+          <h2>Federal Officials</h2>
+          { dataFederal.map(this.item) }
+          <h2>Additional Political Figures</h2>
+          { dataInternational.map(this.item) }
+          { dataPolitical.map(this.item) }
+          <h2>Journalists and Commentators</h2>
+          { dataJournalists.map(this.item) }
+          <h2>Celebs and Public Figures</h2>
+          { dataCelebs.map(this.item) }
+        </div>
+        <hr/>
+        <Paragraph>It's fair to praise Trump for being candid, but one could justifiably question how presidential, moral, and productive it is to publicly degrade governors, mayors, senators, representatives, federal officials, and allies he's supposed to be working with to move the country forward.</Paragraph>
       </div>
     );
   }
