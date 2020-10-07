@@ -177,7 +177,7 @@ export const dataFederal = [
   {
     id: '1155210027025797121',
     name: 'Former FBI Director Robert Mueller',
-    insult: 'Robert Mueller put on the greatest display of ineptitude & incompetence that the Halls of Congress have ever seen',
+    insult: 'greatest display of ineptitude & incompetence that the Halls of Congress have ever seen',
   },
   {
     id: '984877999718895616',
@@ -242,7 +242,7 @@ export const dataFederal = [
   {
     id: '1286299924141932550',
     name: 'NSC Director for European Affairs Alex Vindman',
-    insult: 'he was very insubordinate...given a horrendous report by his superior...had problems with judgement',
+    insult: 'very insubordinate...given a horrendous report by his superior...had problems with judgement',
   },
   {
     id: '1195356198347956224',
@@ -368,17 +368,17 @@ export const dataMayors = [
   {
     id: '1266231100172615680',
     name: 'Mayor Jacob Frey (Minneapolis)',
-    insult: 'total lack of leadership...very weak Radical Left Mayor Liberal Democrats',
+    insult: 'total lack of leadership...very weak Radical Left Mayor Liberal Democrat',
   },
   {
     id: '1227943796681400320',
     name: 'Former Mayor Mike Bloomberg (NYC)',
-    insult: 'Mini Mike Bloomberg is a LOSER who has money but can’t debate and has zero presence...he reminds me of a tiny version of Jeb Low Energy Bush',
+    insult: 'Mini Mike Bloomberg is a LOSER...reminds me of a tiny version of Jeb Low Energy Bush',
   },
   {
     id: '1151867785368281089',
     name: 'Mayor Carmen Yulin Cruz (San Juan)',
-    insult: 'the Mayor of San Juan is a despicable and incompetent person who I wouldn’t trust under any circumstance',
+    insult: 'Mayor of San Juan is a despicable and incompetent person who I wouldn’t trust under any circumstance',
   },
   {
     id: '1130220542538264576',
@@ -537,9 +537,9 @@ export const dataJournalists = [
     insult: 'very untalented Joy Reid should be fired',
   },
   {
-    id: '1301090370508464129',
+    id: '1161377272391229440',
     name: 'Chris Cuomo (CNN)',
-    insult: 'speaks with great disrespect about women...ratings are bad',
+    insult: 'lunatic ranting, raving, & cursing',
   },
   {
     id: '1293520377952567307',
@@ -609,7 +609,7 @@ export const dataJournalists = [
   {
     id: '1180987393115074560',
     name: 'Chuck Todd (NBC)',
-    insult: 'Sleepy Eyes Chuck Todd of Meet the Press had a total meltdown in his interview with highly reaspected [sic] Senator @RonJohnsonWI...not very bright',
+    insult: 'Sleepy Eyes Chuck Todd...total meltdown in his interview with highly reaspected [sic] Senator @RonJohnsonWI...not very bright',
   },
   {
     id: '1180982480083570688',
@@ -629,22 +629,22 @@ export const dataJournalists = [
   {
     id: '1152195094398873602',
     name: 'Donny Deutsch (MSNBC)',
-    insult: 'Little @DonnyDeutsch, whose show, like his previous shoebiz [sic] tries, is a disaster, has been saying that I had been a friend of his...this is false',
+    insult: 'Little @DonnyDeutsch...previous shoebiz [sic] tries a disaster...saying that I had been a friend of his...this is false',
   },
   {
     id: '1120628334432608256',
     name: 'Paul Krugman (NYT)',
-    insult: 'lost all credibility...obsessed with hatred, just as others are obsessed with how stupid he is',
+    insult: 'obsessed with hatred, just as others are obsessed with how stupid he is',
   },
   {
     id: '1073974873939169282',
     name: 'Bill Kristol (Weekly Standard)',
-    insult: 'failed prognosticator Bill Kristol (who, like many others, never had a clue)',
+    insult: 'failed prognosticator Bill Kristol...never had a clue',
   },
   {
     id: '1002508937445478402',
     name: 'Samantha Bee (TBS)',
-    insult: 'why aren’t they firing no talent Samantha Bee for the horrible language used on her low ratings show?',
+    insult: 'why aren’t they firing no talent Samantha Bee...low ratings show',
   },
   {
     id: '987679848284999680',
@@ -654,7 +654,7 @@ export const dataJournalists = [
   {
     id: '939480342779580416',
     name: 'Brian Ross (ABC)',
-    insult: 'lonely Brian Ross...should be immediately fired for his mistake',
+    insult: 'lonely Brian Ross...should be immediately fired',
   },
   {
     id: '880410114456465411',
@@ -765,7 +765,7 @@ export const dataInternational = [
   {
     id: '1135453891326238721',
     name: 'Mayor of London Sadiq Khan',
-    insult: 'has done a terrible job as Mayor of London, has been foolishly nasty to the visiting President of the United States, by far the most important ally of the United Kingdom...he is a stone cold loser',
+    insult: 'terrible job as Mayor of London...foolishly nasty to the visiting President of the United States...a stone cold loser',
   },
   {
     id: '1168898509841555456',
@@ -775,7 +775,7 @@ export const dataInternational = [
   {
     id: '1148559442885185536',
     name: 'Former British Ambassador to the US Kim Darroch',
-    insult: 'wacky Ambassador that the U.K. foisted upon the United States is not someone we are thrilled with, a very stupid guy',
+    insult: 'wacky Ambassador that the U.K. foisted upon the United States...a very stupid guy',
   },
   {
     id: '1005586562959093760',
@@ -896,7 +896,7 @@ export const dataCelebs = [
   {
     id: '1035117507839967232',
     name: 'Jeff Zucker (CEO of NBC Universal)',
-    insult: 'Little Jeff Z has done a terrible job, his ratings suck, & AT&T should fire him to save credibility!',
+    insult: 'Little Jeff Z has done a terrible job, his ratings suck, & AT&T should fire him',
   },
   {
     id: '1089881244312178688',
@@ -911,7 +911,7 @@ export const dataCelebs = [
   {
     id: '1001848460881035265',
     name: 'Bob Iger (former CEO of Disney)',
-    insult: 'he never called President Donald J. Trump to apologize for the HORRIBLE statements made and said about me on ABC',
+    insult: 'never called President Donald J. Trump to apologize for the HORRIBLE statements',
   },
   {
     id: '990782291667488768',
