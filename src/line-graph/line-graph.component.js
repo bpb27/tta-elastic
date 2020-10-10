@@ -1,5 +1,5 @@
 import React from 'react';
-import { arrayOf, bool, func, number, oneOf, oneOfType, shape, string } from 'prop-types';
+import { arrayOf, bool, func, node, number, oneOf, oneOfType, shape, string } from 'prop-types';
 import Chart from 'react-apexcharts';
 import { format } from 'date-fns';
 import Button from 'components/button';
@@ -21,7 +21,7 @@ export default class LineGraph extends React.Component {
     formatter: func.isRequired,
     hideTimeframe: bool,
     id: string.isRequired,
-    source: string.isRequired,
+    source: oneOfType([node, string]).isRequired,
     timeframe: oneOf(['15y', '30y', 'full']),
     title: string.isRequired,
     yMin: number,

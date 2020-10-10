@@ -17,7 +17,7 @@ describe('date utils', () => {
   describe('utcTimestampToEST', () => {
     it('creates a formatted string', () => {
       const result = utcTimestampToEST(1569705285000);
-      expect(result).toEqual('Sep 28 2019 - 5:14:45 PM EST');
+      expect(result).toEqual('Sep 28th 2019 - 5:14:45 PM EST');
     });
 
     it('creates a trim formatted string', () => {
