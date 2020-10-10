@@ -6,31 +6,39 @@
     text-align: center;
   }
 
+  // stat + description
   div {
     align-items: center;
     display: flex;
-    flex-flow: column;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     text-align: center;
 
+    // stat
     a {
       color: black;
       text-decoration: none;
+      margin-right: 10px;
+      min-width: 290px;
+
+      span {
+        display: block;
+      }
     }
 
-    span {
-      display: block;
+    @media all and (max-width: 700px) {
+      border: 1px solid #c1c0c0;
+      flex-flow: column;
     }
   }
 
   p {
     line-height: 22px;
-  }
-}
+    text-align: left;
 
-.underline {
-  text-decoration: underline;
-  text-decoration-color: $red;
+    @media all and (max-width: 700px) {
+      text-align: center;
+    }
+  }
 }
 
 .total {
@@ -42,12 +50,4 @@
   min-width: 210px;
   padding: 10px;
   text-align: center;
-}
-
-.line {
-  background: #ececec;
-  height: 50px;
-  margin: 50px auto;
-  text-align: center;
-  width: 5px;
 }

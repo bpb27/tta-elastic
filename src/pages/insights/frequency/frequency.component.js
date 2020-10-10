@@ -63,6 +63,17 @@ export default class Frequency extends React.Component {
             topics={data?.topics}
           />
         </div>
+        <hr/>
+        <h2>Editorial Commentary</h2>
+        <Paragraph>
+          The vast majority of Trump's attention on Twitter is spent disparaging Democrats, complaining about negative news stories, and decrying the injustice of the Russia investigation and impeachment proceedings.
+        </Paragraph>
+        <Paragraph>
+          For a president who positions himself as a strong leader, master dealmaker, media expert, and one of the most accomplished presidents in history, he seems to spend <i>a lot</i> of time complaining about how unfair everything is.
+        </Paragraph>
+        <Paragraph>
+          The main political policies he tweets about are jobs and the border, both of which he's made minimal progress on. The number of tweets about him and his grievances vastly outnumber the attention he gives to issues that affect everyday Americans (by a 20x number).
+        </Paragraph>
       </Page>
     );
   }

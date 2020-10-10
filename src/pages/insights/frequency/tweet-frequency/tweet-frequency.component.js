@@ -1,6 +1,6 @@
 import React from 'react';
 import { arrayOf, number, oneOfType, shape, string } from 'prop-types';
-import { format, startOfTomorrow } from 'date-fns';
+import { addDays, format, startOfTomorrow } from 'date-fns';
 import Chart from 'react-apexcharts';
 import Slider from 'rc-slider';
 import styles from './tweet-frequency.style.scss';
@@ -148,12 +148,15 @@ export default class TweetFrequency extends React.Component {
           ]}
           type="bar"
         />
-        <div className={styles.buttons}>
+        <div className={styles.slider}>
           <Range
             min={new Date(2009, 4, 1).getTime()}
-            max={startOfTomorrow()}
+            max={addDays(new Date(), 2)}
             defaultValue={[xAxis.min, xAxis.max]}
             tipFormatter={value => format(value, DATE_FORMAT)}
+            tipProps={{
+              placement: 'bottom',
+            }}
             onAfterChange={this.handleSlide}
           />
         </div>

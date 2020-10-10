@@ -1,10 +1,3 @@
-export const twoDaysFromNow = () => {
-  const date = new Date();
-  const add = 2;
-  date.setDate(date.getDate() + add);
-  return date;
-};
-
 export const yearsFromNow = (years = 1) => {
   const date = new Date();
   date.setDate(date.getDate() + (years * 365));

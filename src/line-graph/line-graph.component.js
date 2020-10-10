@@ -3,7 +3,6 @@ import { arrayOf, bool, func, number, oneOf, oneOfType, shape, string } from 'pr
 import Chart from 'react-apexcharts';
 import { format } from 'date-fns';
 import Button from 'components/button';
-import ExternalLink from 'components/external-link';
 import styles from './line-graph.style.scss';
 import {
   demBlueCurrent,
@@ -58,7 +57,7 @@ export default class LineGraph extends React.Component {
         <div>
           <div className={styles.title}>
             <h3>{ this.props.title }</h3>
-            <p>Data from <ExternalLink href={this.props.source}>TradingEconomics.com | World Bank</ExternalLink></p>
+            <p>Data from { this.props.source }</p>
           </div>
           <Chart
             options={{
@@ -95,6 +94,7 @@ export default class LineGraph extends React.Component {
                 type: 'datetime',
               },
               yaxis: {
+                forceNiceScale: true,
                 labels: {
                   formatter: this.props.formatter,
                 },

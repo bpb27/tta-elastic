@@ -1,7 +1,6 @@
 import {
   daysAsPresident,
   trimTime,
-  twoDaysFromNow,
   utcTimestampToEST,
   validDatestring,
 } from 'utils/date';
@@ -36,16 +35,6 @@ describe('date utils', () => {
     it('returns true false when the string is valid', () => {
       const result = validDatestring('2020-01-0');
       expect(result).toEqual(false);
-    });
-  });
-
-  describe('twoDaysFromNow', () => {
-    it('returns a future date', () => {
-      const result = twoDaysFromNow();
-      const currentDate = new Date();
-      const distantFutureDate = new Date('2030-01-01');
-      expect(result > currentDate).toEqual(true);
-      expect(result < distantFutureDate).toEqual(true);
     });
   });
 
