@@ -37,8 +37,8 @@ describe('format utils', () => {
       expect(numberWithKs(1000)).toEqual('1k');
     });
 
-    it('handles 2222 and formats with a k and decimal', () => {
-      expect(numberWithKs(2222)).toEqual('2.2k');
+    it('handles 2222 and formats with a k', () => {
+      expect(numberWithKs(2222)).toEqual('2k');
     });
   });
 
