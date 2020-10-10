@@ -66,7 +66,7 @@ export const groupByPresident = data => {
     { data: presidents.eisenhower, name: 'Eisenhower', color: repRedPast },
     { data: presidents.kennedy, name: 'Kennedy', color: demBluePast },
     { data: presidents.johnson, name: 'Johnson', color: demBluePast },
-    { data: presidents.nixon, name: 'Nixon', color: repRedPast },
+    { data: presidents.nixon, name: 'Nixon/Ford', color: repRedPast },
     { data: presidents.carter, name: 'Carter', color: demBluePast },
     { data: presidents.reagan, name: 'Reagan', color: repRedPast },
     { data: presidents.bushOne, name: 'Bush I', color: repRedPast },

@@ -1,6 +1,97 @@
-// peope he hired - Papadopoulos, sam nunberg, cliff sims
+export const dataHires = [
+  {
+    id: '1131537528736100352',
+    name: 'Secretary of State Rex Tillerson',
+    insult: 'dumb as a rock and totally ill prepared and ill equipped to be Secretary of State',
+  },
+  {
+    id: '1270346144485343232',
+    name: 'Secretary of Defense James Mattis',
+    insult: 'our Country’s most overrated General...he was terrible!',
+  },
+  {
+    id: '1281930300960976897',
+    name: 'Attorney General Jeff Sessions',
+    insult: 'a disaster who has let us all down',
+  },
+  {
+    id: '1164914610836783104',
+    name: 'Fed Chairman Jay Powell',
+    insult: 'who is our bigger enemy, Jay Powell or Chairman Xi?',
+  },
+  {
+    id: '1204374382715506690',
+    name: 'FBI Director Christopher Wray',
+    insult: 'he will never be able to fix the FBI',
+  },
+  {
+    id: '1275375135483146241',
+    name: 'National Security Advisor John Bolton',
+    insult: 'washed up Creepster...a lowlife who should be in jail',
+  },
+  {
+    id: '937007006526959618',
+    name: 'National Security Advisor Michael Flynn',
+    insult: 'lied to the Vice President and the FBI',
+  },
+  {
+    id: '1227986935240691712',
+    name: 'Chief of Staff John Kelly',
+    insult: 'Chief of Staff just wasn’t for him...went out with a whimper',
+  },
+  {
+    id: '949498795074736129',
+    name: 'Chief Strategist Steve Bannon',
+    insult: 'cried when he got fired and begged for his job',
+  },
+  {
+    id: '1167783720021123073',
+    name: 'Communications Director of the OPL Omarosa Manigault',
+    insult: 'disgusting and foul mouthed...despised by everyone',
+  },
+  {
+    id: '1163440418555604998',
+    name: 'White House Communications Director Anthony Scaramucci',
+    insult: 'highly unstable nut job',
+  },
+  {
+    id: '1185389914470473729',
+    name: 'White House Communications Aide Cliff Sims',
+    insult: 'pretended to be an insider when in fact he was nothing more than a gofer',
+  },
+  {
+    id: '1074313153679450113',
+    name: 'White House Counsel Don McGahn',
+    insult: 'never a big fan!',
+  },
+  {
+    id: '1104050224052396032',
+    name: 'Personal Attorney Michael Cohen',
+    insult: 'bad lawyer and fraudster...he lied!...he lied again!...he lied!',
+  },
+  {
+    id: '1024649463435067398',
+    name: 'Campaign Manager Paul Manafort',
+    insult: 'why didn’t government tell me that he was under investigation',
+  },
+  {
+    id: '925335577217683456',
+    name: 'Campaign Advisor George Papadopoulos',
+    insult: 'low level volunteer...proven to be a liar',
+  },
+  {
+    id: '987679850545778689',
+    name: 'Campaign Advisor Sam Nunberg',
+    insult: 'drunk/drugged up loser',
+  },
+];
 
 export const dataSenators = [
+  {
+    id: '1256195312965877760',
+    name: 'Senate Minority Leader Chuck Schumer',
+    insult: 'Cryin Chuck Schumer...a totally overrated loser',
+  },
   {
     id: '1297604008832573444',
     name: 'Senator Chris Coons (D-DE)',
@@ -182,7 +273,7 @@ export const dataFederal = [
   {
     id: '984877999718895616',
     name: 'Former FBI Director Andrew McCabe',
-    insult: 'He LIED! LIED! LIED! McCabe was totally controlled by Comey - McCabe is Comey!!...den of thieves and lowlifes!',
+    insult: 'He LIED! LIED! LIED!...den of thieves and lowlifes!',
   },
   {
     id: '1031544711717302272',
@@ -210,21 +301,6 @@ export const dataFederal = [
     insult: 'destroyed the government agency that he ran...Clone of Pocahontas',
   },
   {
-    id: '1137040971311353856',
-    name: 'Speaker of the House Nancy Pelosi',
-    insult: 'Nervous Nancy Pelosi is a disgrace to herself and her family',
-  },
-  {
-    id: '1150152762044440576',
-    name: 'Former Speaker of the House Paul Ryan',
-    insult: 'almost killed the Republican Party...weak, ineffective & stupid',
-  },
-  {
-    id: '1256195312965877760',
-    name: 'Senate Minority Leader Chuck Schumer',
-    insult: 'Cryin Chuck Schumer...a totally overrated loser',
-  },
-  {
     id: '1286299924141932550',
     name: 'Former Head of Homeland Security Tom Ridge',
     insult: 'failed RINO...love watching pathetic Never Trumpers squirm!',
@@ -240,6 +316,11 @@ export const dataFederal = [
     insult: 'thinking of running for President...I should only be so lucky',
   },
   {
+    id: '931877599034388480',
+    name: 'Former Secretary of State Hillary Clinton',
+    insult: 'Crooked Hillary Clinton is the worst (and biggest) loser of all time',
+  },
+  {
     id: '1286299924141932550',
     name: 'NSC Director for European Affairs Alex Vindman',
     insult: 'very insubordinate...given a horrendous report by his superior...had problems with judgement',
@@ -248,11 +329,6 @@ export const dataFederal = [
     id: '1195356198347956224',
     name: 'Ambassador to Ukraine Marie Yovanovitch',
     insult: 'everywhere Marie Yovanovitch went turned bad',
-  },
-  {
-    id: '1185389914470473729',
-    name: 'Former WH Communications Aide Cliff Sims',
-    insult: 'pretended to be an insider when in fact he was nothing more than a gofer...he is a mess!',
   },
   {
     id: '1080124615920373760',
@@ -266,7 +342,7 @@ export const dataFederal = [
   },
   {
     id: '828342202174668800',
-    name: 'Judge James Roberts',
+    name: 'US District Judge James L. Robart ',
     insult: 'cannot believe a judge would put our country in such peril...if something happens blame him',
   },
 ];
@@ -393,6 +469,16 @@ export const dataMayors = [
 ];
 
 export const dataHouse = [
+  {
+    id: '1150152762044440576',
+    name: 'Former Speaker of the House Paul Ryan',
+    insult: 'almost killed the Republican Party...weak, ineffective & stupid',
+  },
+  {
+    id: '1137040971311353856',
+    name: 'Speaker of the House Nancy Pelosi',
+    insult: 'Nervous Nancy Pelosi is a disgrace to herself and her family',
+  },
   {
     id: '1295920309946777600',
     name: 'Rep. Charlie Crist (D-FL)',
@@ -845,7 +931,7 @@ export const dataCompanies = [
 export const dataCelebs = [
   {
     id: '1299732426873135105',
-    name: 'Mary Trump',
+    name: 'Mary Trump (niece)',
     insult: 'rightfully shunned, scorned and mocked her entire life, and never even liked by her own very kind & caring grandfather!',
   },
   {

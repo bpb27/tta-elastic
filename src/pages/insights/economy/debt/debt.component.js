@@ -1,4 +1,5 @@
 import React from 'react';
+import ExternalLink from 'components/external-link';
 import LineGraph from 'components/line-graph';
 import data from './debt.data';
 
@@ -10,7 +11,11 @@ export default class Debt extends React.Component {
           data={data}
           formatter={value => `$${(value / 1000000).toFixed(2)} tril`}
           id="debt"
-          source="https://tradingeconomics.com/united-states/government-debt"
+          source={
+            <ExternalLink href="https://tradingeconomics.com/united-states/government-debt">
+              TradingEconomics.com | World Bank
+            </ExternalLink>
+          }
           title="US Debt"
           yMin={0}
         />

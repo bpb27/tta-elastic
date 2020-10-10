@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ReactiveBase } from '@appbaseio/reactivesearch';
 import Navbar from 'components/navbar';
 import styles from './app.style.scss';
+import './app.style.css';
 
 const FaqPage = lazy(() => import('components/pages/faq'));
 const InsightsPage = lazy(() => import('components/pages/insights'));
