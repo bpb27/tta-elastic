@@ -1,6 +1,7 @@
 import React from 'react';
 import Page from 'components/page';
 import Paragraph from 'components/paragraph';
+import Skeleton from 'components/unused/skeleton';
 import TweetFrequency from './tweet-frequency';
 import TweetStats from './tweet-stats';
 import { request } from 'utils/api';
@@ -58,10 +59,16 @@ export default class Frequency extends React.Component {
           Trump tweets whatever is on his mind. Here are the topics that occupy his headspace as president.
         </Paragraph>
         <div className={styles.statsContainer}>
-          <TweetStats
-            byMonth={data?.groupings.byMonth}
-            topics={data?.topics}
-          />
+          {
+            data ? (
+              <TweetStats
+                byMonth={data?.groupings.byMonth}
+                topics={data?.topics}
+              />
+            ) : (
+              <Skeleton count={27} width="100%"/>
+            )
+          }
         </div>
         <hr/>
         <h2>Editorial Commentary</h2>

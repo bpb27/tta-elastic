@@ -1,0 +1,16 @@
+.page {
+  h1 {
+    text-align: center;
+  }
+}
+
+.list {
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+  font-family: initial;
+
+  > div {
+    margin-bottom: 30px;
+  }
+}
