@@ -31,7 +31,7 @@ export default class Past extends React.Component {
         <div className={styles.list}>
           {
             data.map(tweet => (
-              <TweetLink key={tweet.id} type="placeholder" tweetData={tweet}/>
+              <TweetLink key={tweet.id} type="embed" tweetData={tweet}/>
             ))
           }
         </div>

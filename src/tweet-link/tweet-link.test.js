@@ -29,19 +29,29 @@ describe('TweetLink', () => {
     beforeEach(() => {
       props = { className, tweetData, type: 'embed' };
       wrapper = shallow(<TweetLink {...props} />);
-      element = wrapper.find('TwitterTweetEmbed');
     });
 
-    it('renders', () => {
-      expect(element.exists()).toEqual(true);
+    it('renders the visibility sensor by default', () => {
+      expect(wrapper.find('VisibilitySensor').exists()).toEqual(true);
     });
 
     it('adds a class name', () => {
       expect(wrapper.find('.stylishTweet').exists()).toEqual(true);
     });
 
-    it('forwards the tweet id', () => {
-      expect(element.props().tweetId).toEqual(props.tweetData.id);
+    describe('visible', () => {
+      beforeEach(() => {
+        wrapper.setState({ isVisible: true });
+        element = wrapper.find('TwitterTweetEmbed');
+      });
+
+      it('renders the embedded tweet', () => {
+        expect(element.exists()).toEqual(true);
+      });
+
+      it('forwards the tweet id', () => {
+        expect(element.props().tweetId).toEqual(props.tweetData.id);
+      });
     });
   });
 

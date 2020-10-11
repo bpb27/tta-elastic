@@ -1,6 +1,7 @@
 import React from 'react';
 import { arrayOf, node, object, oneOf, string } from 'prop-types';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
+import VisibilitySensor from 'react-visibility-sensor';
 import ExternalLink from 'components/external-link';
 import Placeholder from './placeholder';
 import styles from './tweet-link.style.scss';
@@ -23,10 +24,11 @@ export default class TweetLink extends React.Component {
 
   state = {
     deleted: false,
+    isVisible: false,
   }
 
   render () {
-    const { deleted } = this.state;
+    const { deleted, isVisible } = this.state;
     const {
       className,
       children,
@@ -35,29 +37,37 @@ export default class TweetLink extends React.Component {
       type,
     } = this.props;
 
+    const placeholder = (
+      <Placeholder
+        className={className}
+        deleted={deleted}
+        placeholderHighlights={placeholderHighlights}
+        tweetData={tweetData}
+      />
+    );
+
     if (type === 'placeholder' || deleted) {
-      return (
-        <Placeholder
-          className={className}
-          deleted={deleted}
-          placeholderHighlights={placeholderHighlights}
-          tweetData={tweetData}
-        />
-      );
+      return placeholder;
     } else if (type === 'embed') {
-      return (
+      return isVisible ? (
         <div className={className}>
           <TwitterTweetEmbed
-            options={{
-              // cards: 'hidden',
-              dnt: true,
-            }}
+            options={{ dnt: true }}
             onLoad={element => {
               if (!element) this.setState({ deleted: true });
             }}
             placeholder={<Placeholder tweetData={tweetData}/>}
             tweetId={tweetData.id}
           />
+        </div>
+      ) : (
+        <div className={className}>
+          <VisibilitySensor
+            partialVisibility={true}
+            onChange={isVisible => this.setState({ isVisible })}
+          >
+            { placeholder }
+          </VisibilitySensor>
         </div>
       );
     } else if (type === 'text') {
