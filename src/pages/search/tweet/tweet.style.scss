@@ -82,12 +82,12 @@
   }
 }
 
-.pointer {
+.twitterIcon {
   cursor: pointer;
-}
-
-.date {
-  // color: #c81a1a;
-  // font-weight: bold;
-  // text-decoration: underline;
+  &:hover {
+    color: #1da1f2;
+    > div > svg {
+      fill: #1da1f2;
+    }
+  }
 }

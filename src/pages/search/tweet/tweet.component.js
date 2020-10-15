@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { arrayOf, bool, number, shape, string } from 'prop-types';
 import Highlighter from 'react-highlight-words';
 import Icon from 'components/icon';
-import Modal from 'components/modal';
 import TextSwitch from 'components/text-switch';
 import TweetLink from 'components/tweet-link';
 import { utcTimestampToEST } from 'utils/date';
@@ -34,6 +33,7 @@ export default class Tweet extends Component {
   }
 
   render () {
+    const { showTwitterView } = this.state;
     const { data, index, mobileView, searchWords } = this.props;
     const { date, favorites, id, retweets, text } = data;
     const className = `${styles.tweet} ${mobileView ? styles.mobileView : ''}`;
@@ -60,29 +60,23 @@ export default class Tweet extends Component {
               <Icon name="HEART"/>
               { numberWithKs(favorites) }
             </span>
-            <span className={styles.pointer} onClick={() => this.setState({ showTwitterView: true })}>
+            <span className={styles.twitterIcon} onClick={() => this.setState({ showTwitterView: !showTwitterView })}>
               <Icon name="TWITTER"/>
-              Show
+              { showTwitterView ? 'Hide' : 'Show' }
             </span>
           </span>
         </div>
-        <div className={styles.text}>
-          <Highlighter
-            autoEscape={true}
-            searchWords={searchWords}
-            textToHighlight={replaceHTMLEntities(text)}
-          />
-        </div>
-        {
-          this.state.showTwitterView && (
-            <Modal
-              closeModal={() => this.setState({ showTwitterView: false })}
-              headerText="Tweet spotlight"
-            >
-              <TweetLink tweetData={data} type="embed"/>
-            </Modal>
-          )
-        }
+        { showTwitterView ? (
+          <TweetLink tweetData={data} type="embed"/>
+        ) : (
+          <div className={styles.text}>
+            <Highlighter
+              autoEscape={true}
+              searchWords={searchWords}
+              textToHighlight={replaceHTMLEntities(text)}
+            />
+          </div>
+        )}
       </div>
     );
   }
