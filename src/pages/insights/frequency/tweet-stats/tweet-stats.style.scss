@@ -34,8 +34,12 @@
     }
 
     @media all and (max-width: 700px) {
-      border: 1px solid #c1c0c0;
+      border-bottom: 1px solid #c1c0c0;
       flex-flow: column;
+
+      &:last-child {
+        border-bottom: none;
+      }
     }
   }
 
@@ -51,6 +55,7 @@
 
 .total {
   background: #e1f4ff;
+  border: 2px solid black;
   border-radius: 5px;
   font-size: 24px;
   font-weight: bold;

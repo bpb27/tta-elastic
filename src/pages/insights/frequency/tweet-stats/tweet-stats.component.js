@@ -76,7 +76,7 @@ export default class TweetStats extends React.Component {
                 to={`/?results=1&searchbox="${search}"&dates=["2017-01-19"%2C"2020-12-30"]`}
               >
                 <span className={styles.total}>
-                  {numberWithCommas(total)} tweet{ total === 1 ? '' : 's'} ({percentage})
+                  {numberWithCommas(total)} tweet{ total === 1 ? '' : 's'} | {percentage}
                 </span>
               </Link>
               <p>{ descriptions[name] || name }</p>
