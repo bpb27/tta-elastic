@@ -71,7 +71,7 @@ export default class Search extends React.Component {
         metaDescription="Instantly search through all 50k of Trump's tweets"
         metaTitle="Search on Trump Twitter Archive"
       >
-        { showTips && <Tips closeModal={() => this.toggle({ showTips: false })} /> }
+        { showTips && <Tips closeModal={() => this.setState({ showTips: !showTips })} /> }
         <DataSearch
           autosuggest={false}
           className={styles.searchbox}
