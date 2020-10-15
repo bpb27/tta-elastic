@@ -1,7 +1,7 @@
 export const apiUrl = localStorage.isDev ? (
   'http://localhost:3000'
 ) : (
-  'https://trump-twitter-archive.herokuapp.com'
+  'https://www.thetrumparchive.com'
 );
 
 export const request = async url => {
