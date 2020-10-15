@@ -9,8 +9,16 @@
   display: flex;
   flex-flow: column;
   font-family: initial;
+  margin-top: 40px;
 
   > div {
     margin-bottom: 30px;
+  }
+}
+
+.buttons {
+  text-align: center;
+  button {
+    margin: 5px;
   }
 }

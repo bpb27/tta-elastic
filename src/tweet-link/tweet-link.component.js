@@ -63,8 +63,9 @@ export default class TweetLink extends React.Component {
       ) : (
         <div className={className}>
           <VisibilitySensor
-            partialVisibility={true}
+            intervalDelay={400}
             onChange={isVisible => this.setState({ isVisible })}
+            partialVisibility={true}
           >
             { placeholder }
           </VisibilitySensor>

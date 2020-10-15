@@ -1,6 +1,14 @@
 @import "src/variables.scss";
 
 .tweetStats {
+  margin: 0 auto;
+  width: 80%;
+
+  @media all and (max-width: 700px) {
+    margin: initial;
+    width: initial;
+  }
+
   h2 {
     margin: 40px 0;
     text-align: center;

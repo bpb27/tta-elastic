@@ -57,8 +57,13 @@ export default class Insults extends React.Component {
           { dataCelebs.map(this.item) }
         </div>
         <hr/>
-        <h2>Editorial Commentary</h2>
-        <Paragraph>It's fair to praise Trump for being candid, but one could justifiably question how presidential, moral, and productive it is to publicly degrade governors, mayors, senators, representatives, federal officials, and allies he's supposed to be working with to move the country forward.</Paragraph>
+        <h2>Editorial Questions</h2>
+        <Paragraph>
+          How presidential, moral, and productive is it to publicly degrade governors, mayors, senators, representatives, federal officials, and allies he's supposed to be working with to move the country forward?
+        </Paragraph>
+        <Paragraph>
+          What are the cost to our society to have the President of the United States regularly belittling everyone in sight?
+        </Paragraph>
       </Page>
     );
   }
