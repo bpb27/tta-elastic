@@ -198,9 +198,9 @@ export const dataSenators = [
     insult: 'such a negative force when it comes to fixing healthcare',
   },
   {
-    id: '1216755243712643073',
+    id: '1316135797502996481',
     name: 'Senator Cory Booker (D-NJ)',
-    insult: 'I was sooo concerned that I would someday have to go head to head with him!',
+    insult: 'Guy is a total loser! ',
   },
   {
     id: '953000902331453442',
@@ -260,6 +260,31 @@ export const dataSenators = [
 ];
 
 export const dataFederal = [
+  // {
+  //   id: '537157586316165120',
+  //   name: 'President Barack Obama',
+  //   insult: 'done such a poor job as president, you won\'t see another black president for generations!',
+  // },
+  // {
+  //   id: '376326101330821120',
+  //   name: 'President George W Bush',
+  //   insult: 'not a fan...a lousy President...so bad he gave us Obama!',
+  // },
+  // {
+  //   id: '537157586316165120',
+  //   name: 'President Bill Clinton',
+  //   insult: 'Bill Clinton Accuser Juanita Broaddrick Relives Brutal Rapes',
+  // },
+  // {
+  //   id: '376323127393136641',
+  //   name: 'President Jimmy Carter',
+  //   insult: 'so happy that he is no longer considered the worst President in the history of the United States!',
+  // },
+  // {
+  //   id: '1313903112399261697',
+  //   name: 'Vice President Joe Biden',
+  //   insult: 'TREASONOUS PLOT!!! BIDEN SHOULDN’T BE ALLOWED TO RUN - GOT CAUGHT!!!',
+  // },
   {
     id: '1311493282120167424',
     name: 'Former FBI Director Jim Comey',

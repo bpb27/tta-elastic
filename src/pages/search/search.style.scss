@@ -23,12 +23,7 @@
     margin: 10px 0;
 
     button {
-      align-items: center;
-      background: white;
-      cursor: pointer;
-      display: inline-flex;
       margin-right: 10px;
-      padding: 10px;
 
       @media all and (max-width: 440px) {
         &:last-child {
