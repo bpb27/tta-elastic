@@ -1,7 +1,7 @@
 import React from 'react';
 import Page from 'components/page';
 import Paragraph from 'components/paragraph';
-import Skeleton from 'components/unused/skeleton';
+import Skeleton from 'components/skeleton';
 import TweetFrequency from './tweet-frequency';
 import TweetStats from './tweet-stats';
 import { request } from 'utils/api';

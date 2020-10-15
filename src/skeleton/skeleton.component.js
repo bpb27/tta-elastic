@@ -1,5 +1,5 @@
 import React from 'react';
-import { number } from 'prop-types';
+import { number, oneOfType, string } from 'prop-types';
 import SkeletonLoader from 'react-loading-skeleton';
 import styles from './skeleton.style.scss';
 
@@ -7,7 +7,7 @@ export default class Skeleton extends React.Component {
   static propTypes = {
     count: number,
     height: number,
-    width: number,
+    width: oneOfType([number, string]),
   }
 
   static defaultProps = {
