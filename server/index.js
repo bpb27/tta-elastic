@@ -4,6 +4,7 @@ const { DATABASE_URL, NODE_ENV, PORT, SEARCHBOX_URL } = process.env;
 const express = require('express');
 const favicon = require('express-favicon');
 const staticGzip = require('express-static-gzip');
+const sslRedirect = require('heroku-ssl-redirect').default;
 const cors = require('cors');
 const path = require('path');
 const helmet = require('helmet');
@@ -46,6 +47,7 @@ if (NODE_ENV === 'prod') {
 
 // security headers
 // app.use(helmet.contentSecurityPolicy()); // need to whitelist a number of scripts and styles
+app.use(sslRedirect());
 app.use(helmet.dnsPrefetchControl());
 app.use(helmet.expectCt());
 app.use(helmet.frameguard());
