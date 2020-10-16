@@ -762,23 +762,3 @@ export const dataAssorted = [
 ];
 
 /* eslint-disable */
-
-/*
-group and pull to create categories here
-select * from tweets where id in (
-
-
-'418542137899491328', // global warming bullshit
-'265895292191248385', // global warming chinese
-'509436043368873984', // windmills + fictional global warming
-'518449173549830144', // ebola no shaking hands
-'257552283850653696', // diet coke
-'275998837166972928', // pigsty scot of the year
-'255294883680632833', // grabbed by the perverts
-'330359969813770242', // fuckface von clownstick so original
-'332308211321425920', // my iq is one of the highest
-'741590381503086592', // least racist
-'306797506791079938', // fragrance
-'381939611591012352', // emmys are soo boring
-)
-*/

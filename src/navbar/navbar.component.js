@@ -30,13 +30,19 @@ export class Navbar extends React.Component {
     const { showInsightsMenu } = this.state;
     const active = { activeClassName: styles.active };
     const subnavClick = { onClick: this.toggleInsightMenu };
-    const nonSubNavClick = { onClick: this.closeInsightMenu };
 
     return (
       <Fragment>
         <nav className={styles.navbar}>
           <div className={styles.left}>
-            <NavLink to="/" isActive={() => false} {...nonSubNavClick}>
+            <NavLink
+              to="/"
+              isActive={() => false}
+              onClick={() => {
+                this.closeInsightMenu();
+                window.scrollTo(0, 0);
+              }}
+            >
               <span>Trump Twitter Archive</span>
             </NavLink>
           </div>
@@ -47,7 +53,9 @@ export class Navbar extends React.Component {
             >
               Insights
             </button>
-            <NavLink to="/faq" {...active} {...nonSubNavClick}>FAQ</NavLink>
+            <NavLink {...active} onClick={this.closeInsightMenu} to="/faq">
+              FAQ
+            </NavLink>
           </div>
         </nav>
         { showInsightsMenu && (
@@ -56,8 +64,8 @@ export class Navbar extends React.Component {
             <NavLink to="/insights/economy" {...active} {...subnavClick}>Economy</NavLink>
             <NavLink to="/insights/insults" {...active} {...subnavClick}>Insults</NavLink>
             <NavLink to="/insights/past" {...active} {...subnavClick}>Pre-Presidency</NavLink>
-            {/* <NavLink to="/insights/bad-hires" {...active} {...subnavClick}>Bad Hires</NavLink>
-            <NavLink to="/insights/sexual-assault" {...active} {...subnavClick}>Sexual Assault</NavLink> */}
+            <NavLink to="/insights/yelling" {...active} {...subnavClick}>Yelling</NavLink>
+            {/* <NavLink to="/insights/sexual-assault" {...active} {...subnavClick}>Sexual Assault</NavLink> */}
             <div className={styles.separator}/>
             <a>More coming soon...</a>
           </div>

@@ -7,6 +7,7 @@ const InsultsPage = lazy(() => import('./insults'));
 const FrequencyPage = lazy(() => import('./frequency'));
 const PastPage = lazy(() => import('./past'));
 const SexualAssaultPage = lazy(() => import('./sexual-assault'));
+const YellingPage = lazy(() => import('./yelling'));
 
 export default class Insights extends React.Component {
   render () {
@@ -19,6 +20,7 @@ export default class Insights extends React.Component {
             <Route path="/insights/insults" component={InsultsPage}/>
             <Route path="/insights/past" component={PastPage}/>
             <Route path="/insights/sexual-assault" component={SexualAssaultPage}/>
+            <Route path="/insights/yelling" component={YellingPage}/>
             <Redirect to="/insights/frequency"/>
           </Switch>
         </Suspense>
