@@ -2,7 +2,6 @@ import React, { lazy, Suspense } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import styles from './insights.style.scss';
 
-const BadHiresPage = lazy(() => import('./bad-hires'));
 const EconomyPage = lazy(() => import('./economy'));
 const InsultsPage = lazy(() => import('./insults'));
 const FrequencyPage = lazy(() => import('./frequency'));
@@ -15,7 +14,6 @@ export default class Insights extends React.Component {
       <div className={styles.insights}>
         <Suspense fallback={<div/>}>
           <Switch>
-            <Route path="/insights/bad-hires" component={BadHiresPage}/>
             <Route path="/insights/economy" component={EconomyPage}/>
             <Route path="/insights/frequency" component={FrequencyPage}/>
             <Route path="/insights/insults" component={InsultsPage}/>

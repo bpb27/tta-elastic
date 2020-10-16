@@ -49,7 +49,8 @@ export default class Placeholder extends React.Component {
         {
           deleted && (
             <div className={styles.deleted}>
-              This tweet might have been deleted.
+              <span>This tweet might have been deleted or else failed to load.</span>
+              <span>Click "View on Twitter" to verify.</span>
             </div>
           )
         }

@@ -20,11 +20,6 @@ export const dataHires = [
     insult: 'who is our bigger enemy, Jay Powell or Chairman Xi?',
   },
   {
-    id: '1204374382715506690',
-    name: 'FBI Director Christopher Wray',
-    insult: 'he will never be able to fix the FBI',
-  },
-  {
     id: '1275375135483146241',
     name: 'National Security Advisor John Bolton',
     insult: 'washed up Creepster...a lowlife who should be in jail',
@@ -43,6 +38,11 @@ export const dataHires = [
     id: '949498795074736129',
     name: 'Chief Strategist Steve Bannon',
     insult: 'cried when he got fired and begged for his job',
+  },
+  {
+    id: '1204374382715506690',
+    name: 'FBI Director Christopher Wray',
+    insult: 'he will never be able to fix the FBI',
   },
   {
     id: '1167783720021123073',
@@ -333,7 +333,7 @@ export const dataFederal = [
   {
     id: '1286299924141932550',
     name: 'Former Secretary of State Colin Powell',
-    insult: 'pathetic interview today on Fake News CNN...he was weak & gave away everything to everybody - so bad for the USA',
+    insult: 'pathetic interview today...he was weak...so bad for the USA',
   },
   {
     id: '1036689178749227008',
@@ -384,14 +384,24 @@ export const dataGovernors = [
     insult: 'would be an absolute horror for Montana',
   },
   {
-    id: '1271080249623818242',
-    name: 'Governor Jay Inslee (D-WA)',
-    insult: 'looking the fool',
+    id: '1058065457851351040',
+    name: 'Governor Jared Polis (D-CO)',
+    insult: 'weak on crime and weak on borders – could never do the job',
   },
   {
     id: '1243726993537073152',
     name: 'Governor Gretchen Whitmer (D-MI)',
     insult: 'way in over her head, she doesn’t have a clue...ineptitude!',
+  },
+  {
+    id: '1271080249623818242',
+    name: 'Governor Jay Inslee (D-WA)',
+    insult: 'fool',
+  },
+  {
+    id: '1091858686371344384',
+    name: 'Governor Ralph Northam (D-VA)',
+    insult: 'most horrible statement on super late term abortion...unforgivable!',
   },
   {
     id: '1209964406324510720',
@@ -409,14 +419,9 @@ export const dataGovernors = [
     insult: 'made it absolutely IMPOSSIBLE for the Republican Party to have its Convention there',
   },
   {
-    id: '1091858686371344384',
-    name: 'Governor Ralph Northam (D-VA)',
-    insult: 'most horrible statement on super late term abortion...unforgivable!',
-  },
-  {
-    id: '1058065457851351040',
-    name: 'Governor Jared Polis (D-CO)',
-    insult: 'weak on crime and weak on borders – could never do the job',
+    id: '838016045222854656',
+    name: 'Former Governor Arnold Schwarzenegger (R-CA)',
+    insult: 'isn\'t voluntarily leaving the Apprentice, he was fired by his bad (pathetic) ratings',
   },
   {
     id: '1303831587524677633',
@@ -429,6 +434,11 @@ export const dataGovernors = [
     insult: 'did a bad job in Ohio...desperate for relevance...yet another loser!',
   },
   {
+    id: '1164744428680097792',
+    name: 'Former Governor John Hickenlooper (R-CO)',
+    insult: 'badly damaged after his horrible run for President',
+  },
+  {
     id: '1166494782904000512',
     name: 'Former Governor Mark Sanford (R-SC)',
     insult: 'Stooges...Mr. Appalachian Trail who was actually in Argentina for bad reasons...',
@@ -438,28 +448,18 @@ export const dataGovernors = [
     name: 'Former Governor Bill Weld (R-MA)',
     insult: 'Stooges...a man who couldn’t stand up straight while receiving an award',
   },
-  {
-    id: '1164744428680097792',
-    name: 'Former Governor John Hickenlooper (R-CO)',
-    insult: 'badly damaged after his horrible run for President',
-  },
-  {
-    id: '838016045222854656',
-    name: 'Former Governor Arnold Schwarzenegger (R-CA)',
-    insult: 'isn\'t voluntarily leaving the Apprentice, he was fired by his bad (pathetic) ratings',
-  },
 ];
 
 export const dataMayors = [
   {
-    id: '1300170576515026945',
-    name: 'Mayor Ted Wheeler (Portland)',
-    insult: 'wacky Radical Left Do Nothing Democrat...fool for a Mayor',
-  },
-  {
     id: '1269043981461184514',
     name: 'Mayor Muriel Bowser (DC)',
     insult: 'grossly incompetent, and in no way qualified to be running an important city like Washington',
+  },
+  {
+    id: '1151867785368281089',
+    name: 'Mayor Carmen Yulin Cruz (San Juan)',
+    insult: 'Mayor of San Juan is a despicable and incompetent person who I wouldn’t trust under any circumstance',
   },
   {
     id: '1129001970654679040',
@@ -472,14 +472,14 @@ export const dataMayors = [
     insult: 'total lack of leadership...very weak Radical Left Mayor Liberal Democrat',
   },
   {
-    id: '1227943796681400320',
-    name: 'Former Mayor Mike Bloomberg (NYC)',
-    insult: 'Mini Mike Bloomberg is a LOSER...reminds me of a tiny version of Jeb Low Energy Bush',
+    id: '1300170576515026945',
+    name: 'Mayor Ted Wheeler (Portland)',
+    insult: 'wacky Radical Left Do Nothing Democrat...fool for a Mayor',
   },
   {
-    id: '1151867785368281089',
-    name: 'Mayor Carmen Yulin Cruz (San Juan)',
-    insult: 'Mayor of San Juan is a despicable and incompetent person who I wouldn’t trust under any circumstance',
+    id: '1053661248217202688',
+    name: 'Former Mayor Andrew Gillum (Tallahassee)',
+    insult: 'runs one of the worst & most corrupt cities in USA!',
   },
   {
     id: '1130220542538264576',
@@ -487,9 +487,9 @@ export const dataMayors = [
     insult: 'hard to believe that @FoxNews is wasting airtime on Mayor Pete',
   },
   {
-    id: '1053661248217202688',
-    name: 'Former Mayor Andrew Gillum (Tallahassee)',
-    insult: 'runs one of the worst & most corrupt cities in USA!',
+    id: '1227943796681400320',
+    name: 'Former Mayor Mike Bloomberg (NYC)',
+    insult: 'Mini Mike Bloomberg is a LOSER...reminds me of a tiny version of Jeb Low Energy Bush',
   },
 ];
 

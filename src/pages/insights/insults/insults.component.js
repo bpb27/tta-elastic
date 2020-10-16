@@ -36,14 +36,14 @@ export default class Insults extends React.Component {
         <h1>Insults as President</h1>
         <Paragraph>A sampling of insults Trump has tweeted as President of the United States, limited to one per person.</Paragraph>
         <div className={styles.lists}>
-          <h2>Bad Hires</h2>
+          <h2>Trump Hires</h2>
           { dataHires.map(this.item) }
-          <h2>Federal Officials</h2>
-          { dataFederal.map(this.item) }
           <h2>Senators</h2>
           { dataSenators.map(this.item) }
           <h2>House Reps</h2>
           { dataHouse.map(this.item) }
+          <h2>Federal Officials</h2>
+          { dataFederal.map(this.item) }
           <h2>Governors</h2>
           { dataGovernors.map(this.item) }
           <h2>Mayors</h2>
@@ -59,10 +59,10 @@ export default class Insults extends React.Component {
         <hr/>
         <h2>Editorial Questions</h2>
         <Paragraph>
-          How presidential, moral, and productive is it to publicly degrade governors, mayors, senators, representatives, federal officials, and allies he's supposed to be working with to move the country forward?
+          Is it presidential, moral, or productive to publicly belittle the people he's supposed to be working with to move the country forward?
         </Paragraph>
         <Paragraph>
-          What are the cost to our society to have the President of the United States regularly belittling everyone in sight?
+          What are the cost to our society to have the President of the United States regularly degrading everyone in sight?
         </Paragraph>
       </Page>
     );

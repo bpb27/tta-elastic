@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import { setLastVisitDate } from 'utils/user-storage';
+// import { setLastVisitDate } from 'utils/user-storage';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ReactiveBase } from '@appbaseio/reactivesearch';
 import Navbar from 'components/navbar';
@@ -11,9 +11,9 @@ const InsightsPage = lazy(() => import('components/pages/insights'));
 const SearchPage = lazy(() => import('components/pages/search'));
 
 export default class App extends React.Component {
-  componentDidMount () {
-    setLastVisitDate();
-  }
+  // componentDidMount () {
+  //   setLastVisitDate();
+  // }
 
   render () {
     return (
