@@ -14,7 +14,7 @@ import {
 } from './past.data';
 import styles from './past.style.scss';
 
-class Past extends React.Component {
+export class Past extends React.Component {
   static propTypes = {
     history: shape({
       push: func,
