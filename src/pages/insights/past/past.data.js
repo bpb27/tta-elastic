@@ -204,6 +204,24 @@ export const dataObama = [
   {
     "device" : "Twitter for Android",
     "isRetweet" : false,
+    "retweets" : 313,
+    "id" : "524159336231497729",
+    "favorites" : 515,
+    "date" : "2014-10-20 11:24:58",
+    "text" : "President Obama has made one mistake after another for a very long time, and the people of the United States are just plain tired of it!"
+  },
+  {
+    "device" : "Twitter for Android",
+    "isRetweet" : false,
+    "retweets" : 5912,
+    "id" : "666606474613886976",
+    "favorites" : 12559,
+    "date" : "2015-11-17 01:19:03",
+    "text" : "I, along with almost everyone else, have so little confidence in President Obama. He has a horrible attitude-a man who is resigned to defeat"
+  },
+  {
+    "device" : "Twitter for Android",
+    "isRetweet" : false,
     "retweets" : 1961,
     "id" : "474719268819308544",
     "favorites" : 2017,
@@ -236,6 +254,15 @@ export const dataObama = [
     "favorites" : 39837,
     "date" : "2016-07-17 09:26:50",
     "text" : "President Obama just had a news conference, but he doesn't have a clue. Our country is a divided crime scene, and it will only get worse!"
+  },
+  {
+    "device" : "Twitter Web Client",
+    "isRetweet" : false,
+    "retweets" : 198,
+    "id" : "258263681945706496",
+    "favorites" : 46,
+    "date" : "2012-10-16 05:50:34",
+    "text" : "Because Obama was so pathetic in the first debate, tonight's audience will be humongous--people want to see if he is for real."
   },
   {
     "device" : "Twitter for Android",
@@ -306,20 +333,20 @@ export const dataRetribution = [
   {
     "device" : "Twitter for Android",
     "isRetweet" : false,
-    "retweets" : 224,
-    "id" : "585286465183178752",
-    "favorites" : 370,
-    "date" : "2015-04-07 03:42:22",
-    "text" : "Many journalists are honest and great - but some are knowingly dishonest and basic scum. They should.be weeded out!"
-  },
-  {
-    "device" : "Twitter for Android",
-    "isRetweet" : false,
     "retweets" : 887,
     "id" : "357836961605627907",
     "favorites" : 747,
     "date" : "2013-07-18 12:19:14",
     "text" : "Isn't it crazy that people of little or no talent or success can be so critical of those whose accomplishments are great with no retribution"
+  },
+  {
+    "device" : "Twitter for Android",
+    "isRetweet" : false,
+    "retweets" : 224,
+    "id" : "585286465183178752",
+    "favorites" : 370,
+    "date" : "2015-04-07 03:42:22",
+    "text" : "Many journalists are honest and great - but some are knowingly dishonest and basic scum. They should.be weeded out!"
   },
   {
     "device" : "Twitter for Android",
@@ -453,6 +480,15 @@ export const dataAttacks = [
   {
     "device" : "Twitter for Android",
     "isRetweet" : false,
+    "retweets" : 574,
+    "id" : "555367040907612160",
+    "favorites" : 314,
+    "date" : "2015-01-14 02:13:15",
+    "text" : "If the morons who killed all of those people at Charlie Hebdo would have just waited, the magazine would have folded - no money, no success!"
+  },
+  {
+    "device" : "Twitter for Android",
+    "isRetweet" : false,
     "retweets" : 1015,
     "id" : "436126612552433665",
     "favorites" : 1264,
@@ -469,15 +505,6 @@ export const dataAttacks = [
     "text" : "I went to Wharton, made over $8 billion, employ thousands of people &amp, get insulted by morons who can’t get enough of me on twitter...!"
   },
   {
-    "device" : "Twitter for Android",
-    "isRetweet" : false,
-    "retweets" : 354,
-    "id" : "377246199608508416",
-    "favorites" : 346,
-    "date" : "2013-09-10 01:44:37",
-    "text" : "@Toure If you weren't such a dumb racist moron with bad ratings you would know I never filed for bankruptcy,now worth over $10 billion dummy"
-  },
-  {
     "device" : "Twitter Web Client",
     "isRetweet" : false,
     "retweets" : 565,
@@ -487,13 +514,85 @@ export const dataAttacks = [
     "text" : "Dopey  @Lord_Sugar  I'm worth $8 billion and you're worth peanuts...without my show nobody would even know who you are."
   },
   {
+    "device" : "Twitter for Android",
+    "isRetweet" : false,
+    "retweets" : 354,
+    "id" : "377246199608508416",
+    "favorites" : 346,
+    "date" : "2013-09-10 01:44:37",
+    "text" : "@Toure If you weren't such a dumb racist moron with bad ratings you would know I never filed for bankruptcy,now worth over $10 billion dummy"
+  },
+  {
+    "device" : "Twitter for Android",
+    "isRetweet" : false,
+    "retweets" : 42,
+    "id" : "373294566872715264",
+    "favorites" : 32,
+    "date" : "2013-08-30 04:02:14",
+    "text" : "In that @TimeWarner has @HBO with really dumb racist  Bryant Gumbel(and I mean dumb), and no CBS (which fired Bryant), I am switching bldgs."
+  },
+  {
+    "device" : "Twitter for Android",
+    "isRetweet" : false,
+    "retweets" : 112,
+    "id" : "370022928639098880",
+    "favorites" : 101,
+    "date" : "2013-08-21 03:21:55",
+    "text" : "You must admit that Bryant Gumbel is one of the dumbest racists around - an arrogant dope with no talent. Failed at CBS etc-why still on TV?"
+  },
+  {
+    "device" : "Twitter for iPhone",
+    "isRetweet" : false,
+    "retweets" : 547,
+    "id" : "620339062055010304",
+    "favorites" : 1150,
+    "date" : "2015-07-12 09:08:52",
+    "text" : "Sleep eyes @ChuckTodd is killing Meet The Press. Isn't he pathetic? Love watching him fail!"
+  },
+  {
     "device" : "Twitter Web Client",
     "isRetweet" : false,
-    "retweets" : 146,
-    "id" : "278196526101188608",
-    "favorites" : 74,
-    "date" : "2012-12-10 05:56:35",
-    "text" : ".@Lord_Sugar  If you didn’t say the iPod would be gone in a year, you might have been really rich instead of the peanut money you have."
+    "retweets" : 13689,
+    "id" : "149589104168939520",
+    "favorites" : 15457,
+    "date" : "2011-12-21 08:36:36",
+    "text" : "Barney Frank looked disgusting--nipples protruding--in his blue shirt before Congress. Very very disrespectful."
+  },
+  {
+    "device" : "TweetDeck",
+    "isRetweet" : false,
+    "retweets" : 667,
+    "id" : "146994336670822400",
+    "favorites" : 463,
+    "date" : "2011-12-14 04:45:55",
+    "text" : "I feel sorry for Rosie 's new partner in love whose parents are devastated at the thought of their daughter being with @Rosie--a true loser."
+  },
+  {
+    "device" : "Twitter for Android",
+    "isRetweet" : false,
+    "retweets" : 60747,
+    "id" : "332308211321425920",
+    "favorites" : 55071,
+    "date" : "2013-05-09 01:37:06",
+    "text" : "Sorry losers and haters, but my I.Q. is one of the highest -and you all know it! Please don't feel so stupid or insecure,it's not your fault"
+  },
+  {
+    "device" : "Twitter Web Client",
+    "isRetweet" : false,
+    "retweets" : 35968,
+    "id" : "330359969813770242",
+    "favorites" : 32399,
+    "date" : "2013-05-03 04:35:29",
+    "text" : "Amazing how the haters &amp, losers keep tweeting the name “F**kface Von Clownstick” like they are so original &amp, like no one else is doing it..."
+  },
+  {
+    "device" : "Twitter for Android",
+    "isRetweet" : false,
+    "retweets" : 301,
+    "id" : "330135603196862464",
+    "favorites" : 262,
+    "date" : "2013-05-03 01:43:56",
+    "text" : "\"\"\"@scottygam: @realDonaldTrump Jon Stewart calls you F**ckface Von Clownstick. What's that all about?\"\" He's an overrated asshole-total phoney\""
   },
   {
     "device" : "Twitter for Android",
@@ -549,7 +648,118 @@ export const dataAttacks = [
     "date" : "2014-03-03 03:43:15",
     "text" : "\"\"\"@johnnyhabit: @realDonaldTrump why the fuck do I even follow you? Because you're addicted to genius, asshole!\""
   },
-]
+];
+
+export const dataAssorted = [
+  {
+    "device" : "Twitter for Android",
+    "isRetweet" : false,
+    "retweets" : 6764,
+    "id" : "418542137899491328",
+    "favorites" : 4376,
+    "date" : "2014-01-02 12:39:56",
+    "text" : "This very expensive GLOBAL WARMING bullshit has got to stop. Our planet is freezing, record low temps,and our GW scientists are stuck in ice"
+  },
+  {
+    "device" : "Twitter Web Client",
+    "isRetweet" : false,
+    "retweets" : 104633,
+    "id" : "265895292191248385",
+    "favorites" : 66124,
+    "date" : "2012-11-06 07:15:52",
+    "text" : "The concept of global warming was created by and for the Chinese in order to make U.S. manufacturing non-competitive."
+  },
+  {
+    "device" : "Twitter Web Client",
+    "isRetweet" : false,
+    "retweets" : 603,
+    "id" : "509436043368873984",
+    "favorites" : 355,
+    "date" : "2014-09-09 08:19:52",
+    "text" : "Windmills are the greatest threat in the US to both bald and golden eagles. Media claims fictional ‘global warming’ is worse."
+  },
+  {
+    "device" : "Twitter for Android",
+    "isRetweet" : false,
+    "retweets" : 374,
+    "id" : "381939611591012352",
+    "favorites" : 257,
+    "date" : "2013-09-23 12:34:34",
+    "text" : "The Emmys are sooooo boring!  Terrible show. I'm going to watch football! I already know the winners. Good night."
+  },
+  {
+    "device" : "Twitter for Android",
+    "isRetweet" : false,
+    "retweets" : 519,
+    "id" : "374361164547100672",
+    "favorites" : 392,
+    "date" : "2013-09-02 02:40:31",
+    "text" : "In war, the elememt of surprise is sooooo important.What the hell is Obama doing."
+  },
+  {
+    "device" : "Twitter for Android",
+    "isRetweet" : false,
+    "retweets" : 3,
+    "id" : "335235148746465281",
+    "favorites" : 1,
+    "date" : "2013-05-17 03:27:42",
+    "text" : "@joeypiazza   Way less - and you are soooo stupid!"
+  },
+  {
+    "device" : "Twitter Web Client",
+    "isRetweet" : false,
+    "retweets" : 1419,
+    "id" : "255294883680632833",
+    "favorites" : 1370,
+    "date" : "2012-10-08 01:13:38",
+    "text" : "Got to do something about these missing chidlren grabbed by the perverts. Too many incidents--fast trial, death penalty."
+  },
+  {
+    "device" : "Twitter Web Client",
+    "isRetweet" : false,
+    "retweets" : 35968,
+    "id" : "330359969813770242",
+    "favorites" : 32399,
+    "date" : "2013-05-03 04:35:29",
+    "text" : "Amazing how the haters &amp, losers keep tweeting the name “F**kface Von Clownstick” like they are so original &amp, like no one else is doing it..."
+  },
+  {
+    "device" : "Twitter Web Client",
+    "isRetweet" : false,
+    "retweets" : 79536,
+    "id" : "257552283850653696",
+    "favorites" : 79463,
+    "date" : "2012-10-14 06:43:44",
+    "text" : "I have never seen a thin person drinking  Diet Coke."
+  },
+  {
+    "device" : "Twitter for Android",
+    "isRetweet" : false,
+    "retweets" : 766,
+    "id" : "518449173549830144",
+    "favorites" : 610,
+    "date" : "2014-10-04 05:14:49",
+    "text" : "Something very important, and indeed society changing, may come out of the Ebola epidemic that will be a very good thing: NO SHAKING HANDS!"
+  },
+  {
+    "device" : "Twitter Web Client",
+    "isRetweet" : false,
+    "retweets" : 109,
+    "id" : "275998837166972928",
+    "favorites" : 23,
+    "date" : "2012-12-04 04:23:45",
+    "text" : "Michael Forbes lives in a pigsty and bad liquor company Glenfiddich gave him Scot of the Year award..."
+  },
+  {
+    "device" : "Twitter Web Client",
+    "isRetweet" : false,
+    "retweets" : 1211,
+    "id" : "306797506791079938",
+    "favorites" : 940,
+    "date" : "2013-02-27 04:06:40",
+    "text" : "Many people have commented that my fragrance, “Success”  is the best scent &amp, lasts the longest. Try it &amp, let me know what you think!"
+  },
+];
 
 /* eslint-disable */
 
@@ -557,30 +767,6 @@ export const dataAttacks = [
 group and pull to create categories here
 select * from tweets where id in (
 
-
-
-
-'146994336670822400', // rosie
-'370022928639098880', // gumbel dumbist racists
-'373294566872715264', // gumbel dumbist racists
-'337710578002980865', // loved beating those terrible human beings
-'277107284356771841', // i'm worth billions and you're worth peanuts
-'301444292755476480', // i'm worth billions and get attacked by morons
-'436126612552433665', // i'm worth billions and get attacked by bloggers
-'278196526101188608', // more peanuts
-'377246199608508416', // dumb racist i'm worth alot
-
-'620339062055010304', // sleepy eyes is pathetic, love watching him fail
-'555367040907612160', // insults charlie hebdo after massacre
-'330135603196862464', // fuckface von clownstick
-'149589104168939520', // barney frank nipples
-
-'320859109299716096', // Ratings asshole - I'll bet in life you are a very big failure!
-'440331541580099584', // addicted to genius asshole
-'351135384362692608', // highest iq asshole
-'336157392070901762', // hair is real asshole
-'332318643134291969', // never filed for bankruptcy asshole
-'351498163175178240', // nword so freely asshole
 
 '418542137899491328', // global warming bullshit
 '265895292191248385', // global warming chinese

@@ -1,8 +1,12 @@
 import React from 'react';
+import { func, shape } from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import Button from 'components/button';
 import Page from 'components/page';
 import TweetLink from 'components/tweet-link';
+import { queryParams } from 'utils/navigation';
 import {
+  dataAssorted,
   dataAttacks,
   dataObama,
   dataRetribution,
@@ -10,23 +14,32 @@ import {
 } from './past.data';
 import styles from './past.style.scss';
 
-export default class Past extends React.Component {
-  state = {
-    show: 'retribution',
+class Past extends React.Component {
+  static propTypes = {
+    history: shape({
+      push: func,
+    }).isRequired,
   }
 
-  get list () {
-    const { show } = this.state;
+  changePage = section => this.props.history.push(`/insights/past?section=${section}`);
 
-    if (show === 'retribution') return dataRetribution;
-    else if (show === 'women') return dataWomen;
-    else if (show === 'obama') return dataObama;
-    else if (show === 'attacks') return dataAttacks;
-    else return null;
+  get list () {
+    switch (this.sectionFromUrl) {
+      case 'assorted': return dataAssorted;
+      case 'attacks': return dataAttacks;
+      case 'obama': return dataObama;
+      case 'retribution': return dataRetribution;
+      case 'women': return dataWomen;
+      default: return [];
+    }
+  }
+
+  get sectionFromUrl () {
+    return queryParams(window.location.href).section || 'retribution';
   }
 
   render () {
-    const { show } = this.state;
+    const section = this.sectionFromUrl;
     return (
       <Page
         className={styles.page}
@@ -36,10 +49,11 @@ export default class Past extends React.Component {
       >
         <h1>Pre-Presidency Tweets</h1>
         <div className={styles.buttons}>
-          <Button onClick={() => this.setState({ show: 'retribution' })} selected={show === 'retribution'}>Retribution</Button>
-          <Button onClick={() => this.setState({ show: 'women' })} selected={show === 'women'}>Women</Button>
-          <Button onClick={() => this.setState({ show: 'obama' })} selected={show === 'obama'}>Obama</Button>
-          <Button onClick={() => this.setState({ show: 'attacks' })} selected={show === 'attacks'}>Some Attacks</Button>
+          <Button onClick={() => this.changePage('retribution')} selected={section === 'retribution'}>Retribution</Button>
+          <Button onClick={() => this.changePage('women')} selected={section === 'women'}>Women</Button>
+          <Button onClick={() => this.changePage('obama')} selected={section === 'obama'}>Obama</Button>
+          <Button onClick={() => this.changePage('attacks')} selected={section === 'attacks'}>Some Attacks</Button>
+          <Button onClick={() => this.changePage('assorted')} selected={section === 'assorted'}>Assorted</Button>
         </div>
         <div className={styles.list}>
           {
@@ -51,3 +65,5 @@ export default class Past extends React.Component {
     );
   }
 }
+
+export default withRouter(Past);
