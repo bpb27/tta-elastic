@@ -12,7 +12,7 @@ export default class GdpQuarterly extends React.Component {
           formatter={value => `${value}%`}
           id="gdp-quarterly"
           source={
-            <ExternalLink href="https://tradingeconomics.com/united-states/gdp-growth-annual">
+            <ExternalLink href="https://tradingeconomics.com/united-states/gdp-growth-annual" title="View data on TradingEconomics.com">
               TradingEconomics.com | World Bank
             </ExternalLink>
           }

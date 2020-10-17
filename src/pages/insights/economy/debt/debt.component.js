@@ -12,7 +12,7 @@ export default class Debt extends React.Component {
           formatter={value => `$${(value / 1000000).toFixed(2)} tril`}
           id="debt"
           source={
-            <ExternalLink href="https://tradingeconomics.com/united-states/government-debt">
+            <ExternalLink href="https://tradingeconomics.com/united-states/government-debt" title="View data on TradingEconomics.com">
               TradingEconomics.com | World Bank
             </ExternalLink>
           }

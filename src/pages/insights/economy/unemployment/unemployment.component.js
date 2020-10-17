@@ -12,7 +12,7 @@ export default class Unemployment extends React.Component {
           formatter={value => `${value}%`}
           id="unemployment"
           source={
-            <ExternalLink href="https://tradingeconomics.com/united-states/unemployment-rate">
+            <ExternalLink href="https://tradingeconomics.com/united-states/unemployment-rate" title="View data on TradingEconomics.com">
               TradingEconomics.com | World Bank
             </ExternalLink>
           }

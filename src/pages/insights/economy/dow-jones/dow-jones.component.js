@@ -14,7 +14,7 @@ export default class DowJones extends React.Component {
           hideTimeframe={true}
           id="gdp"
           source={
-            <ExternalLink href="https://tradingeconomics.com/united-states/stock-market">
+            <ExternalLink href="https://tradingeconomics.com/united-states/stock-market" title="View data on TradingEconomics.com">
               TradingEconomics.com | World Bank
             </ExternalLink>
           }
