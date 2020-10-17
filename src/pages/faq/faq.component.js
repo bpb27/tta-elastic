@@ -23,7 +23,7 @@ export default class Faq extends React.Component {
         </section>
         <section>
           <h3>Can I have the data?</h3>
-          <p>Yes. You can download a CSV of the tweets <ExternalLink href="https://drive.google.com/file/d/1150BnVlnvg1XnQmbTgFAs9H6WbpnDWK6/view?usp=sharing">via this Google Drive link</ExternalLink> (last updated 09/25/2020). You can credit the site however you'd like. Note that the dates are stored in UTC time.</p>
+          <p>Yes. You can download a CSV of the tweets <ExternalLink href="https://drive.google.com/file/d/1arekXpuMers23pyu76VJQ682mldtLwIf/view?usp=sharing">via this Google Drive link</ExternalLink> (last updated 10/17/2020). You can credit the site however you'd like. Note that the dates are stored in UTC time.</p>
         </section>
         <section>
           <h3>Contact info?</h3>
