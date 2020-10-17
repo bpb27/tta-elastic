@@ -7,15 +7,20 @@ import styles from './modal.style.scss';
 export default class Modal extends React.Component {
   static propTypes = {
     children: node.isRequired,
+    className: string,
     closeModal: func.isRequired,
     footerText: string,
     headerText: string,
   }
 
+  static defaultProps = {
+    className: '',
+  }
+
   render () {
-    const { children, closeModal, footerText, headerText } = this.props;
+    const { children, className, closeModal, footerText, headerText } = this.props;
     return (
-      <div className={styles.modal}>
+      <div className={`${styles.modal} ${className}`}>
         <header>
           { headerText && <h2>{ headerText }</h2> }
           <Icon name="CLOSE_BUTTON" onClick={closeModal} />
