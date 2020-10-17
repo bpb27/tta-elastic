@@ -84,6 +84,17 @@ app.get('/stats', async (req, res) => {
   }
 });
 
+app.get('/latest-tweets', async (req, res) => {
+  const cached = cache.get('latest');
+  if (cached && isProd) {
+    res.json(cached);
+  } else {
+    const fresh = await pool.query('SELECT * FROM "tweets" ORDER BY "date" DESC LIMIT 1000');
+    cache.set('latest', fresh.rows, 1800); // TTL 30 min (60 * 30)
+    res.json(fresh.rows);
+  }
+});
+
 // deliver react app for all other routes
 app.get('*', (req, res) => {
   res.sendFile(path.join(`${pathDist}/index.html`));
