@@ -12,7 +12,7 @@ export default class Gdp extends React.Component {
           formatter={value => `$${(value / 1000).toFixed(2)} tril`}
           id="gdp"
           source={
-            <ExternalLink href="https://tradingeconomics.com/united-states/gdp">
+            <ExternalLink href="https://tradingeconomics.com/united-states/gdp" title="View data on TradingEconomics.com">
               TradingEconomics.com | World Bank
             </ExternalLink>
           }

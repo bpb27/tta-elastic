@@ -13,7 +13,7 @@ export default class FamilyIncome extends React.Component {
           formatter={value => `$${numberWithCommas(value)}`}
           id="family-income"
           source={
-            <ExternalLink href="https://fred.stlouisfed.org/series/MAFAINUSA646N">
+            <ExternalLink href="https://fred.stlouisfed.org/series/MAFAINUSA646N" title="View data on fred.stlouisfed.org">
               FRED | St. Louis Federal Reserve
             </ExternalLink>
           }

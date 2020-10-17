@@ -12,7 +12,7 @@ export default class Manufacturing extends React.Component {
           formatter={value => `${(value / 1000).toFixed(2)} million`}
           id="manufacturing"
           source={
-            <ExternalLink href="https://fred.stlouisfed.org/series/MANEMP">
+            <ExternalLink href="https://fred.stlouisfed.org/series/MANEMP" title="View data on fred.stlouisfed.org">
               FRED | St. Louis Federal Reserve
             </ExternalLink>
           }

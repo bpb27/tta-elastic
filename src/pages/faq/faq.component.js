@@ -19,11 +19,11 @@ export default class Faq extends React.Component {
         </section>
         <section>
           <h3>Is this a reputable source?</h3>
-          <p>It's regularly referenced by FactCheck.org, PolitiFact, Snopes, and Wikipedia, along with almost every major news source. You can check this <ExternalLink href="https://news.google.com/search?q=%22trumptwitterarchive.com%22&hl=en-US&gl=US&ceid=US%3Aen">Google News</ExternalLink> link for more.</p>
+          <p>It's regularly referenced by FactCheck.org, PolitiFact, Snopes, and Wikipedia, along with almost every major news source. You can check this <ExternalLink href="https://news.google.com/search?q=%22trumptwitterarchive.com%22&hl=en-US&gl=US&ceid=US%3Aen" title="View Google News">Google News</ExternalLink> link for more.</p>
         </section>
         <section>
           <h3>Can I have the data?</h3>
-          <p>Yes. You can download a CSV of the tweets <ExternalLink href="https://drive.google.com/file/d/1arekXpuMers23pyu76VJQ682mldtLwIf/view?usp=sharing">via this Google Drive link</ExternalLink> (last updated 10/17/2020). You can credit the site however you'd like. Note that the dates are stored in UTC time.</p>
+          <p>Yes. You can download the full dataset via Google Drive either as a <ExternalLink href="https://drive.google.com/file/d/1arekXpuMers23pyu76VJQ682mldtLwIf/view?usp=sharing" title="Open file in Google Drive">CSV file</ExternalLink> or <ExternalLink href="https://drive.google.com/file/d/1i3ZbKoREMp7LUhVIMYw3P2cjPsqblt2z/view?usp=sharing" title="Open file in Google Drive">JSON file</ExternalLink> (last updated 10/17/2020). You can credit the site however you'd like. Note that the dates are stored in UTC time.</p>
         </section>
         <section>
           <h3>Contact info?</h3>
@@ -39,11 +39,11 @@ export default class Faq extends React.Component {
         </section>
         <section>
           <h3>Can I use your code?</h3>
-          <p>For sure. The code is available on <ExternalLink href="https://github.com/bpb27/tta-elastic">GitHub</ExternalLink>. With very minor tweaking, you can setup your own archive to monitor any world leader you'd like.</p>
+          <p>For sure. The code is available on <ExternalLink href="https://github.com/bpb27/tta-elastic" title="View on Github">GitHub</ExternalLink>. With very minor tweaking, you can setup your own archive to monitor any world leader you'd like.</p>
         </section>
         <section>
           <h3>How did you scrape old tweets?</h3>
-          <p>This <ExternalLink href="https://github.com/bpb27/twitter_scraping">Tweet Scraper</ExternalLink> that doesn't work anymore. You can look at the code and get the gist, but not sure if this is still a viable solution (Twitter has stricter rate limiting).</p>
+          <p>This <ExternalLink href="https://github.com/bpb27/twitter_scraping" title="View on Github">Tweet Scraper</ExternalLink> that doesn't work anymore. You can look at the code and get the gist, but not sure if this is still a viable solution (Twitter has stricter rate limiting).</p>
         </section>
         <section>
           <h3>What's the deal with time zones?</h3>
