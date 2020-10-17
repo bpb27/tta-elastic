@@ -27,7 +27,7 @@ export default class Faq extends React.Component {
         </section>
         <section>
           <h3>Contact info?</h3>
-          <p>You can email questions or requests to <a href="trumptwitterarchive2@gmail.com">trumptwitterarchive2@gmail.com</a>.</p>
+          <p>You can email questions or requests to <a href="mailto:trumptwitterarchive2@gmail.com">trumptwitterarchive2@gmail.com</a>.</p>
         </section>
         <section>
           <h3>What about deleted tweets?</h3>
