@@ -6,6 +6,7 @@ import { numberWithCommas } from 'utils/format';
 import { queryParams } from 'utils/navigation';
 import { zonedTimeToUtc } from 'date-fns-tz';
 import Button from 'components/button';
+import Export from './export';
 import Page from 'components/page';
 import Tips from 'components/pages/tips';
 import TextSwitch from 'components/text-switch';
@@ -34,8 +35,10 @@ export default class Search extends React.Component {
   state = {
     showDateRange: !!queryParams().dates,
     showDeviceDropdown: !!queryParams().device,
+    showExportModal: false,
     showRetweetButtons: !!queryParams().retweet,
     showTips: false,
+    total: 0,
   }
 
   tweets (results) {
@@ -60,8 +63,10 @@ export default class Search extends React.Component {
     const {
       showDeviceDropdown,
       showDateRange,
+      showExportModal,
       showRetweetButtons,
       showTips,
+      total,
     } = this.state;
 
     return (
@@ -150,10 +155,18 @@ export default class Search extends React.Component {
             Date filters
           </Button>
           <Button
+            className={styles.hideOnMobile}
             onClick={() => this.setState({ showDeviceDropdown: !showDeviceDropdown })}
             selected={showDeviceDropdown}
           >
             Device filters
+          </Button>
+          <Button
+            className={styles.hideOnMobile}
+            onClick={() => this.setState({ showExportModal: !showExportModal })}
+            selected={showExportModal}
+          >
+            Export
           </Button>
         </div>
         <ReactiveList
@@ -161,6 +174,7 @@ export default class Search extends React.Component {
           componentId="results"
           dataField="text"
           infiniteScroll={true}
+          onData={({ resultStats }) => this.setState({ total: resultStats?.numberOfResults })}
           react={{
             and: ['dates', 'device', 'retweet', 'searchbox']
           }}
@@ -171,7 +185,7 @@ export default class Search extends React.Component {
               <span className={styles.results}>{numberWithCommas(numberOfResults)}</span> <TextSwitch mobile="tweets" web="tweets found"/>
             </p>
           )}
-          size={25}
+          size={showExportModal ? 100 : 25}
           sortOptions={[
             { dataField: 'date', label: 'Latest', sortBy: 'desc'},
             { dataField: 'date', label: 'Oldest', sortBy: 'asc'},
@@ -180,6 +194,10 @@ export default class Search extends React.Component {
           ]}
           URLParams={true}
         />
+        <div className={styles.endOfResult} id="endOfResult"/>
+        { showExportModal && (
+          <Export close={() => this.setState({ showExportModal: false })} total={total} />
+        )}
       </Page>
     );
   }

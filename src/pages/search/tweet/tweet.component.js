@@ -35,11 +35,16 @@ export default class Tweet extends Component {
   render () {
     const { showTwitterView } = this.state;
     const { data, index, mobileView, searchWords } = this.props;
-    const { date, favorites, id, retweets, text } = data;
-    const className = `${styles.tweet} ${mobileView ? styles.mobileView : ''}`;
+    const { date, favorites, id, isRetweet, retweets, text } = data;
+    const className = `${styles.tweet} ${mobileView ? styles.mobileView : ''} ttaTweet`;
 
     return (
-      <div className={className} key={id}>
+      <div
+        className={className}
+        key={id}
+        data-order={index}
+        data-tweet={JSON.stringify({ date, favorites, id, isRetweet, retweets, text })}
+      >
         <div className={styles.index}>
           { index }.
         </div>

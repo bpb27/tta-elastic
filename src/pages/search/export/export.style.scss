@@ -1,0 +1,19 @@
+.allowed {
+  margin-bottom: 100px;
+
+  button {
+    background: #0ea610;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px;
+    width: 300px;
+
+    &:disabled {
+      background: #7aae7b;
+      cursor: not-allowed;
+    }
+  }
+}
