@@ -55,7 +55,7 @@ export default class Tips extends React.Component {
             <span>tweet contains the exact phrase <em>losers and haters</em> AND <em>my I.Q.</em></span>
           </section>
           <section>
-            <span>college* | tuition | "student debt" -electoral</span>
+            <span>college* { pipe } tuition { pipe } "student debt" -electoral</span>
             <span>tweet contains a word that starts with <em>college</em> OR the exact word <em>tuition</em> OR the exact phrase <em>student debt</em> AND does not contain the exact word <em>electoral</em></span>
           </section>
         </main>
