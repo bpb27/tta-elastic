@@ -24,6 +24,7 @@ export default class Faq extends React.Component {
         <section>
           <h3>Can I have the data?</h3>
           <p>Yes. You can download the full dataset via Google Drive either as a <ExternalLink href="https://drive.google.com/file/d/1arekXpuMers23pyu76VJQ682mldtLwIf/view?usp=sharing" title="Open file in Google Drive">CSV file</ExternalLink> or <ExternalLink href="https://drive.google.com/file/d/1i3ZbKoREMp7LUhVIMYw3P2cjPsqblt2z/view?usp=sharing" title="Open file in Google Drive">JSON file</ExternalLink> (last updated 10/17/2020). You can credit the site however you'd like. Note that the dates are stored in UTC time.</p>
+          <p>There's also an API endpoint to pull the latest 1000 tweets: <ExternalLink href="https://www.thetrumparchive.com/latest-tweets" title="Open link on thetrumparchive.com">https://www.thetrumparchive.com/latest-tweets</ExternalLink> (cached for 30 minutes).</p>
         </section>
         <section>
           <h3>Contact info?</h3>
