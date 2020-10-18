@@ -98,6 +98,11 @@ export const dataSenators = [
     insult: 'very weak and pathetic Schumer puppet',
   },
   {
+    id: '1317460179223498753',
+    name: 'Senator Ben Sasse (R-NE)',
+    insult: 'Little Ben is a liability to the Republican Party, and an embarrassment to the Great State of Nebraska',
+  },
+  {
     id: '1283215676488986628',
     name: 'Senator Doug Jones (D-AL)',
     insult: 'terrible Senator...represents Alabama poorly',
@@ -126,6 +131,11 @@ export const dataSenators = [
     id: '1100666476422410240',
     name: 'Senator Richard Blumenthal (D-CT)',
     insult: 'Da Nang Dick Blumenthal, the third rate Senator',
+  },
+  {
+    id: '1316135797502996481',
+    name: 'Senator Cory Booker (D-NJ)',
+    insult: 'Guy is a total loser! ',
   },
   {
     id: '1053682023066288128',
@@ -183,11 +193,6 @@ export const dataSenators = [
     insult: '[I\'ll be] campaigning against Senator Lisa Murkowski',
   },
   {
-    id: '1292832946077007886',
-    name: 'Senator Ben Sasse (R-NE)',
-    insult: 'RINO...needed my support',
-  },
-  {
     id: '1282155171909435393',
     name: 'Senator Pat Toomey (R-PA)',
     insult: 'RINO',
@@ -196,11 +201,6 @@ export const dataSenators = [
     id: '910476107287269376',
     name: 'Senator Rand Paul (R-KY)',
     insult: 'such a negative force when it comes to fixing healthcare',
-  },
-  {
-    id: '1316135797502996481',
-    name: 'Senator Cory Booker (D-NJ)',
-    insult: 'Guy is a total loser! ',
   },
   {
     id: '953000902331453442',
@@ -678,6 +678,11 @@ export const dataJournalists = [
     insult: 'even sadder, watch flunky @Lawrence CRY when I whipped his mind',
   },
   {
+    id: '1315979849916461056',
+    name: 'Matt Drudge (Drudge)',
+    insult: 'sold out, suffered a massive nervous breakdown',
+  },
+  {
     id: '1255710938075889664',
     name: 'Brian Williams (MSNBC)',
     insult: 'Lyin’ Brian Williams...wouldn’t know the truth if it was nailed to his wooden forehead',
@@ -792,23 +797,18 @@ export const dataJournalists = [
     name: 'Dave Weigel (WP)',
     insult: 'FAKE NEWS, he should be fired',
   },
+  {
+    id: '1317544121112866822',
+    name: 'Kristen Welker (NBC)',
+    insult: 'always been terrible & unfair',
+  },
 ];
 
 export const dataPolitical = [
   {
-    id: '1304037450793115648',
-    name: 'Donna Brazil',
-    insult: 'cheater',
-  },
-  {
     id: '1281921247950131200',
     name: 'Christopher Steele',
     insult: 'should be extradited, tried, and thrown into jail...a sick lier [sic]',
-  },
-  {
-    id: '1227414377889968128',
-    name: 'Tony Podesta',
-    insult: 'forced to leave his firm, with BIG BAD things...why did nothing ever happen to him',
   },
   {
     id: '1257532112233803782',
@@ -864,6 +864,21 @@ export const dataPolitical = [
     id: '854283110191685634',
     name: 'Jon Ossoff',
     insult: 'would be a disaster in Congress',
+  },
+  {
+    id: '1304037450793115648',
+    name: 'Donna Brazil',
+    insult: 'cheater',
+  },
+  {
+    id: '1317049630023090177',
+    name: 'Ammar Campa-Najjar',
+    insult: 'puppet for Nancy Pelosi',
+  },
+  {
+    id: '1227414377889968128',
+    name: 'Tony Podesta',
+    insult: 'forced to leave his firm, with BIG BAD things...why did nothing ever happen to him',
   },
   {
     id: '1035575198169411584',
