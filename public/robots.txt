@@ -1,0 +1,6 @@
+# allow all robots to browse everywhere
+User-agent: *
+Disallow:
+
+# sitemap location
+Sitemap: https://www.thetrumparchive.com/sitemap.xml
