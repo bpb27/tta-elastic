@@ -43,7 +43,7 @@ export class Navbar extends React.Component {
                 window.scrollTo(0, 0);
               }}
             >
-              <span>Trump Twitter Archive</span>
+              Trump Twitter Archive <span className={styles.gray}>V2</span>
             </NavLink>
           </div>
           <div className={styles.right}>
