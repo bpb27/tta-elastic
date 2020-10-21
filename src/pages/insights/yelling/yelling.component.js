@@ -16,7 +16,14 @@ export default class Yelling extends React.Component {
       >
         <EmbeddedTweetColumn header="Yelling">
           {
-            data.map(data => <TweetLink key={data.id} type="embed" tweetData={data}/>)
+            data.map(item => (
+              <TweetLink
+                key={item.id}
+                placeholderAlignment="center"
+                type="embed"
+                tweetData={item}
+              />
+            ))
           }
         </EmbeddedTweetColumn>
       </Page>

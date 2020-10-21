@@ -58,7 +58,14 @@ export class Past extends React.Component {
         </div>
         <EmbeddedTweetColumn>
           {
-            this.list.map(data => <TweetLink key={data.id} type="embed" tweetData={data}/>)
+            this.list.map(data => (
+              <TweetLink
+                key={data.id}
+                placeholderAlignment="center"
+                type="embed"
+                tweetData={data}
+              />
+            ))
           }
         </EmbeddedTweetColumn>
       </Page>

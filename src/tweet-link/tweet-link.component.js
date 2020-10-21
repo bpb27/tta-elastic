@@ -12,6 +12,7 @@ export default class TweetLink extends React.Component {
   static propTypes = {
     children: node,
     className: string,
+    placeholderAlignment: oneOf(['center', 'left']),
     placeholderHighlights: arrayOf(string),
     tweetData: object,
     type: oneOf(['embed', 'placeholder', 'text']).isRequired,
@@ -32,6 +33,7 @@ export default class TweetLink extends React.Component {
     const {
       className,
       children,
+      placeholderAlignment,
       placeholderHighlights,
       tweetData,
       type,
@@ -39,6 +41,7 @@ export default class TweetLink extends React.Component {
 
     const placeholder = (
       <Placeholder
+        alignment={placeholderAlignment}
         className={className}
         deleted={deleted}
         placeholderHighlights={placeholderHighlights}
@@ -55,7 +58,7 @@ export default class TweetLink extends React.Component {
           onLoad={element => {
             if (!element) this.setState({ deleted: true });
           }}
-          placeholder={<Placeholder tweetData={tweetData}/>}
+          placeholder={<Placeholder alignment={placeholderAlignment} tweetData={tweetData}/>}
           tweetId={tweetData.id}
         />
       ) : (
