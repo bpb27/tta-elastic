@@ -37,8 +37,32 @@
       border: none;
     }
 
-    > a {
-      padding: $navbar-item-padding 5px;
+    > a, button {
+      padding: $navbar-item-padding 15px;
+
+      @media all and (max-width: 400px) {
+        padding: $navbar-item-padding 7.5px;
+      }
+    }
+
+    .mobile {
+      @media all and (min-width: 0px) and (max-width: 350px) {
+        display: initial;
+      }
+
+      @media all and (min-width: 351px) {
+        display: none;
+      }
+    }
+
+    .desktop {
+      @media all and (min-width: 0px) and (max-width: 350px) {
+        display: none;
+      }
+
+      @media all and (min-width: 351px) {
+        display: initial;
+      }
     }
   }
 }
@@ -74,4 +98,18 @@
 
 .gray {
   color: #999;
+}
+
+.hamburger {
+  div {
+    background: $white;
+    cursor: pointer;
+    height: 3px;
+    margin: 5px 0;
+    width: 30px;
+  }
+
+  &:hover div {
+    background: #72a8fd;
+  }
 }
