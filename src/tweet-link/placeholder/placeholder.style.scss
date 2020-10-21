@@ -1,7 +1,15 @@
 .container {
   display: flex;
   flex-flow: column;
-  align-items: center;
+
+
+  &.left {
+    align-items: left;
+  }
+
+  &.center {
+    align-items: center;
+  }
 }
 
 .placeholder {

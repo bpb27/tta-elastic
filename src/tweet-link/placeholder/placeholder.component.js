@@ -1,5 +1,5 @@
 import React from 'react';
-import { arrayOf, bool, object, string } from 'prop-types';
+import { arrayOf, bool, object, oneOf, string } from 'prop-types';
 import { utcTimestampToEST } from 'utils/date';
 import { replaceHTMLEntities } from 'utils/format';
 import Highlighter from 'react-highlight-words';
@@ -8,6 +8,7 @@ import styles from './placeholder.style.scss';
 
 export default class Placeholder extends React.Component {
   static propTypes = {
+    alignment: oneOf(['left', 'center']),
     className: string,
     deleted: bool,
     placeholderHighlights: arrayOf(string),
@@ -15,6 +16,7 @@ export default class Placeholder extends React.Component {
   }
 
   static defaultProps = {
+    alignment: 'left',
     className: '',
     placeholderHighlights: [],
   }
@@ -31,6 +33,7 @@ export default class Placeholder extends React.Component {
     }
 
     const {
+      alignment,
       className,
       deleted,
       placeholderHighlights,
@@ -44,8 +47,14 @@ export default class Placeholder extends React.Component {
       text,
     } = tweetData;
 
+    const containerClass = `
+      ${styles.container}
+      ${alignment === 'left' ? styles.left : styles.center}
+      ${className}
+    `;
+
     return (
-      <div className={`${styles.container} ${className}`}>
+      <div className={containerClass}>
         {
           deleted && (
             <p className={styles.deleted}>
