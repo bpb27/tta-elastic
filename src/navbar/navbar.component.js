@@ -47,15 +47,22 @@ export class Navbar extends React.Component {
             </NavLink>
           </div>
           <div className={styles.right}>
-            <button
-              className={this.pathname.includes('insights') ? styles.active : ''}
-              {...subnavClick}
-            >
-              Insights
-            </button>
-            <NavLink {...active} onClick={this.closeInsightMenu} to="/faq">
-              FAQ
-            </NavLink>
+            <div className={styles.desktop}>
+              <button
+                className={this.pathname.includes('insights') ? styles.active : ''}
+                {...subnavClick}
+              >
+                Insights
+              </button>
+              <NavLink {...active} onClick={this.closeInsightMenu} to="/faq">
+                FAQ
+              </NavLink>
+            </div>
+            <div className={`${styles.hamburger} ${styles.mobile}`} {...subnavClick}>
+              <div/>
+              <div/>
+              <div/>
+            </div>
           </div>
         </nav>
         { showInsightsMenu && (
