@@ -1,0 +1,19 @@
+.embeddedTweetColumn {
+  h1 {
+    text-align: center;
+  }
+}
+
+.list {
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+  margin-top: 40px;
+
+  > div {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    width: 100%;
+  }
+}

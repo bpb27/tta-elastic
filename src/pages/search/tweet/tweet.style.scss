@@ -1,93 +1,30 @@
 @import "src/variables.scss";
 
-@mixin MobileView() {
-  flex-wrap: wrap;
-  margin-bottom: 20px;
+// container
+.tweet {
+  margin-bottom: 10px;
+  display: flex;
 
-  .index {
-    display: none;
+  @media all and (max-width: 900px) {
+    flex-wrap: wrap;
+    margin-bottom: 20px;
   }
+}
 
-  .mobileIndex {
-    display: inherit;
-  }
+.text {
+  padding: 1px; // for safari flexbox bullshit
+}
 
-  .metadata {
-    flex-direction: row;
-    flex-flow: wrap;
-    display: flex;
-    align-items: center;
-    width: 100%;
-  }
-
-  .date {
-    text-decoration: none;
-  }
-
-  .text {
+.plain {
+  @media all and (max-width: 900px) {
     background: white;
-    border: 1px solid black;
     border-radius: 3px;
+    border: 1px solid black;
     line-height: 20px;
     padding: 10px;
   }
 }
 
-.tweet {
-  align-items: flex-start;
-  display: flex;
-  margin-bottom: 10px;
-
-  .index {
-    margin-right: 5px;
-    min-width: 30px;
-  }
-
-  .metadata {
-    display: flex;
-    flex-direction: column;
-    font-size: 0.8rem;
-    margin-bottom: 5px;
-    min-width: 230px;
-
-    .mobileIndex {
-      display: none;
-      margin-right: 2px;
-    }
-
-    > span {
-      margin-right: 10px;
-    }
-
-    .stats span {
-      align-items: center;
-      display: inline-flex;
-      margin-right: 10px;
-      padding-top: 2px;
-
-      svg {
-        height: 20px;
-        width: 20px;
-        margin-right: 4px;
-      }
-    }
-  }
-
-  @media all and (max-width: 900px) {
-    @include MobileView;
-  }
-
-  &.mobileView {
-    @include MobileView;
-  }
-}
-
-.twitterIcon {
-  cursor: pointer;
-  &:hover {
-    color: #1da1f2;
-    > div > svg {
-      fill: #1da1f2;
-    }
-  }
+.embedded {
+  width: 100%;
 }

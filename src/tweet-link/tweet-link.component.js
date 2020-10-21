@@ -50,16 +50,14 @@ export default class TweetLink extends React.Component {
       return placeholder;
     } else if (type === 'embed') {
       return isVisible ? (
-        <div className={className}>
-          <TwitterTweetEmbed
-            options={{ dnt: true }}
-            onLoad={element => {
-              if (!element) this.setState({ deleted: true });
-            }}
-            placeholder={<Placeholder tweetData={tweetData}/>}
-            tweetId={tweetData.id}
-          />
-        </div>
+        <TwitterTweetEmbed
+          options={{ dnt: true }}
+          onLoad={element => {
+            if (!element) this.setState({ deleted: true });
+          }}
+          placeholder={<Placeholder tweetData={tweetData}/>}
+          tweetId={tweetData.id}
+        />
       ) : (
         <div className={className}>
           <VisibilitySensor

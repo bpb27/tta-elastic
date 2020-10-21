@@ -1,3 +1,9 @@
+.container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
 .placeholder {
   background: white;
   border-radius: 2px;
@@ -26,7 +32,4 @@
 
 .deleted {
   color: red;
-  display: flex;
-  flex-flow: column;
-  padding: 10px 0;
 }

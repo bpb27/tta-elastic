@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from 'components/button';
+import EmbeddedTweetColumn from 'components/embedded-tweet-column';
 import Page from 'components/page';
 import TweetLink from 'components/tweet-link';
 import data from './yelling.data';
@@ -14,13 +14,11 @@ export default class Yelling extends React.Component {
         metaDescription="Tweets with caps-lock on"
         metaTitle="Yelling Tweets on Trump Twitter Archive"
       >
-        <h1>Yelling</h1>
-        <div className={styles.list}>
+        <EmbeddedTweetColumn header="Yelling">
           {
             data.map(data => <TweetLink key={data.id} type="embed" tweetData={data}/>)
           }
-          <Button onClick={() => window.scrollTo(0, 0)}>Back to top</Button>
-        </div>
+        </EmbeddedTweetColumn>
       </Page>
     );
   }
