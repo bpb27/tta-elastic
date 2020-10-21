@@ -17,67 +17,47 @@ const createProps = () => ({
 });
 
 describe('Tweet', () => {
+  let props;
+  let wrapper;
+
+  beforeEach(() => {
+    props = createProps();
+    wrapper = shallow(<Tweet {...props} />);
+  });
+
   it('renders', () => {
-    const props = createProps();
-    const wrapper = shallow(<Tweet {...props} />);
-    const element = wrapper.find('.tweet');
-    expect(element.exists()).toEqual(true);
+    expect(wrapper.find('.tweet').exists()).toEqual(true);
+    expect(wrapper.find('.ttaTweet').exists()).toEqual(true);
   });
 
-  it('renders index', () => {
-    const props = createProps();
-    const wrapper = shallow(<Tweet {...props} />);
-    const index = wrapper.find('.index').text();
-    expect(index).toEqual('4.');
+  it('renders metadata', () => {
+    expect(wrapper.find('Metadata').exists()).toEqual(true);
   });
 
-  it('renders a formatted date', () => {
-    const props = createProps();
-    const wrapper = shallow(<Tweet {...props} />);
-    const date = wrapper.find('.date TextSwitch').props().web;
-    expect(date).toEqual('May 19th 2019 - 2:50:37 PM EST');
+  it('renders text', () => {
+    expect(wrapper.find('.text').exists()).toEqual(true);
   });
 
-  it('renders the retweet count', () => {
-    const props = createProps();
-    const wrapper = shallow(<Tweet {...props} />);
-    const text = wrapper.find('.stats span').at(0).text();
-    expect(text).toContain(props.data.retweets);
+  describe('highlighter', () => {
+    it('renders text', () => {
+      expect(wrapper.find('Highlighter').props().textToHighlight).toEqual(props.data.text);
+    });
+
+    it('passes search words to the highlighter', () => {
+      expect(wrapper.find('Highlighter').props().searchWords).toEqual(props.searchWords);
+    });
   });
 
-  it('renders the favorite count', () => {
-    const props = createProps();
-    const wrapper = shallow(<Tweet {...props} />);
-    const text = wrapper.find('.stats span').at(1).text();
-    expect(text).toContain(props.data.favorites);
-  });
+  describe('twitter button', () => {
+    it('renders highlighter by default', () => {
+      expect(wrapper.find('Highlighter').exists()).toEqual(true);
+      expect(wrapper.find('.plain').exists()).toEqual(true);
+    });
 
-  it('formats larger numbers', () => {
-    const props = createProps();
-    props.data.favorites = 3100;
-    const wrapper = shallow(<Tweet {...props} />);
-    const text = wrapper.find('.stats span').at(1).text().trim();
-    expect(text).toContain('3k');
-  });
-
-  it('renders button to show tweet spotlight', () => {
-    const props = createProps();
-    const wrapper = shallow(<Tweet {...props} />);
-    const button = wrapper.find('.stats span').at(2);
-    expect(button.exists()).toEqual(true);
-  });
-
-  it('renders the text', () => {
-    const props = createProps();
-    const wrapper = shallow(<Tweet {...props} />);
-    const text = wrapper.find('Highlighter').props().textToHighlight;
-    expect(text).toEqual(props.data.text);
-  });
-
-  it('passes search words to the highlighter', () => {
-    const props = createProps();
-    const wrapper = shallow(<Tweet {...props} />);
-    const { searchWords } = wrapper.find('Highlighter').props();
-    expect(searchWords).toEqual(props.searchWords);
+    it('renders embedded tweet on click', () => {
+      wrapper.setState({ showTwitterView: true }); // simulate click
+      expect(wrapper.find('TweetLink').exists()).toEqual(true);
+      expect(wrapper.find('.embedded').exists()).toEqual(true);
+    });
   });
 });

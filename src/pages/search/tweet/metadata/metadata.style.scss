@@ -1,0 +1,59 @@
+// date, retweets, favorites, show button
+.metadata {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+  min-width: 250px;
+
+  @media all and (max-width: 900px) {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    width: 100%;
+  }
+}
+
+.date {
+  .index {
+    min-width: 30px;
+    display: inline-block;
+
+    @media all and (max-width: 900px) {
+      display: none;
+    }
+  }
+}
+
+.icons {
+  margin-left: 30px;
+
+  @media all and (max-width: 900px) {
+    margin-left: 10px;
+  }
+
+  > span {
+    align-items: center;
+    display: inline-flex;
+    margin-right: 10px;
+    padding-top: 2px;
+
+    svg {
+      height: 20px;
+      width: 20px;
+      margin-right: 4px;
+    }
+
+    // twitter icon
+    &:last-child {
+      cursor: pointer;
+      &:hover {
+        color: #1da1f2;
+        > div > svg {
+          fill: #1da1f2;
+        }
+      }
+    }
+  }
+}

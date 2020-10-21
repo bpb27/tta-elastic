@@ -1,10 +1,11 @@
 import React from 'react';
 import { func, shape } from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import { queryParams } from 'utils/navigation';
 import Button from 'components/button';
+import EmbeddedTweetColumn from 'components/embedded-tweet-column';
 import Page from 'components/page';
 import TweetLink from 'components/tweet-link';
-import { queryParams } from 'utils/navigation';
 import {
   dataAssorted,
   dataAttacks,
@@ -55,12 +56,11 @@ export class Past extends React.Component {
           <Button onClick={() => this.changePage('attacks')} selected={section === 'attacks'}>Some Attacks</Button>
           <Button onClick={() => this.changePage('assorted')} selected={section === 'assorted'}>Assorted</Button>
         </div>
-        <div className={styles.list}>
+        <EmbeddedTweetColumn>
           {
             this.list.map(data => <TweetLink key={data.id} type="embed" tweetData={data}/>)
           }
-          <Button onClick={() => window.scrollTo(0, 0)}>Back to top</Button>
-        </div>
+        </EmbeddedTweetColumn>
       </Page>
     );
   }

@@ -45,13 +45,12 @@ export default class Placeholder extends React.Component {
     } = tweetData;
 
     return (
-      <div className={className}>
+      <div className={`${styles.container} ${className}`}>
         {
           deleted && (
-            <div className={styles.deleted}>
-              <span>This tweet failed to load and might have been deleted.</span>
-              <span>Click "View on Twitter" to verify.</span>
-            </div>
+            <p className={styles.deleted}>
+              This tweet failed to load and might have been deleted. Click "View on Twitter" to verify.
+            </p>
           )
         }
         <div className={styles.placeholder}>
