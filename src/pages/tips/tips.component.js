@@ -22,7 +22,9 @@ export default class Tips extends React.Component {
           <Icon name="CLOSE_BUTTON" onClick={this.props.closeModal} />
         </header>
         <main>
-          <p>NB: Search works a bit differently on this site compared to the old site.</p>
+          <p>The search syntax has changed!</p>
+          <p>TLDR: V2 matches on full words, so searching <em>los</em> will return tweets with <em>Los Angeles</em> and not tweets with <em>loser</em>, <em>closer</em>, <em>Pelosi</em>, etc.</p>
+          <p>If you can't figure out how to find something, feel free to <a href="mailto:trumptwitterarchive2@gmail.com">send an email</a>.</p>
           <section>
             <span>loser</span>
             <span>tweet contains the exact word <em>loser</em></span>
@@ -36,8 +38,8 @@ export default class Tips extends React.Component {
             <span>tweet contains the exact word <em>losers</em> AND the exact word <em>haters</em> (in any order)</span>
           </section>
           <section>
-            <span>loser { pipe } losers</span>
-            <span>tweet contains the exact word <em>loser</em> OR the exact word <em>losers</em></span>
+            <span>loser { pipe } haters</span>
+            <span>tweet contains the exact word <em>loser</em> OR the exact word <em>haters</em></span>
           </section>
           <section>
             <span>losers -haters</span>
