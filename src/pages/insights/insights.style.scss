@@ -1,13 +1,20 @@
-@import "src/variables.scss";
-// @import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;400;700');
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400');
+
+$fontForBody: 'Mukta Vaani', monospace;
+$fontForHeaders: 'Playfair Display', monospace;
+$fontForQuotes: 'Playfair Display', monospace;
 
 .insights {
-  font-family: monospace;
+  font-family: $fontForBody;
   margin-top: 40px;
   padding: 30px 10px;
 
-  mark {
-    font-size: 22px;
-    font-weight: bold;
+  h1, h2, h3 {
+    font-family: $fontForHeaders;
+    text-align: center;
+  }
+
+  select {
+    font-family: $fontForHeaders;
   }
 }

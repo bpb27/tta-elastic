@@ -1,14 +1,12 @@
 @import "src/variables.scss";
 
 .paragraph {
-  font-size: 20px;
-  line-height: 30px;
+  font-size: 1.2rem;
   margin: 50px 20%;
   text-align: left;
 
   > a {
     color: $red;
-    // text-decoration: none;
   }
 
   &.quote {
@@ -22,7 +20,6 @@
     }
 
     .quotationMark {
-      font-family: "Times New Roman";
       padding: 0 5px;
     }
   }
