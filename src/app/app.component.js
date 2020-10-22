@@ -8,6 +8,7 @@ import './app.style.css';
 const FaqPage = lazy(() => import('components/pages/faq'));
 const InsightsPage = lazy(() => import('components/pages/insights'));
 const SearchPage = lazy(() => import('components/pages/search'));
+const OldSearchPage = lazy(() => import('components/pages/old-search'));
 
 export default class App extends React.Component {
   render () {
@@ -20,6 +21,7 @@ export default class App extends React.Component {
               <Switch>
                 <Route path="/faq" component={FaqPage}/>
                 <Route path="/insights" component={InsightsPage}/>
+                <Route path="/old-search" component={OldSearchPage}/>
                 <Route component={SearchPage}/>
               </Switch>
             </Suspense>

@@ -4,6 +4,7 @@ const { DATABASE_URL, NODE_ENV, PORT, SEARCHBOX_URL } = process.env;
 const express = require('express');
 const favicon = require('express-favicon');
 const staticGzip = require('express-static-gzip');
+const rateLimit = require('express-rate-limit');
 const sslRedirect = require('heroku-ssl-redirect').default;
 const cors = require('cors');
 const path = require('path');
@@ -25,6 +26,7 @@ const client = new Client({ host: SEARCHBOX_URL });
 const pool = new Pool({ connectionString: dbString(DATABASE_URL) });
 const pathDist = path.join(__dirname, '../dist');
 const pathPublic = path.join(__dirname, '../public');
+const rateLimitSearch = rateLimit({ max: 25, windowMs: 15 * 60 * 1000 }); // 15 min
 
 // check for latest tweets and upload to ES & PG every minute
 if (NODE_ENV === 'prod') {
@@ -45,19 +47,22 @@ if (NODE_ENV === 'prod') {
   }, 1000 * 60);
 }
 
-// security headers
-// app.use(helmet.contentSecurityPolicy()); // need to whitelist a number of scripts and styles
+// heroku
+app.set('trust proxy', 1); // heroku
 app.use(sslRedirect());
+
+// security headers
 app.use(helmet.dnsPrefetchControl());
 app.use(helmet.expectCt());
 app.use(helmet.frameguard());
 app.use(helmet.hidePoweredBy());
 app.use(helmet.hsts());
 app.use(helmet.ieNoOpen());
-// app.use(helmet.noSniff()); // seems to cause problems with react suspense js snippets
 app.use(helmet.permittedCrossDomainPolicies());
 app.use(helmet.referrerPolicy());
 app.use(helmet.xssFilter());
+// app.use(helmet.noSniff()); // seems to cause problems with react suspense js snippets
+// app.use(helmet.contentSecurityPolicy()); // need to whitelist a number of scripts and styles
 
 // serve static assets in dist and public folders
 app.use(favicon(`${pathPublic}/favicon.ico`));
@@ -92,6 +97,30 @@ app.get('/latest-tweets', async (req, res) => {
     const fresh = await pool.query('SELECT * FROM "tweets" ORDER BY "date" DESC LIMIT 1000');
     cache.set('latest', fresh.rows, 1800); // TTL 30 min (60 * 30)
     res.json(fresh.rows);
+  }
+});
+
+app.get('/search-tweets/:term/:offset', rateLimitSearch, async (req, res) => {
+  try {
+    const { term, offset } = req.params;
+
+    const total = await pool.query(`
+      SELECT count(id) FROM "tweets"
+      WHERE text like '%${term.replace(/[^a-z0-9]/gi, '')}%'
+    `);
+
+    const results = await pool.query(`
+      SELECT * FROM "tweets"
+      WHERE text like '%${term.replace(/[^a-z0-9]/gi, '')}%'
+      ORDER BY "date"
+      DESC
+      LIMIT 25
+      OFFSET ${offset.replace(/[^0-9]/gi, '')}
+    `);
+
+    res.json({ results: results.rows, total: total.rows[0].count });
+  } catch (e) {
+    res.sendStatus(401);
   }
 });
 
