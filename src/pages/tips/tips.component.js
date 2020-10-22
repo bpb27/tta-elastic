@@ -22,6 +22,7 @@ export default class Tips extends React.Component {
           <Icon name="CLOSE_BUTTON" onClick={this.props.closeModal} />
         </header>
         <main>
+          <p>NB: Search works a bit differently on this site compared to the old site.</p>
           <section>
             <span>loser</span>
             <span>tweet contains the exact word <em>loser</em></span>
@@ -31,7 +32,7 @@ export default class Tips extends React.Component {
             <span>tweet contains a word that starts with <em>loser</em>, such as <em>loser</em>, <em>losers</em>, <em>loserriffic</em>, etc.</span>
           </section>
           <section>
-            <span>losers haters</span>
+            <span>losers + haters</span>
             <span>tweet contains the exact word <em>losers</em> AND the exact word <em>haters</em> (in any order)</span>
           </section>
           <section>
