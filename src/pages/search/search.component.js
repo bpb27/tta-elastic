@@ -140,7 +140,7 @@ export default class Search extends React.Component {
             onClick={() => this.setState({ showTips: !showTips })}
             selected={showTips}
           >
-            Show tips
+            Search tips
           </Button>
           <Button
             onClick={() => this.setState({ showRetweetButtons: !showRetweetButtons })}
@@ -179,7 +179,12 @@ export default class Search extends React.Component {
             and: ['dates', 'device', 'retweet', 'searchbox']
           }}
           render={this.tweets.bind(this)}
-          renderNoResults={() => 'No tweets found'}
+          renderNoResults={() => (
+            <div className={styles.noResults}>
+              <p>No tweets found.</p>
+              <p>Not finding what you expect? Take a look at the <span onClick={() => this.setState({ showTips: !showTips })}>search tips</span>.</p>
+            </div>
+          )}
           renderResultStats={({ numberOfResults }) => (
             <p>
               <span className={styles.results}>{numberWithCommas(numberOfResults)}</span> <TextSwitch mobile="tweets" web="tweets found"/>

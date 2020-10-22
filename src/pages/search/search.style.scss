@@ -69,3 +69,9 @@
 .endOfResult {
   height: 10px;
 }
+
+.noResults span {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: $red;
+}
