@@ -36,7 +36,7 @@ export default class Faq extends React.Component {
         </section>
         <section>
           <h3>What about deleted tweets?</h3>
-          <p>The site launched in September 2016. If he deleted a tweet before that, it won't be in here. If he deleted a tweet since then, it should be in here. Tweets aren't marked as deleted, but if you click on one and Twitter says it can't be found, it was deleted.</p>
+          <p>The site launched in September 2016. If he deleted a tweet before that, it won't be in here. If he deleted a tweet since then, it should be in here. You can filter by deleted tweets on the search page.</p>
         </section>
         <section>
           <h3>Is this certain tweet real?</h3>

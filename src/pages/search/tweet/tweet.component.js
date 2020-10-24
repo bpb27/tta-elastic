@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { arrayOf, bool, number, shape, string } from 'prop-types';
+import { arrayOf, bool, number, oneOfType, shape, string } from 'prop-types';
 import Highlighter from 'react-highlight-words';
 import Metadata from './metadata';
 import TweetLink from 'components/tweet-link';
@@ -10,10 +10,10 @@ export default class Tweet extends Component {
   static propTypes = {
     data: shape({
       date: number.isRequired,
-      favorites: number.isRequired,
+      favorites: oneOfType([number, string]).isRequired,
       id: string.isRequired,
       isRetweet: bool.isRequired,
-      retweets: number.isRequired,
+      retweets: oneOfType([number, string]).isRequired,
       text: string.isRequired,
     }),
     index: number.isRequired,

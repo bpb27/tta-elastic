@@ -35,6 +35,7 @@ export default class Search extends React.Component {
   state = {
     showDateRange: !!queryParams().dates,
     showDeviceDropdown: !!queryParams().device,
+    showDeletedButtons: !!queryParams().deleted,
     showExportModal: false,
     showRetweetButtons: !!queryParams().retweet,
     showTips: false,
@@ -61,6 +62,7 @@ export default class Search extends React.Component {
 
   render () {
     const {
+      showDeletedButtons,
       showDeviceDropdown,
       showDateRange,
       showExportModal,
@@ -98,7 +100,7 @@ export default class Search extends React.Component {
             dataField="device.keyword"
             placeholder="Filter by device"
             react={{
-              and: ['dates', 'results', 'retweet', 'searchbox']
+              and: ['dates', 'results', 'retweet', 'deleted', 'searchbox']
             }}
             selectAllLabel="All devices"
             style={{
@@ -134,6 +136,19 @@ export default class Search extends React.Component {
             }}
             URLParams={true}
           />
+          <ToggleButton
+            componentId="deleted"
+            dataField="isDeleted"
+            data={[
+              { label: 'Only Deleted', value: 'true' },
+              { label: 'Hide Deleted', value: 'false' },
+            ]}
+            multiSelect={false}
+            style={{
+              display: showDeletedButtons ? 'initial' : 'none',
+            }}
+            URLParams={true}
+          />
         </div>
         <div className={styles.toggles}>
           <Button
@@ -147,6 +162,12 @@ export default class Search extends React.Component {
             selected={showRetweetButtons}
           >
             Retweet filters
+          </Button>
+          <Button
+            onClick={() => this.setState({ showDeletedButtons: !showDeletedButtons })}
+            selected={showDeletedButtons}
+          >
+            Deleted filters
           </Button>
           <Button
             onClick={() => this.setState({ showDateRange: !showDateRange })}
@@ -176,7 +197,7 @@ export default class Search extends React.Component {
           infiniteScroll={true}
           onData={({ resultStats }) => this.setState({ total: resultStats?.numberOfResults })}
           react={{
-            and: ['dates', 'device', 'retweet', 'searchbox']
+            and: ['dates', 'device', 'retweet', 'deleted', 'searchbox']
           }}
           render={this.tweets.bind(this)}
           renderNoResults={() => (
