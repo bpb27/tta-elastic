@@ -15,10 +15,10 @@ describe('upload tweets', () => {
     expect(client.bulk).toHaveBeenCalledTimes(1);
     expect(client.bulk.mock.calls[0][0]).toEqual({
       body: [
-        { index: { _index: 'tweets', _type: 'document', _id: tweets[0].id } },
-        tweets[0],
-        { index: { _index: 'tweets', _type: 'document', _id: tweets[1].id } },
-        tweets[1],
+        { index: { _index: 'trump_tweets', _type: 'document', _id: tweets[0].id } },
+        { ...tweets[0], date: 1448083213000 },
+        { index: { _index: 'trump_tweets', _type: 'document', _id: tweets[1].id } },
+        { ...tweets[1], date: 1444261599000 },
       ],
     });
   });
@@ -51,19 +51,21 @@ describe('upload tweets', () => {
 
 const tweets = [
   {
-    date: 1561803092000,
+    date: 'Sat Nov 21 05:20:13 +0000 2015',
     device: 'Twitter for iPhone',
     favorites: 82271,
     id: '1144911267641135100',
+    isDeleted: false,
     isRetweet: false,
     retweets: 18266,
     text: 'Thank you #G20OsakaSummit https://t.co/9FCqSuR5Bp'
   },
   {
-    date: 1561762301000,
+    date: 'Wed Oct 07 23:46:39 +0000 2015',
     device: 'Twitter for iPhone',
     favorites: 139441,
     id: '1144740178948493300',
+    isDeleted: false,
     isRetweet: false,
     retweets: 33183,
     text: 'After some very important meetings, including my meeting with President Xi of China, I will be leaving Japan for South Korea (with President Moon). While there, if Chairman Kim of North Korea sees this, I would meet him at the Border/DMZ just to shake his hand and say Hello(?)!'

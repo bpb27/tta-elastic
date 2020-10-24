@@ -15,7 +15,7 @@ const uploadToElastic = require('./upload-tweets-es');
 const uploadToDatabase = require('./upload-tweets-pg');
 const getStats = require('./get-stats');
 const getTweets = require('./get-tweets');
-const { dbString, logger } = require('./utils');
+const { dbString, logger, tableName } = require('./utils');
 
 const app = express();
 const port = PORT || 3000;
@@ -26,27 +26,22 @@ const pool = new Pool({ connectionString: dbString(DATABASE_URL) });
 const pathDist = path.join(__dirname, '../dist');
 const pathPublic = path.join(__dirname, '../public');
 
-// check for latest tweets and upload to ES & PG every minute
-if (NODE_ENV === 'prod') {
+// check for latest tweets and upload to PG & ES every minute
+// if (NODE_ENV === 'prod') {
   setInterval(() => {
     getTweets('realdonaldtrump', (error, tweets) => {
       try {
-        uploadToElastic(client, logger, tweets);
-      } catch (e) {
-        logger.error('Failed uploading to ES', e);
-      }
-
-      try {
-        uploadToDatabase(pool, logger, tweets);
+        uploadToDatabase(pool, logger, tweets, newDataFromPG => {
+          uploadToElastic(client, logger, newDataFromPG);
+        });
       } catch (e) {
         logger.error('Failed uploading to PG', e);
       }
     });
-  }, 1000 * 60);
-}
+  }, 1000 * 20);
+// }
 
 // security headers
-// app.use(helmet.contentSecurityPolicy()); // need to whitelist a number of scripts and styles
 app.use(sslRedirect());
 app.use(helmet.dnsPrefetchControl());
 app.use(helmet.expectCt());
@@ -54,10 +49,11 @@ app.use(helmet.frameguard());
 app.use(helmet.hidePoweredBy());
 app.use(helmet.hsts());
 app.use(helmet.ieNoOpen());
-// app.use(helmet.noSniff()); // seems to cause problems with react suspense js snippets
 app.use(helmet.permittedCrossDomainPolicies());
 app.use(helmet.referrerPolicy());
 app.use(helmet.xssFilter());
+// app.use(helmet.contentSecurityPolicy()); // need to whitelist a number of scripts and styles
+// app.use(helmet.noSniff()); // seems to cause problems with react suspense js snippets
 
 // serve static assets in dist and public folders
 app.use(favicon(`${pathPublic}/favicon.ico`));
@@ -89,7 +85,7 @@ app.get('/latest-tweets', async (req, res) => {
   if (cached && isProd) {
     res.json(cached);
   } else {
-    const fresh = await pool.query('SELECT * FROM "tweets" ORDER BY "date" DESC LIMIT 1000');
+    const fresh = await pool.query(`SELECT * FROM "${tableName}" ORDER BY "date" DESC LIMIT 1000`);
     cache.set('latest', fresh.rows, 1800); // TTL 30 min (60 * 30)
     res.json(fresh.rows);
   }

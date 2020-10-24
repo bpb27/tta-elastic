@@ -27,6 +27,7 @@
     "compression-webpack-plugin": "^3.0.0",
     "css-loader": "^2.1.1",
     "csv-writer": "^1.5.0",
+    "csvtojson": "^2.0.10",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "eslint": "^5.16.0",

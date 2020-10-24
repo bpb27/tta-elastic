@@ -2,8 +2,24 @@ require('dotenv').config();
 
 const request = require('request');
 const Twitter = require('twitter');
-const messages = require('./messages');
-const { TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET } = process.env;
+const { Client } = require('elasticsearch');
+const { Pool } = require('pg');
+const uploadToES = require('./upload-to-es');
+const uploadToPG = require('./upload-to-pg');
+const {
+  DATABASE_URL,
+  SEARCHBOX_URL,
+  TWITTER_CONSUMER_KEY,
+  TWITTER_CONSUMER_SECRET,
+} = process.env;
+
+const dbString = value => {
+  const ssl = '?ssl=true&sslmode=require';
+  return value.includes(ssl) ? value : `${value}${ssl}`;
+};
+
+const client = new Client({ host: SEARCHBOX_URL });
+const pool = new Pool({ connectionString: dbString(DATABASE_URL) });
 
 function getTweets (screenName, callback) {
   const credentials = new Buffer(`${TWITTER_CONSUMER_KEY}:${TWITTER_CONSUMER_SECRET}`).toString('base64');
@@ -18,7 +34,7 @@ function getTweets (screenName, callback) {
   };
 
   request(requestParams, (error, response, body) => {
-    if (error) return callback({ error, message: messages.fetches.twBearer }, null);
+    if (error) return callback(error, null);
 
     const bearerToken = JSON.parse(body)['access_token'];
     const client = new Twitter({
@@ -28,14 +44,14 @@ function getTweets (screenName, callback) {
     });
 
     const params = {
-      count: 100,
+      count: 5,
       screen_name: screenName,
       trim_user: true,
       tweet_mode: 'extended',
     };
 
     client.get('statuses/user_timeline', params, (error, tweets) => {
-      if (error) return callback({ error, message: messages.fetches.twTimeline }, null);
+      if (error) return callback(error, null);
 
       const newTweets = tweets.reduce((hash, tweet) => {
         hash[tweet.id_str] = {
@@ -57,4 +73,7 @@ function getTweets (screenName, callback) {
   });
 }
 
-module.exports = getTweets;
+getTweets('realdonaldtrump', (error, data) => {
+  if (error) return console.error('TWITTER FETCH ERROR', error);
+  uploadToPG(pool, data, tweetsFromPG => uploadToES(client, data, tweetsFromPG));
+});

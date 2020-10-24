@@ -4,43 +4,100 @@ const upload = require('../upload-tweets-pg');
 describe('upload new tweets to database', () => {
   let pool;
   let logger;
+  let finalCallback;
 
   beforeEach(() => {
     pool = { query: jest.fn() };
     logger = { error: jest.fn(), success: jest.fn() };
+    finalCallback = jest.fn();
   });
 
   it('creates the upsert query', () => {
-    upload(pool, logger, tweets);
-    expect(pool.query).toHaveBeenCalledTimes(1);
-    expect(pool.query.mock.calls[0][0]).toEqual(expectedQuery);
+    upload(pool, logger, tweets, finalCallback);
+    expect(pool.query.mock.calls[0][0]).toEqual(expectedUpsertQuery);
   });
 
-  it('logs a success message', () => {
+  it('logs an upsert error message', () => {
     upload(pool, logger, tweets);
-    const callback = pool.query.mock.calls[0][1];
-    callback();
+    const upsertCallback = pool.query.mock.calls[0][1];
+    upsertCallback({ message: 'Oh no' });
+    expect(logger.error).toHaveBeenCalledTimes(1);
+    expect(logger.error).toHaveBeenCalledWith(messages.uploads.pgError, { message: 'Oh no' });
+  });
+
+  it('creates the select query', () => {
+    upload(pool, logger, tweets, finalCallback);
+    const upsertCallback = pool.query.mock.calls[0][1];
+    const upsertResult = {
+      rows: [{ id: '1144911267641135100' }, { id: '1144740178948493300' }],
+    };
+    upsertCallback(null, upsertResult);
+    expect(pool.query.mock.calls[1][0]).toContain('SELECT "id", "text", "isRetweet", "isDeleted", "device", "favorites", "retweets", date::timestamp AT time zone \'UTC\' as date');
+    expect(pool.query.mock.calls[1][0]).toContain('FROM trump_tweets');
+    expect(pool.query.mock.calls[1][0]).toContain('WHERE id in (\'1144911267641135100\',\'1144740178948493300\')');
+  });
+
+  it('logs a select error message', () => {
+    upload(pool, logger, tweets, finalCallback);
+    const upsertCallback = pool.query.mock.calls[0][1];
+    const upsertResult = {
+      rows: [{ id: '1144911267641135100' }, { id: '1144740178948493300' }],
+    };
+    upsertCallback(null, upsertResult);
+    const selectCallback = pool.query.mock.calls[1][1];
+    selectCallback({ message: 'Oh no' });
+    expect(logger.error).toHaveBeenCalledTimes(1);
+    expect(logger.error).toHaveBeenCalledWith(messages.uploads.pgError, { message: 'Oh no' });
+  });
+
+  it('logs a select error message', () => {
+    upload(pool, logger, tweets, finalCallback);
+    const upsertCallback = pool.query.mock.calls[0][1];
+    const upsertResult = {
+      rows: [{ id: '1144911267641135100' }, { id: '1144740178948493300' }],
+    };
+    upsertCallback(null, upsertResult);
+    const selectCallback = pool.query.mock.calls[1][1];
+    selectCallback(null, tweets);
     expect(logger.success).toHaveBeenCalledTimes(1);
     expect(logger.success).toHaveBeenCalledWith(messages.uploads.pgSuccess);
   });
 
-  it('logs an error message', () => {
-    upload(pool, logger, tweets);
-    const error = { message: 'Oh no' };
-    const callback = pool.query.mock.calls[0][1];
-    callback(error);
-    expect(logger.error).toHaveBeenCalledTimes(1);
-    expect(logger.error).toHaveBeenCalledWith(messages.uploads.pgError, error);
+  it('logs a select success message', () => {
+    upload(pool, logger, tweets, finalCallback);
+    const upsertCallback = pool.query.mock.calls[0][1];
+    const upsertResult = {
+      rows: [{ id: '1144911267641135100' }, { id: '1144740178948493300' }],
+    };
+    upsertCallback(null, upsertResult);
+    const selectCallback = pool.query.mock.calls[1][1];
+    selectCallback(null, { rows: tweets });
+    expect(logger.success).toHaveBeenCalledTimes(1);
+    expect(logger.success).toHaveBeenCalledWith(messages.uploads.pgSuccess);
+  });
+
+  it('executes the final callback with the select results', () => {
+    upload(pool, logger, tweets, finalCallback);
+    const upsertCallback = pool.query.mock.calls[0][1];
+    const upsertResult = {
+      rows: [{ id: '1144911267641135100' }, { id: '1144740178948493300' }],
+    };
+    upsertCallback(null, upsertResult);
+    const selectCallback = pool.query.mock.calls[1][1];
+    selectCallback(null, { rows: tweets });
+    expect(finalCallback).toHaveBeenCalledTimes(1);
+    expect(finalCallback).toHaveBeenCalledWith(tweets);
   });
 });
 
-const expectedQuery = `
-    INSERT INTO public.tweets ("id", "text", "isRetweet", "date", "device", "favorites", "retweets")
+const expectedUpsertQuery = `
+    INSERT INTO public.trump_tweets ("id", "text", "isRetweet", "isDeleted", "date", "device", "favorites", "retweets")
     VALUES (
       '1144911267641135100',
       'Thank you #G20OsakaSummit https://t.co/9FCqSuR5Bp',
       false,
-      to_timestamp(1561803092000 / 1000),
+      false,
+      'Sat Nov 21 05:20:13 +0000 2015',
       'Twitter for iPhone',
       82271,
       18266
@@ -48,30 +105,34 @@ const expectedQuery = `
       '1144740178948493300',
       'After some very important meetings',
       false,
-      to_timestamp(1561762301000 / 1000),
+      false,
+      'Wed Oct 07 23:46:39 +0000 2015',
       'Twitter for iPhone',
       139441,
       33183
     )
     ON CONFLICT (id)
     DO UPDATE SET favorites = EXCLUDED.favorites, retweets = EXCLUDED.retweets
+    RETURNING "id"
   `;
 
 const tweets = [
   {
-    date: 1561803092000,
+    date: 'Sat Nov 21 05:20:13 +0000 2015',
     device: 'Twitter for iPhone',
     favorites: 82271,
     id: '1144911267641135100',
+    isDeleted: false,
     isRetweet: false,
     retweets: 18266,
     text: 'Thank you #G20OsakaSummit https://t.co/9FCqSuR5Bp'
   },
   {
-    date: 1561762301000,
+    date: 'Wed Oct 07 23:46:39 +0000 2015',
     device: 'Twitter for iPhone',
     favorites: 139441,
     id: '1144740178948493300',
+    isDeleted: false,
     isRetweet: false,
     retweets: 33183,
     text: 'After some very important meetings'

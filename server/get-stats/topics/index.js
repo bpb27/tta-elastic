@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const { Client } = require('elasticsearch');
 const client = new Client({ host: process.env.SEARCHBOX_URL });
+const { indexName } = require('../../utils');
 
 const abortion = require('./abortion');
 const approval = require('./approval');
@@ -64,7 +65,7 @@ const searches = [
 ];
 
 const getTopics = async () => {
-  const query = body => client.search({ body, index: 'tweets' });
+  const query = body => client.search({ body, index: indexName });
   const queries = searches.map(search => query(search.body));
   const results = await Promise.all(queries);
 
