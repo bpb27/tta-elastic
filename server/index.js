@@ -38,7 +38,7 @@ if (NODE_ENV === 'prod') {
         logger.error('Failed uploading to PG', e);
       }
     });
-  }, 1000 * 20);
+  }, 1000 * 60);
 }
 
 // security headers
