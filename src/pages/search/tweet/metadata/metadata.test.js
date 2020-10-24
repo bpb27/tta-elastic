@@ -6,6 +6,7 @@ const createProps = () => ({
   date: 1603231782000,
   favorites: 1000,
   index: 1,
+  isDeleted: false,
   onTwitterClick: jest.fn(),
   retweets: 2000,
   showTwitterView: false,
@@ -56,7 +57,13 @@ describe('Metadata', () => {
       expect(wrapper.find('.icons').text()).toContain('Hide');
     });
 
-    test('button text hide', () => {
+    test('button text deleted', () => {
+      props = { ...createProps(), isDeleted: true };
+      wrapper = shallow(<Metadata {...props}/>);
+      expect(wrapper.find('.icons').text()).toContain('Deleted');
+    });
+
+    test('button click calls handler', () => {
       props = { ...createProps(), showTwitterView: true };
       wrapper = shallow(<Metadata {...props}/>);
       wrapper.find('.icons span').last().simulate('click');
