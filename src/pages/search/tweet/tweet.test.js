@@ -8,6 +8,7 @@ const createProps = () => ({
     device: 'Twitter for Android',
     favorites: 2,
     id: '1',
+    isDeleted: false,
     isRetweet: false,
     retweets: 3,
     text: 'merry christmas you filthy animal',
