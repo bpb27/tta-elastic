@@ -1,6 +1,9 @@
 require('dotenv').config();
 
-const request = require('request');
+/*
+  ALERT: This returns truncated text !!!
+*/
+
 const csv = require('csvtojson');
 const path = require('path');
 const { Client } = require('elasticsearch');
