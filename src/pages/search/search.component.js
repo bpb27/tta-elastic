@@ -140,8 +140,8 @@ export default class Search extends React.Component {
             componentId="deleted"
             dataField="isDeleted"
             data={[
-              { label: 'Only Deleted', value: 'true' },
               { label: 'Hide Deleted', value: 'false' },
+              { label: 'Only Deleted', value: 'true' },
             ]}
             multiSelect={false}
             style={{
@@ -155,25 +155,25 @@ export default class Search extends React.Component {
             onClick={() => this.setState({ showTips: !showTips })}
             selected={showTips}
           >
-            Search tips
+            <TextSwitch mobile="Tips" web="Search tips"/>
           </Button>
           <Button
             onClick={() => this.setState({ showRetweetButtons: !showRetweetButtons })}
             selected={showRetweetButtons}
           >
-            Retweet filters
+            <TextSwitch mobile="Retweets" web="Retweet filters"/>
           </Button>
           <Button
             onClick={() => this.setState({ showDeletedButtons: !showDeletedButtons })}
             selected={showDeletedButtons}
           >
-            Deleted filters
+            <TextSwitch mobile="Deleted" web="Deleted filters"/>
           </Button>
           <Button
             onClick={() => this.setState({ showDateRange: !showDateRange })}
             selected={showDateRange}
           >
-            Date filters
+            <TextSwitch mobile="Dates" web="Date filters"/>
           </Button>
           <Button
             className={styles.hideOnMobile}

@@ -12,7 +12,7 @@ const tweetsGroupedBy = unit => `
 //   select
 //   extract(hour from date::timestamp AT time zone 'EST') as date,
 //   count(1)
-//   from tweets
+//   from ${tableName}
 //   group by 1
 // `;
 
