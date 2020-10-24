@@ -1,16 +1,16 @@
+const INDEX_NAME = 'trump_tweets';
 const moment = require('moment');
-const messages = require('./messages');
-const { indexName } = require('./utils');
 
 moment.suppressDeprecationWarnings = true;
 
 const preparePayload = tweets => {
-  const payload = [];
+  if (INDEX_NAME === 'tweets') throw new Error('Do not use that index name bruh');
 
+  const payload = [];
   tweets.forEach(tweet => {
     payload.push({
       index: {
-        _index: indexName,
+        _index: INDEX_NAME,
         _type: 'document',
         _id: tweet.id,
       },
@@ -24,16 +24,16 @@ const preparePayload = tweets => {
   return { body: payload };
 };
 
-const upload = (client, logger, tweets) => {
+const upload = (client, tweets) => {
   const mapped = preparePayload(tweets);
 
   client.bulk(mapped, (error, response) => {
     if (error) {
-      logger.error(messages.uploads.esError, error);
+      console.error('ES UPLOAD ERROR', error);
     } else if (response && response.errors) {
-      logger.error(messages.uploads.esError, response.items ? response.items[0] : null);
+      console.error('ES UPLOAD ERROR', response.items ? response.items[0] : null);
     } else {
-      logger.success(messages.uploads.esSuccess);
+      console.log('ES upload success');
     }
   });
 };

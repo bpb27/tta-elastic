@@ -1,7 +1,4 @@
-const moment = require('moment');
 const getTweets = require('../get-tweets');
-
-moment.suppressDeprecationWarnings = true;
 
 describe('get tweets', () => {
   let error;
@@ -29,14 +26,14 @@ describe('get tweets', () => {
 
   describe('parsing the response from twitter', () => {
     describe('the date value (the date the tweet was sent)', () => {
-      it('is a number', () => {
-        expect(typeof tweet.date).toEqual('number');
+      it('is a string', () => {
+        expect(typeof tweet.date).toEqual('string');
       });
 
       it('is a valid JS timestamp', () => {
         const year = new Date(tweet.date).getFullYear();
-        expect(year).toBeGreaterThan(2018);
-        expect(year).toBeLessThan(2024);
+        expect(year).toBeGreaterThan(2009);
+        expect(year).toBeLessThan(2025);
       });
     });
 
@@ -62,13 +59,19 @@ describe('get tweets', () => {
       });
 
       it('has some value', () => {
-        expect(tweet.device.length).toBeGreaterThan(0);
+        expect(tweet.id.length).toBeGreaterThan(0);
       });
     });
 
     describe('the isRetweet value (whether the tweet is an original or a retweet)', () => {
       it('is a boolean', () => {
         expect(typeof tweet.isRetweet).toEqual('boolean');
+      });
+    });
+
+    describe('the isDeleted value (will always be false when pulling from the API)', () => {
+      it('is false', () => {
+        expect(tweet.isDeleted).toEqual(false);
       });
     });
 
@@ -84,7 +87,7 @@ describe('get tweets', () => {
       });
 
       it('has some value', () => {
-        expect(tweet.device.length).toBeGreaterThan(0);
+        expect(tweet.text.length).toBeGreaterThan(0);
       });
     });
   });

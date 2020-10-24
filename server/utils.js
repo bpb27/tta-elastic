@@ -1,3 +1,6 @@
+const tableName = 'trump_tweets';
+const indexName = 'trump_tweets';
+
 const dbString = value => {
   const ssl = '?ssl=true&sslmode=require';
   return value.includes(ssl) ? value : `${value}${ssl}`;
@@ -10,5 +13,7 @@ const logger = {
 
 module.exports = {
   dbString,
+  indexName,
   logger,
+  tableName,
 };
