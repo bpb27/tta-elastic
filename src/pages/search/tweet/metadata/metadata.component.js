@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { bool, func, number } from 'prop-types';
+import { bool, func, number, oneOfType, string } from 'prop-types';
 import Icon from 'components/icon';
 import TextSwitch from 'components/text-switch';
 import { utcTimestampToEST } from 'utils/date';
@@ -9,11 +9,11 @@ import styles from './metadata.style.scss';
 export default class Metadata extends Component {
   static propTypes = {
     date: number.isRequired,
-    favorites: number.isRequired,
+    favorites: oneOfType([number, string]).isRequired,
     index: number.isRequired,
     onTwitterClick: func.isRequired,
     showTwitterView: bool.isRequired,
-    retweets: number.isRequired,
+    retweets: oneOfType([number, string]).isRequired,
   }
 
   render () {
