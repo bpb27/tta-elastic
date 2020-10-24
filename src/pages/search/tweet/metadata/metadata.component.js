@@ -11,13 +11,14 @@ export default class Metadata extends Component {
     date: number.isRequired,
     favorites: oneOfType([number, string]).isRequired,
     index: number.isRequired,
+    isDeleted: bool.isRequired,
     onTwitterClick: func.isRequired,
     showTwitterView: bool.isRequired,
     retweets: oneOfType([number, string]).isRequired,
   }
 
   render () {
-    const { date, index, favorites, onTwitterClick, retweets, showTwitterView } = this.props;
+    const { date, index, isDeleted, favorites, onTwitterClick, retweets, showTwitterView } = this.props;
     const dateShort = utcTimestampToEST(date, { timeTrim: true });
     const dateLong = utcTimestampToEST(date);
     return (
@@ -34,7 +35,9 @@ export default class Metadata extends Component {
             <Icon name="HEART"/> { numberWithKs(favorites) }
           </span>
           <span onClick={onTwitterClick}>
-            <Icon name="TWITTER"/> { showTwitterView ? 'Hide' : 'Show' }
+            <Icon name="TWITTER"/> {
+              isDeleted ? <span className={styles.deleted}>Deleted</span> : showTwitterView ? 'Hide' : 'Show'
+            }
           </span>
         </div>
       </div>

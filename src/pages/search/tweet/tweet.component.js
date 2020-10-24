@@ -12,6 +12,7 @@ export default class Tweet extends Component {
       date: number.isRequired,
       favorites: oneOfType([number, string]).isRequired,
       id: string.isRequired,
+      isDeleted: bool.isRequired,
       isRetweet: bool.isRequired,
       retweets: oneOfType([number, string]).isRequired,
       text: string.isRequired,
@@ -31,7 +32,7 @@ export default class Tweet extends Component {
   render () {
     const { showTwitterView } = this.state;
     const { data, index, searchWords } = this.props;
-    const { date, favorites, id, isRetweet, retweets, text } = data;
+    const { date, favorites, id, isDeleted, isRetweet, retweets, text } = data;
     const className = `${styles.tweet} ttaTweet`;
     const tweetData = JSON.stringify({ date, favorites, id, isRetweet, retweets, text });
 
@@ -41,6 +42,7 @@ export default class Tweet extends Component {
           date={date}
           favorites={favorites}
           index={index}
+          isDeleted={isDeleted}
           onTwitterClick={() => this.setState({ showTwitterView: !showTwitterView })}
           showTwitterView={showTwitterView}
           retweets={retweets}
