@@ -5,7 +5,7 @@
     margin: 0 auto;
     width: 80%;
 
-    @media all and (max-width: 500px) {
+    @media all and (max-width: 700px) {
       margin: initial;
       width: initial;
     }
@@ -21,13 +21,23 @@
 
     .item {
       .name {
-        font-size: 18px;
+        font-size: 1rem;
         margin-bottom: 5px;
+
+        @media all and (max-width: 700px) {
+          margin-bottom: 0;
+        }
       }
 
       p {
-        display: flex;
-        flex-flow: column;
+        margin: 0;
+        color: black;
+
+        @media all and (max-width: 700px) {
+          display: flex;
+          flex-flow: column;
+          margin: 15px 0;
+        }
       }
 
       a {

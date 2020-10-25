@@ -66,18 +66,21 @@ export default class Frequency extends React.Component {
                 topics={data?.topics}
               />
             ) : (
-              <Skeleton count={27} width="100%"/>
+              <Skeleton count={27} height="61px" width="60%"/>
             )
           }
         </div>
-        <hr/>
-        <h2>Editorial Commentary</h2>
+        {/* <hr/>
+        <h2>Light Editorial Commentary</h2>
         <Paragraph>
-          The vast majority of Trump's attention on Twitter is spent disparaging Democrats, complaining about negative news stories, and decrying the injustice of the Russia investigation and impeachment proceedings.
+          Trump's Twitter attention is spent disparaging Democrats, complaining about negative stories, and decrying the injustice of the Russia investigation and impeachment proceedings.
         </Paragraph>
         <Paragraph>
-          For a president who positions himself as a strong leader, master dealmaker, media expert, and one of the most accomplished presidents in history, he seems to spend <i>a lot</i> of time complaining.
+          Trump views himself as a strong leader, master dealmaker, media expert, and perhaps the most accomplished president in history, yet he spends an astounding amount of time complaining.
         </Paragraph>
+        <Paragraph>
+          Self-pity on social media is a bad look, especially coming from the President of the United States.
+        </Paragraph> */}
       </Page>
     );
   }
