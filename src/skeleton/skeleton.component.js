@@ -6,7 +6,7 @@ import styles from './skeleton.style.scss';
 export default class Skeleton extends React.Component {
   static propTypes = {
     count: number,
-    height: number,
+    height: oneOfType([number, string]),
     width: oneOfType([number, string]),
   }
 
