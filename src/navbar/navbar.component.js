@@ -71,7 +71,7 @@ export class Navbar extends React.Component {
             <NavLink to="/insights/economy" {...active} {...subnavClick}>Economy</NavLink>
             <NavLink to="/insights/insults" {...active} {...subnavClick}>Insults</NavLink>
             <NavLink to="/insights/past" {...active} {...subnavClick}>Pre-Presidency</NavLink>
-            <NavLink to="/insights/yelling" {...active} {...subnavClick}>Yelling</NavLink>
+            {/* <NavLink to="/insights/yelling" {...active} {...subnavClick}>Yelling</NavLink> */}
             {/* <NavLink to="/insights/sexual-assault" {...active} {...subnavClick}>Sexual Assault</NavLink> */}
             <div className={styles.separator}/>
             <a>More coming soon...</a>
