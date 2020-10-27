@@ -15,8 +15,8 @@ export default class Faq extends React.Component {
       >
         <h1>FAQs</h1>
         <section>
-          <h3>Why does the old site return different search results?</h3>
-          <p>The search syntax has changed! Click on the <b>Search tips</b> button to see how it works, but the TLDR is that the new site matches on full words, so searching <i>los</i> will return tweets with <i>Los Angeles</i> and not tweets with <i>loser</i>, <i>closer</i>, <i>Pelosi</i>, etc. If you can't figure out how to find something, feel free to <a href="mailto:trumptwitterarchive2@gmail.com">send an email</a>.</p>
+          <h3>What's happening here?</h3>
+          <p>This site checks Twitter every 60 seconds and records every Trump tweet into a database. Before the site launched in 2016, all available tweets were captured and added to the database for perpituity.</p>
         </section>
         <section>
           <h3>Can I have the data?</h3>
@@ -28,12 +28,12 @@ export default class Faq extends React.Component {
           <p>You can email questions or requests to <a href="mailto:trumptwitterarchive2@gmail.com">trumptwitterarchive2@gmail.com</a>.</p>
         </section>
         <section>
-          <h3>What's happening here?</h3>
-          <p>This site checks Twitter every 60 seconds and records every Trump tweet into a database. Before the site launched in 2016, all available tweets were captured and added to the database for perpituity.</p>
-        </section>
-        <section>
           <h3>Is this a reputable source?</h3>
           <p>It's regularly referenced by FactCheck.org, PolitiFact, Snopes, and Wikipedia, along with almost every major news source. You can check this <ExternalLink href="https://news.google.com/search?q=%22trumptwitterarchive.com%22&hl=en-US&gl=US&ceid=US%3Aen" title="View Google News">Google News</ExternalLink> link for more.</p>
+        </section>
+        <section>
+          <h3>Why does the old site return different search results?</h3>
+          <p>The search syntax has changed! Click on the <b>Search tips</b> button to see how it works, but the TLDR is that the new site matches on full words, so searching <i>los</i> will return tweets with <i>Los Angeles</i> and not tweets with <i>loser</i>, <i>closer</i>, <i>Pelosi</i>, etc. If you can't figure out how to find something, feel free to <a href="mailto:trumptwitterarchive2@gmail.com">send an email</a>.</p>
         </section>
         <section>
           <h3>What about deleted tweets?</h3>

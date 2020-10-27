@@ -56,14 +56,14 @@ export default class Insults extends React.Component {
           <h2>Celebs and Public Figures</h2>
           { dataCelebs.map(this.item) }
         </div>
-        <hr/>
+        {/* <hr/>
         <h2>Editorial Questions</h2>
         <Paragraph>
           Is it presidential, moral, or productive to publicly belittle the people he's supposed to be working with to move the country forward?
         </Paragraph>
         <Paragraph>
           What are the cost to our society to have the President of the United States regularly degrading everyone in sight?
-        </Paragraph>
+        </Paragraph> */}
       </Page>
     );
   }
