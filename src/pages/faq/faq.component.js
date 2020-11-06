@@ -20,7 +20,7 @@ export default class Faq extends React.Component {
         </section>
         <section>
           <h3>Can I have the data?</h3>
-          <p>Yes. You can download the full dataset via Google Drive either as a <ExternalLink href={LINK_CSV} title="Open file in Google Drive">CSV file</ExternalLink> or <ExternalLink href={LINK_JSON} title="Open file in Google Drive">JSON file</ExternalLink> (last updated {LINK_UPDATED_AT}, date and truncated text issue is fixed). You can credit the site however you'd like. Note that the dates are stored in UTC time.</p>
+          <p>Yes. You can download the full dataset via Google Drive either as a <ExternalLink href={LINK_CSV} title="Open file in Google Drive">CSV file</ExternalLink> or <ExternalLink href={LINK_JSON} title="Open file in Google Drive">JSON file</ExternalLink> (last updated {LINK_UPDATED_AT}). You can credit the site however you'd like. Note that the dates are stored in UTC time.</p>
           <p>There's also an API endpoint to pull the latest 1000 tweets: <ExternalLink href="https://www.thetrumparchive.com/latest-tweets" title="Open link on thetrumparchive.com">https://www.thetrumparchive.com/latest-tweets</ExternalLink> (cached for 30 minutes).</p>
         </section>
         <section>
