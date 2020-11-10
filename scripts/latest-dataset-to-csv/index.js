@@ -3,8 +3,9 @@ const moment = require('moment');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
 const csvWriter = createCsvWriter({
+  alwaysQuote: true,
   path: 'out2.csv',
-  fieldDelimiter: ';',
+  fieldDelimiter: ',',
   header: [
     { id: 'date', title: 'date' },
     { id: 'device', title: 'device' },
@@ -39,13 +40,13 @@ const pull = async () => {
   const data = years
     .reduce((bigList, smallList) => [...bigList, ...smallList], [])
     .map(tweet => ({
-      date: moment.utc(tweet.created_at).format('YYYY-MM-DD hh:mm:ss'),
+      date: moment.utc(tweet.created_at).format('YYYY-MM-DD HH:mm:ss'),
       device: tweet.source,
       favorites: tweet.favorite_count,
       id: tweet.id_str,
       isRetweet: tweet.is_retweet,
       retweets: tweet.retweet_count,
-      text: tweet.text.trim().replace(/;/g, ',').replace(/\n/g, '').replace(/…/g, '...'),
+      text: tweet.text,
     }));
 
     csvWriter
