@@ -79,6 +79,7 @@ export default class Search extends React.Component {
         metaTitle="Search on Trump Twitter Archive"
       >
         { showTips && <Tips closeModal={() => this.setState({ showTips: !showTips })} /> }
+        <p className={styles.ban}>Twitter has permanently suspended Trump's account (January 8th, 2021)</p>
         <DataSearch
           autosuggest={false}
           className={styles.searchbox}
