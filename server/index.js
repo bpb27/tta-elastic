@@ -96,12 +96,20 @@ app.get('/latest-tweets', async (req, res) => {
 // tweet by id route
 app.get('/tweets/:id', async (req, res) => {
   const id = req.params.id.replace(/[^\d.-]/g, '');
-  const result = await pool.query(`SELECT * FROM "${tableName}" WHERE id = '${id}'`);
-  const tweet = result.rows[0];
-  if (tweet) {
-    res.json(tweet);
+  const cacheKey = `tweet-${id}`;
+  const cached = cache.get(cacheKey);
+
+  if (cached && isProd) {
+    res.json(cached);
   } else {
-    res.status(404).send('Tweet not found');
+    const result = await pool.query(`SELECT * FROM "${tableName}" WHERE id = '${id}'`);
+    const tweet = result.rows[0];
+    if (tweet) {
+      cache.set(cacheKey, tweet, 86400); // TTL 24 hours (60 * 60 * 24)
+      res.json(tweet);
+    } else {
+      res.status(404).send('Tweet not found');
+    }
   }
 });
 
