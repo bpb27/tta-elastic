@@ -70,7 +70,7 @@ app.get('/ping', (req, res) => {
 });
 
 // tweet stats route with cache
-app.get('/stats', async (req, res) => {
+app.get('/stats', cors(), async (req, res) => {
   const cachedStats = cache.get('stats');
   if (cachedStats && isProd) {
     res.json(cachedStats);
@@ -82,7 +82,7 @@ app.get('/stats', async (req, res) => {
 });
 
 // latest 1000 tweets route
-app.get('/latest-tweets', async (req, res) => {
+app.get('/latest-tweets', cors(), async (req, res) => {
   const cached = cache.get('latest');
   if (cached && isProd) {
     res.json(cached);
@@ -94,7 +94,7 @@ app.get('/latest-tweets', async (req, res) => {
 });
 
 // tweet by id route
-app.get('/tweets/:id', async (req, res) => {
+app.get('/tweets/:id', cors(), async (req, res) => {
   const id = req.params.id.replace(/[^\d.-]/g, '');
   const cacheKey = `tweet-${id}`;
   const cached = cache.get(cacheKey);
