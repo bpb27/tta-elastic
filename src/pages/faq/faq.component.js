@@ -21,7 +21,7 @@ export default class Faq extends React.Component {
         <section>
           <h3>Can I have the data?</h3>
           <p>Yes. You can download the full dataset via Google Drive either as a <ExternalLink href={LINK_CSV} title="Open file in Google Drive">CSV file</ExternalLink> or <ExternalLink href={LINK_JSON} title="Open file in Google Drive">JSON file</ExternalLink> (last updated {LINK_UPDATED_AT}). You can credit the site however you'd like. Note that the dates are stored in UTC time.</p>
-          <p>There's also an API endpoint to pull the latest 1000 tweets: <ExternalLink href="https://www.thetrumparchive.com/latest-tweets" title="Open link on thetrumparchive.com">https://www.thetrumparchive.com/latest-tweets</ExternalLink> (cached for 30 minutes).</p>
+          <p>There's also an API endpoint to lookup a tweet by id: <ExternalLink href="https://www.thetrumparchive.com/tweets/1347569870578266115" title="Open link on thetrumparchive.com">https://www.thetrumparchive.com/tweets/:id</ExternalLink>.</p>
         </section>
         <section>
           <h3>Contact info?</h3>
@@ -29,7 +29,7 @@ export default class Faq extends React.Component {
         </section>
         <section>
           <h3>Is this a reputable source?</h3>
-          <p>It's regularly referenced by FactCheck.org, PolitiFact, Snopes, and Wikipedia, along with almost every major news source. You can check this <ExternalLink href="https://news.google.com/search?q=%22trumptwitterarchive.com%22&hl=en-US&gl=US&ceid=US%3Aen" title="View Google News">Google News</ExternalLink> link for more.</p>
+          <p>It's regularly referenced by FactCheck.org, PolitiFact, Snopes, and Wikipedia, along with almost every major news outlet. You can check this <ExternalLink href="https://news.google.com/search?q=%22trumptwitterarchive.com%22%20%7C%20%22thetrumparchive.com%22&hl=en-US&gl=US&ceid=US%3Aen" title="View Google News">Google News</ExternalLink> link for more.</p>
         </section>
         <section>
           <h3>Why does the old site return different search results?</h3>
