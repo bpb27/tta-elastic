@@ -81,6 +81,7 @@ app.get('/stats', async (req, res) => {
   }
 });
 
+// latest 1000 tweets route
 app.get('/latest-tweets', async (req, res) => {
   const cached = cache.get('latest');
   if (cached && isProd) {
@@ -89,6 +90,18 @@ app.get('/latest-tweets', async (req, res) => {
     const fresh = await pool.query(`SELECT * FROM "${tableName}" ORDER BY "date" DESC LIMIT 1000`);
     cache.set('latest', fresh.rows, 1800); // TTL 30 min (60 * 30)
     res.json(fresh.rows);
+  }
+});
+
+// tweet by id route
+app.get('/tweets/:id', async (req, res) => {
+  const id = req.params.id.replace(/[^\d.-]/g, '');
+  const result = await pool.query(`SELECT * FROM "${tableName}" WHERE id = '${id}'`);
+  const tweet = result.rows[0];
+  if (tweet) {
+    res.json(tweet);
+  } else {
+    res.status(404).send('Tweet not found');
   }
 });
 
