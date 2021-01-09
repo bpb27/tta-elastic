@@ -27,7 +27,8 @@ const pathDist = path.join(__dirname, '../dist');
 const pathPublic = path.join(__dirname, '../public');
 
 // check for latest tweets and upload to PG & ES every minute
-if (NODE_ENV === 'prod') {
+const isBanned = true; // oops, insurrection ban
+if (NODE_ENV === 'prod' && !isBanned) {
   setInterval(() => {
     getTweets('realdonaldtrump', (error, tweets) => {
       try {
