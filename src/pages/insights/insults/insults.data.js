@@ -1,5 +1,10 @@
 export const dataHires = [
   {
+    id: '1346900434540240897',
+    name: 'Vice President Mike Pence',
+    insult: 'Mike Pence didn’t have the courage to do what should have been done to protect our Country and our Constitution',
+  },
+  {
     id: '1131537528736100352',
     name: 'Secretary of State Rex Tillerson',
     insult: 'dumb as a rock and totally ill prepared and ill equipped to be Secretary of State',
@@ -13,6 +18,11 @@ export const dataHires = [
     id: '1281930300960976897',
     name: 'Attorney General Jeff Sessions',
     insult: 'a disaster who has let us all down',
+  },
+  {
+    id: '1337772511870799872',
+    name: 'Attorney General Bill Barr',
+    insult: 'why didn’t Bill Barr reveal the truth to the public',
   },
   {
     id: '1164914610836783104',
@@ -101,6 +111,11 @@ export const dataSenators = [
     id: '1317460179223498753',
     name: 'Senator Ben Sasse (R-NE)',
     insult: 'Little Ben is a liability to the Republican Party, and an embarrassment to the Great State of Nebraska',
+  },
+  {
+    id: '1341547750710800385',
+    name: 'Senator John Thune (R-SD)',
+    insult: 'South Dakota doesn’t like weakness...he will be primaried in 2022, political career over!!!',
   },
   {
     id: '1283215676488986628',
@@ -248,9 +263,9 @@ export const dataSenators = [
     insult: 'couldn\'t get elected dog catcher in Tennessee',
   },
   {
-    id: '1308728561382105089',
+    id: '1339768443042738176',
     name: 'Former Senator John McCain (R-AZ)',
-    insult: 'never a fan of John',
+    insult: 'last in his class...one of the most overrated people in D.C.',
   },
   {
     id: '1100015815515082752',
@@ -309,6 +324,11 @@ export const dataFederal = [
     id: '880410114456465411',
     name: 'Former Director of National Intelligence James Clapper',
     insult: 'proven liar',
+  },
+  {
+    id: '1339281950490697729',
+    name: 'Former Director of Cybersecurity Chris Krebs',
+    insult: 'totally excoriated and proven wrong',
   },
   {
     id: '1185389914470473729',
@@ -377,6 +397,21 @@ export const dataGovernors = [
     id: '1304036654588534789',
     name: 'Governor Andrew Cuomo (D-NY)',
     insult: 'one of the WORST governors in the USA...caused 11,000 deaths',
+  },
+  {
+    id: '1345723944654024706',
+    name: 'Governor Brian Kemp (R-GA)',
+    insult: 'a disgrace to the great people of Georgia!',
+  },
+  {
+    id: '1337749020706549762',
+    name: 'Governor Doug Ducey (R-AZ)',
+    insult: 'who is a worse governor, @BrianKempGA of Georgia or @dougducey of Arizona???...vote them out of office!',
+  },
+  {
+    id: '1330556513589620736',
+    name: 'Governor Larry Hogan (R-MD)',
+    insult: 'this RINO will never make the grade...just as bad as the flawed tests he paid big money for!',
   },
   {
     id: '1294419295003451399',
@@ -573,6 +608,11 @@ export const dataHouse = [
     id: '1059317426653933568',
     name: 'Rep. Harley Rouda (D-CA)',
     insult: 'super liberal who is weak on Crime',
+  },
+  {
+    id: '1339929663804747778',
+    name: 'Rep. Liz Cheney (R-WY)',
+    insult: 'we got a GREAT new Senator from her state, not Liz!',
   },
   {
     id: '1011295779422695424',
@@ -814,6 +854,16 @@ export const dataPolitical = [
     id: '1257532112233803782',
     name: 'George Conway',
     insult: 'deranged loser of a husband, Moonface',
+  },
+  {
+    id: '1345731043861659650',
+    name: 'Georgia Secretary of State Brad Raffensperger',
+    insult: 'unwilling, or unable, to answer questions...he has no clue!',
+  },
+  {
+    id: '1336148836495069185',
+    name: 'Georgia Lt. Governor Geoff Duncan',
+    insult: 'RINO Never Trumper...too dumb or corrupt to recognize massive evidence of fraud in GA & should be replaced!',
   },
   {
     id: '1257532114666508291',
