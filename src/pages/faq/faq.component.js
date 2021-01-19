@@ -16,7 +16,7 @@ export default class Faq extends React.Component {
         <h1>FAQs</h1>
         <section>
           <h3>What's happening here?</h3>
-          <p>This site checks Twitter every 60 seconds and records every Trump tweet into a database. Before the site launched in 2016, all available tweets were captured and added to the database for perpituity.</p>
+          <p>This site checks Twitter every 60 seconds and records every Trump tweet into a database. Before the site launched in 2016, all available tweets were captured and added to the database for perpetuity.</p>
         </section>
         <section>
           <h3>Can I have the data?</h3>
