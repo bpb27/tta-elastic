@@ -6,7 +6,7 @@ const messages = require('./messages');
 const { TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET } = process.env;
 
 function getTweets (screenName, callback) {
-  const credentials = new Buffer(`${TWITTER_CONSUMER_KEY}:${TWITTER_CONSUMER_SECRET}`).toString('base64');
+  const credentials = Buffer.from(`${TWITTER_CONSUMER_KEY}:${TWITTER_CONSUMER_SECRET}`).toString('base64');
   const requestParams = {
     body: 'grant_type=client_credentials',
     headers: {
