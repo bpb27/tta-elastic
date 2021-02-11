@@ -470,7 +470,7 @@ export const dataGovernors = [
   },
   {
     id: '1164744428680097792',
-    name: 'Former Governor John Hickenlooper (R-CO)',
+    name: 'Former Governor John Hickenlooper (D-CO)',
     insult: 'badly damaged after his horrible run for President',
   },
   {
@@ -571,7 +571,7 @@ export const dataHouse = [
   },
   {
     id: '1150766494697107456',
-    name: 'Rep. Alexandria Ocasio-Cortez (D-CA)',
+    name: 'Rep. Alexandria Ocasio-Cortez (D-NY)',
     insult: 'bunch of Communists, they hate Israel, they hate our own Country',
   },
   {
