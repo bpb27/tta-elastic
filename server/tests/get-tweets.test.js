@@ -1,6 +1,6 @@
 const getTweets = require('../get-tweets');
 
-describe.skip('get tweets', () => {
+describe('get tweets', () => {
   let error;
   let tweets;
   let tweet;

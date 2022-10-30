@@ -27,12 +27,12 @@ const pathDist = path.join(__dirname, '../dist');
 const pathPublic = path.join(__dirname, '../public');
 
 // check for latest tweets and upload to PG & ES every minute
-const isBanned = true; // oops, insurrection ban
+const isBanned = false; // oops, insurrection ban
 if (NODE_ENV === 'prod' && !isBanned) {
   setInterval(() => {
     getTweets('realdonaldtrump', (error, tweets) => {
       try {
-        uploadToDatabase(pool, logger, tweets, newDataFromPG => {
+        uploadToDatabase(pool, logger, tweets, (newDataFromPG) => {
           uploadToElastic(client, logger, newDataFromPG);
         });
       } catch (e) {
@@ -87,7 +87,9 @@ app.get('/latest-tweets', cors(), async (req, res) => {
   if (cached && isProd) {
     res.json(cached);
   } else {
-    const fresh = await pool.query(`SELECT * FROM "${tableName}" ORDER BY "date" DESC LIMIT 1000`);
+    const fresh = await pool.query(
+      `SELECT * FROM "${tableName}" ORDER BY "date" DESC LIMIT 1000`
+    );
     cache.set('latest', fresh.rows, 1800); // TTL 30 min (60 * 30)
     res.json(fresh.rows);
   }
@@ -102,7 +104,9 @@ app.get('/tweets/:id', cors(), async (req, res) => {
   if (cached && isProd) {
     res.json(cached);
   } else {
-    const result = await pool.query(`SELECT * FROM "${tableName}" WHERE id = '${id}'`);
+    const result = await pool.query(
+      `SELECT * FROM "${tableName}" WHERE id = '${id}'`
+    );
     const tweet = result.rows[0];
     if (tweet) {
       cache.set(cacheKey, tweet, 86400); // TTL 24 hours (60 * 60 * 24)
