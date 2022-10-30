@@ -1,29 +1,29 @@
-require("dotenv").config();
+require('dotenv').config();
 
-const request = require("request");
-const Twitter = require("twitter");
-const messages = require("./messages");
+const request = require('request');
+const Twitter = require('twitter');
+const messages = require('./messages');
 const { TWITTER_API_KEY, TWITTER_API_KEY_SECRET } = process.env;
 
 function getTweets(screenName, callback) {
   const credentials = Buffer.from(
     `${TWITTER_API_KEY}:${TWITTER_API_KEY_SECRET}`
-  ).toString("base64");
+  ).toString('base64');
   const requestParams = {
-    body: "grant_type=client_credentials",
+    body: 'grant_type=client_credentials',
     headers: {
       Authorization: `Basic ${credentials}`,
-      "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
     },
-    method: "POST",
-    url: "https://api.twitter.com/oauth2/token",
+    method: 'POST',
+    url: 'https://api.twitter.com/oauth2/token',
   };
 
   request(requestParams, (error, response, body) => {
     if (error)
       return callback({ error, message: messages.fetches.twBearer }, null);
 
-    const bearerToken = JSON.parse(body)["access_token"];
+    const bearerToken = JSON.parse(body)['access_token'];
     const client = new Twitter({
       consumer_key: TWITTER_API_KEY,
       consumer_secret: TWITTER_API_KEY_SECRET,
@@ -32,7 +32,7 @@ function getTweets(screenName, callback) {
 
     // docs https://developer.twitter.com/en/docs/twitter-api/tweets/timelines/api-reference/get-users-id-tweets#tab2
     const apiUrl =
-      "https://api.twitter.com/2/users/25073877/tweets?max_results=100&tweet.fields=created_at%2Cpublic_metrics%2Csource&expansions=referenced_tweets.id&media.fields=public_metrics";
+      'https://api.twitter.com/2/users/25073877/tweets?max_results=100&tweet.fields=created_at%2Cpublic_metrics%2Csource&expansions=referenced_tweets.id&media.fields=public_metrics';
 
     client.get(apiUrl, {}, (error, tweets) => {
       if (error)
@@ -47,7 +47,7 @@ function getTweets(screenName, callback) {
           isDeleted: false,
           isRetweet: !!(
             tweet.referenced_tweets &&
-            tweet.referenced_tweets.find((t) => t.type === "quoted")
+            tweet.referenced_tweets.find((t) => t.type === 'quoted')
           ),
           retweets: tweet.public_metrics.retweet_count || 0,
           text: tweet.text,
