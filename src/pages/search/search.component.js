@@ -18,7 +18,7 @@ import {
   SelectedFilters,
   SingleDropdownList,
   StateProvider,
-  ToggleButton
+  ToggleButton,
 } from '@appbaseio/reactivesearch';
 import styles from './search.style.scss';
 
@@ -30,7 +30,7 @@ export default class Search extends React.Component {
     location: shape({
       pathname: string.isRequired,
     }).isRequired,
-  }
+  };
 
   state = {
     showDateRange: !!queryParams().dates,
@@ -40,13 +40,15 @@ export default class Search extends React.Component {
     showRetweetButtons: !!queryParams().retweet,
     showTips: false,
     total: 0,
-  }
+  };
 
-  tweets (results) {
+  tweets(results) {
     return (
       <StateProvider>
-        { ({ searchState }) => {
-          const searchWords = parseQuery(searchState.searchbox ? searchState.searchbox.value : '');
+        {({ searchState }) => {
+          const searchWords = parseQuery(
+            searchState.searchbox ? searchState.searchbox.value : ''
+          );
           return results.data.map((item, i) => (
             <Tweet
               data={item}
@@ -60,7 +62,7 @@ export default class Search extends React.Component {
     );
   }
 
-  render () {
+  render() {
     const {
       showDeletedButtons,
       showDeviceDropdown,
@@ -78,8 +80,9 @@ export default class Search extends React.Component {
         metaDescription="Instantly search through all 50k of Trump's tweets"
         metaTitle="Search on Trump Twitter Archive"
       >
-        { showTips && <Tips closeModal={() => this.setState({ showTips: !showTips })} /> }
-        <p className={styles.ban}>Twitter has permanently suspended Trump's account (January 8th, 2021)</p>
+        {showTips && (
+          <Tips closeModal={() => this.setState({ showTips: !showTips })} />
+        )}
         <DataSearch
           autosuggest={false}
           className={styles.searchbox}
@@ -89,19 +92,19 @@ export default class Search extends React.Component {
           placeholder="Search for anything..."
           queryFormat="and"
           react={{
-            and: ['dates', 'device', 'results']
+            and: ['dates', 'device', 'results'],
           }}
           searchOperators={true}
           URLParams={true}
         />
-        <SelectedFilters/>
+        <SelectedFilters />
         <div className={styles.options}>
           <SingleDropdownList
             componentId="device"
             dataField="device.keyword"
             placeholder="Filter by device"
             react={{
-              and: ['dates', 'results', 'retweet', 'deleted', 'searchbox']
+              and: ['dates', 'results', 'retweet', 'deleted', 'searchbox'],
             }}
             selectAllLabel="All devices"
             style={{
@@ -113,7 +116,9 @@ export default class Search extends React.Component {
             componentId="dates"
             dataField="date"
             dayPickerInputProps={{
-              parseDate: dateString => validDatestring(dateString) && zonedTimeToUtc(dateString, 'America/New_York'),
+              parseDate: (dateString) =>
+                validDatestring(dateString) &&
+                zonedTimeToUtc(dateString, 'America/New_York'),
             }}
             placeholder={{
               end: 'YYYY-MM-DD',
@@ -156,29 +161,35 @@ export default class Search extends React.Component {
             onClick={() => this.setState({ showTips: !showTips })}
             selected={showTips}
           >
-            <TextSwitch mobile="Tips" web="Search tips"/>
+            <TextSwitch mobile="Tips" web="Search tips" />
           </Button>
           <Button
-            onClick={() => this.setState({ showRetweetButtons: !showRetweetButtons })}
+            onClick={() =>
+              this.setState({ showRetweetButtons: !showRetweetButtons })
+            }
             selected={showRetweetButtons}
           >
-            <TextSwitch mobile="Retweets" web="Retweet filters"/>
+            <TextSwitch mobile="Retweets" web="Retweet filters" />
           </Button>
           <Button
-            onClick={() => this.setState({ showDeletedButtons: !showDeletedButtons })}
+            onClick={() =>
+              this.setState({ showDeletedButtons: !showDeletedButtons })
+            }
             selected={showDeletedButtons}
           >
-            <TextSwitch mobile="Deleted" web="Deleted filters"/>
+            <TextSwitch mobile="Deleted" web="Deleted filters" />
           </Button>
           <Button
             onClick={() => this.setState({ showDateRange: !showDateRange })}
             selected={showDateRange}
           >
-            <TextSwitch mobile="Dates" web="Date filters"/>
+            <TextSwitch mobile="Dates" web="Date filters" />
           </Button>
           <Button
             className={styles.hideOnMobile}
-            onClick={() => this.setState({ showDeviceDropdown: !showDeviceDropdown })}
+            onClick={() =>
+              this.setState({ showDeviceDropdown: !showDeviceDropdown })
+            }
             selected={showDeviceDropdown}
           >
             Device filters
@@ -196,34 +207,48 @@ export default class Search extends React.Component {
           componentId="results"
           dataField="text"
           infiniteScroll={true}
-          onData={({ resultStats }) => this.setState({ total: resultStats?.numberOfResults })}
+          onData={({ resultStats }) =>
+            this.setState({ total: resultStats?.numberOfResults })
+          }
           react={{
-            and: ['dates', 'device', 'retweet', 'deleted', 'searchbox']
+            and: ['dates', 'device', 'retweet', 'deleted', 'searchbox'],
           }}
           render={this.tweets.bind(this)}
           renderNoResults={() => (
             <div className={styles.noResults}>
               <p>No tweets found.</p>
-              <p>Not finding what you expect? Take a look at the <span onClick={() => this.setState({ showTips: !showTips })}>search tips</span>.</p>
+              <p>
+                Not finding what you expect? Take a look at the{' '}
+                <span onClick={() => this.setState({ showTips: !showTips })}>
+                  search tips
+                </span>
+                .
+              </p>
             </div>
           )}
           renderResultStats={({ numberOfResults }) => (
             <p>
-              <span className={styles.results}>{numberWithCommas(numberOfResults)}</span> <TextSwitch mobile="tweets" web="tweets found"/>
+              <span className={styles.results}>
+                {numberWithCommas(numberOfResults)}
+              </span>{' '}
+              <TextSwitch mobile="tweets" web="tweets found" />
             </p>
           )}
           size={showExportModal ? 100 : 25}
           sortOptions={[
-            { dataField: 'date', label: 'Latest', sortBy: 'desc'},
-            { dataField: 'date', label: 'Oldest', sortBy: 'asc'},
-            { dataField: 'favorites', label: 'Most Likes', sortBy: 'desc'},
-            { dataField: 'retweets', label: 'Most Retweets', sortBy: 'desc'},
+            { dataField: 'date', label: 'Latest', sortBy: 'desc' },
+            { dataField: 'date', label: 'Oldest', sortBy: 'asc' },
+            { dataField: 'favorites', label: 'Most Likes', sortBy: 'desc' },
+            { dataField: 'retweets', label: 'Most Retweets', sortBy: 'desc' },
           ]}
           URLParams={true}
         />
-        <div className={styles.endOfResult} id="endOfResult"/>
-        { showExportModal && (
-          <Export close={() => this.setState({ showExportModal: false })} total={total} />
+        <div className={styles.endOfResult} id="endOfResult" />
+        {showExportModal && (
+          <Export
+            close={() => this.setState({ showExportModal: false })}
+            total={total}
+          />
         )}
       </Page>
     );
