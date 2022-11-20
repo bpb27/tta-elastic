@@ -2,6 +2,9 @@
   "name": "tta-elastic",
   "version": "1.0.0",
   "description": "a realtime, searchable archive of trump tweets",
+  "engines": {
+    "node": "8.17.0"
+  },
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
