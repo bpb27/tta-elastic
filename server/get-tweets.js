@@ -38,7 +38,7 @@ function getTweets(screenName, callback) {
       if (error)
         return callback({ error, message: messages.fetches.twTimeline }, null);
 
-      const newTweets = tweets.reduce((hash, tweet) => {
+      const newTweets = tweets.data.reduce((hash, tweet) => {
         hash[tweet.id] = {
           date: tweet.created_at,
           device: tweet.source,
