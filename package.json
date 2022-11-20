@@ -52,7 +52,7 @@
     "style-loader": "^0.23.1",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0",
+    "webpack-dev-server": "^3.11.3",
     "webpack-md5-hash": "0.0.6"
   },
   "dependencies": {
