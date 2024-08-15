@@ -1,9 +1,9 @@
 import React from 'react';
-import TweetLink from 'components/tweet-link';
+import TweetLink from '@/tweet-link';
 import List from '../list';
 
 export default class RepetitiveEndorsements extends React.Component {
-  render () {
+  render() {
     return (
       <List header="Dogs">
         <TweetLink id="1170782374843564034">

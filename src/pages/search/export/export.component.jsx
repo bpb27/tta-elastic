@@ -1,6 +1,6 @@
 import React from 'react';
 import { func, number } from 'prop-types';
-import Modal from 'components/modal';
+import Modal from '@/modal';
 import { numberWithCommas } from 'utils/format';
 import styles from './export.style.scss';
 
@@ -22,36 +22,45 @@ export default class Export extends React.Component {
   static propTypes = {
     close: func.isRequired,
     total: number.isRequired,
-  }
+  };
 
   state = {
     intervalId: null,
     isRunning: false,
     text: null,
-  }
+  };
 
-  get allowed () {
+  get allowed() {
     const { total } = this.props;
     const { isRunning, text } = this.state;
     return (
       <div className={styles.allowed}>
-        <p>This will take { (((total / 100) * 2) + 5).toFixed(0) } seconds to prepare. The JSON will be rendered in a text box, which you can copy and paste into your text editor (and save with a .json file extension).</p>
-        { text ? (
-          <textarea readOnly={true} value={JSON.stringify(text)}/>
+        <p>
+          This will take {((total / 100) * 2 + 5).toFixed(0)} seconds to prepare. The JSON will be
+          rendered in a text box, which you can copy and paste into your text editor (and save with
+          a .json file extension).
+        </p>
+        {text ? (
+          <textarea readOnly={true} value={JSON.stringify(text)} />
         ) : (
           <button disabled={isRunning} onClick={this.start}>
-            { isRunning ? 'Exporting...' : 'Start export' }
+            {isRunning ? 'Exporting...' : 'Start export'}
           </button>
         )}
       </div>
     );
   }
 
-  get notAllowed () {
+  get notAllowed() {
     return (
       <div>
-        <p>Exporting is only allowed for searches with fewer than 2,000 results - please narrow your search.</p>
-        <p>If you're looking for the full data set, it's available as a CSV file on the FAQs page.</p>
+        <p>
+          Exporting is only allowed for searches with fewer than 2,000 results - please narrow your
+          search.
+        </p>
+        <p>
+          If you're looking for the full data set, it's available as a CSV file on the FAQs page.
+        </p>
       </div>
     );
   }
@@ -60,7 +69,7 @@ export default class Export extends React.Component {
     const { intervalId } = this.state;
     if (intervalId) clearInterval(intervalId);
     this.props.close();
-  }
+  };
 
   start = () => {
     const { total } = this.props;
@@ -83,9 +92,9 @@ export default class Export extends React.Component {
     }, 2000);
 
     this.setState({ intervalId });
-  }
+  };
 
-  render () {
+  render() {
     const { total } = this.props;
     return (
       <Modal
@@ -93,7 +102,7 @@ export default class Export extends React.Component {
         closeModal={this.close}
         headerText={`Export ${numberWithCommas(total)} tweets as JSON`}
       >
-        { total > 2000 ? this.notAllowed : this.allowed  }
+        {total > 2000 ? this.notAllowed : this.allowed}
       </Modal>
     );
   }

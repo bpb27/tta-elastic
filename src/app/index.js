@@ -1,3 +1,3 @@
-import App from './app.component.js';
+import App from './app.component.jsx';
 
 export default App;

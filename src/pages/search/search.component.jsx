@@ -5,11 +5,11 @@ import { validDatestring } from 'utils/date';
 import { numberWithCommas } from 'utils/format';
 import { queryParams } from 'utils/navigation';
 import { zonedTimeToUtc } from 'date-fns-tz';
-import Button from 'components/button';
+import Button from '@/button';
 import Export from './export';
-import Page from 'components/page';
-import Tips from 'components/pages/tips';
-import TextSwitch from 'components/text-switch';
+import Page from '@/page';
+import Tips from '@/pages/tips';
+import TextSwitch from '@/text-switch';
 import Tweet from './tweet';
 import {
   DataSearch,
@@ -46,16 +46,9 @@ export default class Search extends React.Component {
     return (
       <StateProvider>
         {({ searchState }) => {
-          const searchWords = parseQuery(
-            searchState.searchbox ? searchState.searchbox.value : ''
-          );
+          const searchWords = parseQuery(searchState.searchbox ? searchState.searchbox.value : '');
           return results.data.map((item, i) => (
-            <Tweet
-              data={item}
-              index={i + 1}
-              key={item.id}
-              searchWords={searchWords}
-            />
+            <Tweet data={item} index={i + 1} key={item.id} searchWords={searchWords} />
           ));
         }}
       </StateProvider>
@@ -80,9 +73,7 @@ export default class Search extends React.Component {
         metaDescription="Instantly search through all 50k of Trump's tweets"
         metaTitle="Search on Trump Twitter Archive"
       >
-        {showTips && (
-          <Tips closeModal={() => this.setState({ showTips: !showTips })} />
-        )}
+        {showTips && <Tips closeModal={() => this.setState({ showTips: !showTips })} />}
         <DataSearch
           autosuggest={false}
           className={styles.searchbox}
@@ -116,9 +107,8 @@ export default class Search extends React.Component {
             componentId="dates"
             dataField="date"
             dayPickerInputProps={{
-              parseDate: (dateString) =>
-                validDatestring(dateString) &&
-                zonedTimeToUtc(dateString, 'America/New_York'),
+              parseDate: dateString =>
+                validDatestring(dateString) && zonedTimeToUtc(dateString, 'America/New_York'),
             }}
             placeholder={{
               end: 'YYYY-MM-DD',
@@ -157,24 +147,17 @@ export default class Search extends React.Component {
           />
         </div>
         <div className={styles.toggles}>
-          <Button
-            onClick={() => this.setState({ showTips: !showTips })}
-            selected={showTips}
-          >
+          <Button onClick={() => this.setState({ showTips: !showTips })} selected={showTips}>
             <TextSwitch mobile="Tips" web="Search tips" />
           </Button>
           <Button
-            onClick={() =>
-              this.setState({ showRetweetButtons: !showRetweetButtons })
-            }
+            onClick={() => this.setState({ showRetweetButtons: !showRetweetButtons })}
             selected={showRetweetButtons}
           >
             <TextSwitch mobile="Retweets" web="Retweet filters" />
           </Button>
           <Button
-            onClick={() =>
-              this.setState({ showDeletedButtons: !showDeletedButtons })
-            }
+            onClick={() => this.setState({ showDeletedButtons: !showDeletedButtons })}
             selected={showDeletedButtons}
           >
             <TextSwitch mobile="Deleted" web="Deleted filters" />
@@ -187,9 +170,7 @@ export default class Search extends React.Component {
           </Button>
           <Button
             className={styles.hideOnMobile}
-            onClick={() =>
-              this.setState({ showDeviceDropdown: !showDeviceDropdown })
-            }
+            onClick={() => this.setState({ showDeviceDropdown: !showDeviceDropdown })}
             selected={showDeviceDropdown}
           >
             Device filters
@@ -207,9 +188,7 @@ export default class Search extends React.Component {
           componentId="results"
           dataField="text"
           infiniteScroll={true}
-          onData={({ resultStats }) =>
-            this.setState({ total: resultStats?.numberOfResults })
-          }
+          onData={({ resultStats }) => this.setState({ total: resultStats?.numberOfResults })}
           react={{
             and: ['dates', 'device', 'retweet', 'deleted', 'searchbox'],
           }}
@@ -219,18 +198,13 @@ export default class Search extends React.Component {
               <p>No tweets found.</p>
               <p>
                 Not finding what you expect? Take a look at the{' '}
-                <span onClick={() => this.setState({ showTips: !showTips })}>
-                  search tips
-                </span>
-                .
+                <span onClick={() => this.setState({ showTips: !showTips })}>search tips</span>.
               </p>
             </div>
           )}
           renderResultStats={({ numberOfResults }) => (
             <p>
-              <span className={styles.results}>
-                {numberWithCommas(numberOfResults)}
-              </span>{' '}
+              <span className={styles.results}>{numberWithCommas(numberOfResults)}</span>{' '}
               <TextSwitch mobile="tweets" web="tweets found" />
             </p>
           )}
@@ -245,10 +219,7 @@ export default class Search extends React.Component {
         />
         <div className={styles.endOfResult} id="endOfResult" />
         {showExportModal && (
-          <Export
-            close={() => this.setState({ showExportModal: false })}
-            total={total}
-          />
+          <Export close={() => this.setState({ showExportModal: false })} total={total} />
         )}
       </Page>
     );

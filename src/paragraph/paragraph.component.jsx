@@ -1,6 +1,6 @@
 import React from 'react';
 import { node, object, oneOf } from 'prop-types';
-import ExternalLink from 'components/external-link';
+import ExternalLink from '@/external-link';
 import styles from './paragraph.style.scss';
 
 export default class Paragraph extends React.Component {
@@ -8,9 +8,9 @@ export default class Paragraph extends React.Component {
     children: node.isRequired,
     externalLinkProps: object,
     type: oneOf(['conclusion', 'quote']),
-  }
+  };
 
-  get className () {
+  get className() {
     const { type } = this.props;
 
     if (type === 'quote') {
@@ -22,7 +22,7 @@ export default class Paragraph extends React.Component {
     }
   }
 
-  render () {
+  render() {
     const { children, externalLinkProps, type } = this.props;
 
     if (type === 'quote' && externalLinkProps) {
@@ -30,17 +30,13 @@ export default class Paragraph extends React.Component {
         <p className={this.className}>
           <ExternalLink {...externalLinkProps}>
             <span className={styles.quotationMark}>“</span>
-              { children }
+            {children}
             <span className={styles.quotationMark}>”</span>
           </ExternalLink>
         </p>
       );
     } else {
-      return (
-        <p className={this.className}>
-          { children }
-        </p>
-      );
+      return <p className={this.className}>{children}</p>;
     }
   }
 }

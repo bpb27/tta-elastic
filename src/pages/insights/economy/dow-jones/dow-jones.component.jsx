@@ -1,11 +1,11 @@
 import React from 'react';
 import { numberWithCommas } from 'utils/format';
-import ExternalLink from 'components/external-link';
-import LineGraph from 'components/line-graph';
+import ExternalLink from '@/external-link';
+import LineGraph from '@/line-graph';
 import data from './dow-jones.data';
 
 export default class DowJones extends React.Component {
-  render () {
+  render() {
     return (
       <div id="graph-down-jones">
         <LineGraph
@@ -14,7 +14,10 @@ export default class DowJones extends React.Component {
           hideTimeframe={true}
           id="gdp"
           source={
-            <ExternalLink href="https://tradingeconomics.com/united-states/stock-market" title="View data on TradingEconomics.com">
+            <ExternalLink
+              href="https://tradingeconomics.com/united-states/stock-market"
+              title="View data on TradingEconomics.com"
+            >
               TradingEconomics.com | World Bank
             </ExternalLink>
           }
