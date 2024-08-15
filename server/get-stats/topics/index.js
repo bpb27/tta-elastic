@@ -1,37 +1,38 @@
-require('dotenv').config();
+import dotenv from 'dotenv';
+import es from 'elasticsearch';
+import { indexName } from '../../utils.js';
+import abortion from './abortion.js';
+import approval from './approval.js';
+import climateChange from './climate-change.js';
+import collusion from './collusion.js';
+import covid from './covid.js';
+import crime from './crime.js';
+import debt from './debt.js';
+import democrats from './democrats.js';
+import education from './education.js';
+import election from './election.js';
+import entitlements from './entitlements.js';
+import fakeNews from './fake-news.js';
+import foxNews from './fox-news.js';
+import future from './future.js';
+import guns from './guns.js';
+import healthcare from './healthcare.js';
+import immigration from './immigration.js';
+import jobs from './jobs.js';
+import military from './military.js';
+import minimumWage from './minimum-wage.js';
+import negativity from './negativity.js';
+import religion from './religion.js';
+import republicans from './republicans.js';
+import stocks from './stocks.js';
+import taxes from './taxes.js';
+import totalAsPresident from './total-as-president.js';
+import trade from './trade.js';
+import trump from './trump.js';
 
-const { Client } = require('elasticsearch');
-const client = new Client({ host: process.env.SEARCHBOX_URL });
-const { indexName } = require('../../utils');
+dotenv.config();
 
-const abortion = require('./abortion');
-const approval = require('./approval');
-const climateChange = require('./climate-change');
-const collusion = require('./collusion');
-const covid = require('./covid');
-const crime = require('./crime');
-const debt = require('./debt');
-const democrats = require('./democrats');
-const education = require('./education');
-const election = require('./election');
-const entitlements = require('./entitlements');
-const fakeNews = require('./fake-news');
-const foxNews = require('./fox-news');
-const future = require('./future');
-const guns = require('./guns');
-const healthcare = require('./healthcare');
-const immigration = require('./immigration');
-const jobs = require('./jobs');
-const military = require('./military');
-const minimumWage = require('./minimum-wage');
-const negativity = require('./negativity');
-const religion = require('./religion');
-const republicans = require('./republicans');
-const stocks = require('./stocks');
-const taxes = require('./taxes');
-const totalAsPresident = require('./total-as-president');
-const trade = require('./trade');
-const trump = require('./trump');
+const client = new es.Client({ host: process.env.SEARCHBOX_URL });
 
 const searches = [
   abortion,
@@ -64,7 +65,7 @@ const searches = [
   trump,
 ];
 
-const getTopics = async () => {
+export const getTopics = async () => {
   const query = body => client.search({ body, index: indexName });
   const queries = searches.map(search => query(search.body));
   const results = await Promise.all(queries);
@@ -72,8 +73,6 @@ const getTopics = async () => {
   return searches.map(({ name, search }, i) => ({
     name,
     search,
-    total: results[i].hits.total
+    total: results[i].hits.total,
   }));
 };
-
-module.exports = getTopics;

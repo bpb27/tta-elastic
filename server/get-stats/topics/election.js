@@ -1,10 +1,11 @@
-const { wrapper } = require('./utils');
+import { wrapper } from './utils.js';
 
 const name = 'election';
 
-const search = 'election* | absentee | rigged | electoral | ballot | postal | \\"post office\\" | \\"mail-in\\"';
+const search =
+  'election* | absentee | rigged | electoral | ballot | postal | \\"post office\\" | \\"mail-in\\"';
 
-const body = wrapper(builder => (
+const body = wrapper(builder =>
   builder
     .orFilter('wildcard', 'text', 'election*')
     .orFilter('match', 'text', 'absentee')
@@ -14,6 +15,6 @@ const body = wrapper(builder => (
     .orFilter('match', 'text', 'postal')
     .orFilter('match_phrase', 'text', 'post office')
     .orFilter('match_phrase', 'text', 'mail-in')
-));
+);
 
-module.exports = { body, name, search };
+export default { body, name, search };

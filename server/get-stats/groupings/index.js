@@ -1,4 +1,4 @@
-const { tableName } = require('../../utils');
+import { tableName } from '../../utils.js';
 
 const tweetsGroupedBy = unit => `
   select
@@ -16,7 +16,7 @@ const tweetsGroupedBy = unit => `
 //   group by 1
 // `;
 
-const getGroupings = async pool => {
+export const getGroupings = async pool => {
   // const byHour = await pool.query(tweetsByHour());
   const byDay = await pool.query(tweetsGroupedBy('day'));
   const byWeek = await pool.query(tweetsGroupedBy('week'));
@@ -28,5 +28,3 @@ const getGroupings = async pool => {
     byWeek: byWeek.rows,
   };
 };
-
-module.exports = getGroupings;

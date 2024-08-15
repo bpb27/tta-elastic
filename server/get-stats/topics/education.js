@@ -1,10 +1,11 @@
-const { wrapper } = require('./utils');
+import { wrapper } from './utils.js';
 
 const name = 'education';
 
-const search = 'school* | college* | education* | students | teachers | tuition | \\"student debt\\" | \\"student loan debt\\" -poll -electoral';
+const search =
+  'school* | college* | education* | students | teachers | tuition | \\"student debt\\" | \\"student loan debt\\" -poll -electoral';
 
-const body = wrapper(builder => (
+const body = wrapper(builder =>
   builder
     .notFilter('match', 'text', 'electoral')
     .notFilter('match', 'text', 'poll')
@@ -16,7 +17,6 @@ const body = wrapper(builder => (
     .orFilter('match', 'text', 'tuition')
     .orFilter('match_phrase', 'text', 'student debt')
     .orFilter('match_phrase', 'text', 'student loan debt')
+);
 
-));
-
-module.exports = { body, name, search };
+export default { body, name, search };

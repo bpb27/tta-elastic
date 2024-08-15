@@ -1,10 +1,10 @@
-const { wrapper } = require('./utils');
+import { wrapper } from './utils.js';
 
 const name = 'jobs';
 
 const search = 'job* | worker* | wage* | employment | unemployment | labor';
 
-const body = wrapper(builder => (
+const body = wrapper(builder =>
   builder
     .orFilter('wildcard', 'text', 'job*')
     .orFilter('wildcard', 'text', 'worker*')
@@ -12,6 +12,6 @@ const body = wrapper(builder => (
     .orFilter('match', 'text', 'employment')
     .orFilter('match', 'text', 'unemployment')
     .orFilter('match', 'text', 'labor')
-));
+);
 
-module.exports = { body, name, search };
+export default { body, name, search };
