@@ -6,7 +6,7 @@ import TweetFrequency from './tweet-frequency';
 import TweetStats from './tweet-stats';
 import { request } from 'utils/api';
 import { tweetsAsPresident, tweetsInTheLastThreeMonths } from './frequency.utils';
-import styles from './frequency.style.scss';
+import styles from './frequency.module.scss';
 
 export default class Frequency extends React.Component {
   state = {

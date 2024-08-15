@@ -4,7 +4,7 @@ import Highlighter from 'react-highlight-words';
 import Metadata from './metadata';
 import TweetLink from '@/tweet-link';
 import { replaceHTMLEntities } from 'utils/format';
-import styles from './tweet.style.scss';
+import styles from './tweet.module.scss';
 
 export default class Tweet extends Component {
   static propTypes = {

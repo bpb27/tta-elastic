@@ -4,7 +4,7 @@ import { TwitterTweetEmbed } from 'react-twitter-embed';
 import VisibilitySensor from 'react-visibility-sensor';
 import ExternalLink from '@/external-link';
 import Placeholder from './placeholder';
-import styles from './tweet-link.style.scss';
+import styles from './tweet-link.module.scss';
 
 // https://developer.twitter.com/en/docs/twitter-for-websites/embedded-tweets/guides/embedded-tweet-parameter-reference
 

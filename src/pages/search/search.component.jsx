@@ -20,7 +20,7 @@ import {
   StateProvider,
   ToggleButton,
 } from '@appbaseio/reactivesearch';
-import styles from './search.style.scss';
+import styles from './search.module.scss';
 
 export default class Search extends React.Component {
   static propTypes = {

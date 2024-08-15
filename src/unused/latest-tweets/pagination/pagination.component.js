@@ -1,7 +1,7 @@
 import React from 'react';
 import { func, number } from 'prop-types';
 import Button from '@/button';
-import styles from './pagination.style.scss';
+import styles from './pagination.module.scss';
 
 export default class Pagination extends React.Component {
   static propTypes = {

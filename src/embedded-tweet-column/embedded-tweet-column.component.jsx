@@ -1,7 +1,7 @@
 import React from 'react';
 import { node, string } from 'prop-types';
 import Button from '@/button';
-import styles from './embedded-tweet-column.style.scss';
+import styles from './embedded-tweet-column.module.scss';
 
 export default class EmbeddedTweetColumn extends React.Component {
   static propTypes = {

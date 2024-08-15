@@ -1,7 +1,7 @@
 import React from 'react';
 import { node, oneOfType, string } from 'prop-types';
 import Icon from '@/icon';
-import styles from './list.style.scss';
+import styles from './list.module.scss';
 
 export default class List extends React.Component {
   static propTypes = {

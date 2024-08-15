@@ -1,7 +1,7 @@
 import React from 'react';
 import { node, object, oneOf } from 'prop-types';
 import ExternalLink from '@/external-link';
-import styles from './paragraph.style.scss';
+import styles from './paragraph.module.scss';
 
 export default class Paragraph extends React.Component {
   static propTypes = {

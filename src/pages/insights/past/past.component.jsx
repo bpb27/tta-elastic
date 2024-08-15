@@ -7,7 +7,7 @@ import EmbeddedTweetColumn from '@/embedded-tweet-column';
 import Page from '@/page';
 import TweetLink from '@/tweet-link';
 import { dataAssorted, dataAttacks, dataObama, dataRetribution, dataWomen } from './past.data';
-import styles from './past.style.scss';
+import styles from './past.module.scss';
 
 export class Past extends React.Component {
   static propTypes = {

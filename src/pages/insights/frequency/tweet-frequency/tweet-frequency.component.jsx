@@ -3,30 +3,32 @@ import { arrayOf, number, oneOfType, shape, string } from 'prop-types';
 import { addDays, format, startOfTomorrow } from 'date-fns';
 import Chart from 'react-apexcharts';
 import Slider from 'rc-slider';
-import styles from './tweet-frequency.style.scss';
+import styles from './tweet-frequency.module.scss';
 import 'rc-slider/assets/index.css';
 
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
 const DATE_FORMAT = 'MMM dd, yyyy';
 
-const counts = arrayOf(shape({
-  date: string.isRequired,
-  count: oneOfType([number, string]).isRequired,
-}));
+const counts = arrayOf(
+  shape({
+    date: string.isRequired,
+    count: oneOfType([number, string]).isRequired,
+  })
+);
 
 export default class TweetFrequency extends React.Component {
   static propTypes = {
     day: counts,
     month: counts,
     week: counts,
-  }
+  };
 
   static defaultProps = {
     day: [],
     month: [],
     week: [],
-  }
+  };
 
   state = {
     animationEnabled: true,
@@ -38,9 +40,9 @@ export default class TweetFrequency extends React.Component {
     yAxis: {
       max: 600,
     },
-  }
+  };
 
-  get data () {
+  get data() {
     return this.props[this.state.unit] || [];
   }
 
@@ -49,7 +51,7 @@ export default class TweetFrequency extends React.Component {
       xAxis: {
         max: value[1],
         min: value[0],
-      }
+      },
     });
   };
 
@@ -70,19 +72,15 @@ export default class TweetFrequency extends React.Component {
     }
 
     this.setState(updates);
-  }
+  };
 
-  render () {
+  render() {
     const { animationEnabled, unit, xAxis, yAxis } = this.state;
     return (
       <div className={styles.container}>
         <div className={styles.title}>
           <span>Tweets per </span>
-          <select
-            name="unit"
-            onChange={({ target }) => this.setUnit(target.value)}
-            value={unit}
-          >
+          <select name="unit" onChange={({ target }) => this.setUnit(target.value)} value={unit}>
             <option value="day">Day</option>
             <option value="week">Week</option>
             <option value="month">Month</option>

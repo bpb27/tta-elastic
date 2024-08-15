@@ -2,7 +2,7 @@ import React from 'react';
 import ExternalLink from '@/external-link';
 import Page from '@/page';
 import { LINK_CSV, LINK_JSON, LINK_UPDATED_AT } from 'utils/constants';
-import styles from './faq.style.scss';
+import styles from './faq.module.scss';
 
 export default class Faq extends React.Component {
   render() {

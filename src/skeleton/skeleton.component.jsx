@@ -1,31 +1,26 @@
 import React from 'react';
 import { number, oneOfType, string } from 'prop-types';
 import SkeletonLoader from 'react-loading-skeleton';
-import styles from './skeleton.style.scss';
+import styles from './skeleton.module.scss';
 
 export default class Skeleton extends React.Component {
   static propTypes = {
     count: number,
     height: oneOfType([number, string]),
     width: oneOfType([number, string]),
-  }
+  };
 
   static defaultProps = {
     count: 10,
     height: 25,
     width: 350,
-  }
+  };
 
-  render () {
+  render() {
     const { count, height, width } = this.props;
     return (
       <div className={styles.skeleton}>
-        <SkeletonLoader
-          count={count}
-          duration={1.5}
-          height={height}
-          width={width}
-        />
+        <SkeletonLoader count={count} duration={1.5} height={height} width={width} />
       </div>
     );
   }

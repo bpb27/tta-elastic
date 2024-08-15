@@ -2,7 +2,7 @@ import React from 'react';
 import MetaTags from 'react-meta-tags';
 import ExternalLink from '@/external-link';
 import Paragraph from '@/paragraph';
-import styles from './sexual-assault.style.scss';
+import styles from './sexual-assault.module.scss';
 
 const thing = [
   {

@@ -3,7 +3,7 @@ import { arrayOf, bool, func, node, number, oneOf, oneOfType, shape, string } fr
 import Chart from 'react-apexcharts';
 import { format } from 'date-fns';
 import Button from '@/button';
-import styles from './line-graph.style.scss';
+import styles from './line-graph.module.scss';
 import {
   demBlueCurrent,
   demBluePast,

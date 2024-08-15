@@ -1,10 +1,10 @@
 import React from 'react';
 import { DataSearch } from '@appbaseio/reactivesearch';
 import { tweetLink } from 'utils/links';
-import styles from './quick-search.style.scss';
+import styles from './quick-search.module.scss';
 
 export default class QuickSearch extends React.Component {
-  render () {
+  render() {
     return (
       <div className={styles.quickSearch}>
         <DataSearch

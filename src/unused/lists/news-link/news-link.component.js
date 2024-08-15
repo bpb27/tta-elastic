@@ -1,7 +1,7 @@
 import React from 'react';
 import { string } from 'prop-types';
 import ExternalLink from '@/external-link';
-import './news-link.style.scss';
+import './news-link.module.scss';
 
 export default class NewsLink extends React.Component {
   static propTypes = {
