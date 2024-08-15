@@ -1,10 +1,10 @@
 import React from 'react';
 import findTweet from 'utils/data';
-import TweetLink from 'components/tweet-link';
+import TweetLink from '@/tweet-link';
 import List from '../list';
 
 export default class Dog extends React.Component {
-  render () {
+  render() {
     return (
       <List header="Dogs">
         <TweetLink tweetData={findTweet('1256702883199881216')}>

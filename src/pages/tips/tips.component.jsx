@@ -1,7 +1,7 @@
 import React from 'react';
 import { func } from 'prop-types';
-import ExternalLink from 'components/external-link';
-import Icon from 'components/icon';
+import ExternalLink from '@/external-link';
+import Icon from '@/icon';
 import styles from './tips.style.scss';
 
 export default class Tips extends React.Component {
@@ -31,36 +31,34 @@ export default class Tips extends React.Component {
           <section>
             <span>los*</span>
             <span>
-              tweet contains a word that starts with <em>los</em>, such as{' '}
-              <em>loser</em>, <em>losers</em>, <em>lost</em>, etc.
+              tweet contains a word that starts with <em>los</em>, such as <em>loser</em>,{' '}
+              <em>losers</em>, <em>lost</em>, etc.
             </span>
           </section>
           <section>
             <span>losers + haters</span>
             <span>
-              tweet contains the exact word <em>losers</em> AND the exact word{' '}
-              <em>haters</em> (in any order)
+              tweet contains the exact word <em>losers</em> AND the exact word <em>haters</em> (in
+              any order)
             </span>
           </section>
           <section>
             <span>loser {pipe} haters</span>
             <span>
-              tweet contains the exact word <em>loser</em> OR the exact word{' '}
-              <em>haters</em>
+              tweet contains the exact word <em>loser</em> OR the exact word <em>haters</em>
             </span>
           </section>
           <section>
             <span>losers -haters</span>
             <span>
-              tweet contains the exact word <em>losers</em> AND not the exact
-              word <em>haters</em> (in any order)
+              tweet contains the exact word <em>losers</em> AND not the exact word <em>haters</em>{' '}
+              (in any order)
             </span>
           </section>
           <section>
             <span>"losers and haters"</span>
             <span>
-              tweet contains the exact phrase <em>losers and haters</em> (use
-              double quotes)
+              tweet contains the exact phrase <em>losers and haters</em> (use double quotes)
             </span>
           </section>
           <section>
@@ -73,8 +71,7 @@ export default class Tips extends React.Component {
           <section>
             <span>"losers and haters" + "my I.Q."</span>
             <span>
-              tweet contains the exact phrase <em>losers and haters</em> AND{' '}
-              <em>my I.Q.</em>
+              tweet contains the exact phrase <em>losers and haters</em> AND <em>my I.Q.</em>
             </span>
           </section>
           <section>
@@ -82,16 +79,15 @@ export default class Tips extends React.Component {
               college* {pipe} tuition {pipe} "student debt" -electoral
             </span>
             <span>
-              tweet contains a word that starts with <em>college</em> OR the
-              exact word <em>tuition</em> OR the exact phrase{' '}
-              <em>student debt</em> AND does not contain the exact word{' '}
-              <em>electoral</em>
+              tweet contains a word that starts with <em>college</em> OR the exact word{' '}
+              <em>tuition</em> OR the exact phrase <em>student debt</em> AND does not contain the
+              exact word <em>electoral</em>
             </span>
           </section>
           <section>
             <h6>
-              This site uses Elastic Search. You can read some dense
-              documentation about how to use it{' '}
+              This site uses Elastic Search. You can read some dense documentation about how to use
+              it{' '}
               <ExternalLink
                 href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-simple-query-string-query.html#simple-query-string-query-notes"
                 title="View advanced search documentation on the Elastic Search website"

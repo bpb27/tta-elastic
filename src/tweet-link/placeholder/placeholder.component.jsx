@@ -3,7 +3,7 @@ import { arrayOf, bool, object, oneOf, string } from 'prop-types';
 import { utcTimestampToEST } from 'utils/date';
 import { replaceHTMLEntities } from 'utils/format';
 import Highlighter from 'react-highlight-words';
-import ExternalLink from 'components/external-link';
+import ExternalLink from '@/external-link';
 import styles from './placeholder.style.scss';
 
 export default class Placeholder extends React.Component {
@@ -13,39 +13,26 @@ export default class Placeholder extends React.Component {
     deleted: bool,
     placeholderHighlights: arrayOf(string),
     tweetData: object.isRequired,
-  }
+  };
 
   static defaultProps = {
     alignment: 'left',
     className: '',
     placeholderHighlights: [],
-  }
+  };
 
-  render () {
+  render() {
     if (!this.props.tweetData) {
       return (
         <div className={className}>
-          <div className={styles.placeholder}>
-            Failed to render
-          </div>
+          <div className={styles.placeholder}>Failed to render</div>
         </div>
       );
     }
 
-    const {
-      alignment,
-      className,
-      deleted,
-      placeholderHighlights,
-      tweetData,
-    } = this.props;
+    const { alignment, className, deleted, placeholderHighlights, tweetData } = this.props;
 
-    const {
-      date,
-      device,
-      id,
-      text,
-    } = tweetData;
+    const { date, device, id, text } = tweetData;
 
     const containerClass = `
       ${styles.container}
@@ -55,13 +42,12 @@ export default class Placeholder extends React.Component {
 
     return (
       <div className={containerClass}>
-        {
-          deleted && (
-            <p className={styles.deleted}>
-              This tweet failed to load and might have been deleted. Click "View on Twitter" to verify.
-            </p>
-          )
-        }
+        {deleted && (
+          <p className={styles.deleted}>
+            This tweet failed to load and might have been deleted. Click "View on Twitter" to
+            verify.
+          </p>
+        )}
         <div className={styles.placeholder}>
           <h4>Donald J. Trump</h4>
           <span className={styles.gray}>@realdonaldtrump</span>
@@ -73,14 +59,12 @@ export default class Placeholder extends React.Component {
             />
           </p>
           <div className={styles.gray}>
-            <span>{ utcTimestampToEST(date) }</span>
+            <span>{utcTimestampToEST(date)}</span>
             <span className={styles.dot}>·</span>
-            <span>{ device }</span>
+            <span>{device}</span>
             <span className={styles.dot}>·</span>
             <span>
-              <ExternalLink tweetId={id}>
-                View on Twitter
-              </ExternalLink>
+              <ExternalLink tweetId={id}>View on Twitter</ExternalLink>
             </span>
           </div>
         </div>

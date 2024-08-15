@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { arrayOf, bool, number, oneOfType, shape, string } from 'prop-types';
 import Highlighter from 'react-highlight-words';
 import Metadata from './metadata';
-import TweetLink from 'components/tweet-link';
+import TweetLink from '@/tweet-link';
 import { replaceHTMLEntities } from 'utils/format';
 import styles from './tweet.style.scss';
 
@@ -19,17 +19,17 @@ export default class Tweet extends Component {
     }),
     index: number.isRequired,
     searchWords: arrayOf(string).isRequired,
-  }
+  };
 
   static defaultProps = {
     search: '',
-  }
+  };
 
   state = {
     showTwitterView: false,
-  }
+  };
 
-  render () {
+  render() {
     const { showTwitterView } = this.state;
     const { data, index, searchWords } = this.props;
     const { date, favorites, id, isDeleted, isRetweet, retweets, text } = data;
@@ -48,11 +48,8 @@ export default class Tweet extends Component {
           retweets={retweets}
         />
         <div className={`${styles.text} ${showTwitterView ? styles.embedded : styles.plain}`}>
-          { showTwitterView ? (
-            <TweetLink
-              tweetData={data}
-              type="embed"
-            />
+          {showTwitterView ? (
+            <TweetLink tweetData={data} type="embed" />
           ) : (
             <Highlighter
               autoEscape={true}

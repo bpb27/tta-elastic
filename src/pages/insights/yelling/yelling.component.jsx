@@ -1,12 +1,12 @@
 import React from 'react';
-import EmbeddedTweetColumn from 'components/embedded-tweet-column';
-import Page from 'components/page';
-import TweetLink from 'components/tweet-link';
+import EmbeddedTweetColumn from '@/embedded-tweet-column';
+import Page from '@/page';
+import TweetLink from '@/tweet-link';
 import data from './yelling.data';
 import styles from './yelling.style.scss';
 
 export default class Yelling extends React.Component {
-  render () {
+  render() {
     return (
       <Page
         className={styles.page}
@@ -15,16 +15,9 @@ export default class Yelling extends React.Component {
         metaTitle="Yelling Tweets on Trump Twitter Archive"
       >
         <EmbeddedTweetColumn header="Yelling">
-          {
-            data.map(item => (
-              <TweetLink
-                key={item.id}
-                placeholderAlignment="center"
-                type="embed"
-                tweetData={item}
-              />
-            ))
-          }
+          {data.map(item => (
+            <TweetLink key={item.id} placeholderAlignment="center" type="embed" tweetData={item} />
+          ))}
         </EmbeddedTweetColumn>
       </Page>
     );

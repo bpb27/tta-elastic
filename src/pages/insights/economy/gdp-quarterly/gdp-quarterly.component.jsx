@@ -1,10 +1,10 @@
 import React from 'react';
-import ExternalLink from 'components/external-link';
-import LineGraph from 'components/line-graph';
+import ExternalLink from '@/external-link';
+import LineGraph from '@/line-graph';
 import data from './gdp-quarterly.data';
 
 export default class GdpQuarterly extends React.Component {
-  render () {
+  render() {
     return (
       <div id="graph-gdp-quarterly">
         <LineGraph
@@ -12,7 +12,10 @@ export default class GdpQuarterly extends React.Component {
           formatter={value => `${value}%`}
           id="gdp-quarterly"
           source={
-            <ExternalLink href="https://tradingeconomics.com/united-states/gdp-growth-annual" title="View data on TradingEconomics.com">
+            <ExternalLink
+              href="https://tradingeconomics.com/united-states/gdp-growth-annual"
+              title="View data on TradingEconomics.com"
+            >
               TradingEconomics.com | World Bank
             </ExternalLink>
           }
