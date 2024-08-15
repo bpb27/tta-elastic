@@ -1,10 +1,11 @@
-const { wrapper } = require('./utils');
+import { wrapper } from './utils.js';
 
 const name = 'foxNews';
 
-const search = 'fox* | TuckerCarlson | SeanHannity | IngrahamAngle | JudgeJeanine | LouDobbs | SteveDoocy | kilmeade | GeraldoRivera | WattersWorld | jessebwatters';
+const search =
+  'fox* | TuckerCarlson | SeanHannity | IngrahamAngle | JudgeJeanine | LouDobbs | SteveDoocy | kilmeade | GeraldoRivera | WattersWorld | jessebwatters';
 
-const body = wrapper(builder => (
+const body = wrapper(builder =>
   builder
     .orFilter('wildcard', 'text', 'fox*')
     .orFilter('match', 'text', 'TuckerCarlson')
@@ -17,6 +18,6 @@ const body = wrapper(builder => (
     .orFilter('match', 'text', 'GeraldoRivera')
     .orFilter('match', 'text', 'WattersWorld')
     .orFilter('match', 'text', 'jessebwatters')
-));
+);
 
-module.exports = { body, name, search };
+export default { body, name, search };

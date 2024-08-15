@@ -1,14 +1,16 @@
-require('dotenv').config();
+import request from 'request';
+import Twitter from 'twitter';
+import messages from './messages.js';
+import dotenv from 'dotenv';
 
-const request = require('request');
-const Twitter = require('twitter');
-const messages = require('./messages');
+dotenv.config();
+
 const { TWITTER_API_KEY, TWITTER_API_KEY_SECRET } = process.env;
 
-function getTweets(screenName, callback) {
-  const credentials = Buffer.from(
-    `${TWITTER_API_KEY}:${TWITTER_API_KEY_SECRET}`
-  ).toString('base64');
+export function getTweets(screenName, callback) {
+  const credentials = Buffer.from(`${TWITTER_API_KEY}:${TWITTER_API_KEY_SECRET}`).toString(
+    'base64'
+  );
   const requestParams = {
     body: 'grant_type=client_credentials',
     headers: {
@@ -20,8 +22,7 @@ function getTweets(screenName, callback) {
   };
 
   request(requestParams, (error, response, body) => {
-    if (error)
-      return callback({ error, message: messages.fetches.twBearer }, null);
+    if (error) return callback({ error, message: messages.fetches.twBearer }, null);
 
     const bearerToken = JSON.parse(body)['access_token'];
     const client = new Twitter({
@@ -35,8 +36,7 @@ function getTweets(screenName, callback) {
       'https://api.twitter.com/2/users/25073877/tweets?max_results=100&tweet.fields=created_at%2Cpublic_metrics%2Csource&expansions=referenced_tweets.id&media.fields=public_metrics';
 
     client.get(apiUrl, {}, (error, tweets) => {
-      if (error)
-        return callback({ error, message: messages.fetches.twTimeline }, null);
+      if (error) return callback({ error, message: messages.fetches.twTimeline }, null);
 
       const newTweets = tweets.data.reduce((hash, tweet) => {
         hash[tweet.id] = {
@@ -46,8 +46,7 @@ function getTweets(screenName, callback) {
           id: tweet.id,
           isDeleted: false,
           isRetweet: !!(
-            tweet.referenced_tweets &&
-            tweet.referenced_tweets.find((t) => t.type === 'quoted')
+            tweet.referenced_tweets && tweet.referenced_tweets.find(t => t.type === 'quoted')
           ),
           retweets: tweet.public_metrics.retweet_count || 0,
           text: tweet.text,
@@ -59,5 +58,3 @@ function getTweets(screenName, callback) {
     });
   });
 }
-
-module.exports = getTweets;

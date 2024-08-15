@@ -1,10 +1,11 @@
-const { wrapper } = require('./utils');
+import { wrapper } from './utils.js';
 
 const name = 'negativity';
 
-const search = 'disaster* | dishonest* | dope* | fool* | hater* | horr* | incompeten* | loser* | awful | bad | boring | clown | desperate | disgusting | dumb | dummy | enemy | overrated | pathetic | sick | stupid | terrible | weak';
+const search =
+  'disaster* | dishonest* | dope* | fool* | hater* | horr* | incompeten* | loser* | awful | bad | boring | clown | desperate | disgusting | dumb | dummy | enemy | overrated | pathetic | sick | stupid | terrible | weak';
 
-const body = wrapper(builder => (
+const body = wrapper(builder =>
   builder
     .orFilter('wildcard', 'text', 'disaster*')
     .orFilter('wildcard', 'text', 'dishonest*')
@@ -29,6 +30,6 @@ const body = wrapper(builder => (
     .orFilter('match', 'text', 'stupid')
     .orFilter('match', 'text', 'terrible')
     .orFilter('match', 'text', 'weak')
-));
+);
 
-module.exports = { body, name, search };
+export default { body, name, search };

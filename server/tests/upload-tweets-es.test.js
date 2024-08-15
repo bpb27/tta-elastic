@@ -1,17 +1,18 @@
-const messages = require('../messages');
-const upload = require('../upload-tweets-es');
+import { describe, beforeEach, expect, vi, test } from 'vitest';
+import messages from '../messages';
+import { uploadToElastic } from '../upload-tweets-es';
 
 describe('upload tweets', () => {
   let client;
   let logger;
 
   beforeEach(() => {
-    client = { bulk: jest.fn() };
-    logger = { error: jest.fn(), success: jest.fn() };
+    client = { bulk: vi.fn() };
+    logger = { error: vi.fn(), success: vi.fn() };
   });
 
   test('creates the ES payload', () => {
-    upload(client, logger, tweets);
+    uploadToElastic(client, logger, tweets);
     expect(client.bulk).toHaveBeenCalledTimes(1);
     expect(client.bulk.mock.calls[0][0]).toEqual({
       body: [
@@ -24,7 +25,7 @@ describe('upload tweets', () => {
   });
 
   test('logs a success message', () => {
-    upload(client, logger, tweets);
+    uploadToElastic(client, logger, tweets);
     const callback = client.bulk.mock.calls[0][1];
     callback();
     expect(logger.success).toHaveBeenCalledTimes(1);
@@ -32,7 +33,7 @@ describe('upload tweets', () => {
   });
 
   test('logs an error message', () => {
-    upload(client, logger, tweets);
+    uploadToElastic(client, logger, tweets);
     const error = { message: 'Oh no' };
     const callback = client.bulk.mock.calls[0][1];
     callback(error);
@@ -41,7 +42,7 @@ describe('upload tweets', () => {
   });
 
   test('logs an error message from the response', () => {
-    upload(client, logger, tweets);
+    uploadToElastic(client, logger, tweets);
     const callback = client.bulk.mock.calls[0][1];
     callback(null, { errors: true, items: ['an item'] });
     expect(logger.error).toHaveBeenCalledTimes(1);
@@ -58,7 +59,7 @@ const tweets = [
     isDeleted: false,
     isRetweet: false,
     retweets: 18266,
-    text: 'Thank you #G20OsakaSummit https://t.co/9FCqSuR5Bp'
+    text: 'Thank you #G20OsakaSummit https://t.co/9FCqSuR5Bp',
   },
   {
     date: 'Wed Oct 07 23:46:39 +0000 2015',
@@ -68,6 +69,6 @@ const tweets = [
     isDeleted: false,
     isRetweet: false,
     retweets: 33183,
-    text: 'After some very important meetings, including my meeting with President Xi of China, I will be leaving Japan for South Korea (with President Moon). While there, if Chairman Kim of North Korea sees this, I would meet him at the Border/DMZ just to shake his hand and say Hello(?)!'
-  }
+    text: 'After some very important meetings, including my meeting with President Xi of China, I will be leaving Japan for South Korea (with President Moon). While there, if Chairman Kim of North Korea sees this, I would meet him at the Border/DMZ just to shake his hand and say Hello(?)!',
+  },
 ];

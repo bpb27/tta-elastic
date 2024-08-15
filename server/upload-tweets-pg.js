@@ -1,18 +1,20 @@
-const messages = require('./messages');
-const { tableName } = require('./utils');
+import messages from './messages.js';
+import { tableName } from './utils.js';
 
-const upload = (pool, logger, tweets, callback) => {
+export const uploadToDatabase = (pool, logger, tweets, callback) => {
   const values = tweets
-    .map(({ id, text, isDeleted, isRetweet, date, device, favorites, retweets }) => (`(
+    .map(
+      ({ id, text, isDeleted, isRetweet, date, device, favorites, retweets }) => `(
       '${id}',
-      '${text.replace(/'/g, '\'\'')}',
+      '${text.replace(/'/g, "''")}',
       ${isRetweet},
       ${isDeleted},
       '${date}',
       '${device}',
       ${favorites},
       ${retweets}
-    )`))
+    )`
+    )
     .join(',');
 
   const query = `
@@ -24,7 +26,6 @@ const upload = (pool, logger, tweets, callback) => {
   `;
 
   pool.query(query, (errorUpsert, resultUpsert) => {
-
     if (errorUpsert) {
       logger.error(messages.uploads.pgError, errorUpsert);
     } else {
@@ -47,5 +48,3 @@ const upload = (pool, logger, tweets, callback) => {
     }
   });
 };
-
-module.exports = upload;

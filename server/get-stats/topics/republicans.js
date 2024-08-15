@@ -1,10 +1,10 @@
-const { wrapper } = require('./utils');
+import { wrapper } from './utils.js';
 
 const name = 'republicans';
 
 const search = 'republican* | conservative* | mcconnell | mccarthy | romney | bush | mccain | ryan';
 
-const body = wrapper(builder => (
+const body = wrapper(builder =>
   builder
     .orFilter('wildcard', 'text', 'republican*')
     .orFilter('wildcard', 'text', 'conservative*')
@@ -14,6 +14,6 @@ const body = wrapper(builder => (
     .orFilter('match', 'text', 'bush')
     .orFilter('match', 'text', 'mccain')
     .orFilter('match', 'text', 'ryan')
-));
+);
 
-module.exports = { body, name, search };
+export default { body, name, search };

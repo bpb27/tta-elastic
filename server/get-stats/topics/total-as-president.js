@@ -1,4 +1,5 @@
-const { bodybuilder, presidentialRange } = require('./utils');
+import bodybuilder from 'bodybuilder';
+import { presidentialRange } from './utils.js';
 
 const name = 'totalAsPresident';
 const terms = [];
@@ -8,4 +9,4 @@ const body = bodybuilder()
   // .filter('bool', hideRetweets)
   .build();
 
-module.exports = { body, name, terms };
+export default { body, name, terms };

@@ -1,10 +1,11 @@
-const { wrapper } = require('./utils');
+import { wrapper } from './utils.js';
 
 const name = 'collusion';
 
-const search = 'hoax* | russia* | collusion* | mueller* | impeach* | witch | dossier | steele | Schiff | Putin | quid';
+const search =
+  'hoax* | russia* | collusion* | mueller* | impeach* | witch | dossier | steele | Schiff | Putin | quid';
 
-const body = wrapper(builder => (
+const body = wrapper(builder =>
   builder
     .orFilter('wildcard', 'text', 'hoax*')
     .orFilter('wildcard', 'text', 'russia*')
@@ -17,6 +18,6 @@ const body = wrapper(builder => (
     .orFilter('match', 'text', 'schiff')
     .orFilter('match', 'text', 'putin')
     .orFilter('match', 'text', 'quid')
-));
+);
 
-module.exports = { body, name, search };
+export default { body, name, search };

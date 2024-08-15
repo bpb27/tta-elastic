@@ -1,5 +1,6 @@
-const messages = require('../messages');
-const upload = require('../upload-tweets-pg');
+import { describe, beforeEach, it, expect, vi } from 'vitest';
+import messages from '../messages';
+import { uploadToDatabase } from '../upload-tweets-pg';
 
 describe('upload new tweets to database', () => {
   let pool;
@@ -7,18 +8,18 @@ describe('upload new tweets to database', () => {
   let finalCallback;
 
   beforeEach(() => {
-    pool = { query: jest.fn() };
-    logger = { error: jest.fn(), success: jest.fn() };
-    finalCallback = jest.fn();
+    pool = { query: vi.fn() };
+    logger = { error: vi.fn(), success: vi.fn() };
+    finalCallback = vi.fn();
   });
 
   it('creates the upsert query', () => {
-    upload(pool, logger, tweets, finalCallback);
+    uploadToDatabase(pool, logger, tweets, finalCallback);
     expect(pool.query.mock.calls[0][0]).toEqual(expectedUpsertQuery);
   });
 
   it('logs an upsert error message', () => {
-    upload(pool, logger, tweets);
+    uploadToDatabase(pool, logger, tweets);
     const upsertCallback = pool.query.mock.calls[0][1];
     upsertCallback({ message: 'Oh no' });
     expect(logger.error).toHaveBeenCalledTimes(1);
@@ -26,19 +27,23 @@ describe('upload new tweets to database', () => {
   });
 
   it('creates the select query', () => {
-    upload(pool, logger, tweets, finalCallback);
+    uploadToDatabase(pool, logger, tweets, finalCallback);
     const upsertCallback = pool.query.mock.calls[0][1];
     const upsertResult = {
       rows: [{ id: '1144911267641135100' }, { id: '1144740178948493300' }],
     };
     upsertCallback(null, upsertResult);
-    expect(pool.query.mock.calls[1][0]).toContain('SELECT "id", "text", "isRetweet", "isDeleted", "device", "favorites", "retweets", date::timestamp AT time zone \'UTC\' as date');
+    expect(pool.query.mock.calls[1][0]).toContain(
+      'SELECT "id", "text", "isRetweet", "isDeleted", "device", "favorites", "retweets", date::timestamp AT time zone \'UTC\' as date'
+    );
     expect(pool.query.mock.calls[1][0]).toContain('FROM trump_tweets');
-    expect(pool.query.mock.calls[1][0]).toContain('WHERE id in (\'1144911267641135100\',\'1144740178948493300\')');
+    expect(pool.query.mock.calls[1][0]).toContain(
+      "WHERE id in ('1144911267641135100','1144740178948493300')"
+    );
   });
 
   it('logs a select error message', () => {
-    upload(pool, logger, tweets, finalCallback);
+    uploadToDatabase(pool, logger, tweets, finalCallback);
     const upsertCallback = pool.query.mock.calls[0][1];
     const upsertResult = {
       rows: [{ id: '1144911267641135100' }, { id: '1144740178948493300' }],
@@ -51,7 +56,7 @@ describe('upload new tweets to database', () => {
   });
 
   it('logs a select error message', () => {
-    upload(pool, logger, tweets, finalCallback);
+    uploadToDatabase(pool, logger, tweets, finalCallback);
     const upsertCallback = pool.query.mock.calls[0][1];
     const upsertResult = {
       rows: [{ id: '1144911267641135100' }, { id: '1144740178948493300' }],
@@ -64,7 +69,7 @@ describe('upload new tweets to database', () => {
   });
 
   it('logs a select success message', () => {
-    upload(pool, logger, tweets, finalCallback);
+    uploadToDatabase(pool, logger, tweets, finalCallback);
     const upsertCallback = pool.query.mock.calls[0][1];
     const upsertResult = {
       rows: [{ id: '1144911267641135100' }, { id: '1144740178948493300' }],
@@ -77,7 +82,7 @@ describe('upload new tweets to database', () => {
   });
 
   it('executes the final callback with the select results', () => {
-    upload(pool, logger, tweets, finalCallback);
+    uploadToDatabase(pool, logger, tweets, finalCallback);
     const upsertCallback = pool.query.mock.calls[0][1];
     const upsertResult = {
       rows: [{ id: '1144911267641135100' }, { id: '1144740178948493300' }],
@@ -125,7 +130,7 @@ const tweets = [
     isDeleted: false,
     isRetweet: false,
     retweets: 18266,
-    text: 'Thank you #G20OsakaSummit https://t.co/9FCqSuR5Bp'
+    text: 'Thank you #G20OsakaSummit https://t.co/9FCqSuR5Bp',
   },
   {
     date: 'Wed Oct 07 23:46:39 +0000 2015',
@@ -135,6 +140,6 @@ const tweets = [
     isDeleted: false,
     isRetweet: false,
     retweets: 33183,
-    text: 'After some very important meetings'
-  }
+    text: 'After some very important meetings',
+  },
 ];

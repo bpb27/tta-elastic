@@ -1,12 +1,9 @@
-const { wrapper } = require('./utils');
+import { wrapper } from './utils.js';
 
 const name = 'taxes';
 
 const search = 'tax*';
 
-const body = wrapper(builder => (
-  builder
-    .orFilter('wildcard', 'text', 'tax*')
-));
+const body = wrapper(builder => builder.orFilter('wildcard', 'text', 'tax*'));
 
-module.exports = { body, name, search };
+export default { body, name, search };

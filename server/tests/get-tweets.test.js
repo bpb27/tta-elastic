@@ -1,11 +1,13 @@
-const getTweets = require('../get-tweets');
+import { getTweets } from '../get-tweets';
+import { describe, beforeAll, it, expect } from 'vitest';
 
-describe('get tweets', () => {
+// NB: API no longer works
+describe.skip('get tweets', () => {
   let error;
   let tweets;
   let tweet;
 
-  beforeAll((done) => {
+  beforeAll(done => {
     getTweets('realdonaldtrump', (responseError, responseData) => {
       error = responseError;
       tweets = responseData;

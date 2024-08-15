@@ -1,10 +1,8 @@
-const getTopics = require('./topics');
-const getGroupings = require('./groupings');
+import { getTopics } from './topics/index.js';
+import { getGroupings } from './groupings/index.js';
 
-const getStats = async pool => {
+export const getStats = async pool => {
   const topics = await getTopics();
   const groupings = await getGroupings(pool);
   return { groupings, topics };
 };
-
-module.exports = getStats;

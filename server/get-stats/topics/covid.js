@@ -1,14 +1,14 @@
-const { wrapper } = require('./utils');
+import { wrapper } from './utils.js';
 
 const name = 'covid';
 
 const search = 'covid* | virus | coronavirus';
 
-const body = wrapper(builder => (
+const body = wrapper(builder =>
   builder
     .orFilter('wildcard', 'text', 'covid*')
     .orFilter('match', 'text', 'virus')
     .orFilter('match', 'text', 'coronavirus')
-));
+);
 
-module.exports = { body, name, search };
+export default { body, name, search };

@@ -1,6 +1,6 @@
-const moment = require('moment');
-const messages = require('./messages');
-const { indexName } = require('./utils');
+import moment from 'moment';
+import messages from './messages.js';
+import { indexName } from './utils.js';
 
 moment.suppressDeprecationWarnings = true;
 
@@ -24,7 +24,7 @@ const preparePayload = tweets => {
   return { body: payload };
 };
 
-const upload = (client, logger, tweets) => {
+export const uploadToElastic = (client, logger, tweets) => {
   const mapped = preparePayload(tweets);
 
   client.bulk(mapped, (error, response) => {
@@ -37,5 +37,3 @@ const upload = (client, logger, tweets) => {
     }
   });
 };
-
-module.exports = upload;
