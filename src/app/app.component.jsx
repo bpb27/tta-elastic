@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ReactiveBase } from '@appbaseio/reactivesearch';
 import Navbar from '@/navbar';
-import styles from './app.style.scss';
+import styles from './app.module.scss';
 import './app.style.css';
 
 const FaqPage = lazy(() => import('@/pages/faq'));

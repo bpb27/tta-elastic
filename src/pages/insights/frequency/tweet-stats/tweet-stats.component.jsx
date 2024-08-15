@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { percentage } from 'utils/percentage';
 import { numberWithCommas } from 'utils/format';
 import { tweetsAsPresident } from '../frequency.utils';
-import styles from './tweet-stats.style.scss';
+import styles from './tweet-stats.module.scss';
 
 const descriptions = {
   abortion: 'abortion or Roe v. Wade',
@@ -22,7 +22,8 @@ const descriptions = {
   foxNews: 'Fox News and hosts like Sean Hannity',
   future: 'artificial intelligence, automation, clean energy/jobs, or universal basic income',
   guns: 'guns, the 2nd amendment, or the NRA (almost exclusively used as stock endorsements/disses for candidates)',
-  healthcare: 'health care or ObamaCare and related terms like prescriptions, premiums, and deductibles',
+  healthcare:
+    'health care or ObamaCare and related terms like prescriptions, premiums, and deductibles',
   immigration: 'immigration, border security, or the wall',
   jobs: 'jobs, labor, workers, wages, or employment',
   military: 'the military or veterans (many stock endorsements for Republican candidates)',
@@ -40,18 +41,18 @@ export default class TweetStats extends React.Component {
   static propTypes = {
     byMonth: array,
     topics: array,
-  }
+  };
 
   static defaultProps = {
     byMonth: [],
     topics: [],
-  }
+  };
 
-  get totalAsPresident () {
+  get totalAsPresident() {
     return this.props.topics.find(stat => stat.name === 'totalAsPresident')?.total;
   }
 
-  get data () {
+  get data() {
     const { topics } = this.props;
     const totalAsPresident = tweetsAsPresident(topics).total;
     return topics
@@ -63,26 +64,24 @@ export default class TweetStats extends React.Component {
       }));
   }
 
-  render () {
+  render() {
     return (
       <div className={styles.tweetStats}>
-        {
-          this.data.map(({ name, percentage, search, total }) => (
-            <div key={name}>
-              <Link
-                rel="noopener noreferrer"
-                target="_blank"
-                title="View on search page"
-                to={`/?results=1&searchbox="${search}"&dates=["2017-01-19"%2C"2020-12-30"]`}
-              >
-                <span className={styles.total}>
-                  {numberWithCommas(total)} tweet{ total === 1 ? '' : 's'} | {percentage}
-                </span>
-              </Link>
-              <p>{ descriptions[name] || name }</p>
-            </div>
-          ))
-        }
+        {this.data.map(({ name, percentage, search, total }) => (
+          <div key={name}>
+            <Link
+              rel="noopener noreferrer"
+              target="_blank"
+              title="View on search page"
+              to={`/?results=1&searchbox="${search}"&dates=["2017-01-19"%2C"2020-12-30"]`}
+            >
+              <span className={styles.total}>
+                {numberWithCommas(total)} tweet{total === 1 ? '' : 's'} | {percentage}
+              </span>
+            </Link>
+            <p>{descriptions[name] || name}</p>
+          </div>
+        ))}
       </div>
     );
   }

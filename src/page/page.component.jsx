@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { node, string } from 'prop-types';
 import MetaTags from 'react-meta-tags';
-import styles from './page.style.scss';
+import styles from './page.module.scss';
 
 export default class Page extends React.Component {
   static propTypes = {
@@ -10,13 +10,13 @@ export default class Page extends React.Component {
     metaDescription: string.isRequired,
     metaTitle: string.isRequired,
     tabTitle: string.isRequired,
-  }
+  };
 
   static defaultProps = {
     className: '',
-  }
+  };
 
-  render () {
+  render() {
     const { children, className, metaDescription, metaTitle, tabTitle } = this.props;
     return (
       <Fragment>
@@ -25,9 +25,7 @@ export default class Page extends React.Component {
           <meta name="description" content={metaDescription} />
           <meta property="og:title" content={metaTitle} />
         </MetaTags>
-        <div className={`${styles.page} ${className}`}>
-          { children }
-        </div>
+        <div className={`${styles.page} ${className}`}>{children}</div>
       </Fragment>
     );
   }

@@ -2,7 +2,7 @@ import React from 'react';
 import ExternalLink from '@/external-link';
 import List from '../list';
 import ShowMore from '@/lists/show-more';
-import styles from './bad-hires.style.scss';
+import styles from './bad-hires.module.scss';
 
 export default class BadHires extends React.Component {
   state = {

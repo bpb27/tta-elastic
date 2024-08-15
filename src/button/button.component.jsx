@@ -1,6 +1,6 @@
 import React from 'react';
 import { bool, func, node, string } from 'prop-types';
-import styles from './button.style.scss';
+import styles from './button.module.scss';
 
 export default class Button extends React.Component {
   static propTypes = {
@@ -9,14 +9,14 @@ export default class Button extends React.Component {
     disabled: bool,
     onClick: func.isRequired,
     selected: bool,
-  }
+  };
 
   static defaultProps = {
     className: '',
     disabled: false,
-  }
+  };
 
-  render () {
+  render() {
     const { children, className, disabled, onClick, selected } = this.props;
     return (
       <button
@@ -24,7 +24,7 @@ export default class Button extends React.Component {
         disabled={disabled}
         onClick={onClick}
       >
-        { children }
+        {children}
       </button>
     );
   }

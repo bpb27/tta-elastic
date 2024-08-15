@@ -3,7 +3,7 @@ import EmbeddedTweetColumn from '@/embedded-tweet-column';
 import Page from '@/page';
 import TweetLink from '@/tweet-link';
 import data from './yelling.data';
-import styles from './yelling.style.scss';
+import styles from './yelling.module.scss';
 
 export default class Yelling extends React.Component {
   render() {

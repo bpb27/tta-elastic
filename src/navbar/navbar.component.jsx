@@ -1,32 +1,32 @@
 import React, { Fragment } from 'react';
 import { shape, string } from 'prop-types';
 import { NavLink, withRouter } from 'react-router-dom';
-import styles from './navbar.style.scss';
+import styles from './navbar.module.scss';
 
 export class Navbar extends React.Component {
   static propTypes = {
     location: shape({
       pathname: string.isRequired,
     }).isRequired,
-  }
+  };
 
   state = {
     showInsightsMenu: false,
-  }
+  };
 
   closeInsightMenu = () => {
     this.setState({ showInsightsMenu: false });
-  }
+  };
 
   toggleInsightMenu = () => {
     this.setState({ showInsightsMenu: !this.state.showInsightsMenu });
-  }
+  };
 
-  get pathname () {
+  get pathname() {
     return this.props.location.pathname;
   }
 
-  render () {
+  render() {
     const { showInsightsMenu } = this.state;
     const active = { activeClassName: styles.active };
     const subnavClick = { onClick: this.toggleInsightMenu };
@@ -59,17 +59,23 @@ export class Navbar extends React.Component {
               </NavLink>
             </div>
             <div className={`${styles.hamburger} ${styles.mobile}`} {...subnavClick}>
-              <div/>
-              <div/>
-              <div/>
+              <div />
+              <div />
+              <div />
             </div>
           </div>
         </nav>
-        { showInsightsMenu && (
+        {showInsightsMenu && (
           <div className={styles.subnav}>
-            <NavLink to="/insights/frequency" {...active} {...subnavClick}>How Many Tweets</NavLink>
-            <NavLink to="/insights/insults" {...active} {...subnavClick}>Insults</NavLink>
-            <NavLink to="/insights/past" {...active} {...subnavClick}>Pre-Presidency</NavLink>
+            <NavLink to="/insights/frequency" {...active} {...subnavClick}>
+              How Many Tweets
+            </NavLink>
+            <NavLink to="/insights/insults" {...active} {...subnavClick}>
+              Insults
+            </NavLink>
+            <NavLink to="/insights/past" {...active} {...subnavClick}>
+              Pre-Presidency
+            </NavLink>
           </div>
         )}
       </Fragment>

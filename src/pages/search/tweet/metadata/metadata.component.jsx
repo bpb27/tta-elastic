@@ -4,7 +4,7 @@ import Icon from '@/icon';
 import TextSwitch from '@/text-switch';
 import { utcTimestampToEST } from 'utils/date';
 import { numberWithKs } from 'utils/format';
-import styles from './metadata.style.scss';
+import styles from './metadata.module.scss';
 
 export default class Metadata extends Component {
   static propTypes = {

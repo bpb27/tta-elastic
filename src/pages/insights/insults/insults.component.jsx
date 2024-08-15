@@ -2,7 +2,7 @@ import React from 'react';
 import ExternalLink from '@/external-link';
 import Page from '@/page';
 import Paragraph from '@/paragraph';
-import styles from './insults.style.scss';
+import styles from './insults.module.scss';
 import {
   dataCelebs,
   dataFederal,

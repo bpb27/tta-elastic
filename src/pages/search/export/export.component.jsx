@@ -2,7 +2,7 @@ import React from 'react';
 import { func, number } from 'prop-types';
 import Modal from '@/modal';
 import { numberWithCommas } from 'utils/format';
-import styles from './export.style.scss';
+import styles from './export.module.scss';
 
 const pullTweets = () => {
   const elements = document.getElementsByClassName('ttaTweet');

@@ -1,7 +1,7 @@
 import React from 'react';
 import { bool, func } from 'prop-types';
 import Button from '@/button';
-import styles from './show-more.style.scss';
+import styles from './show-more.module.scss';
 
 export default class ShowMore extends React.Component {
   static propTypes = {

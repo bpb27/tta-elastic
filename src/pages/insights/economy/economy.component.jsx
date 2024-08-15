@@ -8,7 +8,7 @@ import GraphManufacturing from './manufacturing';
 import GraphUnemployment from './unemployment';
 import Page from '@/page';
 import Paragraph from '@/paragraph';
-import styles from './economy.style.scss';
+import styles from './economy.module.scss';
 
 export default class Economy extends React.Component {
   render() {

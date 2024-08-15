@@ -4,7 +4,7 @@ import { utcTimestampToEST } from 'utils/date';
 import { replaceHTMLEntities } from 'utils/format';
 import Highlighter from 'react-highlight-words';
 import ExternalLink from '@/external-link';
-import styles from './placeholder.style.scss';
+import styles from './placeholder.module.scss';
 
 export default class Placeholder extends React.Component {
   static propTypes = {

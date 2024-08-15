@@ -8,7 +8,7 @@ import Pagination from './pagination';
 import Skeleton from '@/skeleton';
 import TextSwitch from '@/text-switch';
 import TweetLink from '@/tweet-link';
-import styles from './latest-tweets.style.scss';
+import styles from './latest-tweets.module.scss';
 
 export default class LatestTweets extends React.Component {
   state = {

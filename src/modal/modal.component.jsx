@@ -2,7 +2,7 @@ import React from 'react';
 import { func, node, string } from 'prop-types';
 import Button from '@/button';
 import Icon from '@/icon';
-import styles from './modal.style.scss';
+import styles from './modal.module.scss';
 
 export default class Modal extends React.Component {
   static propTypes = {

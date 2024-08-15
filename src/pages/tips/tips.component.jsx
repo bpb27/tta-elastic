@@ -2,7 +2,7 @@ import React from 'react';
 import { func } from 'prop-types';
 import ExternalLink from '@/external-link';
 import Icon from '@/icon';
-import styles from './tips.style.scss';
+import styles from './tips.module.scss';
 
 export default class Tips extends React.Component {
   static propTypes = {
