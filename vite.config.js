@@ -27,8 +27,12 @@ export default defineConfig({
   },
   build: {
     outDir: '../dist',
-    // assetsDir: 'assets',
     rollupOptions: {},
+    // react-twitter-embed exports cjs stuff in its esm build
+    commonjsOptions: {
+      include: [/node_modules/],
+      transformMixedEsModules: true,
+    },
   },
   test: {
     globals: true,

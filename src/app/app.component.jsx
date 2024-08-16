@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ReactiveBase } from '@appbaseio/reactivesearch';
 import Navbar from '@/navbar';
 import styles from './app.module.scss';
 import './app.style.css';
-import FaqPage from '@/pages/faq';
-import InsightsPage from '@/pages/insights';
-import SearchPage from '@/pages/search';
+
+const FaqPage = lazy(() => import('@/pages/faq'));
+const InsightsPage = lazy(() => import('@/pages/insights'));
+const SearchPage = lazy(() => import('@/pages/search'));
 
 export default class App extends React.Component {
   render() {
@@ -18,11 +19,13 @@ export default class App extends React.Component {
         >
           <BrowserRouter>
             <Navbar />
-            <Switch>
-              <Route path="/faq" component={FaqPage} />
-              <Route path="/insights" component={InsightsPage} />
-              <Route component={SearchPage} />
-            </Switch>
+            <Suspense fallback={<div />}>
+              <Switch>
+                <Route path="/faq" component={FaqPage} />
+                <Route path="/insights" component={InsightsPage} />
+                <Route component={SearchPage} />
+              </Switch>
+            </Suspense>
           </BrowserRouter>
         </ReactiveBase>
       </div>

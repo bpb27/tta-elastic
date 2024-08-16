@@ -68,10 +68,8 @@ app.use(helmet.xssFilter());
 
 // serve static assets in dist and public folders
 app.use(favicon(`${pathPublic}/favicon.ico`));
-app.use(express.static(pathDist));
-app.use(express.static(pathPublic));
-// app.use(staticGzip(pathDist));
-// app.use(staticGzip(pathPublic));
+app.use(staticGzip(pathDist));
+app.use(staticGzip(pathPublic));
 
 // disable CORS restriction in dev mode
 if (!isProd) app.use(cors());
