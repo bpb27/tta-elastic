@@ -1,10 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Modal from './modal.component';
+import { byClass } from '../utils/enzyme';
 
 const createProps = () => ({
   children: <p>Hello</p>,
-  closeModal: jest.fn(),
+  closeModal: vi.fn(),
   footerText: 'Blue suede',
   headerText: 'Fancy tupee',
 });
@@ -19,7 +20,7 @@ describe('Modal', () => {
   });
 
   it('renders', () => {
-    expect(wrapper.find('.modal').exists()).toEqual(true);
+    expect(wrapper.find(byClass('.modal')).exists()).toEqual(true);
   });
 
   it('renders children', () => {

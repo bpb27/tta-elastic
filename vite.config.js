@@ -26,7 +26,7 @@ export default defineConfig({
     port: 8080,
   },
   build: {
-    outDir: 'dist',
+    outDir: '../dist',
     assetsDir: 'assets',
     rollupOptions: {},
   },
@@ -34,5 +34,6 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: ['./test-setup/setup.js'],
+    exclude: ['./unused'],
   },
 });

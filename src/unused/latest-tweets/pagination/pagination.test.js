@@ -1,10 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Pagination from './pagination.component';
+import { byClass } from '../../../utils/enzyme';
 
 const createProps = () => ({
   currentPage: 3,
-  setPage: jest.fn(),
+  setPage: vi.fn(),
   totalPages: 5,
 });
 
@@ -12,7 +13,7 @@ describe('Pagination', () => {
   it('renders', () => {
     const props = createProps();
     const wrapper = shallow(<Pagination {...props} />);
-    const element = wrapper.find('.pagination');
+    const element = wrapper.find(byClass('.pagination'));
     expect(element.exists()).toEqual(true);
   });
 

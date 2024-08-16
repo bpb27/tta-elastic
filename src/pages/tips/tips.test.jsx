@@ -1,16 +1,17 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Tips from './tips.component';
+import { byClass } from '../../utils/enzyme';
 
 const createProps = () => ({
-  closeModal: jest.fn(),
+  closeModal: vi.fn(),
 });
 
 describe('Tips', () => {
   it('renders', () => {
     const props = createProps();
     const wrapper = shallow(<Tips {...props} />);
-    const element = wrapper.find('.tips');
+    const element = wrapper.find(byClass('.tips'));
     expect(element.exists()).toEqual(true);
   });
 

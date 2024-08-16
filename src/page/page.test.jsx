@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Page from './page.component';
+import { byClass } from '../utils/enzyme';
 
 const createProps = () => ({
   className: 'search',
@@ -15,11 +16,15 @@ describe('Page', () => {
 
   beforeEach(() => {
     props = createProps();
-    wrapper = shallow(<Page {...props}><p>Hello</p></Page>);
+    wrapper = shallow(
+      <Page {...props}>
+        <p>Hello</p>
+      </Page>
+    );
   });
 
   it('renders', () => {
-    expect(wrapper.find('.page').exists()).toEqual(true);
+    expect(wrapper.find(byClass('.page')).exists()).toEqual(true);
     expect(wrapper.find('MetaTags').exists()).toEqual(true);
     expect(wrapper.find('p').exists()).toEqual(true);
   });

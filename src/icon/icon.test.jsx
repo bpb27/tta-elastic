@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { byClass } from '../utils/enzyme';
 import Icon, { paths } from './icon.component';
 
 const createProps = () => ({
@@ -10,7 +11,7 @@ describe('Icon', () => {
   it('renders', () => {
     const props = createProps();
     const wrapper = shallow(<Icon {...props} />);
-    const element = wrapper.find('.icon');
+    const element = wrapper.find(byClass('.icon'));
     expect(element.exists()).toEqual(true);
   });
 
@@ -41,22 +42,22 @@ describe('Icon', () => {
 
   describe('pointer class', () => {
     it('adds a pointer class if passed an onClick hander', () => {
-      const props = { ...createProps(), onClick: jest.fn() };
+      const props = { ...createProps(), onClick: vi.fn() };
       const wrapper = shallow(<Icon {...props} />);
-      const element = wrapper.find('.pointer');
+      const element = wrapper.find(byClass('.pointer'));
       expect(element.exists()).toEqual(true);
     });
 
     it('does not add a pointer class if not passed an onClick hander', () => {
       const props = { ...createProps(), onClick: undefined };
       const wrapper = shallow(<Icon {...props} />);
-      const element = wrapper.find('.pointer');
+      const element = wrapper.find(byClass('.pointer'));
       expect(element.exists()).toEqual(false);
     });
   });
 
   it('calls the on click handler when clicked', () => {
-    const props = { ...createProps(), onClick: jest.fn() };
+    const props = { ...createProps(), onClick: vi.fn() };
     const wrapper = shallow(<Icon {...props} />);
     expect(props.onClick).toHaveBeenCalledTimes(0);
     wrapper.simulate('click');

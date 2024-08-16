@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import ShowMore from './show-more.component';
 
 const createProps = () => ({
-  handleClick: jest.fn(),
+  handleClick: vi.fn(),
   isShowing: false,
 });
 

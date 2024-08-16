@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import LatestTweets from './latest-tweets.component';
+import { byClass } from '../../utils/enzyme';
 
 const createProps = () => ({});
 
@@ -8,7 +9,7 @@ describe('LatestTweets', () => {
   it('renders', () => {
     const props = createProps();
     const wrapper = shallow(<LatestTweets {...props} />);
-    const element = wrapper.find('.latestTweets');
+    const element = wrapper.find(byClass('.latestTweets'));
     expect(element.exists()).toEqual(true);
   });
 

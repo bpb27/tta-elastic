@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import LineGraph from './line-graph.component';
+import { byClass } from '../utils/enzyme';
 
 describe('LineGraph', () => {
   it('renders', () => {
@@ -14,7 +15,7 @@ describe('LineGraph', () => {
       />
     );
 
-    expect(wrapper.find('.lineGraph').exists()).toEqual(true);
+    expect(wrapper.find(byClass('.lineGraph')).exists()).toEqual(true);
     expect(wrapper.find('r').exists()).toEqual(true);
   });
 });
