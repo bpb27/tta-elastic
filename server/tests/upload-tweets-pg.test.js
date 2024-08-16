@@ -55,7 +55,7 @@ describe('upload new tweets to database', () => {
     expect(logger.error).toHaveBeenCalledWith(messages.uploads.pgError, { message: 'Oh no' });
   });
 
-  it('logs a select error message', () => {
+  it('logs a select success message 1', () => {
     uploadToDatabase(pool, logger, tweets, finalCallback);
     const upsertCallback = pool.query.mock.calls[0][1];
     const upsertResult = {
@@ -68,7 +68,7 @@ describe('upload new tweets to database', () => {
     expect(logger.success).toHaveBeenCalledWith(messages.uploads.pgSuccess);
   });
 
-  it('logs a select success message', () => {
+  it('logs a select success message 2', () => {
     uploadToDatabase(pool, logger, tweets, finalCallback);
     const upsertCallback = pool.query.mock.calls[0][1];
     const upsertResult = {
