@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { vi } from 'vitest';
 import Checkbox from './checkbox.component';
 import { byClass } from '../../utils/enzyme';
 

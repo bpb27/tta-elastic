@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { vi } from 'vitest';
 import ShowMore from './show-more.component';
 
 const createProps = () => ({
