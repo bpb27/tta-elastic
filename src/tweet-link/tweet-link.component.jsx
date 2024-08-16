@@ -43,9 +43,8 @@ export default class TweetLink extends React.Component {
       />
     );
 
-    if (type === 'placeholder' || deleted || type === 'embed') {
+    if (type === 'placeholder' || deleted) {
       return <Fragment>{placeholder}</Fragment>;
-      // TODO: this is crashing
     } else if (type === 'embed') {
       return isVisible ? (
         <TwitterTweetEmbed
