@@ -78,45 +78,62 @@ app.get('/ping', (req, res) => {
 
 // tweet stats route with cache
 app.get('/stats', cors(), async (req, res) => {
-  const cachedStats = cache.get('stats');
-  if (cachedStats && isProd) {
-    res.json(cachedStats);
-  } else {
-    const freshStats = await getStats(pool);
-    cache.set('stats', freshStats, 7200); // TTL 2 hours (60 * 60 * 2)
-    res.json(freshStats);
+  try {
+    const cachedStats = cache.get('stats');
+    if (cachedStats && isProd) {
+      res.json(cachedStats);
+    } else {
+      const freshStats = await getStats(pool);
+      cache.set('stats', freshStats, 7200); // TTL 2 hours (60 * 60 * 2)
+      res.json(freshStats);
+    }
+  } catch (e) {
+    logger.error(`/stats route error ${e}`);
+    res.json({});
   }
 });
 
 // latest 1000 tweets route
 app.get('/latest-tweets', cors(), async (req, res) => {
-  const cached = cache.get('latest');
-  if (cached && isProd) {
-    res.json(cached);
-  } else {
-    const fresh = await pool.query(`SELECT * FROM "${tableName}" ORDER BY "date" DESC LIMIT 1000`);
-    cache.set('latest', fresh.rows, 1800); // TTL 30 min (60 * 30)
-    res.json(fresh.rows);
+  try {
+    const cached = cache.get('latest');
+    if (cached && isProd) {
+      res.json(cached);
+    } else {
+      const fresh = await pool.query(
+        `SELECT * FROM "${tableName}" ORDER BY "date" DESC LIMIT 1000`
+      );
+      cache.set('latest', fresh.rows, 1800); // TTL 30 min (60 * 30)
+      res.json(fresh.rows);
+    }
+  } catch (e) {
+    logger.error(`/latest-tweets route error ${e}`);
+    res.json({});
   }
 });
 
 // tweet by id route
 app.get('/tweets/:id', cors(), async (req, res) => {
-  const id = req.params.id.replace(/[^\d.-]/g, '');
-  const cacheKey = `tweet-${id}`;
-  const cached = cache.get(cacheKey);
+  try {
+    const id = req.params.id.replace(/[^\d.-]/g, '');
+    const cacheKey = `tweet-${id}`;
+    const cached = cache.get(cacheKey);
 
-  if (cached && isProd) {
-    res.json(cached);
-  } else {
-    const result = await pool.query(`SELECT * FROM "${tableName}" WHERE id = '${id}'`);
-    const tweet = result.rows[0];
-    if (tweet) {
-      cache.set(cacheKey, tweet, 86400); // TTL 24 hours (60 * 60 * 24)
-      res.json(tweet);
+    if (cached && isProd) {
+      res.json(cached);
     } else {
-      res.status(404).send('Tweet not found');
+      const result = await pool.query(`SELECT * FROM "${tableName}" WHERE id = '${id}'`);
+      const tweet = result.rows[0];
+      if (tweet) {
+        cache.set(cacheKey, tweet, 86400); // TTL 24 hours (60 * 60 * 24)
+        res.json(tweet);
+      } else {
+        res.status(404).send('Tweet not found');
+      }
     }
+  } catch (e) {
+    logger.error(`/tweets/:id route error ${e}`);
+    res.json({});
   }
 });
 
@@ -127,5 +144,5 @@ app.get('*', (req, res) => {
 
 // start app
 app.listen(port, () => {
-  logger.success(`running on port ${port}`);
+  logger.success(`running on port ${port}, isProd ${isProd}`);
 });
