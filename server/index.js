@@ -28,7 +28,12 @@ const port = PORT || 3000;
 const isProd = NODE_ENV === 'prod';
 const cache = new NodeCache();
 const client = new es.Client({ host: SEARCHBOX_URL });
-const pool = new pg.Pool({ connectionString: dbString(DATABASE_URL) });
+const pool = new pg.Pool({
+  connectionString: dbString(DATABASE_URL),
+  ssl: {
+    rejectUnauthorized: false, // temp fix
+  },
+});
 const pathDist = path.join(__dirname, '../dist');
 const pathPublic = path.join(__dirname, '../public');
 
@@ -80,7 +85,7 @@ app.get('/ping', (req, res) => {
 app.get('/stats', cors(), async (req, res) => {
   try {
     const cachedStats = cache.get('stats');
-    if (cachedStats && isProd) {
+    if (cachedStats) {
       res.json(cachedStats);
     } else {
       const freshStats = await getStats(pool);
@@ -97,7 +102,7 @@ app.get('/stats', cors(), async (req, res) => {
 app.get('/latest-tweets', cors(), async (req, res) => {
   try {
     const cached = cache.get('latest');
-    if (cached && isProd) {
+    if (cached) {
       res.json(cached);
     } else {
       const fresh = await pool.query(
@@ -119,7 +124,7 @@ app.get('/tweets/:id', cors(), async (req, res) => {
     const cacheKey = `tweet-${id}`;
     const cached = cache.get(cacheKey);
 
-    if (cached && isProd) {
+    if (cached) {
       res.json(cached);
     } else {
       const result = await pool.query(`SELECT * FROM "${tableName}" WHERE id = '${id}'`);
