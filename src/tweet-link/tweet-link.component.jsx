@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { arrayOf, node, object, oneOf, string } from 'prop-types';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
-import VisibilitySensor from 'react-visibility-sensor';
+import VisibilitySensor from './viz-sensor/viz-sensor.component';
 import ExternalLink from '@/external-link';
 import Placeholder from './placeholder';
 import styles from './tweet-link.module.scss';
@@ -43,8 +43,9 @@ export default class TweetLink extends React.Component {
       />
     );
 
-    if (type === 'placeholder' || deleted) {
+    if (type === 'placeholder' || deleted || type === 'embed') {
       return <Fragment>{placeholder}</Fragment>;
+      // TODO: this is crashing
     } else if (type === 'embed') {
       return isVisible ? (
         <TwitterTweetEmbed
