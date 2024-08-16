@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { arrayOf, node, object, oneOf, string } from 'prop-types';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 import VisibilitySensor from 'react-visibility-sensor';
@@ -44,7 +44,7 @@ export default class TweetLink extends React.Component {
     );
 
     if (type === 'placeholder' || deleted) {
-      return placeholder;
+      return <Fragment>{placeholder}</Fragment>;
     } else if (type === 'embed') {
       return isVisible ? (
         <TwitterTweetEmbed

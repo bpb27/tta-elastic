@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import findTweet from 'utils/data';
 import Placeholder from './placeholder.component';
+import { byClass } from '../../utils/enzyme';
 
 const createProps = () => ({
   className: 'fancy',
@@ -13,7 +14,7 @@ describe('Placeholder', () => {
   it('renders', () => {
     const props = createProps();
     const wrapper = shallow(<Placeholder {...props} />);
-    const element = wrapper.find('.placeholder');
+    const element = wrapper.find(byClass('.placeholder'));
     expect(element.exists()).toEqual(true);
   });
 

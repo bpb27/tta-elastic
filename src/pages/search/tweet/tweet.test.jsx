@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Tweet from './tweet.component';
+import { byClass } from '../../../utils/enzyme';
 
 const createProps = () => ({
   data: {
@@ -27,7 +28,7 @@ describe('Tweet', () => {
   });
 
   it('renders', () => {
-    expect(wrapper.find('.tweet').exists()).toEqual(true);
+    expect(wrapper.find(byClass('.tweet')).exists()).toEqual(true);
     expect(wrapper.find('.ttaTweet').exists()).toEqual(true);
   });
 
@@ -36,7 +37,7 @@ describe('Tweet', () => {
   });
 
   it('renders text', () => {
-    expect(wrapper.find('.text').exists()).toEqual(true);
+    expect(wrapper.find(byClass('.text')).exists()).toEqual(true);
   });
 
   describe('highlighter', () => {
@@ -52,13 +53,13 @@ describe('Tweet', () => {
   describe('twitter button', () => {
     it('renders highlighter by default', () => {
       expect(wrapper.find('Highlighter').exists()).toEqual(true);
-      expect(wrapper.find('.plain').exists()).toEqual(true);
+      expect(wrapper.find(byClass('.plain')).exists()).toEqual(true);
     });
 
     it('renders embedded tweet on click', () => {
       wrapper.setState({ showTwitterView: true }); // simulate click
       expect(wrapper.find('TweetLink').exists()).toEqual(true);
-      expect(wrapper.find('.embedded').exists()).toEqual(true);
+      expect(wrapper.find(byClass('.embedded')).exists()).toEqual(true);
     });
   });
 });

@@ -1,11 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Checkbox from './checkbox.component';
+import { byClass } from '../../utils/enzyme';
 
 const createProps = () => ({
   label: 'Chubby',
   name: 'checkbox-for-chubby',
-  onClick: jest.fn(),
+  onClick: vi.fn(),
   value: false,
 });
 
@@ -13,7 +14,7 @@ describe('Checkbox', () => {
   it('renders', () => {
     const props = createProps();
     const wrapper = shallow(<Checkbox {...props} />);
-    const element = wrapper.find('.checkbox');
+    const element = wrapper.find(byClass('.checkbox'));
     expect(element.exists()).toEqual(true);
   });
 
@@ -27,7 +28,7 @@ describe('Checkbox', () => {
   it('clicking toggles value', () => {
     const props = createProps();
     const wrapper = shallow(<Checkbox {...props} />);
-    wrapper.find('.checkbox').simulate('click');
+    wrapper.find(byClass('.checkbox')).simulate('click');
     expect(props.onClick).toHaveBeenCalledWith(!props.value);
   });
 });

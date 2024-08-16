@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { BrowserRouter } from 'react-router-dom';
 import { Navbar } from './navbar.component';
+import { byClass } from '../utils/enzyme';
 
 const createProps = () => ({
   location: {
@@ -12,12 +13,12 @@ const createProps = () => ({
 describe('Navbar', () => {
   it('renders', () => {
     const props = createProps();
-    const wrapper = mount((
+    const wrapper = mount(
       <BrowserRouter>
-        <Navbar {...props}/>
+        <Navbar {...props} />
       </BrowserRouter>
-    ));
-    const element = wrapper.find('.navbar');
+    );
+    const element = wrapper.find(byClass('.navbar'));
     expect(element.exists()).toEqual(true);
   });
 });
