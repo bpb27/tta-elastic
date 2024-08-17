@@ -5,6 +5,7 @@ import Metadata from './metadata';
 import TweetLink from '@/tweet-link';
 import { replaceHTMLEntities } from 'utils/format';
 import styles from './tweet.module.scss';
+import { parseTruthSocialBullshit } from '../../../utils/format';
 
 export default class Tweet extends Component {
   static propTypes = {
@@ -28,6 +29,10 @@ export default class Tweet extends Component {
   state = {
     showTwitterView: false,
   };
+
+  get content() {
+    return replaceHTMLEntities(parseTruthSocialBullshit(this.props.data.text)) || 'No text';
+  }
 
   render() {
     const { showTwitterView } = this.state;
@@ -54,7 +59,7 @@ export default class Tweet extends Component {
             <Highlighter
               autoEscape={true}
               searchWords={searchWords}
-              textToHighlight={replaceHTMLEntities(text)}
+              textToHighlight={this.content}
             />
           )}
         </div>
