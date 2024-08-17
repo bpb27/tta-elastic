@@ -3,9 +3,8 @@ import { arrayOf, bool, number, oneOfType, shape, string } from 'prop-types';
 import Highlighter from 'react-highlight-words';
 import Metadata from './metadata';
 import TweetLink from '@/tweet-link';
-import { replaceHTMLEntities } from 'utils/format';
+import { replaceHTMLEntities, parseTruthSocialBullshit } from 'utils/format';
 import styles from './tweet.module.scss';
-import { parseTruthSocialBullshit } from '../../../utils/format';
 
 export default class Tweet extends Component {
   static propTypes = {
