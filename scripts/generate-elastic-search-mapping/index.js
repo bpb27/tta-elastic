@@ -2,7 +2,7 @@ require('dotenv').config();
 const { Client } = require('elasticsearch');
 const client = new Client({ host: process.env.SEARCHBOX_URL });
 
-async function putMapping (indexName) {
+async function putMapping(indexName) {
   if (indexName === 'tweets') return false; // existing
   const mapping = {
     index: indexName,
@@ -10,7 +10,6 @@ async function putMapping (indexName) {
     body: {
       properties: {
         date: { type: 'long' },
-
         device: {
           type: 'keyword',
           fields: {

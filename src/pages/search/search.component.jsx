@@ -38,6 +38,7 @@ export default class Search extends React.Component {
     showDeletedButtons: !!queryParams().deleted,
     showExportModal: false,
     showRetweetButtons: !!queryParams().retweet,
+    showTsButtons: !!queryParams().ts,
     showTips: false,
     total: 0,
   };
@@ -62,6 +63,7 @@ export default class Search extends React.Component {
       showDateRange,
       showExportModal,
       showRetweetButtons,
+      showTsButtons,
       showTips,
       total,
     } = this.state;
@@ -133,6 +135,19 @@ export default class Search extends React.Component {
             URLParams={true}
           />
           <ToggleButton
+            componentId="ts"
+            dataField="isTS"
+            data={[
+              { label: 'Hide Truths', value: 'false' },
+              { label: 'Only Truths', value: 'true' },
+            ]}
+            multiSelect={false}
+            style={{
+              display: showTsButtons ? 'initial' : 'none',
+            }}
+            URLParams={true}
+          />
+          <ToggleButton
             componentId="deleted"
             dataField="isDeleted"
             data={[
@@ -151,6 +166,13 @@ export default class Search extends React.Component {
             <TextSwitch mobile="Tips" web="Search tips" />
           </Button>
           <Button
+            onClick={() => this.setState({ showTsButtons: !showTsButtons })}
+            selected={showTsButtons}
+          >
+            <TextSwitch mobile="Truths" web="Truth Social filters" />
+          </Button>
+          <Button
+            className={styles.hideOnMobile}
             onClick={() => this.setState({ showRetweetButtons: !showRetweetButtons })}
             selected={showRetweetButtons}
           >
@@ -190,7 +212,7 @@ export default class Search extends React.Component {
           infiniteScroll={true}
           onData={({ resultStats }) => this.setState({ total: resultStats?.numberOfResults })}
           react={{
-            and: ['dates', 'device', 'retweet', 'deleted', 'searchbox'],
+            and: ['dates', 'device', 'retweet', 'deleted', 'searchbox', 'ts'],
           }}
           render={this.tweets.bind(this)}
           renderNoResults={() => (
