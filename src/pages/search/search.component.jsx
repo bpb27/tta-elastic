@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { func, shape, string } from 'prop-types';
 import { parseQuery } from 'utils/query';
-import { validDatestring } from 'utils/date';
+import { validDatestring } from '@/utils/date';
 import { numberWithCommas } from 'utils/format';
 import { queryParams } from 'utils/navigation';
 import { zonedTimeToUtc } from 'date-fns-tz';
@@ -14,6 +14,7 @@ import Tweet from './tweet';
 import {
   DataSearch,
   DateRange,
+  DatePicker,
   ReactiveList,
   SelectedFilters,
   SingleDropdownList,
@@ -21,6 +22,21 @@ import {
   ToggleButton,
 } from '@appbaseio/reactivesearch';
 import styles from './search.module.scss';
+
+// NB: DateRange is broken, so using two DatePicker components w/ a custom query
+// https://github.com/appbaseio/reactivesearch/issues/2266
+const dateQuery = (filter, value) =>
+  validDatestring(value)
+    ? {
+        query: {
+          range: {
+            date: {
+              [filter]: new Date(zonedTimeToUtc(value, 'America/New_York')).getTime(),
+            },
+          },
+        },
+      }
+    : {};
 
 export default class Search extends React.Component {
   static propTypes = {
@@ -105,22 +121,22 @@ export default class Search extends React.Component {
             }}
             URLParams={true}
           />
-          <DateRange
-            componentId="dates"
-            dataField="date"
-            dayPickerInputProps={{
-              parseDate: dateString =>
-                validDatestring(dateString) && zonedTimeToUtc(dateString, 'America/New_York'),
-            }}
-            placeholder={{
-              end: 'YYYY-MM-DD',
-              start: 'YYYY-MM-DD',
-            }}
-            style={{
-              display: showDateRange ? 'initial' : 'none',
-            }}
-            URLParams={true}
-          />
+          <div style={{ display: showDateRange ? 'initial' : 'none' }}>
+            <DatePicker
+              componentId="startDate"
+              dataField="date"
+              title="Start Date"
+              customQuery={value => dateQuery('gte', value)}
+              URLParams={true}
+            />
+            <DatePicker
+              componentId="endDate"
+              dataField="date"
+              title="End Date"
+              customQuery={value => dateQuery('lte', value)}
+              URLParams={true}
+            />
+          </div>
           <ToggleButton
             componentId="retweet"
             dataField="isRetweet"
@@ -212,7 +228,7 @@ export default class Search extends React.Component {
           infiniteScroll={true}
           onData={({ resultStats }) => this.setState({ total: resultStats?.numberOfResults })}
           react={{
-            and: ['dates', 'device', 'retweet', 'deleted', 'searchbox', 'ts'],
+            and: ['startDate', 'endDate', 'device', 'retweet', 'deleted', 'searchbox', 'ts'],
           }}
           render={this.tweets.bind(this)}
           renderNoResults={() => (
