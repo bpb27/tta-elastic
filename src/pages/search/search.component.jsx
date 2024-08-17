@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { func, shape, string } from 'prop-types';
 import { parseQuery } from 'utils/query';
 import { validDatestring } from '@/utils/date';
@@ -13,7 +13,6 @@ import TextSwitch from '@/text-switch';
 import Tweet from './tweet';
 import {
   DataSearch,
-  DateRange,
   DatePicker,
   ReactiveList,
   SelectedFilters,
