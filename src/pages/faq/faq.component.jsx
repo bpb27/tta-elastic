@@ -15,11 +15,19 @@ export default class Faq extends React.Component {
       >
         <h1>FAQs</h1>
         <section>
+          <h3>2024 Update</h3>
+          <p>
+            Truth Social doesn't have an API, and Twitter's API is prohibitively expensive (it used
+            to be free), so data updates are no longer automatic. Hopefully the site's maintainer
+            will keep the Truth Social catalog up to date until the election.
+          </p>
+        </section>
+        <section>
           <h3>What's happening here?</h3>
           <p>
-            This site checks Twitter every 60 seconds and records every Trump tweet into a database.
-            Before the site launched in 2016, all available tweets were captured and added to the
-            database for perpituity.
+            This site used to check Twitter every 60 seconds and record every Trump tweet into a
+            database. Before the site launched in 2016, all available tweets were captured and added
+            to the database for perpituity.
           </p>
         </section>
         <section>

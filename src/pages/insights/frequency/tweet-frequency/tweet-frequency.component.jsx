@@ -9,6 +9,10 @@ import 'rc-slider/assets/index.css';
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
 const DATE_FORMAT = 'MMM dd, yyyy';
+const underOneYearRange = (one, two) => {
+  const yearInMs = 1000 * 60 * 60 * 24 * 365;
+  return Math.abs(one - two) <= yearInMs;
+};
 
 const counts = arrayOf(
   shape({
@@ -35,7 +39,7 @@ export default class TweetFrequency extends React.Component {
     unit: 'week',
     xAxis: {
       max: startOfTomorrow().getTime(),
-      min: new Date(2017, 0, 20).getTime(),
+      min: new Date(2022, 4, 20).getTime(),
     },
     yAxis: {
       max: 600,
@@ -68,7 +72,7 @@ export default class TweetFrequency extends React.Component {
     } else if (unit === 'week') {
       updates.yAxis = { max: 600 };
     } else if (unit === 'month') {
-      updates.yAxis = { max: 1400 };
+      updates.yAxis = { max: 1500 };
     }
 
     this.setState(updates);
@@ -81,7 +85,9 @@ export default class TweetFrequency extends React.Component {
         <div className={styles.title}>
           <span>Tweets per </span>
           <select name="unit" onChange={({ target }) => this.setUnit(target.value)} value={unit}>
-            <option value="day">Day</option>
+            {/* {underOneYearRange(this.state.xAxis.min, this.state.xAxis.max) && (
+              <option value="day">Day</option>
+            )} */}
             <option value="week">Week</option>
             <option value="month">Month</option>
           </select>

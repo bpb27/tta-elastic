@@ -43,8 +43,8 @@ export default class Frequency extends React.Component {
       >
         <h1>How Many Tweets?</h1>
         <Paragraph>
-          As president, Trump has tweeted <mark>{this.asPresident} times</mark>. In the last three
-          months, Trump is averaging <mark> {this.thisYearAvg} tweets</mark> per day.
+          Trump has tweeted <mark>{this.asPresident} times</mark> since becoming president. In the
+          last three months, Trump is averaging <mark> {this.thisYearAvg} tweets</mark> per day.
         </Paragraph>
         <div className={styles.frequencyContainer}>
           <TweetFrequency
@@ -55,8 +55,7 @@ export default class Frequency extends React.Component {
         </div>
         <h2>What is he tweeting about?</h2>
         <Paragraph>
-          Trump tweets whatever is on his mind. Here are the topics that occupy his headspace as
-          president.
+          Trump tweets whatever is on his mind. Here are the topics that occupy his headspace.
         </Paragraph>
         <div className={styles.statsContainer}>
           {data ? (
