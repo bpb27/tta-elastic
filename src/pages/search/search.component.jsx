@@ -120,7 +120,7 @@ export default class Search extends React.Component {
             }}
             URLParams={true}
           />
-          <div style={{ display: showDateRange ? 'initial' : 'none' }}>
+          <div style={{ display: showDateRange ? 'flex' : 'none', gap: '16px' }}>
             <DatePicker
               componentId="startDate"
               dataField="date"

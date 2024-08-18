@@ -1,4 +1,4 @@
-@import "src/variables.scss";
+@import 'src/variables.scss';
 
 // container
 .tweet {
@@ -22,6 +22,7 @@
     border: 1px solid black;
     line-height: 20px;
     padding: 10px;
+    word-break: break-word;
   }
 }
 
