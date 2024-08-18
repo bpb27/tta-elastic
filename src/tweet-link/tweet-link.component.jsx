@@ -65,7 +65,7 @@ export default class TweetLink extends React.Component {
             <iframe
               src={`https://truthsocial.com/@realDonaldTrump/${tweetData.id}/embed`}
               style={{ border: '1px solid gray' }}
-              width="600"
+              width="100%"
               height="400"
               allowFullScreen="allowfullscreen"
               onError={() => this.setState({ deleted: true })}
