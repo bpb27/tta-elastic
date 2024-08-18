@@ -6,7 +6,7 @@ export const hideRetweets = builder => builder.filter('match', 'isRetweet', fals
 
 export const wrapper = custom =>
   bodybuilder()
-    .andFilter('bool', presidentialRange)
+    // .andFilter('bool', presidentialRange)
     // .andFilter('bool', hideRetweets)
     .orFilter('bool', custom)
     .build();

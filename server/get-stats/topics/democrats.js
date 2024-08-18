@@ -15,6 +15,7 @@ const body = wrapper(builder =>
     .orFilter('wildcard', 'text', 'pelosi*')
     .orFilter('wildcard', 'text', 'schumer*')
     .orFilter('wildcard', 'text', 'leftist*')
+    .orFilter('wildcard', 'text', 'kamala*')
     .orFilter('match_phrase', 'text', 'radical left')
 );
 
