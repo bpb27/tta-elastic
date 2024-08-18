@@ -1,4 +1,4 @@
-@import "src/variables.scss";
+@import 'src/variables.scss';
 
 .page {
   margin-top: $navbar-height + 10px;
@@ -60,7 +60,7 @@
       }
     }
 
-    select[name="sort-options"] {
+    select[name='sort-options'] {
       border: 2px solid black;
     }
   }
@@ -82,4 +82,8 @@
   margin: 0 0 10px 0;
   padding: 10px;
   text-align: center;
+}
+
+.options > * {
+  margin: 8px;
 }

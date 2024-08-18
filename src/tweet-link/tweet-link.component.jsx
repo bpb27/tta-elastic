@@ -5,6 +5,7 @@ import VisibilitySensor from './viz-sensor/viz-sensor.component';
 import ExternalLink from '@/external-link';
 import Placeholder from './placeholder';
 import styles from './tweet-link.module.scss';
+import { EmbeddedTruth } from '../embedded-truth/embedded-truth.component';
 
 // https://developer.twitter.com/en/docs/twitter-for-websites/embedded-tweets/guides/embedded-tweet-parameter-reference
 
@@ -65,6 +66,7 @@ export default class TweetLink extends React.Component {
               src={`https://truthsocial.com/@realDonaldTrump/${tweetData.id}/embed`}
               style={{ border: '1px solid gray' }}
               width="600"
+              height="400"
               allowFullScreen="allowfullscreen"
               onError={() => this.setState({ deleted: true })}
             ></iframe>
