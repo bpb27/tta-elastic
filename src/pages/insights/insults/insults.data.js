@@ -518,7 +518,7 @@ export const dataMayors = [
   },
   {
     id: '1130220542538264576',
-    name: 'Former Mayor Pete Buttigieg (South Bend)',
+    name: 'Former South Bend Mayor Pete Buttigieg, now Secretary of Transportation',
     insult: 'hard to believe that @FoxNews is wasting airtime on Mayor Pete',
   },
   {
